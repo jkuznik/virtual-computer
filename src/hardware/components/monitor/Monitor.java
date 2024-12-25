@@ -1,4 +1,4 @@
-package pl.computer.team;
+package hardware.components.monitor;
 
 public class Monitor {
     private int width = 3840;

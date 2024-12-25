@@ -1,4 +1,4 @@
-package pl.computer.team.file.imagefile;
+package software.file.imagefile;
 
 public class GIFImageFile extends AbstractImageFile {
 

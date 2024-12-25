@@ -1,7 +1,9 @@
-package pl.computer.team;
+package hardware.computer;
 
-import pl.computer.team.drive.Drive;
-import pl.computer.team.usbdevice.USBDevice;
+import hardware.components.drive.Drive;
+import hardware.components.headphones.Headphones;
+import hardware.components.monitor.Monitor;
+import hardware.components.usbdevice.USBDevice;
 
 import java.util.ArrayList;
 import java.util.List;

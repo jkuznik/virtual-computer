@@ -1,6 +1,6 @@
-package pl.computer.team.drive;
+package hardware.components.drive;
 
-import pl.computer.team.file.File;
+import software.file.File;
 
 import java.util.Collection;
 import java.util.HashMap;

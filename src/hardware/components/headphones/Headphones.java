@@ -1,4 +1,4 @@
-package pl.computer.team;
+package hardware.components.headphones;
 
 public class Headphones {
     private final String name;

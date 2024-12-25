@@ -1,7 +1,7 @@
-package pl.computer.team.file.imagefile;
+package software.file.imagefile;
 
-import pl.computer.team.file.AbstractFile;
-import pl.computer.team.file.FileType;
+import software.file.AbstractFile;
+import software.file.FileType;
 
 public abstract class AbstractImageFile extends AbstractFile {
 

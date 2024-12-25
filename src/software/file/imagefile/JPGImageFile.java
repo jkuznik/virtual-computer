@@ -1,4 +1,4 @@
-package pl.computer.team.file.imagefile;
+package software.file.imagefile;
 
 public class JPGImageFile extends AbstractImageFile {
     private int compression;
