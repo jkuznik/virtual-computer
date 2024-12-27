@@ -1,4 +1,4 @@
-package pl.computer.team;
+import hardware.components.monitor.Monitor;
 
 public class Main {
 

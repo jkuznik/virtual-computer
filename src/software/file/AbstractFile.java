@@ -1,4 +1,4 @@
-package pl.computer.team.file;
+package software.file;
 
 public abstract class AbstractFile implements File {
     protected String name;

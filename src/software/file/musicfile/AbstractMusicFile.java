@@ -1,7 +1,7 @@
-package pl.computer.team.file.musicfile;
+package software.file.musicfile;
 
-import pl.computer.team.file.AbstractFile;
-import pl.computer.team.file.FileType;
+import software.file.AbstractFile;
+import software.file.FileType;
 
 public abstract class AbstractMusicFile extends AbstractFile implements MusicFile {
     protected String bandName;

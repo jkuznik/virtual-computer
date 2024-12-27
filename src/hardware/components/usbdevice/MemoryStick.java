@@ -1,4 +1,4 @@
-package pl.computer.team.usbdevice;
+package hardware.components.usbdevice;
 
 public class MemoryStick implements USBDevice {
     private String name;
