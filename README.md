@@ -6,7 +6,7 @@ This requires understanding the basics of Git, which in turn provides additional
 
 #  How to start
 
-First step as a collaborator:  [EN](readme/instructions/collaboratorHowToStart-en.md) [PL](readme/instructions/collaboratorHowToStart-pl) <br>
-First step as a contributor: [EN](readme/instructions/contributorHowToStart-en) [PL](readme/instructions/contributorHowToStart-en)
+First step as a collaborator:  [EN](readme/instructions/collaboratorHowToStart-en.md) [PL](readme/instructions/collaboratorHowToStart-pl.md) <br>
+First step as a contributor: [EN](readme/instructions/contributorHowToStart-en.md) [PL](readme/instructions/contributorHowToStart-en.md)
 
 
