@@ -1,53 +1,12 @@
-# virtual-computer
+Langue: [PL](readme/readme-pl.md)
+# Virtual-computer
+This project was created to allow individuals learning Java to work together as a team on a single application from the very beginning of their learning journey. <br>
+This requires understanding the basics of Git, which in turn provides additional experience and is a key skill for future developers.
 
 
-# Jak pracować z zdalnym repozytorium przez SSH
+#  How to start
 
-Ten plik README zawiera instrukcje, jak skonfigurować połączenie SSH z repozytorium na GitHubie, dodać zmiany i wypchnąć je do zdalnego repozytorium.
+First step as a collaborator:  [EN](readme/instructions/collaboratorHowToStart-en.md) [PL](readme/instructions/collaboratorHowToStart-pl.md) <br>
+First step as a contributor: [EN](readme/instructions/contributorHowToStart-en.md) [PL](readme/instructions/contributorHowToStart-en.md)
 
----
 
-## 1. Klonowanie zdalnego repozytorium
-
-1.1 Aby sklonować repozytorium, z linku https://github.com/jkuznik/virtual-computer wybierz "Code" następnie SSH i skopiuj link:
-```bash
-git@github.com:jkuznik/virtual-computer.git
-```
-
-1.2 W Intellij wybierz:
-- **New > Project from Version Control**
-- W polu URL wklej skopiowany wcześniej w podpunkcie 1.1 link.
-
----
-
-## 2. Tworzenie nowego brancha
-
-Według przyjętej konwencji tworzymy nowy branch o nazwie takiej samej jak wykonywany task.
-
-Za pomoną terminala wbudowanego w Intellij (Alt+F12) utwórz nowy branch używając komendy:
-```bash
-git switch -c nazwa_taska
-```
-
----
-
-## 3. Dodawanie zmian i wypychanie ich do repozytorium
-
-Po wprowadzeniu zmian użyj komendy:
-```bash
-git commit -am "Opis wprowadzonych zmian"
-```
-
-### Wypchnij zmiany na zdalne repozytorium
-
-3.1 Przed pierwszym wypchnięciem zmian na zdalne repozytorium, użyj komendy:
-```bash
-git push --set-upstream origin nazwa_brancha
-```
-
-3.2 Przy każdym następnym wypchnięciu zmian, użyj komendy:
-```bash
-git push
-```
-
----
