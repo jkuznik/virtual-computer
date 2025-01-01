@@ -1,16 +1,17 @@
 package hardware.components.usbdevice;
 
-import hardware.components.FileStorage;
-import hardware.components.StorageCapacity;
+import hardware.components.shared.ComponentType;
+import hardware.components.shared.FileStorage;
+import hardware.components.shared.StorageCapacity;
 
 public class MemoryStick implements USBDevice {
     private final FileStorage fileStorage;
     private final String name;
     private boolean ejected = false;
 
-    public MemoryStick(String name, StorageCapacity storageCapacity) {
-        this.name = name;
+    public MemoryStick(StorageCapacity storageCapacity,String name) {
         this.fileStorage = new FileStorage(storageCapacity);
+        this.name = name;
     }
 
     @Override
@@ -36,7 +37,12 @@ public class MemoryStick implements USBDevice {
     }
 
     @Override
-    public String getName() {
+    public String getComponentName() {
         return name;
+    }
+
+    @Override
+    public ComponentType getComponentType() {
+        return ComponentType.MEMORYSTICK;
     }
 }

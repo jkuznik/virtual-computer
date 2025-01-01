@@ -1,7 +1,9 @@
 package hardware.components.usbdevice;
 
+import hardware.components.shared.ComponentType;
+
 public class Mouse implements USBDevice {
-    private String name;
+    private final String name;
 
     public Mouse(String name) {
         this.name = name;
@@ -20,7 +22,12 @@ public class Mouse implements USBDevice {
     }
 
     @Override
-    public String getName() {
+    public String getComponentName() {
         return name;
+    }
+
+    @Override
+    public ComponentType getComponentType() {
+        return ComponentType.MOUSE;
     }
 }

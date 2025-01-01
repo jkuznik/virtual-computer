@@ -1,10 +1,19 @@
 package hardware.components.monitor;
 
-public class Monitor {
+import hardware.components.shared.ComponentType;
+import hardware.components.shared.Component;
+
+public class Monitor implements Component {
+
+    public static final int MAX_HEIGHT = 3840;
+
     private int width = 3840;
     private int height = 1920;
+    private final String name;
 
-    public static int MAX_HEIGHT = 3840;
+    public Monitor(String name) {
+        this.name = name;
+    }
 
     public static int getMaxHeight() {
         return MAX_HEIGHT;
@@ -22,5 +31,15 @@ public class Monitor {
 
     public String getResolution() {
         return width + "x" + height;
+    }
+
+    @Override
+    public String getComponentName() {
+        return name;
+    }
+
+    @Override
+    public ComponentType getComponentType() {
+        return ComponentType.MONITOR;
     }
 }

@@ -1,4 +1,4 @@
-package hardware.components;
+package hardware.components.shared;
 
 import software.file.File;
 

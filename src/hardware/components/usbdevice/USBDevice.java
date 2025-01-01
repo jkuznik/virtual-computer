@@ -1,7 +1,8 @@
 package hardware.components.usbdevice;
 
-public interface USBDevice {
+import hardware.components.shared.Component;
+
+public interface USBDevice extends Component {
     boolean connect();
     boolean disconnect();
-    String getName();
 }
