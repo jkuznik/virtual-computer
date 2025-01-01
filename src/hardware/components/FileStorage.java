@@ -7,21 +7,21 @@ import java.util.NoSuchElementException;
 
 public class FileStorage {
 
-    int capacity;
-
+    final StorageCapacity storageCapacity;
+    long currentCapacity = 0;
     List<File> files;
 
-    public FileStorage(int capacity) {
-        this.capacity = capacity;
+    public FileStorage(StorageCapacity storageCapacity) {
+        this.storageCapacity = storageCapacity;
     }
 
-    public int getCapacity() {
-        return capacity;
+    public long getCapacity() {
+        return storageCapacity.getSize() - currentCapacity;
     }
 
     public void addFile(File file) {
         files.add(file);
-        capacity -= file.getSize();
+        currentCapacity += file.getSize();
     }
 
     public File getFile(File file) {
