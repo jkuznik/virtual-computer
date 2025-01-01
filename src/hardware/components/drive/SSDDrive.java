@@ -26,6 +26,11 @@ public class SSDDrive implements Drive {
     }
 
     @Override
+    public void removeFile(File file) {
+        fileStorage.removeFile(file);
+    }
+
+    @Override
     public File findFile(String fileName) {
         return fileStorage.findFile(fileName);
     }
