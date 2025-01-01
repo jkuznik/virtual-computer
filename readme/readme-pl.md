@@ -6,7 +6,7 @@ Wymaga to zrozumienia podstaw działania Gita, co w efekcie dostarcza dodatkoweg
 
 #  Jak zacząć
 
-Pierwsze kroki jako collaborator:  [EN](readme/instructions/collaboratorHowToStart-en.md) [PL](readme/instructions/collaboratorHowToStart-pl.md) <br>
-Pierwsze kroki jako contributor: [EN](readme/instructions/contributorHowToStart-en.md) [PL](readme/instructions/contributorHowToStart-en.md)
+Pierwsze kroki jako collaborator:  [EN](instructions/collaboratorHowToStart-en.md) [PL](instructions/collaboratorHowToStart-pl.md) <br>
+Pierwsze kroki jako contributor: [EN](instructions/contributorHowToStart-en.md) [PL](instructions/contributorHowToStart-en.md)
 
 
