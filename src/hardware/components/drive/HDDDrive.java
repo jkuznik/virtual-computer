@@ -22,9 +22,7 @@ public class HDDDrive implements Drive {
 
     @Override
     public void listFiles() {
-        for (File file : files) {
-            System.out.println(file.getName());
-        }
+        fileStorage.listFiles();
     }
 
     @Override
