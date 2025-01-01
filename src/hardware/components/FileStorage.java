@@ -31,9 +31,9 @@ public class FileStorage {
         }
     }
 
-    public File findFile(File file) {
+    public File findFile(String fileName) {
         return files.stream()
-                .filter(f -> f.equals(file))
+                .filter(f -> f.getName().equals(fileName))
                 .findFirst()
                 .orElseThrow(() -> new NoSuchElementException("File not found"));
     }
