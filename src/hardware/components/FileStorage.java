@@ -7,15 +7,15 @@ import java.util.NoSuchElementException;
 
 public class FileStorage {
 
-    final StorageCapacity storageCapacity;
-    long currentCapacity = 0;
-    List<File> files;
+    private final StorageCapacity storageCapacity;
+    private long currentCapacity = 0;
+    private List<File> files;
 
     public FileStorage(StorageCapacity storageCapacity) {
         this.storageCapacity = storageCapacity;
     }
 
-    public long getCapacity() {
+    public long getEmptyCapacity() {
         return storageCapacity.getSize() - currentCapacity;
     }
 
@@ -24,7 +24,14 @@ public class FileStorage {
         currentCapacity += file.getSize();
     }
 
-    public File getFile(File file) {
+    public void removeFile(File file) {
+        if (files.contains(file)){
+            files.remove(file);
+            currentCapacity -= file.getSize();
+        }
+    }
+
+    public File findFile(File file) {
         return files.stream()
                 .filter(f -> f.equals(file))
                 .findFirst()
