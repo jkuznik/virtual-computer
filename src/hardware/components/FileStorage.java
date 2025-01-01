@@ -25,7 +25,7 @@ public class FileStorage {
     }
 
     public void removeFile(File file) {
-        if (files.contains(file)){
+        if (files.contains(file)) {
             files.remove(file);
             currentCapacity -= file.getSize();
         }
@@ -36,5 +36,9 @@ public class FileStorage {
                 .filter(f -> f.getName().equals(fileName))
                 .findFirst()
                 .orElseThrow(() -> new NoSuchElementException("File not found"));
+    }
+
+    public void listFiles() {
+        files.forEach(System.out::println);
     }
 }
