@@ -3,64 +3,62 @@ package hardware.computer;
 import hardware.components.drive.Drive;
 import hardware.components.headphones.Headphones;
 import hardware.components.monitor.Monitor;
+import hardware.components.shared.Component;
+import hardware.components.shared.ComponentType;
 import hardware.components.usbdevice.USBDevice;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class Computer {
-    private Monitor monitor;
-    private Drive drive;
-    private Headphones headphones;
-
-    private List<USBDevice> usbDevices = new ArrayList<>();
-
-    public Computer(Monitor monitor, Drive drive) {
-        this.monitor = monitor;
-        this.drive = drive;
-    }
+    private final List<Component> components = new ArrayList<>();
 
     public Monitor getMonitor() {
-        return monitor;
+        return (Monitor) components.stream()
+                .filter(component -> component.getComponentType().equals(ComponentType.MONITOR))
+                .findFirst()
+                .orElseThrow(() -> new NoSuchElementException("Computer has no available monitor yet"));
     }
 
     public void setMonitor(Monitor monitor) {
-        this.monitor = monitor;
+        components.add(monitor);
     }
 
     public Drive getDrive() {
-        return drive;
+        return (Drive) components.stream()
+                .filter(component -> component.getComponentType().equals(ComponentType.DRIVE))
+                .findFirst()
+                .orElseThrow(() -> new NoSuchElementException("Computer has no available drive yet"));
     }
 
     public void setDrive(Drive drive) {
-        this.drive = drive;
+        components.add(drive);
     }
 
     public Headphones getHeadphones() {
-        return headphones;
+        return (Headphones) components.stream()
+                .filter(component -> component.getComponentType().equals(ComponentType.HEADPHONES))
+                .findFirst()
+                .orElseThrow(() -> new NoSuchElementException("Computer has no available headphones yet"));
     }
 
     public void setHeadphones(Headphones headphones) {
-        this.headphones = headphones;
+        components.add(headphones);
     }
 
-    public List<USBDevice> getUsbDevices() {
-        return usbDevices;
-    }
+//    TODO: do zaimplementowania
+//    public List<USBDevice> getUsbDevices() {
+//        return usbDevices;
+//    }
 
+//    TODO: do zaimplementowania logika ustawiania 'isConnected' dla usbDevice
     public void addUSBDevice(USBDevice usbDevice) {
-        boolean isConnected = usbDevice.connect();
-
-        if (isConnected) {
-            usbDevices.add(usbDevice);
-        }
+        components.add(usbDevice);
     }
 
+//    TODO: do zaimplementowania logika ustawiania 'isConnected' dla usbDevice
     public void removeUSBDevice(USBDevice usbDevice) {
-        boolean isDisconnected = usbDevice.disconnect();
-
-        if (isDisconnected) {
-            usbDevices.remove(usbDevice);
-        }
+        components.remove(usbDevice);
     }
 }

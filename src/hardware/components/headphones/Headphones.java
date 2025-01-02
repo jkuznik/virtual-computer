@@ -1,13 +1,22 @@
 package hardware.components.headphones;
 
-public class Headphones {
+import hardware.components.shared.ComponentType;
+import hardware.components.shared.Component;
+
+public class Headphones implements Component {
     private final String name;
 
     public Headphones(String name) {
         this.name = name;
     }
 
-    public String getName() {
+    @Override
+    public String getComponentName() {
         return name;
+    }
+
+    @Override
+    public ComponentType getComponentType() {
+        return ComponentType.HEADPHONES;
     }
 }
