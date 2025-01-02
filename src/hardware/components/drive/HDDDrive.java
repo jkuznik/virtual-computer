@@ -1,5 +1,7 @@
 package hardware.components.drive;
 
+import hardware.components.FileStorage;
+import hardware.components.StorageCapacity;
 import software.file.File;
 
 import java.util.ArrayList;
@@ -7,26 +9,29 @@ import java.util.List;
 import java.util.Optional;
 
 public class HDDDrive implements Drive {
-    private List<File> files = new ArrayList<>();
+    private final FileStorage fileStorage;
+
+    public HDDDrive(StorageCapacity storageCapacity) {
+        this.fileStorage = new FileStorage(storageCapacity);
+    }
 
     @Override
     public void addFile(File file) {
-        files.add(file);
+        fileStorage.addFile(file);
     }
 
     @Override
     public void listFiles() {
-        for (File file : files) {
-            System.out.println(file.getName());
-        }
+        fileStorage.listFiles();
     }
 
     @Override
-    public File findFile(String name) {
-        Optional<File> foundFile = files.stream()
-                .filter(file -> file.getName().equals(name))
-                .findFirst();
+    public void removeFile(File file) {
+        fileStorage.removeFile(file);
+    }
 
-        return foundFile.orElseThrow();
+    @Override
+    public File findFile(String fileName) {
+        return fileStorage.findFile(fileName);
     }
 }

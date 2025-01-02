@@ -1,5 +1,7 @@
 package hardware.components.drive;
 
+import hardware.components.FileStorage;
+import hardware.components.StorageCapacity;
 import software.file.File;
 
 import java.util.Collection;
@@ -7,24 +9,29 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SSDDrive implements Drive {
-    private Map<String, File> files = new HashMap<>();
+    private final FileStorage fileStorage;
+
+    public SSDDrive(StorageCapacity storageCapacity) {
+        this.fileStorage = new FileStorage(storageCapacity);
+    }
 
     @Override
     public void addFile(File file) {
-        files.put(file.toString() , file);
+        fileStorage.addFile(file);
     }
 
     @Override
     public void listFiles() {
-        Collection<File> fileCollection = files.values();
-
-        for (File file : fileCollection) {
-            System.out.println(file.getName());
-        }
+        fileStorage.listFiles();
     }
 
     @Override
-    public File findFile(String name) {
-        return files.get(name);
+    public void removeFile(File file) {
+        fileStorage.removeFile(file);
+    }
+
+    @Override
+    public File findFile(String fileName) {
+        return fileStorage.findFile(fileName);
     }
 }
