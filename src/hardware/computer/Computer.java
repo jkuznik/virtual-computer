@@ -1,10 +1,10 @@
 package hardware.computer;
 
 import hardware.components.drive.Drive;
-import hardware.components.headphones.Headphones;
+import hardware.components.headphone.Headphones;
 import hardware.components.monitor.Monitor;
 import hardware.components.shared.Component;
-import hardware.components.shared.ComponentType;
+import hardware.components.shared.enums.ComponentType;
 import hardware.components.usbdevice.USBDevice;
 
 import java.util.ArrayList;

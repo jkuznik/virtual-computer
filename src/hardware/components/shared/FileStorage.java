@@ -1,5 +1,6 @@
 package hardware.components.shared;
 
+import hardware.components.shared.enums.StorageCapacity;
 import software.file.File;
 
 import java.util.List;
