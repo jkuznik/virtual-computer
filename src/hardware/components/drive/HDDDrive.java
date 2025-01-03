@@ -1,9 +1,9 @@
 package hardware.components.drive;
 
-import hardware.components.shared.ComponentType;
+import hardware.components.shared.enums.ComponentType;
 import hardware.components.shared.FileHandler;
 import hardware.components.shared.FileStorage;
-import hardware.components.shared.StorageCapacity;
+import hardware.components.shared.enums.StorageCapacity;
 import software.file.File;
 
 public class HDDDrive implements Drive, FileHandler {
