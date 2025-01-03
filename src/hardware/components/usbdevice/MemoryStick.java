@@ -1,10 +1,12 @@
 package hardware.components.usbdevice;
 
 import hardware.components.shared.ComponentType;
+import hardware.components.shared.FileHandler;
 import hardware.components.shared.FileStorage;
 import hardware.components.shared.StorageCapacity;
+import software.file.File;
 
-public class MemoryStick implements USBDevice {
+public class MemoryStick implements USBDevice, FileHandler {
     private final FileStorage fileStorage;
     private final String name;
     private boolean ejected = false;
@@ -34,6 +36,27 @@ public class MemoryStick implements USBDevice {
     public void eject() {
         System.out.println("Ejecting Memory Stick");
         ejected = true;
+    }
+
+
+    @Override
+    public void addFile(File file) {
+        fileStorage.addFile(file);
+    }
+
+    @Override
+    public void listFiles() {
+        fileStorage.listFiles();
+    }
+
+    @Override
+    public void removeFile(File file) {
+        fileStorage.removeFile(file);
+    }
+
+    @Override
+    public File findFile(String fileName) {
+        return fileStorage.findFile(fileName);
     }
 
     @Override
