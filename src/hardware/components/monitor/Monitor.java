@@ -1,6 +1,6 @@
 package hardware.components.monitor;
 
-import hardware.components.shared.ComponentType;
+import hardware.components.shared.enums.ComponentType;
 import hardware.components.shared.Component;
 
 public class Monitor implements Component {

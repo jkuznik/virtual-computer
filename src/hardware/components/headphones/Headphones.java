@@ -1,6 +1,6 @@
 package hardware.components.headphones;
 
-import hardware.components.shared.ComponentType;
+import hardware.components.shared.enums.ComponentType;
 import hardware.components.shared.Component;
 
 public class Headphones implements Component {
