@@ -66,28 +66,8 @@ public class Computer {
         components.remove(usbDevice);
     }
 
-    public void addComponent(Monitor monitor) {
-        components.add(monitor);
-    }
-
-    public void addComponent(HDDDrive hddDrive) {
-        components.add(hddDrive);
-    }
-
-    public void addComponent(SSDDrive ssdDrive) {
-        components.add(ssdDrive);
-    }
-
-    public void addComponent(Headphones headphones) {
-        components.add(headphones);
-    }
-
-    public void addComponent(MemoryStick memoryStick) {
-        components.add(memoryStick);
-    }
-
-    public void addComponent(Mouse mouse) {
-        components.add(mouse);
+    public void addComponent(Component component) {
+        components.add(component);
     }
 
 

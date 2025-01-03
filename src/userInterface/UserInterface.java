@@ -33,6 +33,8 @@ public class UserInterface {
         computer.addComponent(memoryStick);
         computer.addComponent(mouse);
 
+
+
     }
 
 
