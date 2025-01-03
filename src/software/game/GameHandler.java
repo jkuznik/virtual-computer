@@ -1,5 +1,7 @@
 package software.game;
 
+import software.game.findNumber.FindNumberGame;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -11,7 +13,8 @@ public class GameHandler {
     //TODO: dodająć nową gre trzeba w konstruktorze dodać ją do aktualnej kolekcji gier. W przyszłości można dodać logikę
     // umożliwiającą na 'instalowanie' gier dynamicznie tzn w trakcie działania programu
     public GameHandler() {
-
+        FindNumberGame findNumberGame = new FindNumberGame();
+        games.add(findNumberGame);
     }
 
     public List<Game> gameList() {
