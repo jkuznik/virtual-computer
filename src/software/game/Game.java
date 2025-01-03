@@ -1,7 +1,7 @@
 package software.game;
 
 public interface Game {
-    void getName(String name);
+    String getName();
     void startGame();
     void endGame();
 }
