@@ -15,11 +15,13 @@ public class SSDDrive implements Drive, FileHandler {
         this.name = name;
     }
 
+    //  TODO: metoda do zaimplementowania w kolejnym tasku
     @Override
     public void getWriteSpeed() {
 
     }
 
+    //  TODO: metoda do zaimplementowania w kolejnym tasku
     @Override
     public void getReadSpeed() {
 

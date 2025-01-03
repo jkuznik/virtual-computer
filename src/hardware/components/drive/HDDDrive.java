@@ -14,12 +14,12 @@ public class HDDDrive implements Drive, FileHandler {
         this.fileStorage = new FileStorage(storageCapacity);
         this.name = name;
     }
-
+//  TODO: metoda do zaimplementowania w kolejnym tasku
     @Override
     public void getWriteSpeed() {
 
     }
-
+    //  TODO: metoda do zaimplementowania w kolejnym tasku
     @Override
     public void getReadSpeed() {
 
