@@ -1,10 +1,14 @@
 package hardware.computer;
 
 import hardware.components.drive.Drive;
+import hardware.components.drive.HDDDrive;
+import hardware.components.drive.SSDDrive;
 import hardware.components.headphones.Headphones;
 import hardware.components.monitor.Monitor;
 import hardware.components.shared.Component;
 import hardware.components.shared.ComponentType;
+import hardware.components.usbdevice.MemoryStick;
+import hardware.components.usbdevice.Mouse;
 import hardware.components.usbdevice.USBDevice;
 
 import java.util.ArrayList;
@@ -61,4 +65,31 @@ public class Computer {
     public void removeUSBDevice(USBDevice usbDevice) {
         components.remove(usbDevice);
     }
+
+    public void addComponent(Monitor monitor) {
+        components.add(monitor);
+    }
+
+    public void addComponent(HDDDrive hddDrive) {
+        components.add(hddDrive);
+    }
+
+    public void addComponent(SSDDrive ssdDrive) {
+        components.add(ssdDrive);
+    }
+
+    public void addComponent(Headphones headphones) {
+        components.add(headphones);
+    }
+
+    public void addComponent(MemoryStick memoryStick) {
+        components.add(memoryStick);
+    }
+
+    public void addComponent(Mouse mouse) {
+        components.add(mouse);
+    }
+
+
 }
+
