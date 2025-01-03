@@ -71,6 +71,6 @@ public class FindNumberGame implements Game {
             }
 
             attempt++;
-        }while(!(userChoice==number));
+        }while(userChoice!=number);
     }
 }
