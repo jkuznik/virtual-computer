@@ -1,4 +1,4 @@
-package hardware.components.shared;
+package hardware.components.shared.enums;
 
 public enum StorageCapacity {
     GB1(1_073_741_824L),  // 1 GB w bajtach
