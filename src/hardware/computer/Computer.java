@@ -10,6 +10,8 @@ import hardware.components.shared.ComponentType;
 import hardware.components.usbdevice.MemoryStick;
 import hardware.components.usbdevice.Mouse;
 import hardware.components.usbdevice.USBDevice;
+import software.file.File;
+import software.file.imagefile.AbstractImageFile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +19,8 @@ import java.util.NoSuchElementException;
 
 public class Computer {
     private final List<Component> components = new ArrayList<>();
+    private final List<File> files = new ArrayList<>();
+
 
     public Monitor getMonitor() {
         return (Monitor) components.stream()
@@ -69,6 +73,16 @@ public class Computer {
     public void addComponent(Component component) {
         components.add(component);
     }
+
+    public void addFile(File file) {
+        files.add(file);
+    }
+
+
+
+
+
+
 
 
 }
