@@ -10,4 +10,15 @@ public class ConsoleReader {
 
     private ConsoleReader() {
     }
+
+    public static ConsoleReader getInstance() {
+        if (instance == null) {
+            synchronized (ConsoleReader.class) {
+                if (instance == null) {
+                    instance = new ConsoleReader();
+                }
+            }
+        }
+        return instance;
+    }
 }
