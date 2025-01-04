@@ -1,14 +1,10 @@
 package hardware.computer;
 
 import hardware.components.drive.Drive;
-import hardware.components.drive.HDDDrive;
-import hardware.components.drive.SSDDrive;
-import hardware.components.headphones.Headphones;
+import hardware.components.headphone.Headphones;
 import hardware.components.monitor.Monitor;
 import hardware.components.shared.Component;
-import hardware.components.shared.ComponentType;
-import hardware.components.usbdevice.MemoryStick;
-import hardware.components.usbdevice.Mouse;
+import hardware.components.shared.enums.ComponentType;
 import hardware.components.usbdevice.USBDevice;
 import software.file.File;
 import software.file.imagefile.AbstractImageFile;
@@ -19,8 +15,6 @@ import java.util.NoSuchElementException;
 
 public class Computer {
     private final List<Component> components = new ArrayList<>();
-    private final List<File> files = new ArrayList<>();
-
 
     public Monitor getMonitor() {
         return (Monitor) components.stream()
@@ -74,9 +68,6 @@ public class Computer {
         components.add(component);
     }
 
-    public void addFile(File file) {
-        files.add(file);
-    }
 
    public void listComponent() {
       for (Component component : components) {

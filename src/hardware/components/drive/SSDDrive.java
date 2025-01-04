@@ -1,46 +1,12 @@
 package hardware.components.drive;
 
-import hardware.components.shared.ComponentType;
-import hardware.components.shared.FileStorage;
-import hardware.components.shared.StorageCapacity;
-import software.file.File;
+import hardware.components.shared.enums.StorageCapacity;
 
-public class SSDDrive implements Drive {
-    private final FileStorage fileStorage;
-    private final String name;
+public class SSDDrive extends AbstractDrive{
 
+    //TODO: dodać pola w klasie HDDDrive oraz SDDDrive rozróżniające te dwie klasy lub dodać nowe typy w ComponentType
+    // dedykowane dla HDD oraz SDD i nadpisać metody getComponentType() w tych klasach
     public SSDDrive(StorageCapacity storageCapacity, String name) {
-        this.fileStorage = new FileStorage(storageCapacity);
-        this.name = name;
-    }
-
-    @Override
-    public void addFile(File file) {
-        fileStorage.addFile(file);
-    }
-
-    @Override
-    public void listFiles() {
-        fileStorage.listFiles();
-    }
-
-    @Override
-    public void removeFile(File file) {
-        fileStorage.removeFile(file);
-    }
-
-    @Override
-    public File findFile(String fileName) {
-        return fileStorage.findFile(fileName);
-    }
-
-    @Override
-    public String getComponentName() {
-        return name;
-    }
-
-    @Override
-    public ComponentType getComponentType() {
-        return ComponentType.DRIVE;
+        super(storageCapacity, name);
     }
 }

@@ -1,43 +1,29 @@
-package hardware.components.usbdevice;
+package hardware.components.drive;
 
-import hardware.components.shared.enums.ComponentType;
 import hardware.components.shared.FileHandler;
 import hardware.components.shared.FileStorage;
+import hardware.components.shared.enums.ComponentType;
 import hardware.components.shared.enums.StorageCapacity;
 import software.file.File;
 
-public class MemoryStick implements USBDevice, FileHandler {
+public abstract class AbstractDrive implements Drive, FileHandler {
     private final FileStorage fileStorage;
     private final String name;
-    private boolean ejected = false;
 
-    public MemoryStick(StorageCapacity storageCapacity,String name) {
+    public AbstractDrive(StorageCapacity storageCapacity, String name) {
         this.fileStorage = new FileStorage(storageCapacity);
         this.name = name;
     }
-
+    //  TODO: metoda do zaimplementowania w kolejnym tasku
     @Override
-    public boolean connect() {
-        System.out.println("Connected Memory Stick");
-        return true;
-    }
+    public void getWriteSpeed() {
 
+    }
+    //  TODO: metoda do zaimplementowania w kolejnym tasku
     @Override
-    public boolean disconnect() {
-        if (!ejected) {
-            System.out.println("Please eject Memory Stick first");
-            return false;
-        } else {
-            System.out.println("Memory Stick disconnected");
-            return true;
-        }
-    }
+    public void getReadSpeed() {
 
-    public void eject() {
-        System.out.println("Ejecting Memory Stick");
-        ejected = true;
     }
-
 
     @Override
     public void addFile(File file) {
@@ -66,6 +52,6 @@ public class MemoryStick implements USBDevice, FileHandler {
 
     @Override
     public ComponentType getComponentType() {
-        return ComponentType.MEMORYSTICK;
+        return ComponentType.DRIVE;
     }
 }
