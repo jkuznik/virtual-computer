@@ -1,6 +1,6 @@
 package hardware.components.usbdevice;
 
-import hardware.components.shared.ComponentType;
+import hardware.components.shared.enums.ComponentType;
 
 public class Mouse implements USBDevice {
     private final String name;
