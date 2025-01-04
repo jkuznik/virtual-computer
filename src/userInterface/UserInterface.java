@@ -16,61 +16,63 @@ import java.util.Scanner;
 
 public class UserInterface {
     static Computer computer = new Computer();
-    static boolean bootstrap = false;
+    static Scanner scanner = new Scanner(System.in);
 
     public static void userInterface() {
 
-        if (!bootstrap) {computerBootstrap();}
+        System.out.println("Witam!");
+        int userInput;
+         do {
+            System.out.println("""
+                              
+                    1.Wyświetl podzespoły 
+                    2.Zarządzanie plikami
+                    9.Wyjście.
+                    """);
+           userInput = Integer.parseInt(scanner.nextLine());
 
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("""
-         
-         Witam! 
-         1.Wyświetl podzespoły 
-         2.Zarządzanie plikami
-         """);
-
-        int userInput = Integer.parseInt(scanner.nextLine());
-
-
-        switch (userInput) {
-            case 1 -> computer.listComponent();
-            case 2 -> fileMenager();
-        }
-        userInterface();
+            switch (userInput) {
+                case 1 -> computer.listComponent();
+                case 2 -> fileMenager();
+                case 9 -> System.out.println("Program zakończony");
+                default -> System.out.println("Błąd, spróbuj ponownie!");
+            }
+        } while (userInput!=9);
     }
 
     public static void fileMenager() {
         Scanner scanner = new Scanner(System.in);
         GIFImageFile tempFile = new GIFImageFile("temp.gif", 1); // plik tymczasowy, dodany w celu testowania
+        int userInput;
+        do {
+            System.out.println("""
+                                    
+                    1.Wyświetl pliki.
+                    2.Dodaj plik.
+                    3.Usuń plik.
+                    8.Powrót.
+                    9.Wyjście.
+                    """);
+            userInput = scanner.nextInt();
+            scanner.nextLine();
 
-        System.out.println("""
-                
-                1.Wyświetl pliki.
-                2.Dodaj plik.
-                3.Usuń plik.
-                8.Powrót.
-                9.Wyjście.
-                """);
-                int userInput = scanner.nextInt();
-                scanner.nextLine();
 
-
-                switch (userInput) {
-                    case 1 -> computer.getDrive().listFiles();
-                    case 2 -> computer.getDrive().addFile(tempFile);
-                    case 3 -> {
-                        System.out.println("Podaj nazwe pliku który chcesz usunąć");
-                        String fileName = scanner.nextLine();
-                        File fileForDelete = computer.getDrive().findFile(fileName);
-                        computer.getDrive().removeFile(fileForDelete);
-                    }
-                    case 8 -> userInterface();
-                    case 9 -> System.exit(0);
-                    default -> {System.out.println("Błąd, spróbuj ponownie!"); fileMenager(); }
+            switch (userInput) {
+                case 1 -> computer.getDrive().listFiles();
+                case 2 -> computer.getDrive().addFile(tempFile);
+                case 3 -> {
+                    System.out.println("Podaj nazwe pliku który chcesz usunąć");
+                    String fileName = scanner.nextLine();
+                    File fileForDelete = computer.getDrive().findFile(fileName);
+                    computer.getDrive().removeFile(fileForDelete);}
+                case 8 -> System.out.println(System.lineSeparator() + "Menu główne!");
+                case 9 -> System.exit(0);
+                default -> {
+                    System.out.println("Błąd, spróbuj ponownie!");
+                    fileMenager();
                 }
-                fileMenager();
+            }
+        } while (userInput!=8);
     }
 
     private static void computerBootstrap() {
@@ -94,8 +96,6 @@ public class UserInterface {
         computer.getDrive().addFile(gifImageFile);
         computer.getDrive().addFile(jpgImageFile);
         computer.getDrive().addFile(mp3MusicFile);
-        bootstrap = true;
-
 
     }
 
