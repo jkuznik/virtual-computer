@@ -1,10 +1,8 @@
 package userInterface;
 
 import hardware.components.drive.HDDDrive;
-import hardware.components.drive.SSDDrive;
 import hardware.components.headphones.Headphones;
 import hardware.components.monitor.Monitor;
-import hardware.components.shared.FileStorage;
 import hardware.components.shared.StorageCapacity;
 import hardware.components.usbdevice.MemoryStick;
 import hardware.components.usbdevice.Mouse;
@@ -18,7 +16,6 @@ import java.util.Scanner;
 
 public class UserInterface {
     static Computer computer = new Computer();
-    static FileStorage fileStorage = new FileStorage(StorageCapacity.GB512);
     static boolean bootstrap = false;
 
     public static void userInterface() {
@@ -61,13 +58,13 @@ public class UserInterface {
 
 
                 switch (userInput) {
-                    case 1 -> fileStorage.listFiles();
-                    case 2 -> fileStorage.addFile(tempFile);
+                    case 1 -> computer.getDrive().listFiles();
+                    case 2 -> computer.getDrive().addFile(tempFile);
                     case 3 -> {
                         System.out.println("Podaj nazwe pliku który chcesz usunąć");
                         String fileName = scanner.nextLine();
-                        File fileForDelete = fileStorage.findFile(fileName);
-                        fileStorage.removeFile(fileForDelete);
+                        File fileForDelete = computer.getDrive().findFile(fileName);
+                        computer.getDrive().removeFile(fileForDelete);
                     }
                     case 8 -> userInterface();
                     case 9 -> System.exit(0);
@@ -94,9 +91,9 @@ public class UserInterface {
         JPGImageFile jpgImageFile = new JPGImageFile("funnyimage.png", 2, 1);
         MP3MusicFile mp3MusicFile = new MP3MusicFile("song.mp3", 15, "band", "title", 10);
 
-        fileStorage.addFile(gifImageFile);
-        fileStorage.addFile(jpgImageFile);
-        fileStorage.addFile(mp3MusicFile);
+        computer.getDrive().addFile(gifImageFile);
+        computer.getDrive().addFile(jpgImageFile);
+        computer.getDrive().addFile(mp3MusicFile);
         bootstrap = true;
 
 
