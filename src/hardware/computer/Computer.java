@@ -78,12 +78,12 @@ public class Computer {
         files.add(file);
     }
 
-
-
-
-
-
-
+   public void listComponent() {
+      for (Component component : components) {
+          System.out.println(component.getComponentType() + "- " + component.getComponentName());
+          //System.out.println(component.getComponentName());
+      }
+   }
 
 }
 

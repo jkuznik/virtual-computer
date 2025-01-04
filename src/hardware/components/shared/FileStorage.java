@@ -2,6 +2,7 @@ package hardware.components.shared;
 
 import software.file.File;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -9,7 +10,7 @@ public class FileStorage {
 
     private final StorageCapacity storageCapacity;
     private long currentCapacity = 0;
-    private List<File> files;
+    private List<File> files = new ArrayList<>();
 
     public FileStorage(StorageCapacity storageCapacity) {
         this.storageCapacity = storageCapacity;
@@ -39,6 +40,10 @@ public class FileStorage {
     }
 
     public void listFiles() {
-        files.forEach(System.out::println);
+        // files.forEach(System.out::println);
+        for (File file : files) {
+            System.out.println(file.getName());
+        }
     }
+
 }
