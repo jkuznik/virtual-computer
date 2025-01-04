@@ -6,6 +6,8 @@ import hardware.components.monitor.Monitor;
 import hardware.components.shared.Component;
 import hardware.components.shared.enums.ComponentType;
 import hardware.components.usbdevice.USBDevice;
+import software.file.File;
+import software.file.imagefile.AbstractImageFile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,4 +63,18 @@ public class Computer {
     public void removeUSBDevice(USBDevice usbDevice) {
         components.remove(usbDevice);
     }
+
+    public void addComponent(Component component) {
+        components.add(component);
+    }
+
+
+   public void listComponent() {
+      for (Component component : components) {
+          System.out.println(component.getComponentType() + "- " + component.getComponentName());
+          //System.out.println(component.getComponentName());
+      }
+   }
+
 }
+
