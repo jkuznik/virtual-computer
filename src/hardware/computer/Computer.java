@@ -1,5 +1,6 @@
 package hardware.computer;
 
+import hardware.components.drive.AbstractDrive;
 import hardware.components.drive.Drive;
 import hardware.components.headphone.Headphones;
 import hardware.components.monitor.Monitor;
@@ -27,8 +28,8 @@ public class Computer {
         components.add(monitor);
     }
 
-    public Drive getDrive() {
-        return (Drive) components.stream()
+    public AbstractDrive getDrive() {
+        return (AbstractDrive) components.stream()
                 .filter(component -> component.getComponentType().equals(ComponentType.DRIVE))
                 .findFirst()
                 .orElseThrow(() -> new NoSuchElementException("Computer has no available drive yet"));
