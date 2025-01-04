@@ -21,4 +21,8 @@ public class ConsoleReader {
         }
         return instance;
     }
+
+    public Scanner getScanner() {
+        return scanner;
+    }
 }
