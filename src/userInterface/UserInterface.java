@@ -1,9 +1,9 @@
 package userInterface;
 
 import hardware.components.drive.HDDDrive;
-import hardware.components.headphones.Headphones;
+import hardware.components.headphone.Headphones;
 import hardware.components.monitor.Monitor;
-import hardware.components.shared.StorageCapacity;
+import hardware.components.shared.enums.StorageCapacity;
 import hardware.components.usbdevice.MemoryStick;
 import hardware.components.usbdevice.Mouse;
 import hardware.computer.Computer;
