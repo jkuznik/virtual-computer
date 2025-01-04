@@ -1,4 +1,4 @@
-package hardware.components.headphones;
+package hardware.components.headphone;
 
 import hardware.components.shared.enums.ComponentType;
 import hardware.components.shared.Component;
