@@ -13,7 +13,6 @@ import software.file.imagefile.JPGImageFile;
 import software.file.musicfile.MP3MusicFile;
 import utils.ConsoleReader;
 
-import java.util.Scanner;
 
 public class UserInterface {
     static Computer computer = new Computer();
