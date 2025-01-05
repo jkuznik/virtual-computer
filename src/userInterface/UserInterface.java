@@ -58,7 +58,7 @@ public class UserInterface {
 
             switch (userInput) {
                 case 1 -> computer.getDrive().listFiles();
-                case 2 -> computer.getDrive().addFile(tempFile);
+                case 2 -> addFile();
                 case 3 -> {
                     System.out.println("Podaj nazwe pliku który chcesz usunąć");
                     String fileName = scanner.nextLine();
@@ -72,6 +72,36 @@ public class UserInterface {
             }
         } while (userInput!=8);
     }
+    public static void addFile() {
+        String name;
+        int size;
+        int compression;
+
+        int userInput;
+        System.out.println("""
+                Podaj rodzaj pliku:
+                1.JPG.
+                2.GIF.
+                3.JPG
+                4.MP3
+                """);
+        userInput = Integer.parseInt(scanner.nextLine());
+        switch (userInput) {
+            case 1 -> {
+                System.out.println("Podaj nazwe");
+                name = scanner.nextLine();
+                System.out.println("Podaj rozmiar");
+                size = Integer.parseInt(scanner.nextLine());
+                System.out.println("Podaj kompresje");
+                compression = Integer.parseInt(scanner.nextLine());
+                JPGImageFile jpgImageFile = new JPGImageFile(name, size, compression);
+                computer.getDrive().addFile(jpgImageFile);
+            }
+
+        }
+
+    }
+
 
     private static void computerBootstrap() {
 
