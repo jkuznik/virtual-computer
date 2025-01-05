@@ -41,7 +41,6 @@ public class UserInterface {
     }
 
     public static void fileMenager() {
-        Scanner scanner = new Scanner(System.in);
         GIFImageFile tempFile = new GIFImageFile("temp.gif", 1); // plik tymczasowy, dodany w celu testowania
         int userInput;
         do {
@@ -69,7 +68,6 @@ public class UserInterface {
                 case 9 -> System.exit(0);
                 default -> {
                     System.out.println("Błąd, spróbuj ponownie!");
-                    fileMenager();
                 }
             }
         } while (userInput!=8);
