@@ -19,7 +19,7 @@ public class UserInterface {
     static Scanner scanner = new Scanner(System.in);
 
     public static void userInterface() {
-
+        computerBootstrap();
         System.out.println("Witam!");
         int userInput;
          do {
