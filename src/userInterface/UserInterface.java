@@ -33,14 +33,14 @@ public class UserInterface {
 
             switch (userInput) {
                 case 1 -> computer.listComponent();
-                case 2 -> fileMenager();
+                case 2 -> fileManager();
                 case 9 -> System.out.println("Program zakończony");
                 default -> System.out.println("Błąd, spróbuj ponownie!");
             }
         } while (userInput!=9);
     }
 
-    public static void fileMenager() {
+    public static void fileManager() {
         GIFImageFile tempFile = new GIFImageFile("temp.gif", 1); // plik tymczasowy, dodany w celu testowania
         int userInput;
         do {
