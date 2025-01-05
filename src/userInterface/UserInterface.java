@@ -118,6 +118,7 @@ public class UserInterface {
                 quality = Integer.parseInt(scanner.nextLine());
                 computer.getDrive().addFile(new MP3MusicFile(name , size , bandName , title , quality));
             }
+            default -> System.out.println("Błąd, spróbuj ponownie!");
         }
 
     }
