@@ -19,11 +19,6 @@ public class MP3MusicFile extends AbstractMusicFile {
     }
 
     @Override
-    public String getName() {
-        return "Dla plików MP3 getName nie działa";
-    }
-
-    @Override
     public String toString() {
         return "MP3MusicFile{" +
                 "quality=" + quality +
