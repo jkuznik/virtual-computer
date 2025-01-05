@@ -11,25 +11,28 @@ import software.file.File;
 import software.file.imagefile.GIFImageFile;
 import software.file.imagefile.JPGImageFile;
 import software.file.musicfile.MP3MusicFile;
+import utils.ConsoleReader;
 
 import java.util.Scanner;
 
 public class UserInterface {
     static Computer computer = new Computer();
-    static Scanner scanner = new Scanner(System.in);
+    static ConsoleReader consoleReader= ConsoleReader.getInstance();
+
 
     public static void userInterface() {
+
         computerBootstrap();
         System.out.println("Witam!");
         int userInput;
-         do {
+        do {
             System.out.println("""
                               
                     1.Wyświetl podzespoły 
                     2.Zarządzanie plikami
                     9.Wyjście.
                     """);
-           userInput = Integer.parseInt(scanner.nextLine());
+            userInput = Integer.parseInt(consoleReader.getScanner().nextLine());
 
             switch (userInput) {
                 case 1 -> computer.listComponent();
@@ -51,8 +54,8 @@ public class UserInterface {
                     8.Powrót.
                     9.Wyjście.
                     """);
-            userInput = scanner.nextInt();
-            scanner.nextLine();
+            userInput = consoleReader.getScanner().nextInt();
+            consoleReader.getScanner().nextLine();;
 
 
             switch (userInput) {
@@ -60,7 +63,7 @@ public class UserInterface {
                 case 2 -> addFile();
                 case 3 -> {
                     System.out.println("Podaj nazwe pliku który chcesz usunąć");
-                    String fileName = scanner.nextLine();
+                    String fileName = consoleReader.getScanner().nextLine();;
                     File fileForDelete = computer.getDrive().findFile(fileName);
                     computer.getDrive().removeFile(fileForDelete);}
                 case 8 -> System.out.println(System.lineSeparator() + "Menu główne!");
@@ -86,36 +89,36 @@ public class UserInterface {
                 2.GIF.
                 3.MP3
                 """);
-        userInput = Integer.parseInt(scanner.nextLine());
+        userInput = Integer.parseInt(consoleReader.getScanner().nextLine());
         switch (userInput) {
             case 1 -> {
                 System.out.println("Podaj nazwe");
-                name = scanner.nextLine() + ".jpg";
+                name = consoleReader.getScanner().nextLine() + ".jpg";
                 System.out.println("Podaj rozmiar");
-                size = Integer.parseInt(scanner.nextLine());
+                size = Integer.parseInt(consoleReader.getScanner().nextLine());
                 System.out.println("Podaj kompresje");
-                compression = Integer.parseInt(scanner.nextLine());
+                compression = Integer.parseInt(consoleReader.getScanner().nextLine());
                 computer.getDrive().addFile(new JPGImageFile(name, size, compression));
 
             }
             case 2 -> {
                 System.out.println("Podaj nazwe");
-                name = scanner.nextLine() + ".gif";
+                name = consoleReader.getScanner().nextLine() + ".gif";
                 System.out.println("Podaj rozmiar");
-                size = Integer.parseInt(scanner.nextLine());
+                size = Integer.parseInt(consoleReader.getScanner().nextLine());
                 computer.getDrive().addFile(new GIFImageFile(name, size));
             }
             case 3 -> {
                 System.out.println("Podaj nazwe");
-                name = scanner.nextLine() + ".mp3";
+                name = consoleReader.getScanner().nextLine() + ".mp3";
                 System.out.println("Podaj rozmiar");
-                size = Integer.parseInt(scanner.nextLine());
+                size = Integer.parseInt(consoleReader.getScanner().nextLine());
                 System.out.println("Podaj wykonawcę");
-                bandName = scanner.nextLine();
+                bandName = consoleReader.getScanner().nextLine();;
                 System.out.println("Podaj tytuł");
-                title = scanner.nextLine();
+                title = consoleReader.getScanner().nextLine();;
                 System.out.println("Podaj jakość");
-                quality = Integer.parseInt(scanner.nextLine());
+                quality = Integer.parseInt(consoleReader.getScanner().nextLine());
                 computer.getDrive().addFile(new MP3MusicFile(name , size , bandName , title , quality));
             }
             default -> System.out.println("Błąd, spróbuj ponownie!");
