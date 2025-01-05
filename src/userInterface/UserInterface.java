@@ -89,13 +89,22 @@ public class UserInterface {
         switch (userInput) {
             case 1 -> {
                 System.out.println("Podaj nazwe");
-                name = scanner.nextLine();
+                name = scanner.nextLine() + ".jpg";
                 System.out.println("Podaj rozmiar");
                 size = Integer.parseInt(scanner.nextLine());
                 System.out.println("Podaj kompresje");
                 compression = Integer.parseInt(scanner.nextLine());
                 JPGImageFile jpgImageFile = new JPGImageFile(name, size, compression);
                 computer.getDrive().addFile(jpgImageFile);
+
+            }
+            case 2 -> {
+                System.out.println("Podaj nazwe");
+                name = scanner.nextLine() + ".gif";
+                System.out.println("Podaj rozmiar");
+                size = Integer.parseInt(scanner.nextLine());
+                GIFImageFile gifImageFile = new GIFImageFile(name, size);
+                computer.getDrive().addFile(gifImageFile);
             }
 
         }
