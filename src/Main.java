@@ -1,4 +1,3 @@
-import hardware.components.monitor.Monitor;
 import userInterface.UserInterface;
 
 public class Main {
