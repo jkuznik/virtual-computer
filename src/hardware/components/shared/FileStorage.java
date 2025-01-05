@@ -41,7 +41,7 @@ public class FileStorage {
     }
 
     public void listFiles() {
-        // files.forEach(System.out::println);
+//         files.forEach(System.out::println);
         for (File file : files) {
             System.out.println(file.getName());
         }
