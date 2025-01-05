@@ -41,7 +41,6 @@ public class UserInterface {
     }
 
     public static void fileManager() {
-        GIFImageFile tempFile = new GIFImageFile("temp.gif", 1); // plik tymczasowy, dodany w celu testowania
         int userInput;
         do {
             System.out.println("""
@@ -76,14 +75,16 @@ public class UserInterface {
         String name;
         int size;
         int compression;
+        String bandName;
+        String title;
+        int quality;
 
         int userInput;
         System.out.println("""
                 Podaj rodzaj pliku:
                 1.JPG.
                 2.GIF.
-                3.JPG
-                4.MP3
+                3.MP3
                 """);
         userInput = Integer.parseInt(scanner.nextLine());
         switch (userInput) {
@@ -94,8 +95,7 @@ public class UserInterface {
                 size = Integer.parseInt(scanner.nextLine());
                 System.out.println("Podaj kompresje");
                 compression = Integer.parseInt(scanner.nextLine());
-                JPGImageFile jpgImageFile = new JPGImageFile(name, size, compression);
-                computer.getDrive().addFile(jpgImageFile);
+                computer.getDrive().addFile(new JPGImageFile(name, size, compression));
 
             }
             case 2 -> {
@@ -103,10 +103,21 @@ public class UserInterface {
                 name = scanner.nextLine() + ".gif";
                 System.out.println("Podaj rozmiar");
                 size = Integer.parseInt(scanner.nextLine());
-                GIFImageFile gifImageFile = new GIFImageFile(name, size);
-                computer.getDrive().addFile(gifImageFile);
+                computer.getDrive().addFile(new GIFImageFile(name, size));
             }
-
+            case 3 -> {
+                System.out.println("Podaj nazwe");
+                name = scanner.nextLine() + ".mp3";
+                System.out.println("Podaj rozmiar");
+                size = Integer.parseInt(scanner.nextLine());
+                System.out.println("Podaj wykonawcę");
+                bandName = scanner.nextLine();
+                System.out.println("Podaj tytuł");
+                title = scanner.nextLine();
+                System.out.println("Podaj jakość");
+                quality = Integer.parseInt(scanner.nextLine());
+                computer.getDrive().addFile(new MP3MusicFile(name , size , bandName , title , quality));
+            }
         }
 
     }
