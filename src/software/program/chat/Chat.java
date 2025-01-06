@@ -24,7 +24,7 @@ public class Chat implements Program {
     }
 
     @Override
-    public void startGame() {
+    public void startProgram() {
         try (
                 Socket socket = new Socket(SERVER_ADDRESS, SERVER_PORT);
                 PrintWriter serverOutput = new PrintWriter(socket.getOutputStream(), true);

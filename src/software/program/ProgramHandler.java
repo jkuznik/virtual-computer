@@ -25,7 +25,7 @@ public class ProgramHandler {
                 .filter(program -> program.getName().equals(programName))
                 .findFirst()
                 .orElseThrow(NoSuchElementException::new)
-                .startGame();
+                .startProgram();
     }
 
     public static ProgramHandler getInstance() {
