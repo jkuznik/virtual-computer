@@ -28,7 +28,7 @@ public class ProgramHandler {
                 .startGame();
     }
 
-    public ProgramHandler getInstance() {
+    public static ProgramHandler getInstance() {
         if (instance==null){
             synchronized (ProgramHandler.class){
                 if (instance==null){
