@@ -16,7 +16,7 @@ public class Chat implements Program {
     private static final int SERVER_PORT = 9999; // Currently Chat server is listening on port 9999
     private static final ConsoleReader consoleReader = ConsoleReader.getInstance();
 
-    private final String NAME = "Gadu gadu";
+    private final String NAME = "gg";
 
     @Override
     public String getName() {
@@ -31,6 +31,9 @@ public class Chat implements Program {
                 BufferedReader serverInput = new BufferedReader(new InputStreamReader(socket.getInputStream()))
         ) {
 
+            System.out.println(socket.getInetAddress());
+            System.out.println(socket.getRemoteSocketAddress());
+            System.out.println(socket.getLocalSocketAddress());
             ExecutorService chatThread = Executors.newSingleThreadExecutor();
 
             chatThread.execute(() -> {
@@ -41,6 +44,8 @@ public class Chat implements Program {
                     }
                 } catch (IOException e) {
                     System.out.println("Error receiving server messages: " + e.getMessage());
+                } finally {
+                    chatThread.shutdown();
                 }
             });
 
@@ -50,10 +55,11 @@ public class Chat implements Program {
             while (true) {
                 userMessage = consoleReader.getScanner().nextLine();
                 if ("exit".equalsIgnoreCase(userMessage)) {
+                    serverOutput.println(socket + " żegna się!");
                     System.out.println("Zakończenie czatu...");
                     break;
                 }
-                serverOutput.println(userMessage); // Send message to the server
+                serverOutput.println(userMessage);
             }
         } catch (IOException e) {
         System.out.println("Błąd podczas łączenia się z czatem");
