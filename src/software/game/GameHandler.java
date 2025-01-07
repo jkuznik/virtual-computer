@@ -25,7 +25,7 @@ public class GameHandler {
         games.stream()
                 .filter(game -> game.getName().equals(name))
                 .findFirst()
-                .orElseThrow(() -> new NoSuchElementException())
+                .orElseThrow(NoSuchElementException::new)
                 .startGame();
     }
 }

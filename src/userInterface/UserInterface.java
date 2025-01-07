@@ -11,12 +11,14 @@ import software.file.File;
 import software.file.imagefile.GIFImageFile;
 import software.file.imagefile.JPGImageFile;
 import software.file.musicfile.MP3MusicFile;
+import software.program.ProgramHandler;
 import utils.ConsoleReader;
 
 
 public class UserInterface {
     static Computer computer = new Computer();
     static ConsoleReader consoleReader= ConsoleReader.getInstance();
+    static ProgramHandler programHandler = ProgramHandler.getInstance();
 
 
     public static void userInterface() {
@@ -50,6 +52,7 @@ public class UserInterface {
                     1.Wyświetl pliki.
                     2.Dodaj plik.
                     3.Usuń plik.
+                    4.Uruchom program.
                     8.Powrót.
                     9.Wyjście.
                     """);
@@ -64,7 +67,13 @@ public class UserInterface {
                     System.out.println("Podaj nazwe pliku który chcesz usunąć");
                     String fileName = consoleReader.getScanner().nextLine();;
                     File fileForDelete = computer.getDrive().findFile(fileName);
-                    computer.getDrive().removeFile(fileForDelete);}
+                    computer.getDrive().removeFile(fileForDelete);
+                }
+                case 4 -> {
+                    System.out.println("Wpisz nazwę programu który chcesz uruchomić:");
+                    programHandler.programList();
+                    programHandler.startProgramByName(consoleReader.getScanner().nextLine());
+                }
                 case 8 -> System.out.println(System.lineSeparator() + "Menu główne!");
                 case 9 -> System.exit(0);
                 default -> {
