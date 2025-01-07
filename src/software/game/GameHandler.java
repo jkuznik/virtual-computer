@@ -21,8 +21,11 @@ public class GameHandler {
     }
 
     public void gameList() {
-        games.forEach(game -> System.out.println(game.getName()));
+        for (int i=0; i < games.size(); i++) {
+            System.out.println((i+1)+ ". " + games.get(i).getName());
+        }
     }
+
 
     public void startGameByName(String name) {
         games.stream()

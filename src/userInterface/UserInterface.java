@@ -11,6 +11,7 @@ import software.file.File;
 import software.file.imagefile.GIFImageFile;
 import software.file.imagefile.JPGImageFile;
 import software.file.musicfile.MP3MusicFile;
+import software.game.Game;
 import software.game.GameHandler;
 import utils.ConsoleReader;
 
@@ -68,10 +69,19 @@ public class UserInterface {
                     String fileName = consoleReader.getScanner().nextLine();;
                     File fileForDelete = computer.getDrive().findFile(fileName);
                     computer.getDrive().removeFile(fileForDelete);}
-                case 4 -> {
-                    System.out.println("Podaj nazwę gry");
+                case 5 -> {
+                    String userGameName;
+                    System.out.println("Wybierz gre podając jej numer lub nazwe");
+                    System.out.println();
                     gameHandler.gameList();
-                    gameHandler.startGameByName(consoleReader.getScanner().nextLine());
+                    userGameName = consoleReader.getScanner().nextLine();
+                    if (userGameName.equals("1")) {
+                    gameHandler.startGameByName("Find number");
+                    } else if (userGameName.equals("2")) {
+                    gameHandler.startGameByName("TicTacToe");
+                    } else {
+                        gameHandler.startGameByName(userGameName);
+                    }
                 }
                 case 8 -> System.out.println(System.lineSeparator() + "Menu główne!");
                 case 9 -> System.exit(0);
