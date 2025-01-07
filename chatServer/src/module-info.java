@@ -1,2 +1,2 @@
-module chatServer {
+module main {
 }
