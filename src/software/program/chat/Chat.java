@@ -42,13 +42,13 @@ public class Chat implements Program {
                         System.out.println(serverMessage);
                     }
                 } catch (IOException e) {
-                    System.out.println("Error receiving server messages: " + e.getMessage());
+                    System.out.println("Błąd podczas obierania wiadomości: " + e.getMessage());
                 } finally {
                     chatThread.shutdown();
                 }
             });
 
-            System.out.println("Connected to the server. Type 'exit' to quit.");
+            System.out.println("Połączono z serwerem. Aby wyjść wpisz 'exit'");
 
             String userMessage;
             while (true) {
@@ -61,7 +61,7 @@ public class Chat implements Program {
                 serverOutput.println(nickName + ": " + userMessage);
             }
         } catch (IOException e) {
-        System.out.println("Błąd podczas łączenia się z czatem");
-    }
+            System.out.println("Błąd podczas łączenia się z czatem");
+        }
     }
 }
