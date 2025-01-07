@@ -25,22 +25,21 @@ public class Chat implements Program {
 
     @Override
     public void startProgram() {
+        System.out.println("Podaj nick: ");
+        String nickName = consoleReader.getScanner().nextLine();
+
         try (
                 Socket socket = new Socket(SERVER_ADDRESS, SERVER_PORT);
                 PrintWriter serverOutput = new PrintWriter(socket.getOutputStream(), true);
                 BufferedReader serverInput = new BufferedReader(new InputStreamReader(socket.getInputStream()))
         ) {
-
-            System.out.println(socket.getInetAddress());
-            System.out.println(socket.getRemoteSocketAddress());
-            System.out.println(socket.getLocalSocketAddress());
             ExecutorService chatThread = Executors.newSingleThreadExecutor();
 
             chatThread.execute(() -> {
                 try {
                     String serverMessage;
                     while ((serverMessage = serverInput.readLine()) != null) {
-                        System.out.println("Server: " + serverMessage);
+                        System.out.println(serverMessage);
                     }
                 } catch (IOException e) {
                     System.out.println("Error receiving server messages: " + e.getMessage());
@@ -55,11 +54,11 @@ public class Chat implements Program {
             while (true) {
                 userMessage = consoleReader.getScanner().nextLine();
                 if ("exit".equalsIgnoreCase(userMessage)) {
-                    serverOutput.println(socket + " żegna się!");
+                    serverOutput.println(nickName + " żegna się!");
                     System.out.println("Zakończenie czatu...");
                     break;
                 }
-                serverOutput.println(userMessage);
+                serverOutput.println(nickName + ": " + userMessage);
             }
         } catch (IOException e) {
         System.out.println("Błąd podczas łączenia się z czatem");
