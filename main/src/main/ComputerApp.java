@@ -2,7 +2,7 @@ package main;
 
 import main.userInterface.UserInterface;
 
-public class Main {
+public class ComputerApp {
 
     public static void main(String[] args) {
        UserInterface.userInterface();
