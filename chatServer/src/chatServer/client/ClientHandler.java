@@ -11,7 +11,6 @@ public class ClientHandler implements Runnable {
     private final Socket socket;
     private final ClientManager clientManager;
     private PrintWriter receiver;
-    private int currentUserAmount = 0;
 
     public ClientHandler(Socket socket, ClientManager clientManager) {
         this.socket = socket;
