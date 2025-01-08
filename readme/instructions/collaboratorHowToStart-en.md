@@ -2,7 +2,7 @@
 
 1.1 To clone the repository, go to the link https://github.com/jkuznik/virtual-computer, select "Code," then SSH, and copy the link:
 ```bash
-git@github.com:jkuznik/virtual-computer.git
+git@github.com:jkuznik/virtual-computerApp.git
 ```
 ![](clone-repo.png)
 1.2 In IntelliJ, select:
