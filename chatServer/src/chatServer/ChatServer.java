@@ -1,5 +1,8 @@
 package chatServer;
 
+import chatServer.client.ClientHandler;
+import chatServer.client.ClientManager;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;

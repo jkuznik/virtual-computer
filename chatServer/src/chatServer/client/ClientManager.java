@@ -1,4 +1,4 @@
-package chatServer;
+package chatServer.client;
 
 import java.io.PrintWriter;
 import java.util.Collections;
