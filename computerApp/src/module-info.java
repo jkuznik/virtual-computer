@@ -1,0 +1,3 @@
+module computerApp {
+    exports computerApp;
+}
