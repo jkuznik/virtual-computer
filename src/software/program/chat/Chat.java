@@ -55,6 +55,7 @@ public class Chat implements Program {
                 userMessage = consoleReader.getScanner().nextLine();
                 if ("exit".equalsIgnoreCase(userMessage)) {
                     serverOutput.println(nickName + " żegna się!");
+                    serverOutput.println((socket + "exit"));
                     System.out.println("Zakończenie czatu...");
                     break;
                 }
