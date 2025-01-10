@@ -11,14 +11,16 @@ import software.file.File;
 import software.file.imagefile.GIFImageFile;
 import software.file.imagefile.JPGImageFile;
 import software.file.musicfile.MP3MusicFile;
+import software.game.GameHandler;
 import software.program.ProgramHandler;
 import utils.ConsoleReader;
 
 
 public class UserInterface {
     static Computer computer = new Computer();
-    static ConsoleReader consoleReader= ConsoleReader.getInstance();
+    static ConsoleReader consoleReader = ConsoleReader.getInstance();
     static ProgramHandler programHandler = ProgramHandler.getInstance();
+    static GameHandler gameHandler = new GameHandler();
 
 
     public static void userInterface() {
@@ -53,6 +55,7 @@ public class UserInterface {
                     2.Dodaj plik.
                     3.Usuń plik.
                     4.Uruchom program.
+                    5.Uruchom grę.
                     8.Powrót.
                     9.Wyjście.
                     """);
@@ -73,6 +76,11 @@ public class UserInterface {
                     System.out.println("Wpisz nazwę programu który chcesz uruchomić:");
                     programHandler.programList();
                     programHandler.startProgramByName(consoleReader.getScanner().nextLine());
+                }
+                case 5 -> {
+                System.out.println("Wpisz nazwę gry który chcesz uruchomić:");
+                    gameHandler.gameList();
+                    gameHandler.startGameByName(consoleReader.getScanner().nextLine());
                 }
                 case 8 -> System.out.println(System.lineSeparator() + "Menu główne!");
                 case 9 -> System.exit(0);
