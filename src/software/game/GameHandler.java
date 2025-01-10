@@ -1,5 +1,6 @@
 package software.game;
 
+import software.game.TicTacToe.TicTacToe;
 import software.game.findNumber.FindNumberGame;
 
 import java.util.ArrayList;
@@ -14,7 +15,10 @@ public class GameHandler {
     // umożliwiającą na 'instalowanie' gier dynamicznie tzn w trakcie działania programu
     public GameHandler() {
         FindNumberGame findNumberGame = new FindNumberGame();
+        TicTacToe ticTacToe = new TicTacToe();
+
         games.add(findNumberGame);
+        games.add(ticTacToe);
     }
 
     public void gameList() {
