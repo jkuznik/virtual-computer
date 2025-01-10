@@ -1,0 +1,4 @@
+module chatServer {
+
+    exports chatServer;
+}

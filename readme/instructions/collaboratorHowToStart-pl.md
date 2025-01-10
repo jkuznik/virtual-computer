@@ -2,7 +2,7 @@
 
 1.1 Aby sklonować repozytorium, z linku https://github.com/jkuznik/virtual-computer wybierz "Code" następnie SSH i skopiuj link:
 ```bash
-git@github.com:jkuznik/virtual-computer.git
+git@github.com:jkuznik/virtual-computerApp.git
 ```
 
 ![](clone-repo.png)
