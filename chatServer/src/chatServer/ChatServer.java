@@ -12,9 +12,10 @@ public class ChatServer {
     private static final int PORT = 9999;
     private static final ClientManager clientManager = new ClientManager();
     private static final ExecutorService openConnections = Executors.newFixedThreadPool(20);
+
     private static boolean stillRunning = true;
 
-    public static void main(String[] args) {
+    public static void main() {
         System.out.println("Start serwera...");
 
         ExecutorService shutDownListener = Executors.newSingleThreadExecutor();
