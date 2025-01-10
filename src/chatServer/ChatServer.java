@@ -8,6 +8,12 @@ import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/** Klasy tego pakietu reprezentują osobną aplikację do uruchamiana servera dla czatu dostpęngeo z poziomu głównej aplikacji 'Computer'
+ *  W celu umożliwienia podłączenia klienta należy w pierwszej kolejności uruchomić aplikację serwera i pozostawić działającą w tle.
+ *
+ *  Aby zatrzymać działanie serwera należy wpisać 'exit' w aplikacji serwera.
+*/
+
 class ChatServer {
     private static final int PORT = 9999;
     private static final ClientManager clientManager = new ClientManager();
