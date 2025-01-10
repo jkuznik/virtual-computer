@@ -1,4 +1,4 @@
-package XO2;
+package software.game.TicTacToe;
 
 public enum StatusCodes {
 FORBIDDEN(403);

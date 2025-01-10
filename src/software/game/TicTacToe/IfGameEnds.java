@@ -1,10 +1,9 @@
-package XO2;
+package software.game.TicTacToe;
 
 import java.util.Scanner;
 
-
-import static XO2.Game2.gameModeStatus;
-import static XO2.SinglePlayer.*;
+import static software.game.TicTacToe.Game2.gameModeStatus;
+import static software.game.TicTacToe.SinglePlayer.*;
 
 public class IfGameEnds {
     private static int roundCounter;

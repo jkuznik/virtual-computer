@@ -1,7 +1,7 @@
-package XO2;
+package software.game.TicTacToe;
 public class Main {
     public static void main(String[] args) {
-        MainMenu mainMenu = new MainMenu();
+        TicTacToe.MainMenu mainMenu = new TicTacToe.MainMenu();
         mainMenu.mainMenu();
     }
 }

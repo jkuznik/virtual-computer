@@ -1,9 +1,7 @@
-package XO2;
+package software.game.TicTacToe;
 
 
-import static XO2.Multiplayer.*;
-import static XO2.SinglePlayer.OValue;
-import static XO2.SinglePlayer.XValue;
+import static software.game.TicTacToe.Multiplayer.*;
 
 public class Board {
   public static String[] gameAreaArray = new String[]{"a1", "a2", "a3", "b1", "b2", "b3" , "c1", "c2", "c3"};

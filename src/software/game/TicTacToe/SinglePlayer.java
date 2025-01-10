@@ -1,8 +1,9 @@
-package XO2;
+package software.game.TicTacToe;
 
 import java.util.Scanner;
 
-import static XO2.Board.gameAreaArray;
+import static software.game.TicTacToe.Board.gameAreaArray;
+
 
 public class SinglePlayer {
    static ComputerMoves computerMoves = new ComputerMoves();

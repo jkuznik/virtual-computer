@@ -1,4 +1,4 @@
-package XO2;
+package software.game.TicTacToe;
 
 import java.util.Objects;
 import java.util.Scanner;

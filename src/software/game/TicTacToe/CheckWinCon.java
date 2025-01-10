@@ -1,8 +1,8 @@
-package XO2;
-
+package software.game.TicTacToe;
 import java.util.Arrays;
+import static software.game.TicTacToe.SinglePlayer.OValue;
+import static software.game.TicTacToe.SinglePlayer.XValue;
 
-import static XO2.SinglePlayer.*;
 
 public class CheckWinCon extends Board {
 
