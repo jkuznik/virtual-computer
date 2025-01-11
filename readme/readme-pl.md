@@ -1,12 +1,17 @@
 Język: [EN](../README.md)
 # Virtual-computer
-Ten projekt został stworzony, aby umożliwić osobom uczącym się Javy wspólną pracę nad jedną aplikacją już od początku ich przygody z programowaniem. <br>
+
+Projekt został stworzony, aby umożliwić osobom uczącym się Javy wspólną pracę nad jedną aplikacją już od początku ich przygody z programowaniem. <br>
 Wymaga to zrozumienia podstaw działania Gita, co w efekcie dostarcza dodatkowego doświadczenia oraz jest kluczową umiejętnością dla przyszłych programistów.
 
 
 #  Jak zacząć
 
-Pierwsze kroki jako collaborator:  [EN](instructions/collaboratorHowToStart-en.md) [PL](instructions/collaboratorHowToStart-pl.md) <br>
-Pierwsze kroki jako contributor: [EN](instructions/contributorHowToStart-en.md) [PL](instructions/contributorHowToStart-en.md)
+Pierwsze kroki jako collaborator:  [EN](instructions/howToStart/collaboratorHowToStart-en.md) [PL](instructions/howToStart/collaboratorHowToStart-pl.md) <br>
+Pierwsze kroki jako contributor: [EN](instructions/howToStart/contributorHowToStart-en.md) [PL](instructions/howToStart/contributorHowToStart-en.md)
 
+# Zintegrowane aplikacje
 
+Najlepszym sposobem nauki jest praktyka. Ten projekt umożliwia wprowadzenie własnych zmian które w zauważalny sposób wpłyną na całość projektu, a same
+zmiany będą realnie dostępne po uruchomieniu aplikacji. Mowa tutaj o prostych programach lub grach typu CLI własnego autorstwa które można zintegrować
+z projektem, a te będą później dostępne z poziomu interfejsu użytkownika głównej aplikacji 'Komputer'.
