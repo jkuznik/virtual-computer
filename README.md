@@ -21,5 +21,5 @@ impact the entire project, and these changes will be readily available when you 
 to simple CLI-style programs or games of your own design that can be integrated into the project and later 
 accessed from the main application's user interface, "Computer."
 Here are the basic details you need to know: <br>
-[EN](instructions/inAppPrograms/inAppInterfaces-en.md)
-[PL](instructions/inAppPrograms/inAppInterfaces-pl.md)
+[EN](readme/instructions/inAppPrograms/inAppInterfaces-en.md)
+[PL](readme/instructions/inAppPrograms/inAppInterfaces-pl.md)
