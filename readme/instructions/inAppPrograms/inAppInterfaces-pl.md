@@ -5,6 +5,8 @@ interfejsów dostępnych w projekcie - interfejs 'Program' lub 'Game'.
 
 ![](programInterface.png)
 
+Utwórz nowy pakiet w 
+
 
 
 
