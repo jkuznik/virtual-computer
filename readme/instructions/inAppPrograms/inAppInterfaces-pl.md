@@ -1,8 +1,10 @@
 # Implementacja interfejsów
 
 Aby dodać do aplikacji program typu CLI własnego autorstwa należy zaimplementować jeden z dwóch
-interfejsów dostępnych w projekcie - interfejs 'Program' lub 'Game'. Poniższa instrukcja zawiera podpowiedzi 
-implementacji interfejsu 'Program' jednak implementowanie 'Game' jest analogiczne. <b>Interfejsy te zaprzeczają
+interfejsów dostępnych w projekcie: interfejs 'Program' lub 'Game'. Poniższa instrukcja zawiera podpowiedzi 
+implementacji interfejsu 'Program' jednak implementowanie 'Game' jest analogiczne. 
+
+<b>Interfejsy te zaprzeczają
 na każdej płaszczyźnie zasadzie DRY </b> począwszy od sposobu implementacji, aż do późniejszego korzystania z nich
 jednak mogą zwiekszyć czytelność kodu dla osób całkowicie początkujących, a właśnie dla tych osób jest adresowany ten projekt.
 
