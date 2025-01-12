@@ -20,6 +20,11 @@ with the declaration of the implemented method .startProgram().
 
 ![](programImplementation.png)
 
+The final step you need to take is adding an instance of your program to the list of programs in the
+constructor of the ProgramHandler class.
+
+![](addProgram.png)
+
 From now on, your program will be accessible through the appropriate submenu in the main application.
 
 ![](runProgram.png)
