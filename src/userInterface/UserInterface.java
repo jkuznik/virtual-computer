@@ -11,7 +11,7 @@ import software.file.File;
 import software.file.imagefile.GIFImageFile;
 import software.file.imagefile.JPGImageFile;
 import software.file.musicfile.MP3MusicFile;
-import software.game.GameHandler;
+import software.program.game.GameHandler;
 import software.program.ProgramHandler;
 import utils.ConsoleReader;
 

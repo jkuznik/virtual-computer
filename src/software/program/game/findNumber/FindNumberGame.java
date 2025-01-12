@@ -1,6 +1,6 @@
-package software.game.findNumber;
+package software.program.game.findNumber;
 
-import software.game.Game;
+import software.program.game.Game;
 
 import java.util.Random;
 import java.util.Scanner;

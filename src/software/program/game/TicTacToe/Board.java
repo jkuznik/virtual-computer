@@ -1,7 +1,7 @@
-package software.game.TicTacToe;
+package software.program.game.TicTacToe;
 
 
-import static software.game.TicTacToe.Multiplayer.*;
+import static software.program.game.TicTacToe.Multiplayer.*;
 
 public class Board {
   public static String[] gameAreaArray = new String[]{"a1", "a2", "a3", "b1", "b2", "b3" , "c1", "c2", "c3"};

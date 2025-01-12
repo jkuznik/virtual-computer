@@ -1,8 +1,8 @@
-package software.game.TicTacToe;
+package software.program.game.TicTacToe;
 
 import java.util.Scanner;
 
-import static software.game.TicTacToe.Board.gameAreaArray;
+import static software.program.game.TicTacToe.Board.gameAreaArray;
 
 
 public class Multiplayer extends SinglePlayer {

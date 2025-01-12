@@ -1,7 +1,7 @@
-package software.game.TicTacToe;
+package software.program.game.TicTacToe;
 import java.util.Arrays;
-import static software.game.TicTacToe.SinglePlayer.OValue;
-import static software.game.TicTacToe.SinglePlayer.XValue;
+import static software.program.game.TicTacToe.SinglePlayer.OValue;
+import static software.program.game.TicTacToe.SinglePlayer.XValue;
 
 
 public class CheckWinCon extends Board {

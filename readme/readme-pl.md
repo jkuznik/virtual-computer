@@ -14,4 +14,4 @@ Pierwsze kroki jako contributor: [EN](instructions/howToStart/contributorHowToSt
 
 Najlepszym sposobem nauki jest praktyka. Ten projekt umożliwia wprowadzenie własnych zmian które w zauważalny sposób wpłyną na całość projektu, a same
 zmiany będą realnie dostępne po uruchomieniu aplikacji. Mowa tutaj o prostych programach lub grach typu CLI własnego autorstwa które można zintegrować
-z projektem, a te będą później dostępne z poziomu interfejsu użytkownika głównej aplikacji 'Komputer'.
+z projektem, a te będą później dostępne z poziomu interfejsu użytkownika głównej aplikacji 'Komputer'. Podstawowe informacje które musisz wiedzieć: 

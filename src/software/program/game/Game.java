@@ -1,4 +1,4 @@
-package software.game;
+package software.program.game;
 
 public interface Game {
     String getName();

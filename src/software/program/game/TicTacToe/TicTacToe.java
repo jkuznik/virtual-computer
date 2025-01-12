@@ -1,7 +1,6 @@
-package software.game.TicTacToe;
+package software.program.game.TicTacToe;
 
-import software.game.Game;
-import software.game.GameHandler;
+import software.program.game.Game;
 
 public class TicTacToe implements Game {
 
