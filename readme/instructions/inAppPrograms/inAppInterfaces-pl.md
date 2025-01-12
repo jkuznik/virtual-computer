@@ -19,4 +19,6 @@ deklarację implementowanej metody <b>.startProgram()
 
 ![](programImplementation.png)
 
+Od teraz program będzie dostępny z odpowiedzniego podmenu w głównej aplikacji
 
+![](runProgram.png)
