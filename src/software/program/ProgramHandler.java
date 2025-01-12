@@ -8,7 +8,6 @@ import java.util.NoSuchElementException;
 
 public class ProgramHandler {
 
-    private static volatile ProgramHandler instance;
     private final static List<Program> programs = new ArrayList<>();
 
     private ProgramHandler() {
@@ -27,6 +26,8 @@ public class ProgramHandler {
                 .orElseThrow(NoSuchElementException::new)
                 .startProgram();
     }
+
+    private static volatile ProgramHandler instance;
 
     public static ProgramHandler getInstance() {
         if (instance==null){
