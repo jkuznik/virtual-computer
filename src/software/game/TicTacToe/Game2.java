@@ -1,4 +1,4 @@
-package software.program.game.TicTacToe;
+package software.game.TicTacToe;
 
 import java.util.Objects;
 import java.util.Scanner;

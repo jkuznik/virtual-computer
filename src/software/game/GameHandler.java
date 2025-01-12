@@ -1,7 +1,7 @@
-package software.program.game;
+package software.game;
 
-import software.program.game.TicTacToe.TicTacToe;
-import software.program.game.findNumber.FindNumberGame;
+import software.game.TicTacToe.TicTacToe;
+import software.game.findNumber.FindNumberGame;
 
 import java.util.ArrayList;
 import java.util.List;

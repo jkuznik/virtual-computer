@@ -1,8 +1,8 @@
-package software.program.game.TicTacToe;
+package software.game.TicTacToe;
 
 import java.util.Random;
-import static software.program.game.TicTacToe.CheckWinCon.winingCombo;
-import static software.program.game.TicTacToe.SinglePlayer.*;
+import static software.game.TicTacToe.CheckWinCon.winingCombo;
+import static software.game.TicTacToe.SinglePlayer.*;
 
 public class ComputerMoves extends Board {
 
