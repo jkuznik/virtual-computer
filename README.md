@@ -18,4 +18,10 @@ to simple CLI-style programs or games of your own design that can be integrated 
 accessed from the main application's user interface, "Computer."
 Here are the basic [details](readme/instructions/inAppPrograms/inAppInterfaces-en.md) you need to know.
 
+# chatServer Package
+This package contains the code for the entire application serving as a chat feature available
+as a subprogram of the main application, "Computer." To ensure the chat subprogram functions
+correctly, the server instance must first be started in the local environment. Each class in
+the chatServer package has a default access modifier, which prevents these classes from being
+used in the main application’s classes.
 
