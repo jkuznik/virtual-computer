@@ -13,7 +13,9 @@ import software.file.imagefile.GIFImageFile;
 import software.file.imagefile.JPGImageFile;
 import software.file.musicfile.MP3MusicFile;
 import software.game.GameHandler;
+import software.game.GameNotFoundException;
 import software.program.ProgramHandler;
+import software.program.ProgramNotFoundException;
 import utils.ConsoleReader;
 import utils.UserChoiceEnum;
 
@@ -68,16 +70,8 @@ public class UserInterface {
                 case USER_INPUT_1 -> listFiles();
                 case USER_INPUT_2 -> addFile();
                 case USER_INPUT_3 -> deleteFile();
-                case USER_INPUT_4 -> {
-                    System.out.println("Wpisz nazwę programu który chcesz uruchomić:");
-                    programHandler.programList();
-                    programHandler.startProgramByName(consoleReader.getScanner().nextLine());
-                }
-                case USER_INPUT_5 -> {
-                System.out.println("Wpisz nazwę gry który chcesz uruchomić:");
-                    gameHandler.gameList();
-                    gameHandler.startGameByName(consoleReader.getScanner().nextLine());
-                }
+                case USER_INPUT_4 -> runProgram();
+                case USER_INPUT_5 -> runGame();
                 case USER_INPUT_8 -> System.out.println(System.lineSeparator() + "Menu główne!");
                 case USER_INPUT_9 -> System.exit(0);
                 default -> {
@@ -85,6 +79,26 @@ public class UserInterface {
                 }
             }
         } while (!userInput.equals(UserChoiceEnum.USER_INPUT_8));
+    }
+
+    private static void runGame() {
+        System.out.println("Wpisz nazwę gry który chcesz uruchomić:");
+        gameHandler.gameList();
+        try {
+            gameHandler.startGameByName(consoleReader.getScanner().nextLine());
+        } catch (GameNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private static void runProgram() {
+        System.out.println("Wpisz nazwę programu który chcesz uruchomić:");
+        programHandler.programList();
+        try {
+            programHandler.startProgramByName(consoleReader.getScanner().nextLine());
+        } catch (ProgramNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     private static void listFiles() {
