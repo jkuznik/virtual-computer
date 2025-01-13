@@ -6,6 +6,8 @@ import hardware.components.shared.FileHandler;
 import hardware.components.shared.enums.StorageCapacity;
 import software.file.File;
 
+import java.io.FileNotFoundException;
+
 public class MemoryStick implements USBDevice, FileStorage {
     private final FileHandler fileHandler;
     private final String name;
@@ -55,7 +57,7 @@ public class MemoryStick implements USBDevice, FileStorage {
     }
 
     @Override
-    public File findFile(String fileName) {
+    public File findFile(String fileName) throws FileNotFoundException {
         return fileHandler.findFile(fileName);
     }
 
