@@ -14,6 +14,7 @@ import software.file.musicfile.MP3MusicFile;
 import software.game.GameHandler;
 import software.program.ProgramHandler;
 import utils.ConsoleReader;
+import utils.UserChoiceEnum;
 
 
 public class UserInterface {
@@ -21,13 +22,12 @@ public class UserInterface {
     static ConsoleReader consoleReader = ConsoleReader.getInstance();
     static ProgramHandler programHandler = ProgramHandler.getInstance();
     static GameHandler gameHandler = new GameHandler();
-
+    static UserChoiceEnum userInput;
 
     public static void userInterface() {
 
         computerBootstrap();
         System.out.println("Witam!");
-        int userInput;
         do {
             System.out.println("""
                               
@@ -35,19 +35,19 @@ public class UserInterface {
                     2.Zarządzanie plikami
                     9.Wyjście.
                     """);
-            userInput = Integer.parseInt(consoleReader.getScanner().nextLine());
+
+            userInput = UserChoiceEnum.userChoice(Integer.parseInt(consoleReader.getScanner().nextLine()));
 
             switch (userInput) {
-                case 1 -> computer.listComponent();
-                case 2 -> fileManager();
-                case 9 -> System.out.println("Program zakończony");
+                case USER_INPUT_1 -> computer.listComponent();
+                case USER_INPUT_2 -> fileManager();
+                case USER_INPUT_9 -> System.out.println("Program zakończony");
                 default -> System.out.println("Błąd, spróbuj ponownie!");
             }
-        } while (userInput!=9);
+        } while (!userInput.equals(UserChoiceEnum.USER_INPUT_9));
     }
 
     public static void fileManager() {
-        int userInput;
         do {
             System.out.println("""
                                     
@@ -59,36 +59,34 @@ public class UserInterface {
                     8.Powrót.
                     9.Wyjście.
                     """);
-            userInput = consoleReader.getScanner().nextInt();
-            consoleReader.getScanner().nextLine();;
-
+            userInput = UserChoiceEnum.userChoice(Integer.parseInt(consoleReader.getScanner().nextLine()));
 
             switch (userInput) {
-                case 1 -> computer.getDrive().listFiles();
-                case 2 -> addFile();
-                case 3 -> {
+                case USER_INPUT_1 -> computer.getDrive().listFiles();
+                case USER_INPUT_2 -> addFile();
+                case USER_INPUT_3 -> {
                     System.out.println("Podaj nazwe pliku który chcesz usunąć");
                     String fileName = consoleReader.getScanner().nextLine();;
                     File fileForDelete = computer.getDrive().findFile(fileName);
                     computer.getDrive().removeFile(fileForDelete);
                 }
-                case 4 -> {
+                case USER_INPUT_4 -> {
                     System.out.println("Wpisz nazwę programu który chcesz uruchomić:");
                     programHandler.programList();
                     programHandler.startProgramByName(consoleReader.getScanner().nextLine());
                 }
-                case 5 -> {
+                case USER_INPUT_5 -> {
                 System.out.println("Wpisz nazwę gry który chcesz uruchomić:");
                     gameHandler.gameList();
                     gameHandler.startGameByName(consoleReader.getScanner().nextLine());
                 }
-                case 8 -> System.out.println(System.lineSeparator() + "Menu główne!");
-                case 9 -> System.exit(0);
+                case USER_INPUT_8 -> System.out.println(System.lineSeparator() + "Menu główne!");
+                case USER_INPUT_9 -> System.exit(0);
                 default -> {
                     System.out.println("Błąd, spróbuj ponownie!");
                 }
             }
-        } while (userInput!=8);
+        } while (!userInput.equals(UserChoiceEnum.USER_INPUT_8));
     }
     public static void addFile() {
         String name;
@@ -98,16 +96,15 @@ public class UserInterface {
         String title;
         int quality;
 
-        int userInput;
         System.out.println("""
                 Podaj rodzaj pliku:
                 1.JPG.
                 2.GIF.
                 3.MP3
                 """);
-        userInput = Integer.parseInt(consoleReader.getScanner().nextLine());
+        userInput = UserChoiceEnum.userChoice(Integer.parseInt(consoleReader.getScanner().nextLine()));
         switch (userInput) {
-            case 1 -> {
+            case USER_INPUT_1 -> {
                 System.out.println("Podaj nazwe");
                 name = consoleReader.getScanner().nextLine() + ".jpg";
                 System.out.println("Podaj rozmiar");
@@ -117,14 +114,14 @@ public class UserInterface {
                 computer.getDrive().addFile(new JPGImageFile(name, size, compression));
 
             }
-            case 2 -> {
+            case USER_INPUT_2 -> {
                 System.out.println("Podaj nazwe");
                 name = consoleReader.getScanner().nextLine() + ".gif";
                 System.out.println("Podaj rozmiar");
                 size = Integer.parseInt(consoleReader.getScanner().nextLine());
                 computer.getDrive().addFile(new GIFImageFile(name, size));
             }
-            case 3 -> {
+            case USER_INPUT_3 -> {
                 System.out.println("Podaj nazwe");
                 name = consoleReader.getScanner().nextLine() + ".mp3";
                 System.out.println("Podaj rozmiar");
