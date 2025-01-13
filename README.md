@@ -12,7 +12,7 @@ First step as a collaborator:
 [PL](readme/instructions/howToStart/collaboratorHowToStart-pl.md) <br>
 First step as a contributor:    <br>
 [EN](readme/instructions/howToStart/contributorHowToStart-en.md)
-[PL](readme/instructions/howToStart/contributorHowToStart-en.md)
+[PL](readme/instructions/howToStart/contributorHowToStart-pl.md)
 
 # In-app programs
 
