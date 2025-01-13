@@ -13,7 +13,7 @@ Pierwsze kroki jako collaborator:
 [PL](instructions/howToStart/collaboratorHowToStart-pl.md) <br>
 Pierwsze kroki jako contributor: <br>
 [EN](instructions/howToStart/contributorHowToStart-en.md) 
-[PL](instructions/howToStart/contributorHowToStart-en.md)
+[PL](instructions/howToStart/contributorHowToStart-pl.md)
 
 # Zintegrowane aplikacje
 
