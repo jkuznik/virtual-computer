@@ -5,6 +5,7 @@ MAIN_MENU_PL ("""
                               
                     1.Wyświetl podzespoły 
                     2.Zarządzanie plikami
+                    8.Powrót.
                     9.Wyjście.
                     """);
 

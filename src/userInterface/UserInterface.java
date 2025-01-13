@@ -16,6 +16,8 @@ import software.program.ProgramHandler;
 import utils.ConsoleReader;
 import utils.UserChoiceEnum;
 
+import static userInterface.PolishUserInterface.MAIN_MENU_PL;
+
 
 public class UserInterface {
     static Computer computer = new Computer();
@@ -23,28 +25,57 @@ public class UserInterface {
     static ProgramHandler programHandler = ProgramHandler.getInstance();
     static GameHandler gameHandler = new GameHandler();
     static UserChoiceEnum userInput;
+    static boolean polishSelected = false;
+    static boolean englishSelected =false;
 
-    public static void userInterface() {
 
-        computerBootstrap();
+    public static void languageMenu() {
         System.out.println("Witam!");
         do {
             System.out.println("""
-                              
-                    1.Wyświetl podzespoły 
-                    2.Zarządzanie plikami
-                    9.Wyjście.
+                    Wybierz język/select language
+                     1.Polski!
+                     2.English!
+                     9.Wyjście/Exit.
                     """);
-
             userInput = UserChoiceEnum.userChoice(Integer.parseInt(consoleReader.getScanner().nextLine()));
 
             switch (userInput) {
-                case USER_INPUT_1 -> computer.listComponent();
-                case USER_INPUT_2 -> fileManager();
-                case USER_INPUT_9 -> System.out.println("Program zakończony");
+                case USER_INPUT_1 -> {
+                    polishSelected = true;
+                    englishSelected = false;
+                    userInterface();
+                }
+                case USER_INPUT_2 -> {
+                    englishSelected = true;
+                    polishSelected = false;
+                    userInterface();
+                }
+                case USER_INPUT_9 -> System.exit(0);
                 default -> System.out.println("Błąd, spróbuj ponownie!");
             }
         } while (!userInput.equals(UserChoiceEnum.USER_INPUT_9));
+    }
+
+    public static void userInterface() {
+        UserChoiceEnum userInput;
+        computerBootstrap();
+
+                do {
+                    if (polishSelected) {System.out.println(MAIN_MENU_PL.getText());
+                    } else if (englishSelected) {System.out.println("test eng");}
+
+                    userInput = UserChoiceEnum.userChoice(Integer.parseInt(consoleReader.getScanner().nextLine()));
+
+                    switch (userInput) {
+                        case USER_INPUT_1 -> computer.listComponent();
+                        case USER_INPUT_2 -> fileManager();
+                        case USER_INPUT_8 -> languageMenu();
+                        case USER_INPUT_9 -> System.out.println("Program zakończony");
+                        default -> System.out.println("Błąd, spróbuj ponownie!");
+                    }
+                } while (!userInput.equals(UserChoiceEnum.USER_INPUT_9));
+
     }
 
     public static void fileManager() {
