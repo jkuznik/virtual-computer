@@ -93,13 +93,6 @@ Brawo! Właśnie ukończyłeś standardowy workflow fork -> clone -> edit -> pul
 
 Świętuj swoją pierwszą zmianę i podziel się nią z przyjaciółmi.
 
-Możesz dołączyć na nasz serwer discord w przypadku kiedy będziesz potrzebował pomocy albo miał jakieś pytania. Dołącz do slacka.
+Możesz dołączyć na nasz serwer discord w przypadku kiedy będziesz potrzebował pomocy albo miał jakieś pytania.
 
-Kanal discorda: https://discord.gg/PPscZ7QE
-
-
-
-
-
-
-
+Serwer discorda: https://discord.gg/PPscZ7QE
