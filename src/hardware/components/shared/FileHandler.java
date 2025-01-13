@@ -38,7 +38,7 @@ public class FileHandler {
         return files.stream()
                 .filter(f -> f.getName().equals(fileName))
                 .findFirst()
-                .orElseThrow(() -> new FileNotFoundException("File not found"));
+                .orElseThrow(() -> new FileNotFoundException("File " + fileName + " not found"));
     }
 
     public void listFiles() {

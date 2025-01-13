@@ -25,11 +25,11 @@ public class GameHandler {
         games.forEach(game -> System.out.println(game.getName()));
     }
 
-    public void startGameByName(String name) {
+    public void startGameByName(String gameName) throws GameNotFoundException {
         games.stream()
-                .filter(game -> game.getName().equals(name))
+                .filter(game -> game.getName().equals(gameName))
                 .findFirst()
-                .orElseThrow(NoSuchElementException::new)
+                .orElseThrow(() -> new GameNotFoundException("Game " + gameName + " not found"))
                 .startGame();
     }
 

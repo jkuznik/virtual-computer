@@ -20,11 +20,11 @@ public class ProgramHandler {
         programs.forEach(program -> System.out.println(program.getName()));
     }
 
-    public void startProgramByName(String programName) {
+    public void startProgramByName(String programName) throws ProgramNotFoundException {
         programs.stream()
                 .filter(program -> program.getName().equals(programName))
                 .findFirst()
-                .orElseThrow(NoSuchElementException::new)
+                .orElseThrow(() -> new ProgramNotFoundException("Program " + programName + " not found"))
                 .startProgram();
     }
 
