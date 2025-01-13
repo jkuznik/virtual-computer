@@ -5,6 +5,7 @@ import hardware.components.drive.Drive;
 import hardware.components.headphone.Headphones;
 import hardware.components.monitor.Monitor;
 import hardware.components.shared.Component;
+import hardware.components.shared.ComponentNotFoundException;
 import hardware.components.shared.enums.ComponentType;
 import hardware.components.usbdevice.USBDevice;
 import software.file.File;
@@ -17,33 +18,33 @@ import java.util.NoSuchElementException;
 public class Computer {
     private final List<Component> components = new ArrayList<>();
 
-    public Monitor getMonitor() {
+    public Monitor getMonitor() throws ComponentNotFoundException {
         return (Monitor) components.stream()
                 .filter(component -> component.getComponentType().equals(ComponentType.MONITOR))
                 .findFirst()
-                .orElseThrow(() -> new NoSuchElementException("Computer has no available monitor yet"));
+                .orElseThrow(() -> new ComponentNotFoundException("Computer has no available monitor yet"));
     }
 
     public void setMonitor(Monitor monitor) {
         components.add(monitor);
     }
 
-    public AbstractDrive getDrive() {
+    public AbstractDrive getDrive() throws ComponentNotFoundException {
         return (AbstractDrive) components.stream()
                 .filter(component -> component.getComponentType().equals(ComponentType.DRIVE))
                 .findFirst()
-                .orElseThrow(() -> new NoSuchElementException("Computer has no available drive yet"));
+                .orElseThrow(() -> new ComponentNotFoundException("Computer has no available drive yet"));
     }
 
     public void setDrive(Drive drive) {
         components.add(drive);
     }
 
-    public Headphones getHeadphones() {
+    public Headphones getHeadphones() throws ComponentNotFoundException {
         return (Headphones) components.stream()
                 .filter(component -> component.getComponentType().equals(ComponentType.HEADPHONES))
                 .findFirst()
-                .orElseThrow(() -> new NoSuchElementException("Computer has no available headphones yet"));
+                .orElseThrow(() -> new ComponentNotFoundException("Computer has no available headphones yet"));
     }
 
     public void setHeadphones(Headphones headphones) {
