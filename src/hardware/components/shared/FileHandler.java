@@ -3,6 +3,7 @@ package hardware.components.shared;
 import hardware.components.shared.enums.StorageCapacity;
 import software.file.File;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -33,11 +34,11 @@ public class FileHandler {
         }
     }
 
-    public File findFile(String fileName) {
+    public File findFile(String fileName) throws FileNotFoundException {
         return files.stream()
                 .filter(f -> f.getName().equals(fileName))
                 .findFirst()
-                .orElseThrow(() -> new NoSuchElementException("File not found"));
+                .orElseThrow(() -> new FileNotFoundException("File not found"));
     }
 
     public void listFiles() {

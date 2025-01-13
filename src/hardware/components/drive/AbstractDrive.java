@@ -6,6 +6,8 @@ import hardware.components.shared.enums.ComponentType;
 import hardware.components.shared.enums.StorageCapacity;
 import software.file.File;
 
+import java.io.FileNotFoundException;
+
 public abstract class AbstractDrive implements Drive, FileStorage {
     private final FileHandler fileHandler;
     private final String name;
@@ -41,7 +43,7 @@ public abstract class AbstractDrive implements Drive, FileStorage {
     }
 
     @Override
-    public File findFile(String fileName) {
+    public File findFile(String fileName) throws FileNotFoundException {
         return fileHandler.findFile(fileName);
     }
 
