@@ -16,7 +16,7 @@ public class Chat implements Program {
     private static final int SERVER_PORT = 9999; // Currently Chat server is listening on port 9999
     private static final ConsoleReader consoleReader = ConsoleReader.getInstance();
 
-    private final String NAME = "gg";
+    private final String NAME = "Chat";
 
     @Override
     public String getName() {

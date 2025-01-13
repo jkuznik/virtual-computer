@@ -1,6 +1,5 @@
 package software.game.TicTacToe;
 
-import java.util.Arrays;
 import java.util.Random;
 import static software.game.TicTacToe.CheckWinCon.winingCombo;
 import static software.game.TicTacToe.SinglePlayer.*;

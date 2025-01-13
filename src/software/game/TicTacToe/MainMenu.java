@@ -1,6 +1,5 @@
 package software.game.TicTacToe;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MainMenu {
