@@ -1,18 +1,18 @@
 package hardware.components.usbdevice;
 
 import hardware.components.shared.enums.ComponentType;
-import hardware.components.shared.FileHandler;
 import hardware.components.shared.FileStorage;
+import hardware.components.shared.FileHandler;
 import hardware.components.shared.enums.StorageCapacity;
 import software.file.File;
 
-public class MemoryStick implements USBDevice, FileHandler {
-    private final FileStorage fileStorage;
+public class MemoryStick implements USBDevice, FileStorage {
+    private final FileHandler fileHandler;
     private final String name;
     private boolean ejected = false;
 
     public MemoryStick(StorageCapacity storageCapacity,String name) {
-        this.fileStorage = new FileStorage(storageCapacity);
+        this.fileHandler = new FileHandler(storageCapacity);
         this.name = name;
     }
 
@@ -41,22 +41,22 @@ public class MemoryStick implements USBDevice, FileHandler {
 
     @Override
     public void addFile(File file) {
-        fileStorage.addFile(file);
+        fileHandler.addFile(file);
     }
 
     @Override
     public void listFiles() {
-        fileStorage.listFiles();
+        fileHandler.listFiles();
     }
 
     @Override
     public void removeFile(File file) {
-        fileStorage.removeFile(file);
+        fileHandler.removeFile(file);
     }
 
     @Override
     public File findFile(String fileName) {
-        return fileStorage.findFile(fileName);
+        return fileHandler.findFile(fileName);
     }
 
     @Override
