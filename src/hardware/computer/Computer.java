@@ -25,10 +25,6 @@ public class Computer {
                 .orElseThrow(() -> new ComponentNotFoundException("Computer has no available monitor yet"));
     }
 
-    public void setMonitor(Monitor monitor) {
-        components.add(monitor);
-    }
-
     public AbstractDrive getDrive() throws ComponentNotFoundException {
         return (AbstractDrive) components.stream()
                 .filter(component -> component.getComponentType().equals(ComponentType.DRIVE))
@@ -36,19 +32,11 @@ public class Computer {
                 .orElseThrow(() -> new ComponentNotFoundException("Computer has no available drive yet"));
     }
 
-    public void setDrive(Drive drive) {
-        components.add(drive);
-    }
-
     public Headphones getHeadphones() throws ComponentNotFoundException {
         return (Headphones) components.stream()
                 .filter(component -> component.getComponentType().equals(ComponentType.HEADPHONES))
                 .findFirst()
                 .orElseThrow(() -> new ComponentNotFoundException("Computer has no available headphones yet"));
-    }
-
-    public void setHeadphones(Headphones headphones) {
-        components.add(headphones);
     }
 
 //    TODO: do zaimplementowania
@@ -69,7 +57,6 @@ public class Computer {
     public void addComponent(Component component) {
         components.add(component);
     }
-
 
    public void listComponent() {
       for (Component component : components) {
