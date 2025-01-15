@@ -44,7 +44,7 @@ public class UserInterface {
             userInput = UserChoiceEnum.userChoice(Integer.parseInt(consoleReader.getScanner().nextLine()));
 
             switch (userInput) {
-                case USER_INPUT_1 -> computer.listComponent();
+                case USER_INPUT_1 -> computer.listComponents();
                 case USER_INPUT_2 -> fileManager();
                 case USER_INPUT_9 -> System.out.println("Program zakończony");
                 default -> System.out.println("Błąd, spróbuj ponownie!");
