@@ -10,7 +10,7 @@ jednak mogą zwiekszyć czytelność kodu dla osób całkowicie początkujących
 
 ![](programInterface.png)
 
-Utwórz nowy pakiet w ścieżce pakietów <b>src/software/program/</b> i utwórz tam całą niezbędną infrastrukturę dla
+Utwórz nowy pakiet w ścieżce pakietów <b>src/computer.software/program/</b> i utwórz tam całą niezbędną infrastrukturę dla
 działania Twojego programu 
 
 ![](programPackageSource.png)
