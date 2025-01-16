@@ -21,12 +21,11 @@ public class Computer {
                 .orElseThrow(() -> new ComponentNotFoundException("Component of type " + componentType.toString().toLowerCase() + " not found"));
     }
 
-    public Component getComponent(ComponentType componentType, String componentName) throws ComponentNotFoundException {
+    public Component getComponent(String componentName) throws ComponentNotFoundException {
         return components.stream()
-                .filter(component -> component.getComponentType().equals(componentType) && component.getComponentName().equals(componentName))
+                .filter(component -> component.getComponentName().equals(componentName))
                 .findFirst()
-                .orElseThrow(() -> new ComponentNotFoundException("Component of type " + componentType.toString().toLowerCase() +
-                        "and name " + componentName + " not found"));
+                .orElseThrow(() -> new ComponentNotFoundException("Component with " + componentName + " name not found"));
     }
 
     public Set<Component> getAllComponents() {
