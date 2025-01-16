@@ -1,24 +1,14 @@
 package hardware.computer;
 
-import hardware.components.drive.AbstractDrive;
-import hardware.components.headphone.Headphones;
-import hardware.components.monitor.Monitor;
 import hardware.components.shared.Component;
 import hardware.components.shared.ComponentNotFoundException;
 import hardware.components.shared.enums.ComponentType;
-import hardware.components.usbdevice.USBDevice;
-import utils.ConsoleReader;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public class Computer {
     private final Set<Component> components = new HashSet<>();
-    private final ConsoleReader consoleReader = ConsoleReader.getInstance();
-
 
     public void addComponent(Component component) {
         components.add(component);
@@ -36,7 +26,7 @@ public class Computer {
                 .filter(component -> component.getComponentType().equals(componentType) && component.getComponentName().equals(componentName))
                 .findFirst()
                 .orElseThrow(() -> new ComponentNotFoundException("Component of type " + componentType.toString().toLowerCase() +
-        "and name " + componentName + " not found"));
+                        "and name " + componentName + " not found"));
     }
 
     public Set<Component> getAllComponents() {
