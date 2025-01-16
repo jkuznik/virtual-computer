@@ -44,6 +44,10 @@ public class Computer {
             //System.out.println(component.getComponentName());
         }
     }
+
+    public void removeComponent(Component component) {
+        components.remove(component);
+    }
 //    TODO: do zaimplementowania
 //    public List<USBDevice> getUsbDevices() {
 //        return usbDevices;
