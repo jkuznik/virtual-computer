@@ -18,84 +18,46 @@ public class Computer {
     private final List<Component> components = new ArrayList<>();
     private final ConsoleReader consoleReader = ConsoleReader.getInstance();
 
-    public Monitor getMonitor() throws ComponentNotFoundException {
-        return (Monitor) components.stream()
-                .filter(component -> component.getComponentType().equals(ComponentType.MONITOR))
-                .findFirst()
-                .orElseThrow(() -> new ComponentNotFoundException("Computer has no available monitor yet"));
-    }
-
-    public AbstractDrive getDrive() throws ComponentNotFoundException {
-        return (AbstractDrive) components.stream()
-                .filter(component -> component.getComponentType().equals(ComponentType.DRIVE))
-                .findFirst()
-                .orElseThrow(() -> new ComponentNotFoundException("Computer has no available drive yet"));
-    }
-
-    public Headphones getHeadphones() throws ComponentNotFoundException {
-        return (Headphones) components.stream()
-                .filter(component -> component.getComponentType().equals(ComponentType.HEADPHONES))
-                .findFirst()
-                .orElseThrow(() -> new ComponentNotFoundException("Computer has no available headphones yet"));
-    }
-
-//    TODO: do zaimplementowania
-//    public List<USBDevice> getUsbDevices() {
-//        return usbDevices;
-//    }
-
-//    TODO: do zaimplementowania logika ustawiania 'isConnected' dla usbDevice
-    public void addUSBDevice(USBDevice usbDevice) {
-        components.add(usbDevice);
-    }
-
-//    TODO: do zaimplementowania logika ustawiania 'isConnected' dla usbDevice
-    public void removeUSBDevice(USBDevice usbDevice) {
-        components.remove(usbDevice);
-    }
 
     public void addComponent(Component component) {
         components.add(component);
     }
 
-    public Component getComponentByType(ComponentType componentType) throws ComponentNotFoundException {
-        Set<Component> collected = components.stream()
+    public Component getComponent(ComponentType componentType) throws ComponentNotFoundException {
+        return components.stream()
                 .filter(component -> component.getComponentType().equals(componentType))
-                .collect(Collectors.toSet());
-
-        if (collected.isEmpty()) {
-            throw new ComponentNotFoundException("Component with " + componentType.toString().toLowerCase() + " not found");
-        }
-        if (collected.size() > 1) {
-            int i = 1;
-            int userInput;
-            System.out.println("Znalezione więcej niż jeden podzespół typu: " + componentType.toString().toLowerCase());
-            for (Component component : components) {
-                System.out.println(i + "." + component.getComponentName());
-                i++;
-            }
-            while(true){
-                System.out.println("Podaj nr podzepołu który Cię interesuje lub wpisz 0 aby wyjść:");
-                try {
-                    userInput = Integer.parseInt(consoleReader.getScanner().nextLine());
-                    if (userInput == 0 ) break;
-                    if (userInput > collected.size()) {
-                        System.out.println("Zły wybór. Podaj jeszcze raz");
-                    }
-                } catch (NumberFormatException e) {
-                    System.out.println("Należy wybrać cyfrę");
-                }
-
-            }
-        }
+                .findFirst()
+                .orElseThrow(() -> new ComponentNotFoundException("Component of type " + componentType.toString().toLowerCase() + " not found"));
     }
 
-   public void listComponents() {
-      for (Component component : components) {
-          System.out.println(component.getComponentType() + "- " + component.getComponentName());
-          //System.out.println(component.getComponentName());
-      }
-   }
+    public Component getComponent(ComponentType componentType, String componentName) throws ComponentNotFoundException {
+        return components.stream()
+                .filter(component -> component.getComponentType().equals(componentType) && component.getComponentName().equals(componentName))
+                .findFirst()
+                .orElseThrow(() -> new ComponentNotFoundException("Component of type " + componentType.toString().toLowerCase() +
+        "and name " + componentName + " not found"));
+    }
+
+    public void listComponents() {
+        for (Component component : components) {
+            System.out.println(component.getComponentType() + "- " + component.getComponentName());
+            //System.out.println(component.getComponentName());
+        }
+    }
+//    TODO: do zaimplementowania
+//    public List<USBDevice> getUsbDevices() {
+//        return usbDevices;
+//    }
+
+    //    TODO: do zaimplementowania logika ustawiania 'isConnected' dla usbDevice
+//    public void addUSBDevice(USBDevice usbDevice) {
+//        components.add(usbDevice);
+//    }
+
+    //    TODO: do zaimplementowania logika ustawiania 'isConnected' dla usbDevice
+//    public void removeUSBDevice(USBDevice usbDevice) {
+//        components.remove(usbDevice);
+//    }
 
 }
 
