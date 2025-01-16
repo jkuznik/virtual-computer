@@ -10,12 +10,13 @@ import hardware.components.usbdevice.USBDevice;
 import utils.ConsoleReader;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Computer {
-    private final List<Component> components = new ArrayList<>();
+    private final Set<Component> components = new HashSet<>();
     private final ConsoleReader consoleReader = ConsoleReader.getInstance();
 
 
@@ -38,11 +39,8 @@ public class Computer {
         "and name " + componentName + " not found"));
     }
 
-    public void listComponents() {
-        for (Component component : components) {
-            System.out.println(component.getComponentType() + "- " + component.getComponentName());
-            //System.out.println(component.getComponentName());
-        }
+    public Set<Component> getAllComponents() {
+        return components;
     }
 
     public void removeComponent(Component component) {
