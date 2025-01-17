@@ -4,7 +4,7 @@
 ## First Contributions
 Doing something for the first time is always hard. This is especially true when collaborating with other
 people because making mistakes can be unpleasant. However, collaboration is at the core of open-source
-software. We aim to teach new developers how to upload their first changes to an unfamiliar project in a
+computer.software. We aim to teach new developers how to upload their first changes to an unfamiliar project in a
 simple way.
 
 Reading articles and watching tutorials can help, but is there anything better than trying something yourself without fear of breaking anything? This project is designed to guide newcomers and simplify the process of uploading their first contribution. Remember: the more relaxed you are, the better you learn. If you want to make your first contribution, follow the simple steps below. It will be fun, we promise.

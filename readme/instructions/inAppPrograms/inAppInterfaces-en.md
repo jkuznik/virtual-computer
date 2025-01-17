@@ -9,7 +9,7 @@ project.
 
 ![](programInterface.png)
 
-Create a new package under the path <b>src/software/program/</b> and set up the entire infrastructure required for
+Create a new package under the path <b>src/computer.software/program/</b> and set up the entire infrastructure required for
 your program to function.
 
 ![](programPackageSource.png)
