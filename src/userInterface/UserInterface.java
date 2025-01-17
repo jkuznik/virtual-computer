@@ -1,9 +1,11 @@
 package userInterface;
 
+import hardware.components.drive.AbstractDrive;
 import hardware.components.drive.HDDDrive;
 import hardware.components.headphone.Headphones;
 import hardware.components.monitor.Monitor;
 import hardware.components.shared.ComponentNotFoundException;
+import hardware.components.shared.enums.ComponentType;
 import hardware.components.shared.enums.StorageCapacity;
 import hardware.components.usbdevice.MemoryStick;
 import hardware.components.usbdevice.Mouse;
@@ -35,7 +37,7 @@ public class UserInterface {
         System.out.println("Witam!");
         do {
             System.out.println("""
-                              
+                    
                     1.Wyświetl podzespoły 
                     2.Zarządzanie plikami
                     9.Wyjście.
@@ -44,7 +46,8 @@ public class UserInterface {
             userInput = UserChoiceEnum.userChoice(Integer.parseInt(consoleReader.getScanner().nextLine()));
 
             switch (userInput) {
-                case USER_INPUT_1 -> computer.listComponent();
+                case USER_INPUT_1 ->
+                        computer.getAllComponents().forEach(component -> System.out.println(component.getComponentName()));
                 case USER_INPUT_2 -> fileManager();
                 case USER_INPUT_9 -> System.out.println("Program zakończony");
                 default -> System.out.println("Błąd, spróbuj ponownie!");
@@ -55,7 +58,7 @@ public class UserInterface {
     public static void fileManager() {
         do {
             System.out.println("""
-                                    
+                    
                     1.Wyświetl pliki.
                     2.Dodaj plik.
                     3.Usuń plik.
@@ -103,7 +106,7 @@ public class UserInterface {
 
     private static void listFiles() {
         try {
-            computer.getDrive().listFiles();
+            computerDrive().listFiles();
         } catch (ComponentNotFoundException e) {
             System.out.println(e.getMessage());
         }
@@ -132,8 +135,8 @@ public class UserInterface {
                 size = Integer.parseInt(consoleReader.getScanner().nextLine());
                 System.out.println("Podaj kompresje");
                 compression = Integer.parseInt(consoleReader.getScanner().nextLine());
-                try{
-                    computer.getDrive().addFile(new JPGImageFile(name, size, compression));
+                try {
+                    computerDrive().addFile(new JPGImageFile(name, size, compression));
                 } catch (ComponentNotFoundException e) {
                     System.out.println(e.getMessage());
                 }
@@ -144,8 +147,8 @@ public class UserInterface {
                 name = consoleReader.getScanner().nextLine() + ".gif";
                 System.out.println("Podaj rozmiar");
                 size = Integer.parseInt(consoleReader.getScanner().nextLine());
-                try{
-                    computer.getDrive().addFile(new GIFImageFile(name, size));
+                try {
+                    computerDrive().addFile(new GIFImageFile(name, size));
                 } catch (ComponentNotFoundException e) {
                     System.out.println(e.getMessage());
                 }
@@ -156,13 +159,15 @@ public class UserInterface {
                 System.out.println("Podaj rozmiar");
                 size = Integer.parseInt(consoleReader.getScanner().nextLine());
                 System.out.println("Podaj wykonawcę");
-                bandName = consoleReader.getScanner().nextLine();;
+                bandName = consoleReader.getScanner().nextLine();
+                ;
                 System.out.println("Podaj tytuł");
-                title = consoleReader.getScanner().nextLine();;
+                title = consoleReader.getScanner().nextLine();
+                ;
                 System.out.println("Podaj jakość");
                 quality = Integer.parseInt(consoleReader.getScanner().nextLine());
-                try{
-                    computer.getDrive().addFile(new MP3MusicFile(name , size , bandName , title , quality));
+                try {
+                    computerDrive().addFile(new MP3MusicFile(name, size, bandName, title, quality));
                 } catch (ComponentNotFoundException e) {
                     System.out.println(e.getMessage());
                 }
@@ -175,8 +180,8 @@ public class UserInterface {
         System.out.println("Podaj nazwe pliku który chcesz usunąć");
         String fileName = consoleReader.getScanner().nextLine();
         try {
-            File fileForDelete = computer.getDrive().findFile(fileName);
-            computer.getDrive().removeFile(fileForDelete);
+            File fileForDelete = computerDrive().findFile(fileName);
+            computerDrive().removeFile(fileForDelete);
         } catch (ComponentNotFoundException | FileNotFoundException e) {
             System.out.println(e.getMessage());
         }
@@ -201,14 +206,19 @@ public class UserInterface {
         JPGImageFile jpgImageFile = new JPGImageFile("funnyimage.png", 2, 1);
         MP3MusicFile mp3MusicFile = new MP3MusicFile("song.mp3", 15, "band", "title", 10);
 
-        try{
-            computer.getDrive().addFile(gifImageFile);
-            computer.getDrive().addFile(jpgImageFile);
-            computer.getDrive().addFile(mp3MusicFile);
+        try {
+            computerDrive().addFile(gifImageFile);
+            computerDrive().addFile(jpgImageFile);
+            computerDrive().addFile(mp3MusicFile);
         } catch (ComponentNotFoundException e) {
             System.out.println(e.getMessage());
         }
 
     }
 
+
+    private static AbstractDrive computerDrive() throws ComponentNotFoundException {
+        AbstractDrive drive = (AbstractDrive) computer.getComponent(ComponentType.DRIVE);
+        return drive;
+    }
 }
