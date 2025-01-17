@@ -1,5 +1,4 @@
 package utils.persistentState;
 
-public class SaveState {
-
+public class StateReader {
 }
