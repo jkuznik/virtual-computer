@@ -11,7 +11,7 @@ public enum MultiLingualHandler {
                     """,
                   "eng"),
 
-    PROGRAM_ENDED_PL ("Program zakończony",
+    PROGRAM_ENDED ("Program zakończony",
                       "eng"),
     ERROR ("Błąd, spróbuj ponownie!" , "eng"),
 
