@@ -1,7 +1,8 @@
 package pl.jkuznik.computer.userInterface;
 
 public enum MultiLingualHandler {
-    USER_INTERFACE_MAIN_MENU ("""
+
+    MAIN_MENU ("""
                               
                     1.Wyświetl podzespoły 
                     2.Zarządzanie plikami
@@ -63,4 +64,6 @@ private final String textEng;
         this.textPl = textPl;
         this.textEng = textEng;
     }
+
+
 }

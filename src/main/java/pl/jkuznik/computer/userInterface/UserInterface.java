@@ -29,6 +29,36 @@ public class UserInterface {
     static ProgramHandler programHandler = ProgramHandler.getInstance();
     static GameHandler gameHandler = new GameHandler();
     static UserChoiceEnum userInput;
+    static boolean polishSelected;
+    static boolean englishSelected;
+    public static void languageMenu() {
+
+        System.out.println("Witam!");
+        do {
+            System.out.println("""
+                    Wybierz język/Select language
+                     1.Polski!
+                     2.English!
+                     9.Wyjście/Exit.
+                    """);
+            userInput = UserChoiceEnum.userChoice(Integer.parseInt(consoleReader.getScanner().nextLine()));
+
+            switch (userInput) {
+                case USER_INPUT_1 -> {
+                    polishSelected = true;
+                    englishSelected = false;
+                    userInterface();
+                }
+                case USER_INPUT_2 -> {
+                    englishSelected = true;
+                    polishSelected = false;
+                    userInterface();
+                }
+                case USER_INPUT_9 -> System.exit(0);
+                default -> System.out.println("Błąd, spróbuj ponownie!");
+            }
+        } while (!userInput.equals(UserChoiceEnum.USER_INPUT_9));
+    }
 
     public static void userInterface() {
 
