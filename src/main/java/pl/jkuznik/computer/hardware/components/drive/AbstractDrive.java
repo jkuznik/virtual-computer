@@ -1,5 +1,6 @@
 package pl.jkuznik.computer.hardware.components.drive;
 
+import com.google.gson.Gson;
 import pl.jkuznik.computer.hardware.shared.FileHandler;
 import pl.jkuznik.computer.hardware.shared.FileStorage;
 import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
@@ -11,6 +12,8 @@ import java.io.FileNotFoundException;
 public abstract class AbstractDrive implements Drive, FileStorage {
     private final FileHandler fileHandler;
     private final String name;
+
+    private transient final Gson gson = new Gson();
 
     public AbstractDrive(StorageCapacity storageCapacity, String name) {
         this.fileHandler = new FileHandler(storageCapacity);
@@ -57,5 +60,10 @@ public abstract class AbstractDrive implements Drive, FileStorage {
     @Override
     public ComponentType getComponentType() {
         return ComponentType.DRIVE;
+    }
+
+    @Override
+    public String toJson() {
+        return gson.toJson(this);
     }
 }

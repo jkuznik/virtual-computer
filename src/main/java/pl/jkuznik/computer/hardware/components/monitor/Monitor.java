@@ -1,11 +1,14 @@
 package pl.jkuznik.computer.hardware.components.monitor;
 
+import com.google.gson.Gson;
 import pl.jkuznik.computer.hardware.shared.Component;
 import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
 
 public class Monitor implements Component {
 
     public static final int MAX_HEIGHT = 3840;
+
+    private transient final Gson gson = new Gson();
 
     private int width = 3840;
     private int height = 1920;
@@ -41,5 +44,10 @@ public class Monitor implements Component {
     @Override
     public ComponentType getComponentType() {
         return ComponentType.MONITOR;
+    }
+
+    @Override
+    public String toJson() {
+        return gson.toJson(this);
     }
 }
