@@ -41,10 +41,10 @@ public class FileHandler {
     }
 
     public void listFiles() {
-//         files.forEach(System.out::println);
         for (File file : files) {
             System.out.println(file.getName());
         }
+        System.out.println();
     }
 
 }
