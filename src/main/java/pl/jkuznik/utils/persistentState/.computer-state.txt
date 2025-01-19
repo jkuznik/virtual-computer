@@ -1,0 +1,5 @@
+{"name":"HyperX"}
+{"fileHandler":{"storageCapacity":"GB16","currentCapacity":0,"files":[]},"name":"Pendrive","ejected":false}
+{"fileHandler":{"storageCapacity":"GB512","currentCapacity":20,"files":[{"name":"funnygif.gif","size":3},{"compression":1,"name":"funnyimage.png","size":2},{"quality":10,"bandName":"band","title":"title","name":"song.mp3","size":15}]},"name":"HDDDrive"}
+{"width":3840,"height":1920,"name":"Iiyama"}
+{"name":"Zowie"}

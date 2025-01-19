@@ -16,6 +16,7 @@ public class StateReader {
         try {
             List<String> lines = Files.readAllLines(path);
 
+            lines.forEach(System.out::println);
         } catch (IOException e) {
             System.out.println("File .computer-state.txt not found");
         }

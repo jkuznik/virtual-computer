@@ -19,6 +19,8 @@ import pl.jkuznik.computer.software.game.GameNotFoundException;
 import pl.jkuznik.computer.software.program.ProgramHandler;
 import pl.jkuznik.computer.software.program.ProgramNotFoundException;
 import pl.jkuznik.utils.ConsoleReader;
+import pl.jkuznik.utils.persistentState.StateReader;
+import pl.jkuznik.utils.persistentState.StateWriter;
 
 import java.io.FileNotFoundException;
 
@@ -30,9 +32,15 @@ public class UserInterface {
     static GameHandler gameHandler = new GameHandler();
     static UserChoiceEnum userInput;
 
+    static StateReader stateReader = new StateReader();
+    static StateWriter stateWriter = new StateWriter();
+
     public static void userInterface() {
 
         computerBootstrap();
+        stateWriter.writeState(computer.getAllComponents());
+        stateReader.readState();
+
         System.out.println("Witam!");
         do {
             System.out.println("""
