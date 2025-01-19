@@ -4,6 +4,9 @@ import com.google.gson.Gson;
 import pl.jkuznik.computer.hardware.shared.Component;
 import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 public class Headphones implements Component {
     private final String name;
     private transient final Gson gson = new Gson();
@@ -24,6 +27,11 @@ public class Headphones implements Component {
 
     @Override
     public String toJson() {
-        return gson.toJson(this);
+        Map<String, Object> jsonMap = new LinkedHashMap<>();
+
+        jsonMap.put("type", this.getComponentType().name());
+        jsonMap.put("name", name);
+
+        return gson.toJson(jsonMap);
     }
 }

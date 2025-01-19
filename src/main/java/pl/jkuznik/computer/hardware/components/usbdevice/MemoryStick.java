@@ -8,6 +8,8 @@ import pl.jkuznik.computer.hardware.shared.enums.StorageCapacity;
 import pl.jkuznik.computer.software.file.File;
 
 import java.io.FileNotFoundException;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class MemoryStick implements USBDevice, FileStorage {
     private final FileHandler fileHandler;
@@ -76,6 +78,14 @@ public class MemoryStick implements USBDevice, FileStorage {
 
     @Override
     public String toJson() {
-        return gson.toJson(this);
+        Map<String, Object> jsonMap = new LinkedHashMap<>();
+
+        jsonMap.put("type", this.getComponentType().name());
+        jsonMap.put("name", name);
+        jsonMap.put("ejected", ejected);
+        // TODO: toJson w fileHandler
+        jsonMap.put("fileHandler", fileHandler.toString());
+
+        return gson.toJson(jsonMap);
     }
 }

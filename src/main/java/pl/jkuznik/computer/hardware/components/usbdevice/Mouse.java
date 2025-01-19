@@ -3,6 +3,9 @@ package pl.jkuznik.computer.hardware.components.usbdevice;
 import com.google.gson.Gson;
 import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 public class Mouse implements USBDevice {
     private final String name;
 
@@ -36,6 +39,11 @@ public class Mouse implements USBDevice {
 
     @Override
     public String toJson() {
-        return gson.toJson(this);
+        Map<String, Object> jsonMap = new LinkedHashMap<>();
+
+        jsonMap.put("type", this.getComponentType().name());
+        jsonMap.put("name", name);
+
+        return gson.toJson(jsonMap);
     }
 }

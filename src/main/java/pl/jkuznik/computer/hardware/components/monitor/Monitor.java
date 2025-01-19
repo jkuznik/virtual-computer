@@ -4,14 +4,17 @@ import com.google.gson.Gson;
 import pl.jkuznik.computer.hardware.shared.Component;
 import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 public class Monitor implements Component {
 
     public static final int MAX_HEIGHT = 3840;
-    private transient final Gson gson = new Gson();
-
+    private final String name;
     private int width = 3840;
     private int height = 1920;
-    private final String name;
+
+    private transient final Gson gson = new Gson();
 
     public Monitor(String name) {
         this.name = name;
@@ -47,6 +50,13 @@ public class Monitor implements Component {
 
     @Override
     public String toJson() {
-        return gson.toJson(this);
+        Map<String, Object> jsonMap = new LinkedHashMap<>();
+
+        jsonMap.put("type", this.getComponentType().name());
+        jsonMap.put("name", name);
+        jsonMap.put("height", height);
+        jsonMap.put("width", width);
+
+        return gson.toJson(jsonMap);
     }
 }
