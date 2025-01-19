@@ -1,7 +1,6 @@
 package pl.jkuznik.computer.hardware.components.drive;
 
 import com.google.gson.Gson;
-import com.google.gson.annotations.Expose;
 import pl.jkuznik.computer.hardware.shared.FileHandler;
 import pl.jkuznik.computer.hardware.shared.FileStorage;
 import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
@@ -13,7 +12,6 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public abstract class AbstractDrive implements Drive, FileStorage {
-    @Expose(serialize = false, deserialize = false)
     private final FileHandler fileHandler;
     private final String name;
 
@@ -73,7 +71,7 @@ public abstract class AbstractDrive implements Drive, FileStorage {
         jsonMap.put("type", this.getComponentType().name());
         jsonMap.put("name", name);
         // TODO: zaimplementować toJson w fileHandler aby umożliwić zapisanie stanu plików
-        jsonMap.put("fileHandler", fileHandler.toString());
+//        jsonMap.put("fileHandler", fileHandler.toString());
 
         return gson.toJson(jsonMap);
     }

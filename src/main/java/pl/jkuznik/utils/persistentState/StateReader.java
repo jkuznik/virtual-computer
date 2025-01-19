@@ -3,7 +3,9 @@ package pl.jkuznik.utils.persistentState;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
+import pl.jkuznik.computer.hardware.components.drive.AbstractDrive;
 import pl.jkuznik.computer.hardware.components.drive.Drive;
+import pl.jkuznik.computer.hardware.components.drive.HDDDrive;
 import pl.jkuznik.computer.hardware.components.headphone.Headphones;
 import pl.jkuznik.computer.hardware.components.monitor.Monitor;
 import pl.jkuznik.computer.hardware.components.usbdevice.MemoryStick;
@@ -37,7 +39,8 @@ public class StateReader {
                     case "MOUSE" -> component = gson.fromJson(line, Mouse.class);
                     case "HEADPHONES" -> component = gson.fromJson(line, Headphones.class);
                     case "MEMORYSTICK" -> component = gson.fromJson(line, MemoryStick.class);
-                    case "DRIVE" -> component = gson.fromJson(line, Drive.class);
+//                    TODO: dodać obsługe klasy abstrakcyjnej AbstractDrive - obecnie jest na sztywno HDDDrive
+                    case "DRIVE" -> component = gson.fromJson(line, HDDDrive.class);
                 }
 
                 if (component != null) {
