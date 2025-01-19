@@ -1,6 +1,5 @@
 package pl.jkuznik.utils.persistentState;
 
-import com.google.gson.Gson;
 import pl.jkuznik.computer.hardware.shared.Component;
 
 import java.io.IOException;
@@ -11,11 +10,9 @@ import java.util.List;
 import java.util.Set;
 
 public class StateWriter {
-
     private final Path path = Paths.get(FilePath.COMPUTER_STATE.getPath());
 
     public void writeState(Set<Component> components) {
-
         List<String> computerState = components.stream()
                 .map(Component::toJson)
                 .toList();

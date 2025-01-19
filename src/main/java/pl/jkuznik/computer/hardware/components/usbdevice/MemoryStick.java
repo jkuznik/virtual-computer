@@ -1,6 +1,7 @@
 package pl.jkuznik.computer.hardware.components.usbdevice;
 
 import com.google.gson.Gson;
+import com.google.gson.annotations.Expose;
 import pl.jkuznik.computer.hardware.shared.FileHandler;
 import pl.jkuznik.computer.hardware.shared.FileStorage;
 import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
@@ -12,6 +13,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class MemoryStick implements USBDevice, FileStorage {
+    @Expose(serialize = false, deserialize = false)
     private final FileHandler fileHandler;
     private final String name;
     private boolean ejected = false;

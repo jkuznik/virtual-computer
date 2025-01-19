@@ -33,10 +33,11 @@ public class UserInterface {
 
     public static void userInterface() {
 
-        computerBootstrap();
-        computer.saveState();
+//        computerBootstrap();
+//        computer.saveState();
 
-//        computer.loadState();
+        computer.loadState();
+//        computer.getAllComponents().forEach(component -> System.out.println(component.getComponentName()));
         System.out.println("Witam!");
         do {
             System.out.println("""
