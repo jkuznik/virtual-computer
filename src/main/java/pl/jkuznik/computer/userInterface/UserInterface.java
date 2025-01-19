@@ -32,15 +32,11 @@ public class UserInterface {
     static GameHandler gameHandler = new GameHandler();
     static UserChoiceEnum userInput;
 
-    static StateReader stateReader = new StateReader();
-    static StateWriter stateWriter = new StateWriter();
-
     public static void userInterface() {
 
-        computerBootstrap();
-        stateWriter.writeState(computer.getAllComponents());
-        stateReader.readState();
+//        computerBootstrap();
 
+        computer.loadState();
         System.out.println("Witam!");
         do {
             System.out.println("""
@@ -220,7 +216,6 @@ public class UserInterface {
         } catch (ComponentNotFoundException e) {
             System.out.println(e.getMessage());
         }
-
     }
 
     private static AbstractDrive computerDrive() throws ComponentNotFoundException {

@@ -7,7 +7,6 @@ import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
 public class Monitor implements Component {
 
     public static final int MAX_HEIGHT = 3840;
-
     private transient final Gson gson = new Gson();
 
     private int width = 3840;

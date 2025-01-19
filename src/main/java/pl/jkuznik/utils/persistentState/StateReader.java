@@ -12,11 +12,11 @@ public class StateReader {
 
     private final Path path = Paths.get(FilePath.COMPUTER_STATE.getPath());
 
+
     public List<Component> readState(){
         try {
             List<String> lines = Files.readAllLines(path);
 
-            lines.forEach(System.out::println);
         } catch (IOException e) {
             System.out.println("File .computer-state.txt not found");
         }
