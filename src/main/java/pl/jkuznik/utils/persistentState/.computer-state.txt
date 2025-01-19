@@ -1,5 +1,5 @@
-{"name":"HyperX"}
-{"fileHandler":{"storageCapacity":"GB16","currentCapacity":0,"files":[]},"name":"Pendrive","ejected":false}
-{"fileHandler":{"storageCapacity":"GB512","currentCapacity":20,"files":[{"name":"funnygif.gif","size":3},{"compression":1,"name":"funnyimage.png","size":2},{"quality":10,"bandName":"band","title":"title","name":"song.mp3","size":15}]},"name":"HDDDrive"}
-{"width":3840,"height":1920,"name":"Iiyama"}
-{"name":"Zowie"}
+{"type":"HEADPHONES","name":"HyperX"}
+{"type":"MEMORYSTICK","name":"Pendrive","ejected":false,"fileHandler":"pl.jkuznik.computer.hardware.shared.FileHandler@32eebfca"}
+{"type":"DRIVE","name":"HDDDrive","fileHandler":"pl.jkuznik.computer.hardware.shared.FileHandler@4e718207"}
+{"type":"MONITOR","name":"Iiyama","height":1920,"width":3840}
+{"type":"MOUSE","name":"Zowie"}

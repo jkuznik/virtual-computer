@@ -24,7 +24,6 @@ import pl.jkuznik.utils.persistentState.StateWriter;
 
 import java.io.FileNotFoundException;
 
-
 public class UserInterface {
     static Computer computer = new Computer();
     static ConsoleReader consoleReader = ConsoleReader.getInstance();
@@ -34,9 +33,10 @@ public class UserInterface {
 
     public static void userInterface() {
 
-//        computerBootstrap();
+        computerBootstrap();
+        computer.saveState();
 
-        computer.loadState();
+//        computer.loadState();
         System.out.println("Witam!");
         do {
             System.out.println("""

@@ -42,7 +42,7 @@ public class Computer {
     }
 
     public void saveState() {
-
+        stateWriter.writeState(components);
     }
 
     public void loadState() {
