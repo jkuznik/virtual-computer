@@ -14,9 +14,8 @@ public class StateReader {
         try {
             List<String> lines = Files.readAllLines(path);
 
-            lines.forEach(line -> System.out.println(line));
         } catch (IOException e) {
-            System.out.println("File about computer state not found");
+            System.out.println("File computer state not found");
         }
     }
 }
