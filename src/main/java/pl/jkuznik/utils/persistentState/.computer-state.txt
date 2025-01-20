@@ -1,4 +1,5 @@
 {"type":"MOUSE","name":"Zowie"}
 {"type":"MONITOR","name":"Iiyama","height":1920,"width":3840}
-{"type":"HEADPHONES","name":"HyperX"}
+{"type":"HEADPHONES","name":"HyperXxxxxx"}
+{"type":"MEMORYSTICK","name":"Pendrive","ejected":false}
 {"type":"DRIVE","name":"HDDDrive"}

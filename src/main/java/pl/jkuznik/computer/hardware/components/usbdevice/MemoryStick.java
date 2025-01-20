@@ -12,7 +12,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class MemoryStick implements USBDevice, FileStorage {
-    private final FileHandler fileHandler;
+    private transient final FileHandler fileHandler;
     private final String name;
     private boolean ejected = false;
 

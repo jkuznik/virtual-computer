@@ -12,7 +12,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public abstract class AbstractDrive implements Drive, FileStorage {
-    private final FileHandler fileHandler;
+    private transient final FileHandler fileHandler;
     private final String name;
 
     private transient final Gson gson = new Gson();
