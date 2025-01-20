@@ -30,43 +30,88 @@ public class UserInterface {
     static ProgramHandler programHandler = ProgramHandler.getInstance();
     static GameHandler gameHandler = new GameHandler();
     static UserChoiceEnum userInput;
+    static boolean polishSelected;
+    static boolean englishSelected;
+
+    public static void languageMenu() {
+
+        System.out.println("Witam!");
+        do {
+            System.out.println("""
+                    
+                    Wybierz język/Select language:
+                     1.Polski!
+                     2.English!
+                     9.Wyjście/Exit.
+                    """);
+            userInput = UserChoiceEnum.userChoice(Integer.parseInt(consoleReader.getScanner().nextLine()));
+
+            switch (userInput) {
+                case USER_INPUT_1 -> {
+                    polishSelected = true;
+                    englishSelected = false;
+                    userInterface();
+                }
+                case USER_INPUT_2 -> {
+                    englishSelected = true;
+                    polishSelected = false;
+                    userInterface();
+                }
+                case USER_INPUT_9 -> System.exit(0);
+                default -> {
+                    if (polishSelected) {
+                        System.out.println(MultiLingualHandler.ERROR.getTextPl());
+                    } else if (englishSelected) {
+                        System.out.println(MultiLingualHandler.ERROR.getTextEng());
+                    }
+                }
+            }
+        } while (!userInput.equals(UserChoiceEnum.USER_INPUT_9));
+    }
 
     public static void userInterface() {
 
         computerBootstrap();
         System.out.println("Witam!");
         do {
-            System.out.println("""
-                    
-                    1.Wyświetl podzespoły 
-                    2.Zarządzanie plikami
-                    9.Wyjście.
-                    """);
-
+            if (polishSelected) {
+                System.out.println(MultiLingualHandler.MAIN_MENU.getTextPl());
+            } else if (englishSelected) {
+                System.out.println(MultiLingualHandler.MAIN_MENU.getTextEng());
+            }
             userInput = UserChoiceEnum.userChoice(Integer.parseInt(consoleReader.getScanner().nextLine()));
 
             switch (userInput) {
                 case USER_INPUT_1 ->
                         computer.getAllComponents().forEach(component -> System.out.println(component.getComponentName()));
                 case USER_INPUT_2 -> fileManager();
-                case USER_INPUT_9 -> System.out.println("Program zakończony");
-                default -> System.out.println("Błąd, spróbuj ponownie!");
+                case USER_INPUT_8 -> languageMenu();
+                case USER_INPUT_9 -> {
+                    if (polishSelected) {
+                        System.out.println(MultiLingualHandler.PROGRAM_ENDED.getTextPl());
+                    } else if (englishSelected) {
+                        System.out.println(MultiLingualHandler.PROGRAM_ENDED.getTextEng());
+                    }
+                }
+                default -> {
+                    if (polishSelected) {
+                        System.out.println(MultiLingualHandler.ERROR.getTextPl());
+                    } else if (englishSelected) {
+                        System.out.println(MultiLingualHandler.ERROR.getTextEng());
+                    }
+                }
             }
         } while (!userInput.equals(UserChoiceEnum.USER_INPUT_9));
     }
 
     public static void fileManager() {
         do {
-            System.out.println("""
-                    
-                    1.Wyświetl pliki.
-                    2.Dodaj plik.
-                    3.Usuń plik.
-                    4.Uruchom program.
-                    5.Uruchom grę.
-                    8.Powrót.
-                    9.Wyjście.
-                    """);
+            if (polishSelected) {
+                System.out.println(MultiLingualHandler.FILE_MANAGER.getTextPl());
+            } else if (englishSelected) {
+                System.out.println(MultiLingualHandler.FILE_MANAGER.getTextEng());
+            }
+
             userInput = UserChoiceEnum.userChoice(Integer.parseInt(consoleReader.getScanner().nextLine()));
 
             switch (userInput) {
@@ -78,14 +123,22 @@ public class UserInterface {
                 case USER_INPUT_8 -> System.out.println(System.lineSeparator() + "Menu główne!");
                 case USER_INPUT_9 -> System.exit(0);
                 default -> {
-                    System.out.println("Błąd, spróbuj ponownie!");
+                    if (polishSelected) {
+                        System.out.println(MultiLingualHandler.ERROR.getTextPl());
+                    } else if (englishSelected) {
+                        System.out.println(MultiLingualHandler.ERROR.getTextEng());
+                    }
                 }
             }
         } while (!userInput.equals(UserChoiceEnum.USER_INPUT_8));
     }
 
     private static void runGame() {
-        System.out.println("Wpisz nazwę gry który chcesz uruchomić:");
+        if (polishSelected) {
+            System.out.println(MultiLingualHandler.RUN_GAME.getTextPl());
+        } else if (englishSelected) {
+            System.out.println(MultiLingualHandler.RUN_GAME.getTextEng());
+        }
         gameHandler.gameList();
         try {
             gameHandler.startGameByName(consoleReader.getScanner().nextLine());
@@ -95,7 +148,11 @@ public class UserInterface {
     }
 
     private static void runProgram() {
-        System.out.println("Wpisz nazwę programu który chcesz uruchomić:");
+        if (polishSelected) {
+            System.out.println(MultiLingualHandler.RUN_PROGRAM.getTextPl());
+        } else if (englishSelected) {
+            System.out.println(MultiLingualHandler.RUN_PROGRAM.getTextEng());
+        }
         programHandler.programList();
         try {
             programHandler.startProgramByName(consoleReader.getScanner().nextLine());
@@ -113,28 +170,37 @@ public class UserInterface {
     }
 
     private static void addFile() {
-        String name;
-        int size;
-        int compression;
-        String bandName;
-        String title;
-        int quality;
+        String name = "name";
+        int size = 0;
+        int compression = 0;
+        String bandName = "";
+        String title = "title";
+        int quality = 0;
 
-        System.out.println("""
-                Podaj rodzaj pliku:
-                1.JPG.
-                2.GIF.
-                3.MP3
-                """);
+        if (polishSelected) {
+            System.out.println(MultiLingualHandler.ADD_FILE.getTextPl());
+        } else if (englishSelected) {
+            System.out.println(MultiLingualHandler.ADD_FILE.getTextEng());
+        }
         userInput = UserChoiceEnum.userChoice(Integer.parseInt(consoleReader.getScanner().nextLine()));
         switch (userInput) {
             case USER_INPUT_1 -> {
-                System.out.println("Podaj nazwe");
-                name = consoleReader.getScanner().nextLine() + ".jpg";
-                System.out.println("Podaj rozmiar");
-                size = Integer.parseInt(consoleReader.getScanner().nextLine());
-                System.out.println("Podaj kompresje");
-                compression = Integer.parseInt(consoleReader.getScanner().nextLine());
+                if (polishSelected) {
+                    System.out.println(MultiLingualHandler.INPUT_NAME.getTextPl());
+                    name = consoleReader.getScanner().nextLine() + ".jpg";
+                    System.out.println(MultiLingualHandler.INPUT_SIZE.getTextPl());
+                    size = Integer.parseInt(consoleReader.getScanner().nextLine());
+                    System.out.println(MultiLingualHandler.INPUT_COMPRESSION.getTextPl());
+                    compression = Integer.parseInt(consoleReader.getScanner().nextLine());
+
+                } else if (englishSelected) {
+                    System.out.println(MultiLingualHandler.INPUT_NAME.getTextEng());
+                    name = consoleReader.getScanner().nextLine() + ".jpg";
+                    System.out.println(MultiLingualHandler.INPUT_SIZE.getTextEng());
+                    size = Integer.parseInt(consoleReader.getScanner().nextLine());
+                    System.out.println(MultiLingualHandler.INPUT_COMPRESSION.getTextEng());
+                    compression = Integer.parseInt(consoleReader.getScanner().nextLine());
+                }
                 try {
                     computerDrive().addFile(new JPGImageFile(name, size, compression));
                 } catch (ComponentNotFoundException e) {
@@ -143,10 +209,18 @@ public class UserInterface {
 
             }
             case USER_INPUT_2 -> {
-                System.out.println("Podaj nazwe");
-                name = consoleReader.getScanner().nextLine() + ".gif";
-                System.out.println("Podaj rozmiar");
-                size = Integer.parseInt(consoleReader.getScanner().nextLine());
+                if(polishSelected) {
+                    System.out.println(MultiLingualHandler.INPUT_NAME.getTextPl());
+                    name = consoleReader.getScanner().nextLine() + ".gif";
+                    System.out.println(MultiLingualHandler.INPUT_SIZE.getTextPl());
+                    size = Integer.parseInt(consoleReader.getScanner().nextLine());
+                } else if (englishSelected) {
+                    System.out.println(MultiLingualHandler.INPUT_NAME.getTextEng());
+                    name = consoleReader.getScanner().nextLine() + ".gif";
+                    System.out.println(MultiLingualHandler.INPUT_SIZE.getTextEng());
+                    size = Integer.parseInt(consoleReader.getScanner().nextLine());
+
+                }
                 try {
                     computerDrive().addFile(new GIFImageFile(name, size));
                 } catch (ComponentNotFoundException e) {
@@ -154,30 +228,53 @@ public class UserInterface {
                 }
             }
             case USER_INPUT_3 -> {
-                System.out.println("Podaj nazwe");
-                name = consoleReader.getScanner().nextLine() + ".mp3";
-                System.out.println("Podaj rozmiar");
-                size = Integer.parseInt(consoleReader.getScanner().nextLine());
-                System.out.println("Podaj wykonawcę");
-                bandName = consoleReader.getScanner().nextLine();
-                ;
-                System.out.println("Podaj tytuł");
-                title = consoleReader.getScanner().nextLine();
-                ;
-                System.out.println("Podaj jakość");
-                quality = Integer.parseInt(consoleReader.getScanner().nextLine());
+               if(polishSelected) {
+                   System.out.println(MultiLingualHandler.INPUT_NAME.getTextPl());
+                   name = consoleReader.getScanner().nextLine() + ".mp3";
+                   System.out.println(MultiLingualHandler.INPUT_SIZE.getTextPl());
+                   size = Integer.parseInt(consoleReader.getScanner().nextLine());
+                   System.out.println(MultiLingualHandler.INPUT_BRAND_NAME.getTextPl());
+                   bandName = consoleReader.getScanner().nextLine();
+                   System.out.println(MultiLingualHandler.INPUT_TITLE.getTextPl());
+                   title = consoleReader.getScanner().nextLine();
+                   System.out.println(MultiLingualHandler.INPUT_QUALITY.getTextPl());
+                   quality = Integer.parseInt(consoleReader.getScanner().nextLine());
+
+               } else if (englishSelected) {
+                   System.out.println(MultiLingualHandler.INPUT_NAME.getTextEng());
+                   name = consoleReader.getScanner().nextLine() + ".mp3";
+                   System.out.println(MultiLingualHandler.INPUT_SIZE.getTextEng());
+                   size = Integer.parseInt(consoleReader.getScanner().nextLine());
+                   System.out.println(MultiLingualHandler.INPUT_BRAND_NAME.getTextEng());
+                   bandName = consoleReader.getScanner().nextLine();
+                   System.out.println(MultiLingualHandler.INPUT_TITLE.getTextEng());
+                   title = consoleReader.getScanner().nextLine();
+                   System.out.println(MultiLingualHandler.INPUT_QUALITY.getTextEng());
+                   quality = Integer.parseInt(consoleReader.getScanner().nextLine());
+
+               }
                 try {
                     computerDrive().addFile(new MP3MusicFile(name, size, bandName, title, quality));
                 } catch (ComponentNotFoundException e) {
                     System.out.println(e.getMessage());
                 }
             }
-            default -> System.out.println("Błąd, spróbuj ponownie!");
-        }
+            default -> {
+                if (polishSelected) {
+                System.out.println(MultiLingualHandler.ERROR.getTextPl());
+            } else if (englishSelected) {
+                System.out.println(MultiLingualHandler.ERROR.getTextEng());
+            }
+           }
+       }
     }
 
     private static void deleteFile() {
-        System.out.println("Podaj nazwe pliku który chcesz usunąć");
+        if(polishSelected) {
+            System.out.println(MultiLingualHandler.INPUT_NAME_FOR_DELETE.getTextPl());
+        } else if (englishSelected) {
+            System.out.println(MultiLingualHandler.INPUT_NAME_FOR_DELETE.getTextEng());
+        }
         String fileName = consoleReader.getScanner().nextLine();
         try {
             File fileForDelete = computerDrive().findFile(fileName);
