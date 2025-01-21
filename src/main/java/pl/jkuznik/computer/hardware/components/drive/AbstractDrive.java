@@ -40,8 +40,8 @@ public abstract class AbstractDrive implements Drive, FileStorage {
     }
 
     @Override
-    public void listFiles() {
-        fileHandler.listFiles();
+    public void getFiles() {
+        fileHandler.getFiles();
     }
 
     @Override

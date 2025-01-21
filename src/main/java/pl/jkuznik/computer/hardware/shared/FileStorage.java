@@ -7,6 +7,6 @@ import java.io.FileNotFoundException;
 public interface FileStorage {
     void addFile(File file);
     void removeFile(File file);
-    void listFiles();
+    void getFiles();
     File findFile(String name) throws FileNotFoundException;
 }

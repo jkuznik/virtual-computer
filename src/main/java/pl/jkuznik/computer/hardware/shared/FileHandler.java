@@ -40,7 +40,7 @@ public class FileHandler {
                 .orElseThrow(() -> new FileNotFoundException("File " + fileName + " not found"));
     }
 
-    public void listFiles() {
+    public void getFiles() {
         for (File file : files) {
             System.out.println(file.getName());
         }

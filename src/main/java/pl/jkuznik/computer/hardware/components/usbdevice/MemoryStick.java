@@ -52,8 +52,8 @@ public class MemoryStick implements USBDevice, FileStorage {
     }
 
     @Override
-    public void listFiles() {
-        fileHandler.listFiles();
+    public void getFiles() {
+        fileHandler.getFiles();
     }
 
     @Override
