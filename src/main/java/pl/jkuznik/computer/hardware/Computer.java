@@ -3,12 +3,17 @@ package pl.jkuznik.computer.hardware;
 import pl.jkuznik.computer.hardware.shared.Component;
 import pl.jkuznik.computer.hardware.shared.ComponentNotFoundException;
 import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
+import pl.jkuznik.utils.persistentState.StateReader;
+import pl.jkuznik.utils.persistentState.StateWriter;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Computer {
     private final Set<Component> components = new HashSet<>();
+    private final StateReader stateReader = new StateReader();
+    private final StateWriter stateWriter = new StateWriter();
 
     public void addComponent(Component component) {
         components.add(component);
@@ -34,6 +39,16 @@ public class Computer {
 
     public void removeComponent(Component component) {
         components.remove(component);
+    }
+
+    public void saveState() {
+        stateWriter.writeState(components);
+    }
+
+    public void loadState() {
+        List<Component> stateFromFile = stateReader.readState();
+        components.clear();
+        components.addAll(stateFromFile);
     }
 //    TODO: do zaimplementowania
 //    public List<USBDevice> getUsbDevices() {

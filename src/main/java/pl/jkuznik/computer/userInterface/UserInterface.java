@@ -19,9 +19,10 @@ import pl.jkuznik.computer.software.game.GameNotFoundException;
 import pl.jkuznik.computer.software.program.ProgramHandler;
 import pl.jkuznik.computer.software.program.ProgramNotFoundException;
 import pl.jkuznik.utils.ConsoleReader;
+import pl.jkuznik.utils.persistentState.StateReader;
+import pl.jkuznik.utils.persistentState.StateWriter;
 
 import java.io.FileNotFoundException;
-
 
 public class UserInterface {
     static Computer computer = new Computer();
@@ -309,7 +310,6 @@ public class UserInterface {
         } catch (ComponentNotFoundException e) {
             System.out.println(e.getMessage());
         }
-
     }
 
     private static AbstractDrive computerDrive() throws ComponentNotFoundException {

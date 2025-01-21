@@ -1,5 +1,6 @@
 package pl.jkuznik.computer.hardware.components.usbdevice;
 
+import com.google.gson.Gson;
 import pl.jkuznik.computer.hardware.shared.FileHandler;
 import pl.jkuznik.computer.hardware.shared.FileStorage;
 import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
@@ -7,11 +8,15 @@ import pl.jkuznik.computer.hardware.shared.enums.StorageCapacity;
 import pl.jkuznik.computer.software.file.File;
 
 import java.io.FileNotFoundException;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class MemoryStick implements USBDevice, FileStorage {
-    private final FileHandler fileHandler;
+    private transient final FileHandler fileHandler;
     private final String name;
     private boolean ejected = false;
+
+    private transient final Gson gson = new Gson();
 
     public MemoryStick(StorageCapacity storageCapacity, String name) {
         this.fileHandler = new FileHandler(storageCapacity);
@@ -69,5 +74,18 @@ public class MemoryStick implements USBDevice, FileStorage {
     @Override
     public ComponentType getComponentType() {
         return ComponentType.MEMORYSTICK;
+    }
+
+    @Override
+    public String toJson() {
+        Map<String, Object> jsonMap = new LinkedHashMap<>();
+
+        jsonMap.put("type", this.getComponentType().name());
+        jsonMap.put("name", name);
+        jsonMap.put("ejected", ejected);
+        // TODO: toJson w fileHandler
+//        jsonMap.put("fileHandler", fileHandler.toString());
+
+        return gson.toJson(jsonMap);
     }
 }
