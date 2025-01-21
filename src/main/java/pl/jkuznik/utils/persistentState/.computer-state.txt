@@ -1,5 +1,5 @@
 {"type":"MOUSE","name":"Zowie"}
+{"type":"DRIVE","name":"HDDDrive","fileHandler":{"storageCapacity":"GB512","currentCapacity":20,"files":[{"name":"funnygif.gif","size":3},{"compression":1,"name":"funnyimage.png","size":2},{"quality":10,"bandName":"band","title":"title","name":"song.mp3","size":15}]}}
 {"type":"MONITOR","name":"Iiyama","height":1920,"width":3840}
-{"type":"HEADPHONES","name":"HyperXxxxxx"}
-{"type":"MEMORYSTICK","name":"Pendrive","ejected":false}
-{"type":"DRIVE","name":"HDDDrive"}
+{"type":"MEMORYSTICK","name":"Pendrive","ejected":false,"fileHandler":{"storageCapacity":"GB16","currentCapacity":0,"files":[]}}
+{"type":"HEADPHONES","name":"HyperX"}

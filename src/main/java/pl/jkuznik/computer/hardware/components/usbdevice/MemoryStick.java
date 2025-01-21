@@ -12,7 +12,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class MemoryStick implements USBDevice, FileStorage {
-    private transient final FileHandler fileHandler;
+    private final FileHandler fileHandler;
     private final String name;
     private boolean ejected = false;
 
@@ -84,7 +84,7 @@ public class MemoryStick implements USBDevice, FileStorage {
         jsonMap.put("name", name);
         jsonMap.put("ejected", ejected);
         // TODO: toJson w fileHandler
-//        jsonMap.put("fileHandler", fileHandler.toString());
+        jsonMap.put("fileHandler", fileHandler);
 
         return gson.toJson(jsonMap);
     }

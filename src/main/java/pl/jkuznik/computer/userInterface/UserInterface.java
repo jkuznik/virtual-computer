@@ -69,7 +69,10 @@ public class UserInterface {
 
     public static void userInterface() {
 
-        computerBootstrap();
+//        computerBootstrap();
+//        computer.saveState();
+//
+        computer.loadState();
         System.out.println("Witam!");
         do {
             if (polishSelected) {

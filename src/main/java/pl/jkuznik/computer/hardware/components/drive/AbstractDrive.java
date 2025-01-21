@@ -12,7 +12,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public abstract class AbstractDrive implements Drive, FileStorage {
-    private transient final FileHandler fileHandler;
+    private final FileHandler fileHandler;
     private final String name;
 
     private transient final Gson gson = new Gson();
@@ -71,7 +71,7 @@ public abstract class AbstractDrive implements Drive, FileStorage {
         jsonMap.put("type", this.getComponentType().name());
         jsonMap.put("name", name);
         // TODO: zaimplementować toJson w fileHandler aby umożliwić zapisanie stanu plików
-//        jsonMap.put("fileHandler", fileHandler.toString());
+        jsonMap.put("fileHandler", fileHandler);
 
         return gson.toJson(jsonMap);
     }
