@@ -13,4 +13,12 @@ public class GIFImageFile extends AbstractImageFile {
     public int getVersion() {
         return 2;
     }
+
+    @Override
+    public String toString() {
+        return "GIFImageFile{" +
+                "size=" + size +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

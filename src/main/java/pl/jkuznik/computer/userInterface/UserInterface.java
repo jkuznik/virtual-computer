@@ -69,8 +69,8 @@ public class UserInterface {
 
     public static void userInterface() {
 
-//        computerBootstrap();
-//        computer.saveState();
+        computerBootstrap();
+        computer.saveState();
 //
         computer.loadState();
         System.out.println("Witam!");

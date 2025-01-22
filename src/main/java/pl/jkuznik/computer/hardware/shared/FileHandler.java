@@ -47,4 +47,12 @@ public class FileHandler {
         System.out.println();
     }
 
+    @Override
+    public String toString() {
+        return "FileHandler{" +
+                "storageCapacity=" + storageCapacity +
+                ", currentCapacity=" + currentCapacity +
+                ", files=" + files +
+                '}';
+    }
 }

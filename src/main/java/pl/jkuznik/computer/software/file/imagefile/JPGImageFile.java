@@ -16,4 +16,13 @@ public class JPGImageFile extends AbstractImageFile {
     public void displayImage() {
         System.out.println("Displaying JPG");
     }
+
+    @Override
+    public String toString() {
+        return "JPGImageFile{" +
+                "compression=" + compression +
+                ", name='" + name + '\'' +
+                ", size=" + size +
+                '}';
+    }
 }

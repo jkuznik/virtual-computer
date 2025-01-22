@@ -18,4 +18,12 @@ public abstract class AbstractFile implements File {
     public int getSize() {
         return this.size;
     }
+
+    @Override
+    public String toString() {
+        return "AbstractFile{" +
+                "name='" + name + '\'' +
+                ", size=" + size +
+                '}';
+    }
 }
