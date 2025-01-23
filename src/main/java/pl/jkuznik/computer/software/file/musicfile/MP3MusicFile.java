@@ -30,11 +30,6 @@ public class MP3MusicFile extends AbstractMusicFile {
     }
 
     @Override
-    public FileType getType() {
-        return FileType.MP3;
-    }
-
-    @Override
     public String toString() {
         return "MP3MusicFile{" +
                 "name='" + name + '\'' +

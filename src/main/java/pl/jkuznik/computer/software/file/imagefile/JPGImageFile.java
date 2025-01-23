@@ -20,11 +20,6 @@ public class JPGImageFile extends AbstractImageFile {
     }
 
     @Override
-    public FileType getType() {
-        return FileType.JPG;
-    }
-
-    @Override
     public String toString() {
         return "JPGImageFile{" +
                 "name='" + name + '\'' +

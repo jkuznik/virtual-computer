@@ -1,6 +1,7 @@
 package pl.jkuznik.computer.software.file;
 
 public abstract class AbstractFile implements File {
+    protected FileType type;
     protected String name;
     protected long size;
 
@@ -17,6 +18,11 @@ public abstract class AbstractFile implements File {
     @Override
     public long getSize() {
         return this.size;
+    }
+
+    @Override
+    public FileType getType() {
+        return type;
     }
 
     @Override
