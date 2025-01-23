@@ -20,9 +20,9 @@ public class JPGImageFile extends AbstractImageFile {
     @Override
     public String toString() {
         return "JPGImageFile{" +
-                "compression=" + compression +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", size=" + size +
+                ", compression=" + compression +
                 '}';
     }
 }

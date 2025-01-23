@@ -21,11 +21,11 @@ public class MP3MusicFile extends AbstractMusicFile {
     @Override
     public String toString() {
         return "MP3MusicFile{" +
-                "quality=" + quality +
+                "name='" + name + '\'' +
+                ", size=" + size +
                 ", bandName='" + bandName + '\'' +
                 ", title='" + title + '\'' +
-                ", name='" + name + '\'' +
-                ", size=" + size +
+                ", quality=" + quality +
                 '}';
     }
 }

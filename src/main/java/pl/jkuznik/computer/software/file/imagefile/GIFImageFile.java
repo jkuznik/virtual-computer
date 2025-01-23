@@ -17,8 +17,8 @@ public class GIFImageFile extends AbstractImageFile {
     @Override
     public String toString() {
         return "GIFImageFile{" +
-                "size=" + size +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
+                ", size=" + size +
                 '}';
     }
 }
