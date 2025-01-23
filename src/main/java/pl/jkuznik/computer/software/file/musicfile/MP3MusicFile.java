@@ -9,13 +9,22 @@ public class MP3MusicFile extends AbstractMusicFile {
         this.quality = quality;
     }
 
-    @Override
-    public void play() {
-        System.out.println("Playing MP3 file");
+    public String getBandName(){
+        return bandName;
+    }
+
+    public String getTitle() {
+        return title;
     }
 
     public int getQuality() {
         return quality;
+    }
+
+
+    @Override
+    public void play() {
+        System.out.println("Playing MP3 file");
     }
 
     @Override
