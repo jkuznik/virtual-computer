@@ -1,5 +1,7 @@
 package pl.jkuznik.computer.software.file.musicfile;
 
+import pl.jkuznik.computer.software.file.FileType;
+
 public class MP3MusicFile extends AbstractMusicFile {
     private int quality;
 
@@ -25,6 +27,11 @@ public class MP3MusicFile extends AbstractMusicFile {
     @Override
     public void play() {
         System.out.println("Playing MP3 file");
+    }
+
+    @Override
+    public FileType getType() {
+        return FileType.MP3;
     }
 
     @Override

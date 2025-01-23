@@ -5,12 +5,8 @@ import pl.jkuznik.computer.software.file.FileType;
 
 public abstract class AbstractImageFile extends AbstractFile {
 
-    protected AbstractImageFile(String name, int size) {
+    protected AbstractImageFile(String name, long size) {
         super(name, size);
     }
 
-    @Override
-    public FileType getType() {
-        return FileType.IMAGE;
-    }
 }

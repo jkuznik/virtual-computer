@@ -1,5 +1,5 @@
 package pl.jkuznik.computer.software.file;
 
 public enum FileType {
-    MUSIC, IMAGE
+    GIF, JPG, MP3
 }

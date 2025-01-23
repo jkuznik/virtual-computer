@@ -2,7 +2,7 @@ package pl.jkuznik.computer.software.file;
 
 public interface File {
     String getName();
-    int getSize();
+    long getSize();
     FileType getType();
 
     default int getVersion() {

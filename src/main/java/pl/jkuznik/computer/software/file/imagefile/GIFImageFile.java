@@ -1,8 +1,10 @@
 package pl.jkuznik.computer.software.file.imagefile;
 
+import pl.jkuznik.computer.software.file.FileType;
+
 public class GIFImageFile extends AbstractImageFile {
 
-    public GIFImageFile(String name, int size) {
+    public GIFImageFile(String name, long size) {
         super(name, size);
     }
 
@@ -12,6 +14,11 @@ public class GIFImageFile extends AbstractImageFile {
 
     public int getVersion() {
         return 2;
+    }
+
+    @Override
+    public FileType getType() {
+        return FileType.GIF;
     }
 
     @Override

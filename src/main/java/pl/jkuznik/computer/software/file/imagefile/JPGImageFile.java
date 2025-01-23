@@ -1,9 +1,11 @@
 package pl.jkuznik.computer.software.file.imagefile;
 
+import pl.jkuznik.computer.software.file.FileType;
+
 public class JPGImageFile extends AbstractImageFile {
     private int compression;
 
-    public JPGImageFile(String name, int size, int compression) {
+    public JPGImageFile(String name, long size, int compression) {
         super(name, size);
 
         this.compression = compression;
@@ -15,6 +17,11 @@ public class JPGImageFile extends AbstractImageFile {
 
     public void displayImage() {
         System.out.println("Displaying JPG");
+    }
+
+    @Override
+    public FileType getType() {
+        return FileType.JPG;
     }
 
     @Override

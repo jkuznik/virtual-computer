@@ -19,23 +19,34 @@ public class FileAdapterGson implements JsonSerializer<File>, JsonDeserializer<F
         jsonObject.addProperty("name", src.getName());
         jsonObject.addProperty("size", src.getSize());
 
-        if (src instanceof GIFImageFile gifImageFile) {
+        switch (src) {
+            case GIFImageFile gifImageFile -> {
 //            obecnie gif nie posiada wyróżniającego argumentu, dlatego ten blok jest pusty
-        } else if (src instanceof JPGImageFile jpgImageFile) {
-            jsonObject.addProperty("compression", jpgImageFile.getCompression());
-        } else if (src instanceof MP3MusicFile mp3MusicFile) {
-            jsonObject.addProperty("bandName", mp3MusicFile.getBandName());
-            jsonObject.addProperty("title", mp3MusicFile.getTitle());
-            jsonObject.addProperty("quality", mp3MusicFile.getQuality());
-        } else {
-            throw new JsonParseException("Unsupported file type: " + src.getClass().getName());
+            }
+            case JPGImageFile jpgImageFile -> {
+                jsonObject.addProperty("compression", jpgImageFile.getCompression());
+            }
+            case MP3MusicFile mp3MusicFile -> {
+                jsonObject.addProperty("bandName", mp3MusicFile.getBandName());
+                jsonObject.addProperty("title", mp3MusicFile.getTitle());
+                jsonObject.addProperty("quality", mp3MusicFile.getQuality());
+            }
+            default -> throw new JsonParseException("Unsupported file type: " + src.getClass().getName());
         }
 
         return jsonObject;
     }
 
     @Override
-    public File deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
+    public File deserialize(JsonElement jsonElement, Type jsonType, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
+        JsonObject jsonObject = jsonElement.getAsJsonObject();
+        String type = jsonObject.get("type").getAsString();
+        String name = jsonObject.get("name").getAsString();
+        long size = jsonObject.get("size").getAsLong();
+
+        switch (type) {
+            case
+        }
         return null;
     }
 }
