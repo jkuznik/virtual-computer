@@ -1,14 +1,10 @@
 package pl.jkuznik.computer.hardware.components.usbdevice;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import pl.jkuznik.computer.hardware.shared.Component;
 import pl.jkuznik.computer.hardware.shared.FileHandler;
 import pl.jkuznik.computer.hardware.shared.FileStorage;
 import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
 import pl.jkuznik.computer.hardware.shared.enums.StorageCapacity;
 import pl.jkuznik.computer.software.file.File;
-import pl.jkuznik.utils.persistentState.gson.ComponentGsonAdapter;
 
 import java.io.FileNotFoundException;
 
@@ -16,10 +12,6 @@ public class MemoryStick implements USBDevice, FileStorage {
     private final FileHandler fileHandler;
     private final String name;
     private boolean ejected = false;
-
-    private transient final Gson gson = new GsonBuilder()
-            .registerTypeHierarchyAdapter(Component.class, new ComponentGsonAdapter())
-            .create();
 
     public MemoryStick(StorageCapacity storageCapacity, String name) {
         this.fileHandler = new FileHandler(storageCapacity);
@@ -90,8 +82,4 @@ public class MemoryStick implements USBDevice, FileStorage {
         return ComponentType.MEMORYSTICK;
     }
 
-    @Override
-    public String toJson() {
-        return gson.toJson(this);
-    }
 }
