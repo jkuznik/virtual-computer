@@ -9,7 +9,6 @@ import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
 import pl.jkuznik.computer.hardware.shared.enums.StorageCapacity;
 import pl.jkuznik.computer.software.file.File;
 import pl.jkuznik.utils.persistentState.gson.ComponentGsonAdapter;
-import pl.jkuznik.utils.persistentState.gson.FileAdapterGson;
 
 import java.io.FileNotFoundException;
 
@@ -19,7 +18,6 @@ public class MemoryStick implements USBDevice, FileStorage {
     private boolean ejected = false;
 
     private transient final Gson gson = new GsonBuilder()
-            .registerTypeHierarchyAdapter(File.class, new FileAdapterGson())
             .registerTypeHierarchyAdapter(Component.class, new ComponentGsonAdapter())
             .create();
 

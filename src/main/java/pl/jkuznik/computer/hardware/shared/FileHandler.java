@@ -40,19 +40,23 @@ public class FileHandler {
                 .orElseThrow(() -> new FileNotFoundException("File " + fileName + " not found"));
     }
 
-    public void getFiles() {
-        for (File file : files) {
-            System.out.println(file.getName());
-        }
-        System.out.println();
+    public long getCurrentCapacity() {
+        return currentCapacity;
     }
 
-    @Override
-    public String toString() {
-        return "FileHandler{" +
-                "storageCapacity=" + storageCapacity +
-                ", currentCapacity=" + currentCapacity +
-                ", files=" + files +
-                '}';
+    public void setCurrentCapacity(long currentCapacity) {
+        this.currentCapacity = currentCapacity;
+    }
+
+    public void setFiles(List<File> files) {
+        this.files = files;
+    }
+
+    public StorageCapacity getStorageCapacity() {
+        return storageCapacity;
+    }
+
+    public List<File> getFiles() {
+        return files;
     }
 }

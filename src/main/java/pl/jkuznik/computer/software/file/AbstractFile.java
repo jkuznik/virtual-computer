@@ -11,6 +11,18 @@ public abstract class AbstractFile implements File {
         this.size = size;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setFileType(FileType fileType) {
+        this.fileType = fileType;
+    }
+
+    public void setSize(long size) {
+        this.size = size;
+    }
+
     @Override
     public String getName() {
         return this.name;
@@ -24,14 +36,5 @@ public abstract class AbstractFile implements File {
     @Override
     public FileType getFileType() {
         return fileType;
-    }
-
-    @Override
-    public String toString() {
-        return "AbstractFile{" +
-                "fileType=" + fileType +
-                ", name='" + name + '\'' +
-                ", size=" + size +
-                '}';
     }
 }

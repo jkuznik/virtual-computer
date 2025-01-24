@@ -9,7 +9,6 @@ import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
 import pl.jkuznik.computer.hardware.shared.enums.StorageCapacity;
 import pl.jkuznik.computer.software.file.File;
 import pl.jkuznik.utils.persistentState.gson.ComponentGsonAdapter;
-import pl.jkuznik.utils.persistentState.gson.FileAdapterGson;
 
 import java.io.FileNotFoundException;
 
@@ -18,7 +17,6 @@ public abstract class AbstractDrive implements Drive, FileStorage {
     private final String name;
 
     private transient final Gson gson = new GsonBuilder()
-            .registerTypeHierarchyAdapter(File.class, new FileAdapterGson())
             .registerTypeHierarchyAdapter(Component.class, new ComponentGsonAdapter())
             .create();
 
@@ -34,6 +32,7 @@ public abstract class AbstractDrive implements Drive, FileStorage {
     public String getName() {
         return name;
     }
+
 
     //  TODO: metoda do zaimplementowania w kolejnym tasku
     @Override
@@ -54,7 +53,7 @@ public abstract class AbstractDrive implements Drive, FileStorage {
 
     @Override
     public void getFiles() {
-        fileHandler.getFiles();
+        fileHandler.getFiles().forEach(System.out::println);
     }
 
     @Override
