@@ -40,6 +40,14 @@ public class Monitor implements Component {
         height = 1920;
     }
 
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
     public String getResolution() {
         return width + "x" + height;
     }
