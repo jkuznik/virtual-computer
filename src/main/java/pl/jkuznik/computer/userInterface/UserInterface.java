@@ -11,6 +11,7 @@ import pl.jkuznik.computer.hardware.shared.ComponentNotFoundException;
 import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
 import pl.jkuznik.computer.hardware.shared.enums.StorageCapacity;
 import pl.jkuznik.computer.software.file.File;
+import pl.jkuznik.computer.software.file.FileType;
 import pl.jkuznik.computer.software.file.imagefile.GIFImageFile;
 import pl.jkuznik.computer.software.file.imagefile.JPGImageFile;
 import pl.jkuznik.computer.software.file.musicfile.MP3MusicFile;
@@ -72,7 +73,7 @@ public class UserInterface {
         computerBootstrap();
         computer.saveState();
 //
-        computer.loadState();
+//        computer.loadState();
         System.out.println("Witam!");
         do {
             if (polishSelected) {
@@ -203,7 +204,7 @@ public class UserInterface {
                     compression = Integer.parseInt(consoleReader.getScanner().nextLine());
                 }
                 try {
-                    computerDrive().addFile(new JPGImageFile(name, size, compression));
+                    computerDrive().addFile(new JPGImageFile(FileType.JPG, name, size, compression));
                 } catch (ComponentNotFoundException e) {
                     System.out.println(e.getMessage());
                 }
@@ -223,7 +224,7 @@ public class UserInterface {
 
                 }
                 try {
-                    computerDrive().addFile(new GIFImageFile(name, size));
+                    computerDrive().addFile(new GIFImageFile(FileType.GIF, name, size));
                 } catch (ComponentNotFoundException e) {
                     System.out.println(e.getMessage());
                 }
@@ -255,7 +256,7 @@ public class UserInterface {
 
                }
                 try {
-                    computerDrive().addFile(new MP3MusicFile(name, size, bandName, title, quality));
+                    computerDrive().addFile(new MP3MusicFile(FileType.MP3, name, size, bandName, title, quality));
                 } catch (ComponentNotFoundException e) {
                     System.out.println(e.getMessage());
                 }
@@ -300,9 +301,9 @@ public class UserInterface {
         computer.addComponent(memoryStick);
         computer.addComponent(mouse);
 
-        GIFImageFile gifImageFile = new GIFImageFile("funnygif.gif", 3);
-        JPGImageFile jpgImageFile = new JPGImageFile("funnyimage.png", 2, 1);
-        MP3MusicFile mp3MusicFile = new MP3MusicFile("song.mp3", 15, "band", "title", 10);
+        GIFImageFile gifImageFile = new GIFImageFile(FileType.GIF, "funnygif.gif", 3);
+        JPGImageFile jpgImageFile = new JPGImageFile(FileType.JPG, "funnyimage.png", 2, 1);
+        MP3MusicFile mp3MusicFile = new MP3MusicFile(FileType.MP3, "song.mp3", 15, "Jackson", "Thriller", 10);
 
         try {
             computerDrive().addFile(gifImageFile);
@@ -314,7 +315,6 @@ public class UserInterface {
     }
 
     private static AbstractDrive computerDrive() throws ComponentNotFoundException {
-        AbstractDrive drive = (AbstractDrive) computer.getComponent(ComponentType.DRIVE);
-        return drive;
+        return (AbstractDrive) computer.getComponent(ComponentType.DRIVE);
     }
 }

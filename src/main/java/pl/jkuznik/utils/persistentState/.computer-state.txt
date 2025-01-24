@@ -1,5 +1,5 @@
-{"type":"MOUSE","name":"Zowie"}
-{"type":"DRIVE","name":"HDDDrive","fileHandler":{"storageCapacity":"GB512","currentCapacity":20,"files":[{"name":"funnygif.gif","size":3},{"compression":1,"name":"funnyimage.png","size":2},{"quality":10,"bandName":"band","title":"title","name":"song.mp3","size":15}]}}
-{"type":"MONITOR","name":"Iiyama","height":1920,"width":3840}
-{"type":"MEMORYSTICK","name":"Pendrive","ejected":false,"fileHandler":{"storageCapacity":"GB16","currentCapacity":0,"files":[]}}
-{"type":"HEADPHONES","name":"HyperX"}
+{"componentType":"MONITOR","name":"Iiyama","width":3840,"height":1920}
+{"componentType":"HEADPHONES","name":"HyperX"}
+{"componentType":"MEMORYSTICK","name":"Pendrive","fileHandler":"FileHandler{storageCapacity\u003dGB16, currentCapacity\u003d0, files\u003d[]}","ejected":false}
+{"componentType":"DRIVE","name":"HDDDrive","fileHandler":"FileHandler{storageCapacity\u003dGB512, currentCapacity\u003d20, files\u003d[GIFImageFile{fileType\u003dGIF, name\u003d\u0027funnygif.gif\u0027, size\u003d3}, JPGImageFile{fileType\u003dJPG, name\u003d\u0027funnyimage.png\u0027, size\u003d2, compression\u003d1}, MP3MusicFile{fileType\u003dMP3, name\u003d\u0027song.mp3\u0027, size\u003d15, bandName\u003d\u0027Jackson\u0027, title\u003d\u0027Thriller\u0027, quality\u003d10}]}"}
+{"componentType":"MOUSE","name":"Zowie"}

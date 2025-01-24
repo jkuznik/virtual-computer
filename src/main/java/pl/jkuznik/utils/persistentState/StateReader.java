@@ -4,14 +4,13 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
-import pl.jkuznik.computer.hardware.components.drive.AbstractDrive;
-import pl.jkuznik.computer.hardware.components.drive.Drive;
 import pl.jkuznik.computer.hardware.components.drive.HDDDrive;
 import pl.jkuznik.computer.hardware.components.headphone.Headphones;
 import pl.jkuznik.computer.hardware.components.monitor.Monitor;
 import pl.jkuznik.computer.hardware.components.usbdevice.MemoryStick;
 import pl.jkuznik.computer.hardware.components.usbdevice.Mouse;
 import pl.jkuznik.computer.hardware.shared.Component;
+import pl.jkuznik.utils.persistentState.gson.FileAdapterGson;
 
 import java.io.File;
 import java.io.IOException;
@@ -30,11 +29,11 @@ public class StateReader {
             .registerTypeAdapter(File.class, new FileAdapterGson())
             .create();
 
-    public List<Component> readState(){
+    public List<Component> readState() {
         try {
             List<String> lines = Files.readAllLines(path);
 
-            for(String line: lines) {
+            for (String line : lines) {
                 JsonElement jsonElement = JsonParser.parseString(line);
                 String type = jsonElement.getAsJsonObject().get("type").getAsString();
 

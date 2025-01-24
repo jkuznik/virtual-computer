@@ -1,26 +1,43 @@
 package pl.jkuznik.computer.hardware.components.usbdevice;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import pl.jkuznik.computer.hardware.shared.Component;
 import pl.jkuznik.computer.hardware.shared.FileHandler;
 import pl.jkuznik.computer.hardware.shared.FileStorage;
 import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
 import pl.jkuznik.computer.hardware.shared.enums.StorageCapacity;
 import pl.jkuznik.computer.software.file.File;
+import pl.jkuznik.utils.persistentState.gson.ComponentGsonAdapter;
+import pl.jkuznik.utils.persistentState.gson.FileAdapterGson;
 
 import java.io.FileNotFoundException;
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 public class MemoryStick implements USBDevice, FileStorage {
     private final FileHandler fileHandler;
     private final String name;
     private boolean ejected = false;
 
-    private transient final Gson gson = new Gson();
+    private transient final Gson gson = new GsonBuilder()
+            .registerTypeHierarchyAdapter(File.class, new FileAdapterGson())
+            .registerTypeHierarchyAdapter(Component.class, new ComponentGsonAdapter())
+            .create();
 
     public MemoryStick(StorageCapacity storageCapacity, String name) {
         this.fileHandler = new FileHandler(storageCapacity);
         this.name = name;
+    }
+
+    public FileHandler getFileHandler() {
+        return fileHandler;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public boolean isEjected() {
+        return ejected;
     }
 
     @Override
@@ -44,7 +61,6 @@ public class MemoryStick implements USBDevice, FileStorage {
         System.out.println("Ejecting Memory Stick");
         ejected = true;
     }
-
 
     @Override
     public void addFile(File file) {
@@ -78,14 +94,6 @@ public class MemoryStick implements USBDevice, FileStorage {
 
     @Override
     public String toJson() {
-        Map<String, Object> jsonMap = new LinkedHashMap<>();
-
-        jsonMap.put("type", this.getComponentType().name());
-        jsonMap.put("name", name);
-        jsonMap.put("ejected", ejected);
-        // TODO: toJson w fileHandler
-        jsonMap.put("fileHandler", fileHandler);
-
-        return gson.toJson(jsonMap);
+        return gson.toJson(this);
     }
 }

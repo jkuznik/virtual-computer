@@ -1,18 +1,27 @@
 package pl.jkuznik.computer.hardware.components.usbdevice;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import pl.jkuznik.computer.hardware.shared.Component;
 import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
-
-import java.util.LinkedHashMap;
-import java.util.Map;
+import pl.jkuznik.computer.software.file.File;
+import pl.jkuznik.utils.persistentState.gson.ComponentGsonAdapter;
+import pl.jkuznik.utils.persistentState.gson.FileAdapterGson;
 
 public class Mouse implements USBDevice {
     private final String name;
 
-    private transient final Gson gson = new Gson();
+    private transient final Gson gson = new GsonBuilder()
+            .registerTypeHierarchyAdapter(File.class, new FileAdapterGson())
+            .registerTypeHierarchyAdapter(Component.class, new ComponentGsonAdapter())
+            .create();
 
     public Mouse(String name) {
         this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 
     @Override
@@ -39,11 +48,6 @@ public class Mouse implements USBDevice {
 
     @Override
     public String toJson() {
-        Map<String, Object> jsonMap = new LinkedHashMap<>();
-
-        jsonMap.put("type", this.getComponentType().name());
-        jsonMap.put("name", name);
-
-        return gson.toJson(jsonMap);
+        return gson.toJson(this);
     }
 }

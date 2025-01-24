@@ -5,8 +5,7 @@ import pl.jkuznik.computer.software.file.FileType;
 
 public abstract class AbstractImageFile extends AbstractFile {
 
-    protected AbstractImageFile(String name, long size) {
-        super(name, size);
+    public AbstractImageFile(FileType fileType, String name, long size) {
+        super(fileType, name, size);
     }
-
 }

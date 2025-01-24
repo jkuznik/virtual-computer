@@ -1,11 +1,12 @@
 package pl.jkuznik.computer.software.file;
 
 public abstract class AbstractFile implements File {
-    protected FileType type;
+    protected FileType fileType;
     protected String name;
     protected long size;
 
-    protected AbstractFile(String name, long size) {
+    protected AbstractFile(FileType fileType, String name, long size) {
+        this.fileType = fileType;
         this.name = name;
         this.size = size;
     }
@@ -21,14 +22,15 @@ public abstract class AbstractFile implements File {
     }
 
     @Override
-    public FileType getType() {
-        return type;
+    public FileType getFileType() {
+        return fileType;
     }
 
     @Override
     public String toString() {
         return "AbstractFile{" +
-                "name='" + name + '\'' +
+                "fileType=" + fileType +
+                ", name='" + name + '\'' +
                 ", size=" + size +
                 '}';
     }

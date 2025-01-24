@@ -1,25 +1,38 @@
 package pl.jkuznik.computer.hardware.components.drive;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import pl.jkuznik.computer.hardware.shared.Component;
 import pl.jkuznik.computer.hardware.shared.FileHandler;
 import pl.jkuznik.computer.hardware.shared.FileStorage;
 import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
 import pl.jkuznik.computer.hardware.shared.enums.StorageCapacity;
 import pl.jkuznik.computer.software.file.File;
+import pl.jkuznik.utils.persistentState.gson.ComponentGsonAdapter;
+import pl.jkuznik.utils.persistentState.gson.FileAdapterGson;
 
 import java.io.FileNotFoundException;
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 public abstract class AbstractDrive implements Drive, FileStorage {
     private final FileHandler fileHandler;
     private final String name;
 
-    private transient final Gson gson = new Gson();
+    private transient final Gson gson = new GsonBuilder()
+            .registerTypeHierarchyAdapter(File.class, new FileAdapterGson())
+            .registerTypeHierarchyAdapter(Component.class, new ComponentGsonAdapter())
+            .create();
 
     public AbstractDrive(StorageCapacity storageCapacity, String name) {
         this.fileHandler = new FileHandler(storageCapacity);
         this.name = name;
+    }
+
+    public FileHandler getFileHandler() {
+        return fileHandler;
+    }
+
+    public String getName() {
+        return name;
     }
 
     //  TODO: metoda do zaimplementowania w kolejnym tasku
@@ -66,13 +79,6 @@ public abstract class AbstractDrive implements Drive, FileStorage {
 
     @Override
     public String toJson() {
-        Map<String, Object> jsonMap = new LinkedHashMap<>();
-
-        jsonMap.put("type", this.getComponentType().name());
-        jsonMap.put("name", name);
-        // TODO: zaimplementować toJson w fileHandler aby umożliwić zapisanie stanu plików
-        jsonMap.put("fileHandler", fileHandler);
-
-        return gson.toJson(jsonMap);
+        return gson.toJson(this);
     }
 }

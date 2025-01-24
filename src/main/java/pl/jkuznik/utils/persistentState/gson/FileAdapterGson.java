@@ -1,4 +1,4 @@
-package pl.jkuznik.utils.persistentState;
+package pl.jkuznik.utils.persistentState.gson;
 
 import com.google.gson.*;
 import pl.jkuznik.computer.software.file.File;
@@ -9,19 +9,19 @@ import pl.jkuznik.computer.software.file.musicfile.MP3MusicFile;
 
 import java.lang.reflect.Type;
 
-import static pl.jkuznik.computer.software.file.FileType.valueOf;
+import static pl.jkuznik.computer.software.file.FileType.*;
 
 public class FileAdapterGson implements JsonSerializer<File>, JsonDeserializer<File> {
 
 
     @Override
-    public JsonElement serialize(File src, Type typeOfSrc, JsonSerializationContext jsonSerializationContext) {
+    public JsonElement serialize(File srcFile, Type typeOfSrc, JsonSerializationContext jsonSerializationContext) {
         JsonObject jsonObject = new JsonObject();
-        jsonObject.addProperty("type", src.getClass().getSimpleName());
-        jsonObject.addProperty("name", src.getName());
-        jsonObject.addProperty("size", src.getSize());
+        jsonObject.addProperty("fileType", srcFile.getFileType().name());
+        jsonObject.addProperty("name", srcFile.getName());
+        jsonObject.addProperty("size", srcFile.getSize());
 
-        switch (src) {
+        switch (srcFile) {
             case GIFImageFile gifImageFile -> {
 //            obecnie gif nie posiada wyróżniającego argumentu, dlatego ten blok jest pusty
             }
@@ -33,7 +33,7 @@ public class FileAdapterGson implements JsonSerializer<File>, JsonDeserializer<F
                 jsonObject.addProperty("title", mp3MusicFile.getTitle());
                 jsonObject.addProperty("quality", mp3MusicFile.getQuality());
             }
-            default -> throw new JsonParseException("Unsupported file type: " + src.getClass().getName());
+            default -> throw new JsonParseException("Unsupported file type: " + srcFile.getClass().getName());
         }
 
         return jsonObject;
@@ -42,24 +42,24 @@ public class FileAdapterGson implements JsonSerializer<File>, JsonDeserializer<F
     @Override
     public File deserialize(JsonElement jsonElement, Type jsonType, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
         JsonObject jsonObject = jsonElement.getAsJsonObject();
-        String type = jsonObject.get("type").getAsString();
         String name = jsonObject.get("name").getAsString();
         long size = jsonObject.get("size").getAsLong();
 
-        FileType typeAsEnum = valueOf(type);
-        switch (typeAsEnum) {
+        FileType fileType = valueOf(jsonObject.get("fileType").getAsString());
+
+        switch (fileType) {
             case GIF -> {
-                return new GIFImageFile(name, size);
+                return new GIFImageFile(GIF, name, size);
             }
             case JPG -> {
-                int compresion = jsonObject.get("compresion").getAsInt();
-                return new JPGImageFile(name, size, compresion);
+                int compression = jsonObject.get("compression").getAsInt();
+                return new JPGImageFile(JPG, name, size, compression);
             }
             case MP3 -> {
                 String bandName = jsonObject.get("bandName").getAsString();
                 String title = jsonObject.get("title").getAsString();
                 int quality = jsonObject.get("quality").getAsInt();
-                return new MP3MusicFile(name, size, bandName, title, quality);
+                return new MP3MusicFile(MP3, name, size, bandName, title, quality);
             }
             default -> throw new JsonParseException("Can not parse to File type JSON of " + jsonElement.getAsString());
         }
