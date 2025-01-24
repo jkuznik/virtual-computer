@@ -7,6 +7,7 @@ import pl.jkuznik.computer.hardware.components.monitor.Monitor;
 import pl.jkuznik.computer.hardware.components.usbdevice.MemoryStick;
 import pl.jkuznik.computer.hardware.components.usbdevice.Mouse;
 import pl.jkuznik.computer.hardware.shared.Component;
+import pl.jkuznik.computer.hardware.shared.FileHandler;
 import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
 
 import java.lang.reflect.Type;
@@ -69,7 +70,8 @@ public class ComponentGsonAdapter implements JsonSerializer<Component>, JsonDese
                 return monitor;
             }
             case MEMORYSTICK -> {
-                return null;
+                FileHandler fileHandler = jsonDeserializationContext.deserialize(jsonObject.get("fileHandler"), FileHandler.class);
+                return new MemoryStick(fileHandler, name);
             }
             case MOUSE -> {
                 return new Mouse(name);

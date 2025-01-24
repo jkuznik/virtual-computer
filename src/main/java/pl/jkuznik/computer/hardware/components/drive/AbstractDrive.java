@@ -7,6 +7,7 @@ import pl.jkuznik.computer.hardware.shared.enums.StorageCapacity;
 import pl.jkuznik.computer.software.file.File;
 
 import java.io.FileNotFoundException;
+import java.util.List;
 
 public abstract class AbstractDrive implements Drive, FileStorage {
     private final FileHandler fileHandler;
@@ -24,7 +25,6 @@ public abstract class AbstractDrive implements Drive, FileStorage {
     public String getName() {
         return name;
     }
-
 
     //  TODO: metoda do zaimplementowania w kolejnym tasku
     @Override
@@ -44,8 +44,8 @@ public abstract class AbstractDrive implements Drive, FileStorage {
     }
 
     @Override
-    public void getFiles() {
-        fileHandler.getFiles().forEach(System.out::println);
+    public List<File> getFiles() {
+        return fileHandler.getFiles();
     }
 
     @Override
@@ -67,5 +67,4 @@ public abstract class AbstractDrive implements Drive, FileStorage {
     public ComponentType getComponentType() {
         return ComponentType.DRIVE;
     }
-
 }

@@ -165,7 +165,7 @@ public class UserInterface {
 
     private static void listFiles() {
         try {
-            computerDrive().getFiles();
+            computerDrive().getFiles().forEach(System.out::println);
         } catch (ComponentNotFoundException e) {
             System.out.println(e.getMessage());
         }
