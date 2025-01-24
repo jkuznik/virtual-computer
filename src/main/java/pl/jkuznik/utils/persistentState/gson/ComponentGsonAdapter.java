@@ -3,6 +3,7 @@ package pl.jkuznik.utils.persistentState.gson;
 import com.google.gson.*;
 import pl.jkuznik.computer.hardware.components.drive.AbstractDrive;
 import pl.jkuznik.computer.hardware.components.drive.HDDDrive;
+import pl.jkuznik.computer.hardware.components.drive.SSDDrive;
 import pl.jkuznik.computer.hardware.components.headphone.Headphones;
 import pl.jkuznik.computer.hardware.components.monitor.Monitor;
 import pl.jkuznik.computer.hardware.components.usbdevice.MemoryStick;
@@ -16,9 +17,6 @@ import java.lang.reflect.Type;
 import static pl.jkuznik.computer.hardware.shared.enums.ComponentType.valueOf;
 
 public class ComponentGsonAdapter implements JsonSerializer<Component>, JsonDeserializer<Component> {
-    private final Gson gson = new GsonBuilder()
-            .registerTypeHierarchyAdapter(FileHandlerAdapterGson.class, new FileHandlerAdapterGson())
-            .create();
 
     @Override
     public JsonElement serialize(Component srcComponent, Type typeOfSrc, JsonSerializationContext jsonSerializationContext) {
@@ -61,6 +59,10 @@ public class ComponentGsonAdapter implements JsonSerializer<Component>, JsonDese
                 FileHandler fileHandler = jsonDeserializationContext.deserialize(jsonObject.get("fileHandler"), FileHandler.class);
                 return new HDDDrive(fileHandler, name);
             }
+            case SSD -> {
+                FileHandler fileHandler = jsonDeserializationContext.deserialize(jsonObject.get("fileHandler"), FileHandler.class);
+                return new SSDDrive(fileHandler, name);
+            }
             case HEADPHONES -> {
                 return new Headphones(name);
             }
@@ -78,7 +80,8 @@ public class ComponentGsonAdapter implements JsonSerializer<Component>, JsonDese
             case MOUSE -> {
                 return new Mouse(name);
             }
-            default -> throw new JsonParseException("Can not parse to Component type JSON of " + jsonElement.getAsString());
+            default ->
+                    throw new JsonParseException("Can not parse to Component type JSON of " + jsonElement.getAsString());
         }
     }
 }

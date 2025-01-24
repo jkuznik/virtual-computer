@@ -11,10 +11,6 @@ import java.util.List;
 
 public class FileHandlerAdapterGson implements JsonSerializer<FileHandler>, JsonDeserializer<FileHandler> {
 
-    private final Gson gson = new GsonBuilder()
-            .registerTypeHierarchyAdapter(File.class, new FileAdapterGson())
-            .create();
-
     @Override
     public JsonElement serialize(FileHandler fileHandler, Type type, JsonSerializationContext jsonSerializationContext) {
         JsonObject jsonObject = new JsonObject();

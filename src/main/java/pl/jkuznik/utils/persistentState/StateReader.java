@@ -10,7 +10,11 @@ import pl.jkuznik.computer.hardware.components.monitor.Monitor;
 import pl.jkuznik.computer.hardware.components.usbdevice.MemoryStick;
 import pl.jkuznik.computer.hardware.components.usbdevice.Mouse;
 import pl.jkuznik.computer.hardware.shared.Component;
+import pl.jkuznik.computer.hardware.shared.FileHandler;
+import pl.jkuznik.computer.software.file.File;
 import pl.jkuznik.utils.persistentState.gson.ComponentGsonAdapter;
+import pl.jkuznik.utils.persistentState.gson.FileAdapterGson;
+import pl.jkuznik.utils.persistentState.gson.FileHandlerAdapterGson;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -26,6 +30,8 @@ public class StateReader {
 
     private final Gson gson = new GsonBuilder()
             .registerTypeHierarchyAdapter(Component.class, new ComponentGsonAdapter())
+            .registerTypeHierarchyAdapter(FileHandler.class, new FileHandlerAdapterGson())
+            .registerTypeHierarchyAdapter(File.class, new FileAdapterGson())
             .create();
 
     public List<Component> readState() {
