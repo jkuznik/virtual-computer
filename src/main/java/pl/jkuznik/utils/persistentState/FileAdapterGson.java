@@ -6,12 +6,10 @@ import pl.jkuznik.computer.software.file.FileType;
 import pl.jkuznik.computer.software.file.imagefile.GIFImageFile;
 import pl.jkuznik.computer.software.file.imagefile.JPGImageFile;
 import pl.jkuznik.computer.software.file.musicfile.MP3MusicFile;
-import pl.jkuznik.computer.software.file.musicfile.MusicFile;
 
 import java.lang.reflect.Type;
 
-import static pl.jkuznik.computer.software.file.FileType.*;
-import static pl.jkuznik.computer.software.file.FileType.GIF;
+import static pl.jkuznik.computer.software.file.FileType.valueOf;
 
 public class FileAdapterGson implements JsonSerializer<File>, JsonDeserializer<File> {
 
@@ -55,13 +53,13 @@ public class FileAdapterGson implements JsonSerializer<File>, JsonDeserializer<F
             }
             case JPG -> {
                 int compresion = jsonObject.get("compresion").getAsInt();
-                return  new JPGImageFile(name, size, compresion);
+                return new JPGImageFile(name, size, compresion);
             }
             case MP3 -> {
                 String bandName = jsonObject.get("bandName").getAsString();
                 String title = jsonObject.get("title").getAsString();
                 int quality = jsonObject.get("quality").getAsInt();
-                return  new MP3MusicFile(name, size, bandName, title, quality);
+                return new MP3MusicFile(name, size, bandName, title, quality);
             }
             default -> throw new JsonParseException("Can not parse to File type JSON of " + jsonElement.getAsString());
         }
