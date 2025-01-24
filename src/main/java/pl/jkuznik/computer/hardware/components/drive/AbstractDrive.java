@@ -63,6 +63,9 @@ public abstract class AbstractDrive implements Drive, FileStorage {
         return name;
     }
 
+
+    //TODO: dodajemy metodę która zwróci podtyp Drive czy w HDD i SSD nadpisujemy tą metodę?
+    // tymczasowo wybrałem opcję nadpisania metody
     @Override
     public ComponentType getComponentType() {
         return ComponentType.DRIVE;

@@ -57,6 +57,7 @@ public class ComponentGsonAdapter implements JsonSerializer<Component>, JsonDese
 
         switch (componentType) {
             case DRIVE -> {
+
                 return null;
             }
             case HEADPHONES -> {
