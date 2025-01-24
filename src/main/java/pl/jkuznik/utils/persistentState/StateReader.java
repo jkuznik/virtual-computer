@@ -10,6 +10,7 @@ import pl.jkuznik.computer.hardware.components.monitor.Monitor;
 import pl.jkuznik.computer.hardware.components.usbdevice.MemoryStick;
 import pl.jkuznik.computer.hardware.components.usbdevice.Mouse;
 import pl.jkuznik.computer.hardware.shared.Component;
+import pl.jkuznik.utils.persistentState.gson.ComponentGsonAdapter;
 import pl.jkuznik.utils.persistentState.gson.FileAdapterGson;
 
 import java.io.File;
@@ -26,7 +27,7 @@ public class StateReader {
     private final List<Component> components = new ArrayList<>();
 
     private final Gson gson = new GsonBuilder()
-            .registerTypeAdapter(File.class, new FileAdapterGson())
+            .registerTypeHierarchyAdapter(Component.class, new ComponentGsonAdapter())
             .create();
 
     public List<Component> readState() {
@@ -35,7 +36,7 @@ public class StateReader {
 
             for (String line : lines) {
                 JsonElement jsonElement = JsonParser.parseString(line);
-                String type = jsonElement.getAsJsonObject().get("type").getAsString();
+                String type = jsonElement.getAsJsonObject().get("componentType").getAsString();
 
                 Component component = null;
                 switch (type) {

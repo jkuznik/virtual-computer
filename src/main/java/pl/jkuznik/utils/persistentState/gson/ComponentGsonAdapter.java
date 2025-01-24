@@ -22,20 +22,24 @@ public class ComponentGsonAdapter implements JsonSerializer<Component>, JsonDese
         jsonObject.addProperty("componentType", srcComponent.getComponentType().name());
         jsonObject.addProperty("name", srcComponent.getComponentName());
 
-        if (srcComponent instanceof AbstractDrive abstractDrive) {
-            jsonObject.add("fileHandler", jsonSerializationContext.serialize(abstractDrive.getFileHandler()));
-        } else if (srcComponent instanceof Headphones headphones) {
-            // nic specialnego
-        } else if (srcComponent instanceof Monitor monitor) {
-            jsonObject.addProperty("width", monitor.getWidth());
-            jsonObject.addProperty("height", monitor.getHeight());
-        } else if (srcComponent instanceof MemoryStick memoryStick) {
-            jsonObject.add("fileHandler", jsonSerializationContext.serialize(memoryStick.getFileHandler()));
-            jsonObject.addProperty("ejected", memoryStick.isEjected());
-        } else if (srcComponent instanceof Mouse mouse) {
-            // nic specialnego
-        } else {
-            throw new IllegalArgumentException("Unexpected value: " + srcComponent);
+        switch (srcComponent) {
+            case AbstractDrive abstractDrive ->
+                    jsonObject.add("fileHandler", jsonSerializationContext.serialize(abstractDrive.getFileHandler()));
+            case Headphones headphones -> {
+                // nic specialnego
+            }
+            case Monitor monitor -> {
+                jsonObject.addProperty("width", monitor.getWidth());
+                jsonObject.addProperty("height", monitor.getHeight());
+            }
+            case MemoryStick memoryStick -> {
+                jsonObject.add("fileHandler", jsonSerializationContext.serialize(memoryStick.getFileHandler()));
+                jsonObject.addProperty("ejected", memoryStick.isEjected());
+            }
+            case Mouse mouse -> {
+                // nic specialnego
+            }
+            default -> throw new IllegalArgumentException("Unexpected value: " + srcComponent);
         }
 
         return jsonObject;
