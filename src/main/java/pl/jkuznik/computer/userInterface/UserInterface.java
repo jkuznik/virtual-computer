@@ -69,10 +69,10 @@ public class UserInterface {
     }
 
     public static void userInterface() {
-
-//        computerBootstrap();
-//        computer.saveState();
 //
+        computerBootstrap();
+        computer.saveState();
+
         computer.loadState();
         System.out.println("Witam!");
         do {
@@ -309,12 +309,15 @@ public class UserInterface {
             computerDrive().addFile(gifImageFile);
             computerDrive().addFile(jpgImageFile);
             computerDrive().addFile(mp3MusicFile);
+//            memoryStick.addFile(gifImageFile);
+//            memoryStick.addFile(jpgImageFile);
+//            memoryStick.addFile(mp3MusicFile);
         } catch (ComponentNotFoundException e) {
             System.out.println(e.getMessage());
         }
     }
 
     private static AbstractDrive computerDrive() throws ComponentNotFoundException {
-        return (AbstractDrive) computer.getComponent(ComponentType.DRIVE);
+        return (AbstractDrive) computer.getComponent(ComponentType.HDD);
     }
 }

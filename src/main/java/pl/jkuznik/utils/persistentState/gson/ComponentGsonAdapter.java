@@ -2,6 +2,7 @@ package pl.jkuznik.utils.persistentState.gson;
 
 import com.google.gson.*;
 import pl.jkuznik.computer.hardware.components.drive.AbstractDrive;
+import pl.jkuznik.computer.hardware.components.drive.HDDDrive;
 import pl.jkuznik.computer.hardware.components.headphone.Headphones;
 import pl.jkuznik.computer.hardware.components.monitor.Monitor;
 import pl.jkuznik.computer.hardware.components.usbdevice.MemoryStick;
@@ -56,9 +57,9 @@ public class ComponentGsonAdapter implements JsonSerializer<Component>, JsonDese
         ComponentType componentType = valueOf(jsonObject.get("componentType").getAsString());
 
         switch (componentType) {
-            case DRIVE -> {
-
-                return null;
+            case HDD -> {
+                FileHandler fileHandler = jsonDeserializationContext.deserialize(jsonObject.get("fileHandler"), FileHandler.class);
+                return new HDDDrive(fileHandler, name);
             }
             case HEADPHONES -> {
                 return new Headphones(name);

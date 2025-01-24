@@ -10,11 +10,16 @@ import java.io.FileNotFoundException;
 import java.util.List;
 
 public abstract class AbstractDrive implements Drive, FileStorage {
-    private final FileHandler fileHandler;
-    private final String name;
+    protected final FileHandler fileHandler;
+    protected final String name;
 
     public AbstractDrive(StorageCapacity storageCapacity, String name) {
         this.fileHandler = new FileHandler(storageCapacity);
+        this.name = name;
+    }
+
+    public AbstractDrive(FileHandler fileHandler, String name) {
+        this.fileHandler = fileHandler;
         this.name = name;
     }
 

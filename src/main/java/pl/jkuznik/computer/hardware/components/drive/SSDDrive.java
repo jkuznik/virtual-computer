@@ -1,5 +1,6 @@
 package pl.jkuznik.computer.hardware.components.drive;
 
+import pl.jkuznik.computer.hardware.shared.FileHandler;
 import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
 import pl.jkuznik.computer.hardware.shared.enums.StorageCapacity;
 
@@ -9,6 +10,10 @@ public class SSDDrive extends AbstractDrive{
     // dedykowane dla HDD oraz SDD i nadpisać metody getComponentType() w tych klasach
     public SSDDrive(StorageCapacity storageCapacity, String name) {
         super(storageCapacity, name);
+    }
+
+    public SSDDrive(FileHandler fileHandler, String name) {
+        super(fileHandler, name);
     }
 
     @Override
