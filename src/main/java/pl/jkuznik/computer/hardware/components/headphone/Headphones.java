@@ -10,10 +10,6 @@ public class Headphones implements Component {
         this.name = name;
     }
 
-    public String getName() {
-        return name;
-    }
-
     @Override
     public String getComponentName() {
         return name;
@@ -23,5 +19,4 @@ public class Headphones implements Component {
     public ComponentType getComponentType() {
         return ComponentType.HEADPHONES;
     }
-
 }

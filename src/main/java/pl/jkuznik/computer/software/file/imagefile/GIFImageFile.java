@@ -8,20 +8,11 @@ public class GIFImageFile extends AbstractImageFile {
         super(fileType, name, size);
     }
 
-    public void showAnimation() {
-        System.out.println("Showing funny GIF");
-    }
-
     public int getVersion() {
         return 2;
     }
 
-    @Override
-    public String toString() {
-        return "GIFImageFile{" +
-                "fileType=" + fileType +
-                ", name='" + name + '\'' +
-                ", size=" + size +
-                '}';
+    public void showAnimation() {
+        System.out.println("Showing funny GIF");
     }
 }

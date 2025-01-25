@@ -5,12 +5,14 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import pl.jkuznik.computer.hardware.components.drive.HDDDrive;
+import pl.jkuznik.computer.hardware.components.drive.SSDDrive;
 import pl.jkuznik.computer.hardware.components.headphone.Headphones;
 import pl.jkuznik.computer.hardware.components.monitor.Monitor;
 import pl.jkuznik.computer.hardware.components.usbdevice.MemoryStick;
 import pl.jkuznik.computer.hardware.components.usbdevice.Mouse;
 import pl.jkuznik.computer.hardware.shared.Component;
 import pl.jkuznik.computer.hardware.shared.FileHandler;
+import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
 import pl.jkuznik.computer.software.file.File;
 import pl.jkuznik.utils.persistentState.gson.ComponentGsonAdapter;
 import pl.jkuznik.utils.persistentState.gson.FileAdapterGson;
@@ -23,8 +25,9 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StateReader {
+import static pl.jkuznik.computer.hardware.shared.enums.ComponentType.valueOf;
 
+public class StateReader {
     private final Path path = Paths.get(FilePath.COMPUTER_STATE.getPath());
     private final List<Component> components = new ArrayList<>();
 
@@ -40,16 +43,16 @@ public class StateReader {
 
             for (String line : lines) {
                 JsonElement jsonElement = JsonParser.parseString(line);
-                String type = jsonElement.getAsJsonObject().get("componentType").getAsString();
+                ComponentType componentType = valueOf(jsonElement.getAsJsonObject().get("componentType").getAsString());
 
                 Component component = null;
-                switch (type) {
-                    case "MONITOR" -> component = gson.fromJson(line, Monitor.class);
-                    case "MOUSE" -> component = gson.fromJson(line, Mouse.class);
-                    case "HEADPHONES" -> component = gson.fromJson(line, Headphones.class);
-                    case "MEMORYSTICK" -> component = gson.fromJson(line, MemoryStick.class);
-//                    TODO: dodać obsługe klasy abstrakcyjnej AbstractDrive - obecnie jest na sztywno HDDDrive
-                    case "HDD" -> component = gson.fromJson(line, HDDDrive.class);
+                switch (componentType) {
+                    case HDD -> component = gson.fromJson(line, HDDDrive.class);
+                    case SSD -> component = gson.fromJson(line, SSDDrive.class);
+                    case MONITOR -> component = gson.fromJson(line, Monitor.class);
+                    case MOUSE -> component = gson.fromJson(line, Mouse.class);
+                    case HEADPHONES -> component = gson.fromJson(line, Headphones.class);
+                    case MEMORY_STICK -> component = gson.fromJson(line, MemoryStick.class);
                 }
 
                 if (component != null) {
@@ -59,7 +62,6 @@ public class StateReader {
         } catch (IOException e) {
             System.out.println("File .computer-state.txt not found");
         }
-
         return components;
     }
 }

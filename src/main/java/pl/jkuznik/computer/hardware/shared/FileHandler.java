@@ -8,17 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FileHandler {
-
     private final StorageCapacity storageCapacity;
     private long currentCapacity = 0;
     private List<File> files = new ArrayList<>();
 
     public FileHandler(StorageCapacity storageCapacity) {
         this.storageCapacity = storageCapacity;
-    }
-
-    public long getEmptyCapacity() {
-        return storageCapacity.getSize() - currentCapacity;
     }
 
     public void addFile(File file) {
@@ -42,14 +37,6 @@ public class FileHandler {
 
     public long getCurrentCapacity() {
         return currentCapacity;
-    }
-
-    public void setCurrentCapacity(long currentCapacity) {
-        this.currentCapacity = currentCapacity;
-    }
-
-    public void setFiles(List<File> files) {
-        this.files = files;
     }
 
     public StorageCapacity getStorageCapacity() {

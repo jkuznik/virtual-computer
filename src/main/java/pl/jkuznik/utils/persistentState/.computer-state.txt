@@ -1,5 +1,5 @@
 {"componentType":"HEADPHONES","name":"HyperX"}
-{"componentType":"MEMORYSTICK","name":"Pendrive","fileHandler":{"storageCapacity":"GB16","currentCapacity":0,"files":[]},"ejected":false}
+{"componentType":"MEMORYSTICK","name":"Pendrive","fileHandler":{"storageCapacity":"GB16","currentCapacity":20,"files":[{"fileType":"GIF","name":"funnygif.gif","size":3},{"compression":1,"fileType":"JPG","name":"funnyimage.png","size":2},{"quality":10,"bandName":"Jackson","title":"Thriller","fileType":"MP3","name":"song.mp3","size":15}]},"ejected":false}
 {"componentType":"HDD","name":"HDDDrive","fileHandler":{"storageCapacity":"GB512","currentCapacity":20,"files":[{"fileType":"GIF","name":"funnygif.gif","size":3},{"compression":1,"fileType":"JPG","name":"funnyimage.png","size":2},{"quality":10,"bandName":"Jackson","title":"Thriller","fileType":"MP3","name":"song.mp3","size":15}]}}
 {"componentType":"MOUSE","name":"Zowie"}
 {"componentType":"MONITOR","name":"Iiyama","width":3840,"height":1920}

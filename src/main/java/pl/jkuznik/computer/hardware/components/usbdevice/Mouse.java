@@ -9,10 +9,6 @@ public class Mouse implements USBDevice {
         this.name = name;
     }
 
-    public String getName() {
-        return name;
-    }
-
     @Override
     public boolean connect() {
         System.out.println("Mouse connected");
@@ -34,5 +30,4 @@ public class Mouse implements USBDevice {
     public ComponentType getComponentType() {
         return ComponentType.MOUSE;
     }
-
 }

@@ -70,8 +70,9 @@ public class UserInterface {
 
     public static void userInterface() {
 //
-        computerBootstrap();
-        computer.saveState();
+//        computerBootstrap();
+//
+//        computer.saveState();
 
         computer.loadState();
         System.out.println("Witam!");
@@ -309,9 +310,9 @@ public class UserInterface {
             computerDrive().addFile(gifImageFile);
             computerDrive().addFile(jpgImageFile);
             computerDrive().addFile(mp3MusicFile);
-//            memoryStick.addFile(gifImageFile);
-//            memoryStick.addFile(jpgImageFile);
-//            memoryStick.addFile(mp3MusicFile);
+            memoryStick.addFile(gifImageFile);
+            memoryStick.addFile(jpgImageFile);
+            memoryStick.addFile(mp3MusicFile);
         } catch (ComponentNotFoundException e) {
             System.out.println(e.getMessage());
         }

@@ -25,8 +25,9 @@ public class ComponentGsonAdapter implements JsonSerializer<Component>, JsonDese
         jsonObject.addProperty("name", srcComponent.getComponentName());
 
         switch (srcComponent) {
-            case AbstractDrive abstractDrive ->
-                    jsonObject.add("fileHandler", jsonSerializationContext.serialize(abstractDrive.getFileHandler()));
+            case AbstractDrive abstractDrive -> {
+                jsonObject.add("fileHandler", jsonSerializationContext.serialize(abstractDrive.getFileHandler()));
+            }
             case Headphones headphones -> {
                 // nic specialnego
             }
@@ -43,7 +44,6 @@ public class ComponentGsonAdapter implements JsonSerializer<Component>, JsonDese
             }
             default -> throw new IllegalArgumentException("Unexpected value: " + srcComponent);
         }
-
         return jsonObject;
     }
 
@@ -73,7 +73,7 @@ public class ComponentGsonAdapter implements JsonSerializer<Component>, JsonDese
 
                 return monitor;
             }
-            case MEMORYSTICK -> {
+            case MEMORY_STICK -> {
                 FileHandler fileHandler = jsonDeserializationContext.deserialize(jsonObject.get("fileHandler"), FileHandler.class);
                 return new MemoryStick(fileHandler, name);
             }

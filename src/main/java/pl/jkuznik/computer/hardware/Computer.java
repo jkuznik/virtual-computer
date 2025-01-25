@@ -64,6 +64,5 @@ public class Computer {
 //    public void removeUSBDevice(USBDevice usbDevice) {
 //        components.remove(usbDevice);
 //    }
-
 }
 
