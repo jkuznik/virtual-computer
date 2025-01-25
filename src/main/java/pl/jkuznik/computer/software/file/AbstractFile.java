@@ -11,18 +11,6 @@ public abstract class AbstractFile implements File {
         this.size = size;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setFileType(FileType fileType) {
-        this.fileType = fileType;
-    }
-
-    public void setSize(long size) {
-        this.size = size;
-    }
-
     @Override
     public String getName() {
         return this.name;

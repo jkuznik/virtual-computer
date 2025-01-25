@@ -69,10 +69,10 @@ public class UserInterface {
     }
 
     public static void userInterface() {
-//
-//        computerBootstrap();
-//
-//        computer.saveState();
+
+        computerBootstrap();
+
+        computer.saveState();
 
         computer.loadState();
         System.out.println("Witam!");
@@ -166,7 +166,7 @@ public class UserInterface {
 
     private static void listFiles() {
         try {
-            computerDrive().getFiles().forEach(System.out::println);
+            computerDrive().getFiles().forEach(file -> System.out.println(file.getName()));
         } catch (ComponentNotFoundException e) {
             System.out.println(e.getMessage());
         }

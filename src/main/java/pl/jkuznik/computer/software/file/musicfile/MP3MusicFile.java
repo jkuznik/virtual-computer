@@ -10,7 +10,6 @@ public class MP3MusicFile extends AbstractMusicFile {
         this.quality = quality;
     }
 
-
     public String getBandName(){
         return bandName;
     }
@@ -23,21 +22,8 @@ public class MP3MusicFile extends AbstractMusicFile {
         return quality;
     }
 
-
     @Override
     public void play() {
         System.out.println("Playing MP3 file");
-    }
-
-    @Override
-    public String toString() {
-        return "MP3MusicFile{" +
-                "fileType=" + fileType +
-                ", name='" + name + '\'' +
-                ", size=" + size +
-                ", bandName='" + bandName + '\'' +
-                ", title='" + title + '\'' +
-                ", quality=" + quality +
-                '}';
     }
 }
