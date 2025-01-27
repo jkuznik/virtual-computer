@@ -1,4 +1,4 @@
-package pl.jkuznik.utils.persistentState.gson;
+package pl.jkuznik.utils.persistentState.gsonTypeAdapter;
 
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;

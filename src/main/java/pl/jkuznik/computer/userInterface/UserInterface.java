@@ -287,7 +287,6 @@ public class UserInterface {
         }
     }
 
-
     private static void computerBootstrap() {
 
         Monitor monitor = new Monitor("Iiyama");
