@@ -8,17 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FileHandler {
-
     private final StorageCapacity storageCapacity;
     private long currentCapacity = 0;
     private List<File> files = new ArrayList<>();
 
     public FileHandler(StorageCapacity storageCapacity) {
         this.storageCapacity = storageCapacity;
-    }
-
-    public long getEmptyCapacity() {
-        return storageCapacity.getSize() - currentCapacity;
     }
 
     public void addFile(File file) {
@@ -40,11 +35,15 @@ public class FileHandler {
                 .orElseThrow(() -> new FileNotFoundException("File " + fileName + " not found"));
     }
 
-    public void listFiles() {
-        for (File file : files) {
-            System.out.println(file.getName());
-        }
-        System.out.println();
+    public long getCurrentCapacity() {
+        return currentCapacity;
     }
 
+    public StorageCapacity getStorageCapacity() {
+        return storageCapacity;
+    }
+
+    public List<File> getFiles() {
+        return files;
+    }
 }

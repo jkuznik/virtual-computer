@@ -1,6 +1,5 @@
 package pl.jkuznik.computer.hardware.components.drive;
 
-import com.google.gson.Gson;
 import pl.jkuznik.computer.hardware.shared.FileHandler;
 import pl.jkuznik.computer.hardware.shared.FileStorage;
 import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
@@ -8,30 +7,28 @@ import pl.jkuznik.computer.hardware.shared.enums.StorageCapacity;
 import pl.jkuznik.computer.software.file.File;
 
 import java.io.FileNotFoundException;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.List;
 
 public abstract class AbstractDrive implements Drive, FileStorage {
-    private transient final FileHandler fileHandler;
-    private final String name;
-
-    private transient final Gson gson = new Gson();
+    protected final FileHandler fileHandler;
+    protected final String name;
 
     public AbstractDrive(StorageCapacity storageCapacity, String name) {
         this.fileHandler = new FileHandler(storageCapacity);
         this.name = name;
     }
 
-    //  TODO: metoda do zaimplementowania w kolejnym tasku
-    @Override
-    public void getWriteSpeed() {
-
+    public AbstractDrive(FileHandler fileHandler, String name) {
+        this.fileHandler = fileHandler;
+        this.name = name;
     }
 
-    //  TODO: metoda do zaimplementowania w kolejnym tasku
-    @Override
-    public void getReadSpeed() {
+    public FileHandler getFileHandler() {
+        return fileHandler;
+    }
 
+    public String getName() {
+        return name;
     }
 
     @Override
@@ -40,8 +37,8 @@ public abstract class AbstractDrive implements Drive, FileStorage {
     }
 
     @Override
-    public void listFiles() {
-        fileHandler.listFiles();
+    public List<File> getFiles() {
+        return fileHandler.getFiles();
     }
 
     @Override
@@ -54,25 +51,25 @@ public abstract class AbstractDrive implements Drive, FileStorage {
         return fileHandler.findFile(fileName);
     }
 
+    //  TODO: metoda do zaimplementowania w kolejnym tasku
+    @Override
+    public void getWriteSpeed() {    }
+
+    //  TODO: metoda do zaimplementowania w kolejnym tasku
+    @Override
+    public void getReadSpeed() {
+
+    }
+
     @Override
     public String getComponentName() {
         return name;
     }
 
+    //TODO: dodajemy metodę która zwróci podtyp Drive czy w HDD i SSD nadpisujemy tą metodę?
+    // tymczasowo wybrałem opcję nadpisania metody
     @Override
     public ComponentType getComponentType() {
         return ComponentType.DRIVE;
-    }
-
-    @Override
-    public String toJson() {
-        Map<String, Object> jsonMap = new LinkedHashMap<>();
-
-        jsonMap.put("type", this.getComponentType().name());
-        jsonMap.put("name", name);
-        // TODO: zaimplementować toJson w fileHandler aby umożliwić zapisanie stanu plików
-//        jsonMap.put("fileHandler", fileHandler.toString());
-
-        return gson.toJson(jsonMap);
     }
 }
