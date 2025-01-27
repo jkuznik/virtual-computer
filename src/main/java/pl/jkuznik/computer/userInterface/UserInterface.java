@@ -27,8 +27,8 @@ public class UserInterface {
     static Computer computer = new Computer();
     static ConsoleReader consoleReader = ConsoleReader.getInstance();
     static UserChoiceEnum userInput;
-    static boolean polishSelected;
-    static boolean englishSelected;
+    static boolean polishSelected = false;
+    static boolean englishSelected = false;
 
     public static void languageMenu() {
 
@@ -47,12 +47,10 @@ public class UserInterface {
                 case USER_INPUT_1 -> {
                     polishSelected = true;
                     englishSelected = false;
-                    userInterface();
                 }
                 case USER_INPUT_2 -> {
                     englishSelected = true;
                     polishSelected = false;
-                    userInterface();
                 }
                 case USER_INPUT_9 -> System.exit(0);
                 default -> {
@@ -63,6 +61,7 @@ public class UserInterface {
                     }
                 }
             }
+            userInterface();
         } while (!userInput.equals(UserChoiceEnum.USER_INPUT_9));
     }
 

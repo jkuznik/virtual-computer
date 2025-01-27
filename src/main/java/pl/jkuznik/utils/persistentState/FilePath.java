@@ -1,7 +1,7 @@
 package pl.jkuznik.utils.persistentState;
 
 public enum FilePath {
-    COMPUTER_STATE("src/main/java/pl/jkuznik/utils/persistentState/.computer-state.txt");
+    COMPUTER_STATE("src/main/resources/computerState/.computer-state.txt");
 
     private final String path;
 
