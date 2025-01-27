@@ -54,7 +54,16 @@ public class Computer {
         components.clear();
         components.addAll(stateFromFile);
     }
-//    TODO: do zaimplementowania
+
+    public GameHandler getGameHandler() {
+        return gameHandler;
+    }
+
+    public ProgramHandler getProgramHandler() {
+        return programHandler;
+    }
+
+    //    TODO: do zaimplementowania
 //    public List<USBDevice> getUsbDevices() {
 //        return usbDevices;
 //    }

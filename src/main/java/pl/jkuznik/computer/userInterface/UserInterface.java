@@ -26,8 +26,6 @@ import java.io.FileNotFoundException;
 public class UserInterface {
     static Computer computer = new Computer();
     static ConsoleReader consoleReader = ConsoleReader.getInstance();
-    static ProgramHandler programHandler = ProgramHandler.getInstance();
-    static GameHandler gameHandler = new GameHandler();
     static UserChoiceEnum userInput;
     static boolean polishSelected;
     static boolean englishSelected;
@@ -142,9 +140,9 @@ public class UserInterface {
         } else if (englishSelected) {
             System.out.println(MultiLingualHandler.RUN_GAME.getTextEng());
         }
-        gameHandler.gameList();
+        computer.getGameHandler().gameList();
         try {
-            gameHandler.startGameByName(consoleReader.getScanner().nextLine());
+            computer.getGameHandler().startGameByName(consoleReader.getScanner().nextLine());
         } catch (GameNotFoundException e) {
             System.out.println(e.getMessage());
         }
@@ -156,9 +154,9 @@ public class UserInterface {
         } else if (englishSelected) {
             System.out.println(MultiLingualHandler.RUN_PROGRAM.getTextEng());
         }
-        programHandler.programList();
+        computer.getProgramHandler().programList();
         try {
-            programHandler.startProgramByName(consoleReader.getScanner().nextLine());
+            computer.getProgramHandler().startProgramByName(consoleReader.getScanner().nextLine());
         } catch (ProgramNotFoundException e) {
             System.out.println(e.getMessage());
         }
