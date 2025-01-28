@@ -1,0 +1,16 @@
+MAIN_MENU;1. Mostrar componentes.;2. Gestión de archivos.;8. Atrás.;9. Salir.
+COMPONENT_MENU;
+FILE_MENU;1. Mostrar archivos.;2. Agregar archivo.;3. Eliminar archivo.;4. Ejecutar programa.;5. Ejecutar juego.;8. Atrás.;9. Salir.
+ERROR;Error, inténtalo de nuevo.
+RUN_GAME;Introduce el nombre del juego que deseas ejecutar:
+RUN_PROGRAM;Introduce el nombre del programa que deseas ejecutar:
+END_GAME;Juego terminado.
+END_PROGRAM;Programa terminado.
+ADD_FILE;Especifica el tipo de archivo:;1. JPG;2. GIF;3. MP3
+INPUT_FILE_NAME;Especifica el nombre del archivo:
+INPUT_FILE_SIZE;Especifica el tamaño del archivo:
+INPUT_FILE_QUALITY;Especifica la calidad:
+INPUT_FILE_COMPRESSION;Especifica el nivel de compresión:
+INPUT_SONG_TITLE;Especifica el título de la canción:
+INPUT_SONG_BAND_NAME;Especifica el artista de la canción:
+INPUT_FILE_NAME_FOR_DELETE;Especifica el nombre del archivo que deseas eliminar:

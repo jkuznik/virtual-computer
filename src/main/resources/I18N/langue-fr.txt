@@ -1,0 +1,16 @@
+MAIN_MENU;1. Afficher les composants.;2. Gestion des fichiers.;8. Retour.;9. Quitter.
+COMPONENT_MENU;
+FILE_MENU;1. Afficher les fichiers.;2. Ajouter un fichier.;3. Supprimer un fichier.;4. Lancer un programme.;5. Lancer un jeu.;8. Retour.;9. Quitter.
+ERROR;Erreur, veuillez réessayer !
+RUN_GAME;Entrez le nom du jeu que vous souhaitez lancer :
+RUN_PROGRAM;Entrez le nom du programme que vous souhaitez lancer :
+END_GAME;Jeu terminé.
+END_PROGRAM;Programme terminé.
+ADD_FILE;Spécifiez le type de fichier :;1. JPG;2. GIF;3. MP3
+INPUT_FILE_NAME;Spécifiez le nom du fichier :
+INPUT_FILE_SIZE;Spécifiez la taille du fichier :
+INPUT_FILE_QUALITY;Spécifiez la qualité :
+INPUT_FILE_COMPRESSION;Spécifiez le niveau de compression :
+INPUT_SONG_TITLE;Spécifiez le titre de la chanson :
+INPUT_SONG_BAND_NAME;Spécifiez l'artiste de la chanson :
+INPUT_FILE_NAME_FOR_DELETE;Spécifiez le nom du fichier que vous souhaitez supprimer :
