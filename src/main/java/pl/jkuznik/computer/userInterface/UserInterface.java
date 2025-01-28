@@ -70,7 +70,7 @@ public class UserInterface {
         computer.saveState();
 
         computer.loadState();
-        System.out.println("Witam!");
+        langueHandler.displayMessage(GREETINGS);
         do {
             langueHandler.displayMessage(MAIN_MENU);
             userInput = UserChoice.userChoice(Integer.parseInt(consoleReader.getScanner().nextLine()));

@@ -1,3 +1,4 @@
+GREETINGS;Benvenuto nel sistema di gestione del computer!
 MAIN_MENU;1. Visualizza componenti.;2. Gestione dei file.;8. Indietro.;9. Esci.
 COMPONENT_MENU;
 FILE_MENU;1. Visualizza file.;2. Aggiungi file.;3. Elimina file.;4. Avvia programma.;5. Avvia gioco.;8. Indietro.;9. Esci.

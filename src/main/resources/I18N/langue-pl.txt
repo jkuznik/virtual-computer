@@ -1,3 +1,4 @@
+GREETINGS;Witamy w systemie zarządzania komputerem!
 MAIN_MENU;1. Wyświetl podzespoły.;2. Zarządzanie plikami.;8. Powrót.;9. Wyjście.
 COMPONENT_MENU;
 FILE_MENU;1. Wyświetl pliki.;2. Dodaj plik.;3. Usuń plik.;4. Uruchom program.;5. Uruchom grę.;8. Powrót.;9. Wyjście.;

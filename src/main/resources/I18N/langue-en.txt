@@ -1,3 +1,4 @@
+GREETINGS;Welcome to the computer management system!
 MAIN_MENU;1. Display components.;2. File management.;8. Back.;9. Exit.
 COMPONENT_MENU;
 FILE_MENU;1. Display files.;2. Add file.;3. Delete file.;4. Run program.;5. Run game.;8. Back.;9. Exit.
