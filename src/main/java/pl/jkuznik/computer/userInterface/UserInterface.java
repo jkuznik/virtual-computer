@@ -15,9 +15,7 @@ import pl.jkuznik.computer.software.file.FileType;
 import pl.jkuznik.computer.software.file.imagefile.GIFImageFile;
 import pl.jkuznik.computer.software.file.imagefile.JPGImageFile;
 import pl.jkuznik.computer.software.file.musicfile.MP3MusicFile;
-import pl.jkuznik.computer.software.game.GameHandler;
 import pl.jkuznik.computer.software.game.GameNotFoundException;
-import pl.jkuznik.computer.software.program.ProgramHandler;
 import pl.jkuznik.computer.software.program.ProgramNotFoundException;
 import pl.jkuznik.utils.ConsoleReader;
 
@@ -26,7 +24,7 @@ import java.io.FileNotFoundException;
 public class UserInterface {
     static Computer computer = new Computer();
     static ConsoleReader consoleReader = ConsoleReader.getInstance();
-    static UserChoiceEnum userInput;
+    static UserChoice userInput;
     static boolean polishSelected = false;
     static boolean englishSelected = false;
 
@@ -41,7 +39,7 @@ public class UserInterface {
                      2.English!
                      9.Wyjście/Exit.
                     """);
-            userInput = UserChoiceEnum.userChoice(Integer.parseInt(consoleReader.getScanner().nextLine()));
+            userInput = UserChoice.userChoice(Integer.parseInt(consoleReader.getScanner().nextLine()));
 
             switch (userInput) {
                 case USER_INPUT_1 -> {
@@ -62,7 +60,7 @@ public class UserInterface {
                 }
             }
             userInterface();
-        } while (!userInput.equals(UserChoiceEnum.USER_INPUT_9));
+        } while (!userInput.equals(UserChoice.USER_INPUT_9));
     }
 
     public static void userInterface() {
@@ -79,7 +77,7 @@ public class UserInterface {
             } else if (englishSelected) {
                 System.out.println(MultiLingualHandler.MAIN_MENU.getTextEng());
             }
-            userInput = UserChoiceEnum.userChoice(Integer.parseInt(consoleReader.getScanner().nextLine()));
+            userInput = UserChoice.userChoice(Integer.parseInt(consoleReader.getScanner().nextLine()));
 
             switch (userInput) {
                 case USER_INPUT_1 ->
@@ -101,7 +99,7 @@ public class UserInterface {
                     }
                 }
             }
-        } while (!userInput.equals(UserChoiceEnum.USER_INPUT_9));
+        } while (!userInput.equals(UserChoice.USER_INPUT_9));
     }
 
     public static void fileManager() {
@@ -112,7 +110,7 @@ public class UserInterface {
                 System.out.println(MultiLingualHandler.FILE_MANAGER.getTextEng());
             }
 
-            userInput = UserChoiceEnum.userChoice(Integer.parseInt(consoleReader.getScanner().nextLine()));
+            userInput = UserChoice.userChoice(Integer.parseInt(consoleReader.getScanner().nextLine()));
 
             switch (userInput) {
                 case USER_INPUT_1 -> listFiles();
@@ -130,7 +128,7 @@ public class UserInterface {
                     }
                 }
             }
-        } while (!userInput.equals(UserChoiceEnum.USER_INPUT_8));
+        } while (!userInput.equals(UserChoice.USER_INPUT_8));
     }
 
     private static void runGame() {
@@ -182,7 +180,7 @@ public class UserInterface {
         } else if (englishSelected) {
             System.out.println(MultiLingualHandler.ADD_FILE.getTextEng());
         }
-        userInput = UserChoiceEnum.userChoice(Integer.parseInt(consoleReader.getScanner().nextLine()));
+        userInput = UserChoice.userChoice(Integer.parseInt(consoleReader.getScanner().nextLine()));
         switch (userInput) {
             case USER_INPUT_1 -> {
                 if (polishSelected) {

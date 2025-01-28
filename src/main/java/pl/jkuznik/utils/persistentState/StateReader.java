@@ -14,6 +14,7 @@ import pl.jkuznik.computer.hardware.shared.Component;
 import pl.jkuznik.computer.hardware.shared.FileHandler;
 import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
 import pl.jkuznik.computer.software.file.File;
+import pl.jkuznik.utils.enums.FilePath;
 import pl.jkuznik.utils.persistentState.gsonTypeAdapter.ComponentGsonAdapter;
 import pl.jkuznik.utils.persistentState.gsonTypeAdapter.FileAdapterGson;
 import pl.jkuznik.utils.persistentState.gsonTypeAdapter.FileHandlerAdapterGson;

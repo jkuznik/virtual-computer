@@ -1,6 +1,6 @@
 package pl.jkuznik.computer.userInterface;
 
-public enum UserChoiceEnum {
+public enum UserChoice {
 
     USER_INPUT_0(0),
     USER_INPUT_1(1),
@@ -20,19 +20,19 @@ public enum UserChoiceEnum {
     private final int userinput;
 
 
-    UserChoiceEnum(int userinput) {
+    UserChoice(int userinput) {
         this.userinput = userinput;
     }
 
-    public static UserChoiceEnum userChoice(int userChoiceInput) {
-        for (UserChoiceEnum choice : UserChoiceEnum.values()) {
+    public static UserChoice userChoice(int userChoiceInput) {
+        for (UserChoice choice : UserChoice.values()) {
             if (choice.userinput == userChoiceInput) {
                 return choice;
             }
 
         }
 
-        return UserChoiceEnum.USER_INPUT_0;
+        return UserChoice.USER_INPUT_0;
     }
 }
 
