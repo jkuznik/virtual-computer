@@ -41,6 +41,7 @@ public class UserInterface {
                     Wybierz język/Select language:
                      1.Polski!
                      2.English!
+                     3.Deutsch!
                      9.Wyjście/Exit.
                     """);
             userInput = UserChoice.userChoice(Integer.parseInt(consoleReader.getScanner().nextLine()));
@@ -51,6 +52,9 @@ public class UserInterface {
                 }
                 case USER_INPUT_2 -> {
                     langueHandler.loadLangue(FilePath.LANGUE_EN);
+                }
+                case USER_INPUT_3 -> {
+                    langueHandler.loadLangue(FilePath.LANGUE_DE);
                 }
                 case USER_INPUT_9 -> System.exit(0);
                 default -> System.out.println("Błąd, spróbuj ponownie!");

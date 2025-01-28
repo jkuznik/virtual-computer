@@ -1,0 +1,16 @@
+MAIN_MENU;1. Komponenten anzeigen.;2. Dateiverwaltung.;8. Zurück.;9. Beenden.
+COMPONENT_MENU;
+FILE_MENU;1. Dateien anzeigen.;2. Datei hinzufügen.;3. Datei löschen.;4. Programm starten.;5. Spiel starten.;8. Zurück.;9. Beenden.
+ERROR;Fehler, bitte versuchen Sie es erneut!
+RUN_GAME;Geben Sie den Namen des Spiels ein, das Sie starten möchten:
+RUN_PROGRAM;Geben Sie den Namen des Programms ein, das Sie starten möchten:
+END_GAME;Spiel beendet.
+END_PROGRAM;Programm beendet.
+ADD_FILE;Geben Sie den Dateityp an:;1. JPG;2. GIF;3. MP3
+INPUT_FILE_NAME;Geben Sie den Dateinamen an:
+INPUT_FILE_SIZE;Geben Sie die Dateigröße an:
+INPUT_FILE_QUALITY;Geben Sie die Qualität an:
+INPUT_FILE_COMPRESSION;Geben Sie die Komprimierungsstufe an:
+INPUT_SONG_TITLE;Geben Sie den Titel des Liedes an:
+INPUT_SONG_BAND_NAME;Geben Sie den Künstler des Liedes an:
+INPUT_FILE_NAME_FOR_DELETE;Geben Sie den Namen der Datei an, die Sie löschen möchten:
