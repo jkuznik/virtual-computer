@@ -17,7 +17,7 @@ import pl.jkuznik.computer.software.file.imagefile.JPGImageFile;
 import pl.jkuznik.computer.software.file.musicfile.MP3MusicFile;
 import pl.jkuznik.computer.software.game.GameNotFoundException;
 import pl.jkuznik.computer.software.program.ProgramNotFoundException;
-import pl.jkuznik.utils.ConsoleReader;
+import pl.jkuznik.utils.consoleReader.ConsoleReader;
 
 import java.io.FileNotFoundException;
 

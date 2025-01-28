@@ -1,7 +1,7 @@
 package pl.jkuznik.computer.software.program.chat;
 
 import pl.jkuznik.computer.software.program.Program;
-import pl.jkuznik.utils.ConsoleReader;
+import pl.jkuznik.utils.consoleReader.ConsoleReader;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,10 +1,9 @@
 package pl.jkuznik.computer.software.game.findNumber;
 
 import pl.jkuznik.computer.software.game.Game;
-import pl.jkuznik.utils.ConsoleReader;
+import pl.jkuznik.utils.consoleReader.ConsoleReader;
 
 import java.util.Random;
-import java.util.Scanner;
 
 public class FindNumberGame implements Game {
 

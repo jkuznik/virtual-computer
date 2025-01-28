@@ -1,4 +1,4 @@
-package pl.jkuznik.utils;
+package pl.jkuznik.utils.consoleReader;
 
 import java.util.Scanner;
 
