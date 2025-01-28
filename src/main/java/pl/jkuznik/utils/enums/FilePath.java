@@ -3,7 +3,8 @@ package pl.jkuznik.utils.enums;
 public enum FilePath {
     COMPUTER_STATE("src/main/resources/computerState/.computer-state.txt"),
 
-    LANGUE_PL("src/main/resources/I18N/langue-pl.txt");
+    LANGUE_PL("src/main/resources/I18N/langue-pl.txt"),
+    LANGUE_EN("src/main/resources/I18N/langue-en.txt");
 
     private final String path;
 
