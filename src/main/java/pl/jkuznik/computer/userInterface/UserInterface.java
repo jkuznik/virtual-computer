@@ -65,24 +65,18 @@ public class UserInterface {
 
     public static void userInterface() {
 
+        // TODO: dodać możliwość zarządzania podzespołąmi wraz z możliwośćia zapisu i odczytu
         computerBootstrap();
-
-        computer.saveState();
-
-        computer.loadState();
         langueHandler.displayMessage(GREETINGS);
         do {
             langueHandler.displayMessage(MAIN_MENU);
             userInput = UserChoice.userChoice(Integer.parseInt(consoleReader.getScanner().nextLine()));
 
             switch (userInput) {
-                case USER_INPUT_1 ->
-                        computer.getAllComponents().forEach(component -> System.out.println(component.getComponentName()));
+                case USER_INPUT_1 -> computer.getAllComponents().forEach(component -> System.out.println(component.getComponentName()));
                 case USER_INPUT_2 -> fileManager();
                 case USER_INPUT_8 -> languageMenu();
-                case USER_INPUT_9 -> {
-                    langueHandler.displayMessage(END_PROGRAM);
-                }
+                case USER_INPUT_9 -> langueHandler.displayMessage(END_PROGRAM);
                 default -> langueHandler.displayMessage(ERROR);
             }
         } while (!userInput.equals(UserChoice.USER_INPUT_9));
