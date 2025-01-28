@@ -12,15 +12,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class LangueReader {
+public class LangueHandler {
 
-    public Map<MenuMessage, List<String>> getMessages(FilePath filePath) {
+    private final Map<MenuMessage, List<String>> messages = new HashMap<>();
+
+    public void loadLangue(FilePath filePath) {
         Path path = Paths.get(filePath.getPath());
-        Map<MenuMessage, List<String>> messages = new HashMap<>();
         try {
             List<String> lines = Files.readAllLines(path);
 
             List<String[]> processedLines = lines.stream()
+                    .filter(line -> !line.trim().isEmpty())
                     .map(line -> line.split(";"))
                     .toList();
 
@@ -30,9 +32,11 @@ public class LangueReader {
                 messages.put(menuMessage, Arrays.asList(Arrays.copyOfRange(processedLine, 1, processedLine.length)));
             }
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("Nie udało się odczytać pliku: " + filePath.name());
         }
+    }
 
-        return messages;
+    public void displayMessage(MenuMessage menuMessage) {
+        messages.get(menuMessage).forEach(System.out::println);
     }
 }

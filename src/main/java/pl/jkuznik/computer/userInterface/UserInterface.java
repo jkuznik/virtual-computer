@@ -18,12 +18,18 @@ import pl.jkuznik.computer.software.file.musicfile.MP3MusicFile;
 import pl.jkuznik.computer.software.game.GameNotFoundException;
 import pl.jkuznik.computer.software.program.ProgramNotFoundException;
 import pl.jkuznik.utils.consoleReader.ConsoleReader;
+import pl.jkuznik.utils.enums.FilePath;
+import pl.jkuznik.utils.enums.MenuMessage;
+import pl.jkuznik.utils.langueReader.LangueHandler;
 
 import java.io.FileNotFoundException;
+
+import static pl.jkuznik.utils.enums.MenuMessage.*;
 
 public class UserInterface {
     static Computer computer = new Computer();
     static ConsoleReader consoleReader = ConsoleReader.getInstance();
+    static LangueHandler langueHandler = new LangueHandler();
     static UserChoice userInput;
     static boolean polishSelected = false;
     static boolean englishSelected = false;
@@ -43,8 +49,9 @@ public class UserInterface {
 
             switch (userInput) {
                 case USER_INPUT_1 -> {
-                    polishSelected = true;
                     englishSelected = false;
+                    polishSelected = true;
+                    langueHandler.loadLangue(FilePath.LANGUE_PL);
                 }
                 case USER_INPUT_2 -> {
                     englishSelected = true;
@@ -53,7 +60,7 @@ public class UserInterface {
                 case USER_INPUT_9 -> System.exit(0);
                 default -> {
                     if (polishSelected) {
-                        System.out.println(MultiLingualHandler.ERROR.getTextPl());
+                        langueHandler.displayMessage(ERROR);
                     } else if (englishSelected) {
                         System.out.println(MultiLingualHandler.ERROR.getTextEng());
                     }
@@ -73,7 +80,7 @@ public class UserInterface {
         System.out.println("Witam!");
         do {
             if (polishSelected) {
-                System.out.println(MultiLingualHandler.MAIN_MENU.getTextPl());
+                langueHandler.displayMessage(MAIN_MENU);
             } else if (englishSelected) {
                 System.out.println(MultiLingualHandler.MAIN_MENU.getTextEng());
             }
