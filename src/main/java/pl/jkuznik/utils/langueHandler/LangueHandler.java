@@ -1,4 +1,4 @@
-package pl.jkuznik.utils.langueReader;
+package pl.jkuznik.utils.langueHandler;
 
 import pl.jkuznik.utils.enums.FilePath;
 import pl.jkuznik.utils.enums.MenuMessage;

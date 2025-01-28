@@ -19,8 +19,7 @@ import pl.jkuznik.computer.software.game.GameNotFoundException;
 import pl.jkuznik.computer.software.program.ProgramNotFoundException;
 import pl.jkuznik.utils.consoleReader.ConsoleReader;
 import pl.jkuznik.utils.enums.FilePath;
-import pl.jkuznik.utils.enums.MenuMessage;
-import pl.jkuznik.utils.langueReader.LangueHandler;
+import pl.jkuznik.utils.langueHandler.LangueHandler;
 
 import java.io.FileNotFoundException;
 
