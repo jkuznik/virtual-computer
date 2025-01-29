@@ -1,0 +1,21 @@
+package pl.jkuznik.utils.enums;
+
+public enum MenuMessage {
+    GREETINGS,
+    MAIN_MENU,
+    COMPONENT_MENU,
+    FILE_MENU,
+    ERROR,
+    RUN_GAME,
+    RUN_PROGRAM,
+    END_GAME,
+    END_PROGRAM,
+    ADD_FILE,
+    INPUT_FILE_NAME,
+    INPUT_FILE_SIZE,
+    INPUT_FILE_QUALITY,
+    INPUT_FILE_COMPRESSION,
+    INPUT_SONG_TITLE,
+    INPUT_SONG_BAND_NAME,
+    INPUT_FILE_NAME_FOR_DELETE
+}

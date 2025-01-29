@@ -3,6 +3,7 @@ package pl.jkuznik.utils.persistentState;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import pl.jkuznik.computer.hardware.shared.Component;
+import pl.jkuznik.utils.enums.FilePath;
 import pl.jkuznik.utils.persistentState.gsonTypeAdapter.ComponentGsonAdapter;
 
 import java.io.IOException;
