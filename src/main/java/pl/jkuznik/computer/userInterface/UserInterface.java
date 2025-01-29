@@ -26,11 +26,9 @@ import java.io.FileNotFoundException;
 public class UserInterface {
     static Computer computer = new Computer();
     static ConsoleReader consoleReader = ConsoleReader.getInstance();
-    static ProgramHandler programHandler = ProgramHandler.getInstance();
-    static GameHandler gameHandler = new GameHandler();
     static UserChoiceEnum userInput;
-    static boolean polishSelected;
-    static boolean englishSelected;
+    static boolean polishSelected = false;
+    static boolean englishSelected = false;
 
     public static void languageMenu() {
 
@@ -49,12 +47,10 @@ public class UserInterface {
                 case USER_INPUT_1 -> {
                     polishSelected = true;
                     englishSelected = false;
-                    userInterface();
                 }
                 case USER_INPUT_2 -> {
                     englishSelected = true;
                     polishSelected = false;
-                    userInterface();
                 }
                 case USER_INPUT_9 -> System.exit(0);
                 default -> {
@@ -65,6 +61,7 @@ public class UserInterface {
                     }
                 }
             }
+            userInterface();
         } while (!userInput.equals(UserChoiceEnum.USER_INPUT_9));
     }
 
@@ -142,9 +139,9 @@ public class UserInterface {
         } else if (englishSelected) {
             System.out.println(MultiLingualHandler.RUN_GAME.getTextEng());
         }
-        gameHandler.gameList();
+        computer.getGameHandler().gameList();
         try {
-            gameHandler.startGameByName(consoleReader.getScanner().nextLine());
+            computer.getGameHandler().startGameByName(consoleReader.getScanner().nextLine());
         } catch (GameNotFoundException e) {
             System.out.println(e.getMessage());
         }
@@ -156,9 +153,9 @@ public class UserInterface {
         } else if (englishSelected) {
             System.out.println(MultiLingualHandler.RUN_PROGRAM.getTextEng());
         }
-        programHandler.programList();
+        computer.getProgramHandler().programList();
         try {
-            programHandler.startProgramByName(consoleReader.getScanner().nextLine());
+            computer.getProgramHandler().startProgramByName(consoleReader.getScanner().nextLine());
         } catch (ProgramNotFoundException e) {
             System.out.println(e.getMessage());
         }

@@ -3,6 +3,8 @@ package pl.jkuznik.computer.hardware;
 import pl.jkuznik.computer.hardware.shared.Component;
 import pl.jkuznik.computer.hardware.shared.ComponentNotFoundException;
 import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
+import pl.jkuznik.computer.software.game.GameHandler;
+import pl.jkuznik.computer.software.program.ProgramHandler;
 import pl.jkuznik.utils.persistentState.StateReader;
 import pl.jkuznik.utils.persistentState.StateWriter;
 
@@ -12,6 +14,8 @@ import java.util.Set;
 
 public class Computer {
     private final Set<Component> components = new HashSet<>();
+    private final GameHandler gameHandler = GameHandler.getInstance();
+    private final ProgramHandler programHandler = ProgramHandler.getInstance();
     private final StateReader stateReader = new StateReader();
     private final StateWriter stateWriter = new StateWriter();
 
@@ -50,7 +54,16 @@ public class Computer {
         components.clear();
         components.addAll(stateFromFile);
     }
-//    TODO: do zaimplementowania
+
+    public GameHandler getGameHandler() {
+        return gameHandler;
+    }
+
+    public ProgramHandler getProgramHandler() {
+        return programHandler;
+    }
+
+    //    TODO: do zaimplementowania
 //    public List<USBDevice> getUsbDevices() {
 //        return usbDevices;
 //    }
