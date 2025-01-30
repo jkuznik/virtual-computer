@@ -4,6 +4,8 @@ public enum UserInterfaceHandler {
 
     BACK("8", SubMenu.UNIVERSAL),
     EXIT( "9", SubMenu.UNIVERSAL),
+
+    // TODO: dodać rozbudowany komunikat o wprowadzeniu nieprawidłowej wartości, można do tego wykorzystać exception
     DEFAULT( "default", SubMenu.UNIVERSAL),
 
     PL( "1", SubMenu.LANGUE_MENU),
@@ -25,18 +27,6 @@ public enum UserInterfaceHandler {
     JPG("1", SubMenu.FILE_MANAGEMENT),
     GIF("2", SubMenu.FILE_MANAGEMENT),
     MP3("3", SubMenu.FILE_MANAGEMENT);
-
-
-//    USER_INPUT_0(0),
-//    USER_INPUT_1(1),
-//    USER_INPUT_2(2),
-//    USER_INPUT_3(3),
-//    USER_INPUT_4(4),
-//    USER_INPUT_5(5),
-//    USER_INPUT_6(6),
-//    USER_INPUT_7(7),
-//    USER_INPUT_8(8),
-//    USER_INPUT_9(9);
 
     private final String userChoice;
     private final SubMenu subMenu;
