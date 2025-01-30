@@ -1,4 +1,5 @@
 GREETINGS_MESSAGE;Willkommen im Computerverwaltungssystem!
+LANGUE_MENU_MESSAGE;
 MAIN_MENU_MESSAGE;1. Komponenten anzeigen.;2. Dateiverwaltung.;8. Zurück.;9. Beenden.
 COMPONENT_MENU_MESSAGE;
 FILE_MENU_MESSAGE;1. Dateien anzeigen.;2. Datei hinzufügen.;3. Datei löschen.;4. Programm starten.;5. Spiel starten.;8. Zurück.;9. Beenden.

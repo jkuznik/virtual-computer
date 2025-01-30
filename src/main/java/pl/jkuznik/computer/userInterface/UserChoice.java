@@ -1,6 +1,6 @@
 package pl.jkuznik.computer.userInterface;
 
-public enum UserInterfaceHandler {
+public enum UserChoice {
 
     BACK("8", SubMenu.UNIVERSAL),
     EXIT( "9", SubMenu.UNIVERSAL),
@@ -39,20 +39,20 @@ public enum UserInterfaceHandler {
         return subMenu;
     }
 
-    UserInterfaceHandler(String userChoice, SubMenu subMenu) {
+    UserChoice(String userChoice, SubMenu subMenu) {
         this.userChoice = userChoice;
         this.subMenu = subMenu;
     }
 
-    public static UserInterfaceHandler userChoice(String userInput, SubMenu subMenu) {
+    public static UserChoice userChoice(String userInput, SubMenu subMenu) {
         if (userInput.equals("8")){
             return BACK;
         } else if (userInput.equals("9")) {
             return EXIT;
         }
-        for (UserInterfaceHandler userInterfaceHandler : UserInterfaceHandler.values()) {
-            if (userInput.equals(userInterfaceHandler.getUserChoice()) && subMenu.equals(userInterfaceHandler.getSubMenu())) {
-                return userInterfaceHandler;
+        for (UserChoice userChoice : UserChoice.values()) {
+            if (userInput.equals(userChoice.getUserChoice()) && subMenu.equals(userChoice.getSubMenu())) {
+                return userChoice;
             }
         }
         return DEFAULT;

@@ -1,4 +1,5 @@
 GREETINGS_MESSAGE;Bienvenue dans le système de gestion de l'ordinateur !
+LANGUE_MENU_MESSAGE;
 MAIN_MENU_MESSAGE;1. Afficher les composants.;2. Gestion des fichiers.;8. Retour.;9. Quitter.
 COMPONENT_MENU_MESSAGE;
 FILE_MENU_MESSAGE;1. Afficher les fichiers.;2. Ajouter un fichier.;3. Supprimer un fichier.;4. Lancer un programme.;5. Lancer un jeu.;8. Retour.;9. Quitter.

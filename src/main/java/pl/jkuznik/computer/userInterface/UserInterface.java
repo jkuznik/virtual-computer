@@ -18,11 +18,10 @@ import pl.jkuznik.computer.software.file.musicfile.MP3MusicFile;
 import pl.jkuznik.computer.software.game.GameNotFoundException;
 import pl.jkuznik.computer.software.program.ProgramNotFoundException;
 import pl.jkuznik.utils.consoleReader.ConsoleReader;
-import pl.jkuznik.utils.langueHandler.LangueHandler;
 
 import java.io.FileNotFoundException;
 
-import static pl.jkuznik.computer.userInterface.UserInterfaceHandler.*;
+import static pl.jkuznik.computer.userInterface.UserChoice.*;
 import static pl.jkuznik.utils.enums.FilePath.*;
 import static pl.jkuznik.utils.enums.MenuMessage.*;
 import static pl.jkuznik.utils.langueHandler.LangueHandler.*;
@@ -30,12 +29,11 @@ import static pl.jkuznik.utils.langueHandler.LangueHandler.*;
 public class UserInterface {
     static Computer computer = new Computer();
     static ConsoleReader consoleReader = ConsoleReader.getInstance();
-    static UserInterfaceHandler userInput;
+    static UserChoice userChoice;
 
     public static void languageMenu() {
         computerBootstrap();
 
-        System.out.println("Witam!");
         do {
             System.out.println("""
                     
@@ -48,9 +46,9 @@ public class UserInterface {
                      6.Español!
                      9.Wyjście/Exit.
                     """);
-            userInput = userChoice(consoleReader.getScanner().nextLine(), SubMenu.LANGUE_MENU);
+            userChoice = userChoice(consoleReader.getScanner().nextLine(), SubMenu.LANGUE_MENU);
 
-            switch (userInput) {
+            switch (userChoice) {
                 case PL -> loadLangue(LANGUE_PL);
                 case EN -> loadLangue(LANGUE_EN);
                 case DE -> loadLangue(LANGUE_DE);
@@ -60,31 +58,31 @@ public class UserInterface {
                 case DEFAULT -> System.out.println("Błąd, spróbuj ponownie!");
             }
             userInterface();
-        } while (!userInput.equals(EXIT));
+        } while (!userChoice.equals(EXIT));
     }
 
     public static void userInterface() {
         displayMessage(GREETINGS_MESSAGE);
         do {
             displayMessage(MAIN_MENU_MESSAGE);
-            userInput = userChoice(consoleReader.getScanner().nextLine(), SubMenu.MAIN_MENU);
+            userChoice = userChoice(consoleReader.getScanner().nextLine(), SubMenu.MAIN_MENU);
 
-            switch (userInput) {
+            switch (userChoice) {
                 // TODO: dodać możliwość zarządzania podzespołąmi wraz z możliwośćia zapisu i odczytu
                 case HARDWARE_MENU -> computer.getAllComponents().forEach(component -> System.out.println(component.getComponentName()));
                 case SOFTWARE_MENU -> fileMenu();
                 case EXIT -> System.exit(0);
                 case DEFAULT -> displayMessage(ERROR_MESSAGE);
             }
-        } while (!userInput.equals(BACK));
+        } while (!userChoice.equals(BACK));
     }
 
     public static void fileMenu() {
         do {
             displayMessage(FILE_MENU_MESSAGE);
-            userInput = userChoice(consoleReader.getScanner().nextLine(), SubMenu.SOFTWARE_MENU);
+            userChoice = userChoice(consoleReader.getScanner().nextLine(), SubMenu.SOFTWARE_MENU);
 
-            switch (userInput) {
+            switch (userChoice) {
                 case LIST_FILE -> listFiles();
                 case ADD_FILE -> addFile();
                 case DELETE_FILE -> deleteFile();
@@ -94,7 +92,7 @@ public class UserInterface {
                 case EXIT -> System.exit(0);
                 case DEFAULT -> displayMessage(ERROR_MESSAGE);
             }
-        } while (!userInput.equals(BACK));
+        } while (!userChoice.equals(BACK));
     }
 
     private static void runGame() {
@@ -134,8 +132,8 @@ public class UserInterface {
         int quality = 0;
 
         displayMessage(ADD_FILE_MESSAGE);
-        userInput = userChoice(consoleReader.getScanner().nextLine(), SubMenu.FILE_MANAGEMENT);
-        switch (userInput) {
+        userChoice = userChoice(consoleReader.getScanner().nextLine(), SubMenu.FILE_MANAGEMENT);
+        switch (userChoice) {
             case JPG -> {
                 displayMessage(INPUT_FILE_NAME_MESSAGE);
                 name = consoleReader.getScanner().nextLine() + ".jpg";

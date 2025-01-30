@@ -1,4 +1,5 @@
 GREETINGS_MESSAGE;Welcome to the computer management system!
+LANGUE_MENU_MESSAGE;
 MAIN_MENU_MESSAGE;1. Display components.;2. File management.;8. Back.;9. Exit.
 COMPONENT_MENU_MESSAGE;
 FILE_MENU_MESSAGE;1. Display files.;2. Add file.;3. Delete file.;4. Run program.;5. Run game.;8. Back.;9. Exit.
