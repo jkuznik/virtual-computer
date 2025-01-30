@@ -29,6 +29,7 @@ public class LangueHandler {
             for (String[] processedLine : processedLines) {
                 MenuMessage menuMessage = MenuMessage.valueOf(processedLine[0]);
 
+                // TODO: doadać zwracanie komunikatu w pzypadku wczytania pustego komunikatu dla jakiejkolwiek warsości MenuMessage
                 messages.put(menuMessage, Arrays.asList(Arrays.copyOfRange(processedLine, 1, processedLine.length)));
             }
         } catch (IOException e) {
