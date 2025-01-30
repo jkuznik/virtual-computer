@@ -29,7 +29,7 @@ public class UserInterface {
     static Computer computer = new Computer();
     static ConsoleReader consoleReader = ConsoleReader.getInstance();
     static LangueHandler langueHandler = new LangueHandler();
-    static UserChoice userInput;
+    static UserInterfaceHandler userInput;
 
     public static void languageMenu() {
 
@@ -46,16 +46,16 @@ public class UserInterface {
                      6.Español!
                      9.Wyjście/Exit.
                     """);
-            userInput = UserChoice.userChoice(Integer.parseInt(consoleReader.getScanner().nextLine()));
+            userInput = UserInterfaceHandler.userChoice(consoleReader.getScanner().nextLine(), SubMenu.LANGUE_MENU);
 
             switch (userInput) {
-                case USER_INPUT_1 -> langueHandler.loadLangue(FilePath.LANGUE_PL);
-                case USER_INPUT_2 -> langueHandler.loadLangue(FilePath.LANGUE_EN);
-                case USER_INPUT_3 -> langueHandler.loadLangue(FilePath.LANGUE_DE);
-                case USER_INPUT_4 -> langueHandler.loadLangue(FilePath.LANGUE_IT);
-                case USER_INPUT_5 -> langueHandler.loadLangue(FilePath.LANGUE_FR);
-                case USER_INPUT_6 -> langueHandler.loadLangue(FilePath.LANGUE_ES);
-                case USER_INPUT_9 -> System.exit(0);
+                case PL -> langueHandler.loadLangue(FilePath.LANGUE_PL);
+                case EN -> langueHandler.loadLangue(FilePath.LANGUE_EN);
+                case DE -> langueHandler.loadLangue(FilePath.LANGUE_DE);
+                case IT -> langueHandler.loadLangue(FilePath.LANGUE_IT);
+                case FR -> langueHandler.loadLangue(FilePath.LANGUE_FR);
+                case ES -> langueHandler.loadLangue(FilePath.LANGUE_ES);
+                case EXIT -> System.exit(0);
                 default -> System.out.println("Błąd, spróbuj ponownie!");
             }
             userInterface();
