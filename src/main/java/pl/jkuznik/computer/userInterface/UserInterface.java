@@ -24,7 +24,8 @@ import java.io.FileNotFoundException;
 import static pl.jkuznik.computer.userInterface.UserChoice.*;
 import static pl.jkuznik.utils.enums.FilePath.*;
 import static pl.jkuznik.utils.enums.MenuMessage.*;
-import static pl.jkuznik.utils.langueHandler.LangueHandler.*;
+import static pl.jkuznik.utils.langueHandler.LangueHandler.displayMessage;
+import static pl.jkuznik.utils.langueHandler.LangueHandler.loadLangue;
 
 public class UserInterface {
     static Computer computer = new Computer();
@@ -34,6 +35,7 @@ public class UserInterface {
     public static void languageMenu() {
         computerBootstrap();
         loadLangue(LANGUE_PL);
+        displayMessage(GREETINGS_MESSAGE);
 
         do {
             displayMessage(LANGUE_MENU_MESSAGE);
@@ -46,6 +48,7 @@ public class UserInterface {
                 case IT -> loadLangue(LANGUE_IT);
                 case FR -> loadLangue(LANGUE_FR);
                 case ES -> loadLangue(LANGUE_ES);
+                case EXIT -> System.exit(0);
                 case DEFAULT -> System.out.println("Błąd, spróbuj ponownie!");
             }
             userInterface();
@@ -53,14 +56,14 @@ public class UserInterface {
     }
 
     public static void userInterface() {
-        displayMessage(GREETINGS_MESSAGE);
         do {
             displayMessage(MAIN_MENU_MESSAGE);
             userChoice = userChoice(consoleReader.getScanner().nextLine(), SubMenu.MAIN_MENU);
 
             switch (userChoice) {
                 // TODO: dodać możliwość zarządzania podzespołąmi wraz z możliwośćia zapisu i odczytu
-                case HARDWARE_MENU -> computer.getAllComponents().forEach(component -> System.out.println(component.getComponentName()));
+                case HARDWARE_MENU ->
+                        computer.getAllComponents().forEach(component -> System.out.println(component.getComponentName()));
                 case SOFTWARE_MENU -> fileMenu();
                 case EXIT -> System.exit(0);
                 case DEFAULT -> displayMessage(ERROR_MESSAGE);
