@@ -73,7 +73,7 @@ public class UserInterface {
 
             switch (userInput) {
                 case USER_INPUT_1 -> computer.getAllComponents().forEach(component -> System.out.println(component.getComponentName()));
-                case USER_INPUT_2 -> fileManager();
+                case USER_INPUT_2 -> fileMenu();
                 case USER_INPUT_8 -> languageMenu();
                 case USER_INPUT_9 -> langueHandler.displayMessage(END_PROGRAM);
                 default -> langueHandler.displayMessage(ERROR);
@@ -81,7 +81,7 @@ public class UserInterface {
         } while (!userInput.equals(UserChoice.USER_INPUT_9));
     }
 
-    public static void fileManager() {
+    public static void fileMenu() {
         do {
             langueHandler.displayMessage(FILE_MENU);
             userInput = UserChoice.userChoice(Integer.parseInt(consoleReader.getScanner().nextLine()));
