@@ -1,5 +1,5 @@
 GREETINGS_MESSAGE;Witamy w systemie zarządzania komputerem!
-LANGUE_MENU_MESSAGE;
+LANGUE_MENU_MESSAGE;Wybierz język:;1. Polski;2. English;3. Deutsch;4. Italiano;5. Français;6. Español;9. Wyjście
 MAIN_MENU_MESSAGE;1. Wyświetl podzespoły.;2. Zarządzanie plikami.;8. Powrót.;9. Wyjście.
 COMPONENT_MENU_MESSAGE;
 FILE_MENU_MESSAGE;1. Wyświetl pliki.;2. Dodaj plik.;3. Usuń plik.;4. Uruchom program.;5. Uruchom grę.;8. Powrót.;9. Wyjście.;

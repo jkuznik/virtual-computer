@@ -33,19 +33,10 @@ public class UserInterface {
 
     public static void languageMenu() {
         computerBootstrap();
+        loadLangue(LANGUE_PL);
 
         do {
-            System.out.println("""
-                    
-                    Wybierz język/Select language:
-                     1.Polski!
-                     2.English!
-                     3.Deutsch!
-                     4.Italiano!
-                     5.Français!
-                     6.Español!
-                     9.Wyjście/Exit.
-                    """);
+            displayMessage(LANGUE_MENU_MESSAGE);
             userChoice = userChoice(consoleReader.getScanner().nextLine(), SubMenu.LANGUE_MENU);
 
             switch (userChoice) {

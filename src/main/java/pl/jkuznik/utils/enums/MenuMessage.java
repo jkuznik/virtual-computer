@@ -2,6 +2,7 @@ package pl.jkuznik.utils.enums;
 
 public enum MenuMessage {
     GREETINGS_MESSAGE,
+    LANGUE_MENU_MESSAGE,
     MAIN_MENU_MESSAGE,
     COMPONENT_MENU_MESSAGE,
     FILE_MENU_MESSAGE,

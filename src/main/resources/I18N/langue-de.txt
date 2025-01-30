@@ -1,5 +1,5 @@
 GREETINGS_MESSAGE;Willkommen im Computerverwaltungssystem!
-LANGUE_MENU_MESSAGE;
+LANGUE_MENU_MESSAGE;Sprache wählen:;1. Polnisch;2. Englisch;3. Deutsch;4. Italienisch;5. Französisch;6. Spanisch;9. Beenden
 MAIN_MENU_MESSAGE;1. Komponenten anzeigen.;2. Dateiverwaltung.;8. Zurück.;9. Beenden.
 COMPONENT_MENU_MESSAGE;
 FILE_MENU_MESSAGE;1. Dateien anzeigen.;2. Datei hinzufügen.;3. Datei löschen.;4. Programm starten.;5. Spiel starten.;8. Zurück.;9. Beenden.

@@ -1,5 +1,5 @@
 GREETINGS_MESSAGE;¡Bienvenido al sistema de gestión de la computadora!
-LANGUE_MENU_MESSAGE;
+LANGUE_MENU_MESSAGE;Selecciona el idioma:;1. Polaco;2. Inglés;3. Alemán;4. Italiano;5. Francés;6. Español;9. Salir
 MAIN_MENU_MESSAGE;1. Mostrar componentes.;2. Gestión de archivos.;8. Atrás.;9. Salir.
 COMPONENT_MENU_MESSAGE;
 FILE_MENU_MESSAGE;1. Mostrar archivos.;2. Agregar archivo.;3. Eliminar archivo.;4. Ejecutar programa.;5. Ejecutar juego.;8. Atrás.;9. Salir.
