@@ -14,9 +14,9 @@ import java.util.Map;
 
 public class LangueHandler {
 
-    private final Map<MenuMessage, List<String>> messages = new HashMap<>();
+    private final static Map<MenuMessage, List<String>> messages = new HashMap<>();
 
-    public void loadLangue(FilePath filePath) {
+    public static void loadLangue(FilePath filePath) {
         Path path = Paths.get(filePath.getPath());
         try {
             List<String> lines = Files.readAllLines(path);
@@ -36,7 +36,7 @@ public class LangueHandler {
         }
     }
 
-    public void displayMessage(MenuMessage menuMessage) {
+    public static void displayMessage(MenuMessage menuMessage) {
         messages.get(menuMessage).forEach(System.out::println);
     }
 }

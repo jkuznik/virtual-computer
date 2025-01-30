@@ -2,8 +2,8 @@ package pl.jkuznik.computer.userInterface;
 
 public enum UserInterfaceHandler {
 
-    BACK("back", SubMenu.UNIVERSAL),
-    EXIT( "exit", SubMenu.UNIVERSAL),
+    BACK("8", SubMenu.UNIVERSAL),
+    EXIT( "9", SubMenu.UNIVERSAL),
     DEFAULT( "default", SubMenu.UNIVERSAL),
 
     PL( "1", SubMenu.LANGUE_MENU),
@@ -55,9 +55,9 @@ public enum UserInterfaceHandler {
     }
 
     public static UserInterfaceHandler userChoice(String userInput, SubMenu subMenu) {
-        if (userInput.equals("back")){
+        if (userInput.equals("8")){
             return BACK;
-        } else if (userInput.equals("exit")) {
+        } else if (userInput.equals("9")) {
             return EXIT;
         }
         for (UserInterfaceHandler userInterfaceHandler : UserInterfaceHandler.values()) {
@@ -65,7 +65,6 @@ public enum UserInterfaceHandler {
                 return userInterfaceHandler;
             }
         }
-
         return DEFAULT;
     }
 }

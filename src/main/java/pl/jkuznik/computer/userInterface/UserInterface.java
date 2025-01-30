@@ -18,13 +18,14 @@ import pl.jkuznik.computer.software.file.musicfile.MP3MusicFile;
 import pl.jkuznik.computer.software.game.GameNotFoundException;
 import pl.jkuznik.computer.software.program.ProgramNotFoundException;
 import pl.jkuznik.utils.consoleReader.ConsoleReader;
-import pl.jkuznik.utils.enums.MenuMessage;
 import pl.jkuznik.utils.langueHandler.LangueHandler;
 
 import java.io.FileNotFoundException;
 
 import static pl.jkuznik.computer.userInterface.UserInterfaceHandler.*;
 import static pl.jkuznik.utils.enums.FilePath.*;
+import static pl.jkuznik.utils.enums.MenuMessage.*;
+import static pl.jkuznik.utils.langueHandler.LangueHandler.*;
 
 public class UserInterface {
     static Computer computer = new Computer();
@@ -50,12 +51,12 @@ public class UserInterface {
             userInput = userChoice(consoleReader.getScanner().nextLine(), SubMenu.LANGUE_MENU);
 
             switch (userInput) {
-                case PL -> langueHandler.loadLangue(LANGUE_PL);
-                case EN -> langueHandler.loadLangue(LANGUE_EN);
-                case DE -> langueHandler.loadLangue(LANGUE_DE);
-                case IT -> langueHandler.loadLangue(LANGUE_IT);
-                case FR -> langueHandler.loadLangue(LANGUE_FR);
-                case ES -> langueHandler.loadLangue(LANGUE_ES);
+                case PL -> loadLangue(LANGUE_PL);
+                case EN -> loadLangue(LANGUE_EN);
+                case DE -> loadLangue(LANGUE_DE);
+                case IT -> loadLangue(LANGUE_IT);
+                case FR -> loadLangue(LANGUE_FR);
+                case ES -> loadLangue(LANGUE_ES);
                 case DEFAULT -> System.out.println("Błąd, spróbuj ponownie!");
             }
             userInterface();
@@ -63,27 +64,26 @@ public class UserInterface {
     }
 
     public static void userInterface() {
-
-        // TODO: dodać możliwość zarządzania podzespołąmi wraz z możliwośćia zapisu i odczytu
         computerBootstrap();
-        langueHandler.displayMessage(MenuMessage.GREETINGS_MESSAGE);
+
+        displayMessage(GREETINGS_MESSAGE);
         do {
-            langueHandler.displayMessage(MenuMessage.MAIN_MENU_MESSAGE);
+            displayMessage(MAIN_MENU_MESSAGE);
             userInput = userChoice(consoleReader.getScanner().nextLine(), SubMenu.MAIN_MENU);
 
             switch (userInput) {
-                case HARDWARE_MENU ->
-                        computer.getAllComponents().forEach(component -> System.out.println(component.getComponentName()));
+                // TODO: dodać możliwość zarządzania podzespołąmi wraz z możliwośćia zapisu i odczytu
+                case HARDWARE_MENU -> computer.getAllComponents().forEach(component -> System.out.println(component.getComponentName()));
                 case SOFTWARE_MENU -> fileMenu();
                 case EXIT -> System.exit(0);
-                case DEFAULT -> langueHandler.displayMessage(MenuMessage.ERROR_MESSAGE);
+                case DEFAULT -> displayMessage(ERROR_MESSAGE);
             }
         } while (!userInput.equals(BACK));
     }
 
     public static void fileMenu() {
         do {
-            langueHandler.displayMessage(MenuMessage.FILE_MENU_MESSAGE);
+            displayMessage(FILE_MENU_MESSAGE);
             userInput = userChoice(consoleReader.getScanner().nextLine(), SubMenu.SOFTWARE_MENU);
 
             switch (userInput) {
@@ -94,13 +94,13 @@ public class UserInterface {
                 case RUN_GAME -> runGame();
                 case BACK -> System.out.println(System.lineSeparator() + "Menu główne!");
                 case EXIT -> System.exit(0);
-                default -> langueHandler.displayMessage(MenuMessage.ERROR_MESSAGE);
+                case DEFAULT -> displayMessage(ERROR_MESSAGE);
             }
         } while (!userInput.equals(BACK));
     }
 
     private static void runGame() {
-        langueHandler.displayMessage(MenuMessage.RUN_GAME_MESSAGE);
+        displayMessage(RUN_GAME_MESSAGE);
         computer.getGameHandler().gameList();
         try {
             computer.getGameHandler().startGameByName(consoleReader.getScanner().nextLine());
@@ -110,7 +110,7 @@ public class UserInterface {
     }
 
     private static void runProgram() {
-        langueHandler.displayMessage(MenuMessage.RUN_PROGRAM_MESSAGE);
+        displayMessage(RUN_PROGRAM_MESSAGE);
         computer.getProgramHandler().programList();
         try {
             computer.getProgramHandler().startProgramByName(consoleReader.getScanner().nextLine());
@@ -135,15 +135,15 @@ public class UserInterface {
         String title = "title";
         int quality = 0;
 
-        langueHandler.displayMessage(MenuMessage.ADD_FILE_MESSAGE);
+        displayMessage(ADD_FILE_MESSAGE);
         userInput = userChoice(consoleReader.getScanner().nextLine(), SubMenu.FILE_MANAGEMENT);
         switch (userInput) {
             case JPG -> {
-                langueHandler.displayMessage(MenuMessage.INPUT_FILE_NAME_MESSAGE);
+                displayMessage(INPUT_FILE_NAME_MESSAGE);
                 name = consoleReader.getScanner().nextLine() + ".jpg";
-                langueHandler.displayMessage(MenuMessage.INPUT_FILE_SIZE_MESSAGE);
+                displayMessage(INPUT_FILE_SIZE_MESSAGE);
                 size = Integer.parseInt(consoleReader.getScanner().nextLine());
-                langueHandler.displayMessage(MenuMessage.INPUT_FILE_COMPRESSION_MESSAGE);
+                displayMessage(INPUT_FILE_COMPRESSION_MESSAGE);
                 compression = Integer.parseInt(consoleReader.getScanner().nextLine());
                 try {
                     computerDrive().addFile(new JPGImageFile(FileType.JPG, name, size, compression));
@@ -153,9 +153,9 @@ public class UserInterface {
 
             }
             case GIF -> {
-                langueHandler.displayMessage(MenuMessage.INPUT_FILE_NAME_MESSAGE);
+                displayMessage(INPUT_FILE_NAME_MESSAGE);
                 name = consoleReader.getScanner().nextLine() + ".gif";
-                langueHandler.displayMessage(MenuMessage.INPUT_FILE_SIZE_MESSAGE);
+                displayMessage(INPUT_FILE_SIZE_MESSAGE);
                 size = Integer.parseInt(consoleReader.getScanner().nextLine());
                 try {
                     computerDrive().addFile(new GIFImageFile(FileType.GIF, name, size));
@@ -164,15 +164,15 @@ public class UserInterface {
                 }
             }
             case MP3 -> {
-                langueHandler.displayMessage(MenuMessage.INPUT_FILE_NAME_MESSAGE);
+                displayMessage(INPUT_FILE_NAME_MESSAGE);
                 name = consoleReader.getScanner().nextLine() + ".mp3";
-                langueHandler.displayMessage(MenuMessage.INPUT_FILE_SIZE_MESSAGE);
+                displayMessage(INPUT_FILE_SIZE_MESSAGE);
                 size = Integer.parseInt(consoleReader.getScanner().nextLine());
-                langueHandler.displayMessage(MenuMessage.INPUT_SONG_BAND_NAME_MESSAGE);
+                displayMessage(INPUT_SONG_BAND_NAME_MESSAGE);
                 bandName = consoleReader.getScanner().nextLine();
-                langueHandler.displayMessage(MenuMessage.INPUT_SONG_TITLE_MESSAGE);
+                displayMessage(INPUT_SONG_TITLE_MESSAGE);
                 title = consoleReader.getScanner().nextLine();
-                langueHandler.displayMessage(MenuMessage.INPUT_FILE_QUALITY_MESSAGE);
+                displayMessage(INPUT_FILE_QUALITY_MESSAGE);
                 quality = Integer.parseInt(consoleReader.getScanner().nextLine());
                 try {
                     computerDrive().addFile(new MP3MusicFile(FileType.MP3, name, size, bandName, title, quality));
@@ -180,12 +180,12 @@ public class UserInterface {
                     System.out.println(e.getMessage());
                 }
             }
-            default -> langueHandler.displayMessage(MenuMessage.ERROR_MESSAGE);
+            default -> displayMessage(ERROR_MESSAGE);
         }
     }
 
     private static void deleteFile() {
-        langueHandler.displayMessage(MenuMessage.INPUT_FILE_NAME_FOR_DELETE_MESSAGE);
+        displayMessage(INPUT_FILE_NAME_FOR_DELETE_MESSAGE);
         String fileName = consoleReader.getScanner().nextLine();
         try {
             File fileForDelete = computerDrive().findFile(fileName);
