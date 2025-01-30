@@ -30,10 +30,10 @@ import static pl.jkuznik.utils.langueHandler.LangueHandler.*;
 public class UserInterface {
     static Computer computer = new Computer();
     static ConsoleReader consoleReader = ConsoleReader.getInstance();
-    static LangueHandler langueHandler = new LangueHandler();
     static UserInterfaceHandler userInput;
 
     public static void languageMenu() {
+        computerBootstrap();
 
         System.out.println("Witam!");
         do {
@@ -64,8 +64,6 @@ public class UserInterface {
     }
 
     public static void userInterface() {
-        computerBootstrap();
-
         displayMessage(GREETINGS_MESSAGE);
         do {
             displayMessage(MAIN_MENU_MESSAGE);
