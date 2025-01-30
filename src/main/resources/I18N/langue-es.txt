@@ -1,17 +1,17 @@
-GREETINGS;¡Bienvenido al sistema de gestión de la computadora!
-MAIN_MENU;1. Mostrar componentes.;2. Gestión de archivos.;8. Atrás.;9. Salir.
-COMPONENT_MENU;
-FILE_MENU;1. Mostrar archivos.;2. Agregar archivo.;3. Eliminar archivo.;4. Ejecutar programa.;5. Ejecutar juego.;8. Atrás.;9. Salir.
-ERROR;Error, inténtalo de nuevo.
-RUN_GAME;Introduce el nombre del juego que deseas ejecutar:
-RUN_PROGRAM;Introduce el nombre del programa que deseas ejecutar:
-END_GAME;Juego terminado.
-END_PROGRAM;Programa terminado.
-ADD_FILE;Especifica el tipo de archivo:;1. JPG;2. GIF;3. MP3
-INPUT_FILE_NAME;Especifica el nombre del archivo:
-INPUT_FILE_SIZE;Especifica el tamaño del archivo:
-INPUT_FILE_QUALITY;Especifica la calidad:
-INPUT_FILE_COMPRESSION;Especifica el nivel de compresión:
-INPUT_SONG_TITLE;Especifica el título de la canción:
-INPUT_SONG_BAND_NAME;Especifica el artista de la canción:
-INPUT_FILE_NAME_FOR_DELETE;Especifica el nombre del archivo que deseas eliminar:
+GREETINGS_MESSAGE;¡Bienvenido al sistema de gestión de la computadora!
+MAIN_MENU_MESSAGE;1. Mostrar componentes.;2. Gestión de archivos.;8. Atrás.;9. Salir.
+COMPONENT_MENU_MESSAGE;
+FILE_MENU_MESSAGE;1. Mostrar archivos.;2. Agregar archivo.;3. Eliminar archivo.;4. Ejecutar programa.;5. Ejecutar juego.;8. Atrás.;9. Salir.
+ERROR_MESSAGE;Error, inténtalo de nuevo.
+RUN_GAME_MESSAGE;Introduce el nombre del juego que deseas ejecutar:
+RUN_PROGRAM_MESSAGE;Introduce el nombre del programa que deseas ejecutar:
+END_GAME_MESSAGE;Juego terminado.
+END_PROGRAM_MESSAGE;Programa terminado.
+ADD_FILE_MESSAGE;Especifica el tipo de archivo:;1. JPG;2. GIF;3. MP3
+INPUT_FILE_NAME_MESSAGE;Especifica el nombre del archivo:
+INPUT_FILE_SIZE_MESSAGE;Especifica el tamaño del archivo:
+INPUT_FILE_QUALITY_MESSAGE;Especifica la calidad:
+INPUT_FILE_COMPRESSION_MESSAGE;Especifica el nivel de compresión:
+INPUT_SONG_TITLE_MESSAGE;Especifica el título de la canción:
+INPUT_SONG_BAND_NAME_MESSAGE;Especifica el artista de la canción:
+INPUT_FILE_NAME_FOR_DELETE_MESSAGE;Especifica el nombre del archivo que deseas eliminar:

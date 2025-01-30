@@ -1,17 +1,17 @@
-GREETINGS;Benvenuto nel sistema di gestione del computer!
-MAIN_MENU;1. Visualizza componenti.;2. Gestione dei file.;8. Indietro.;9. Esci.
-COMPONENT_MENU;
-FILE_MENU;1. Visualizza file.;2. Aggiungi file.;3. Elimina file.;4. Avvia programma.;5. Avvia gioco.;8. Indietro.;9. Esci.
-ERROR;Errore, riprova!
-RUN_GAME;Inserisci il nome del gioco che desideri avviare:
-RUN_PROGRAM;Inserisci il nome del programma che desideri avviare:
-END_GAME;Gioco terminato.
-END_PROGRAM;Programma terminato.
-ADD_FILE;Specifica il tipo di file:;1. JPG;2. GIF;3. MP3
-INPUT_FILE_NAME;Specifica il nome del file:
-INPUT_FILE_SIZE;Specifica la dimensione del file:
-INPUT_FILE_QUALITY;Specifica la qualità:
-INPUT_FILE_COMPRESSION;Specifica il livello di compressione:
-INPUT_SONG_TITLE;Specifica il titolo della canzone:
-INPUT_SONG_BAND_NAME;Specifica l'artista della canzone:
-INPUT_FILE_NAME_FOR_DELETE;Specifica il nome del file che desideri eliminare:
+GREETINGS_MESSAGE;Benvenuto nel sistema di gestione del computer!
+MAIN_MENU_MESSAGE;1. Visualizza componenti.;2. Gestione dei file.;8. Indietro.;9. Esci.
+COMPONENT_MENU_MESSAGE;
+FILE_MENU_MESSAGE;1. Visualizza file.;2. Aggiungi file.;3. Elimina file.;4. Avvia programma.;5. Avvia gioco.;8. Indietro.;9. Esci.
+ERROR_MESSAGE;Errore, riprova!
+RUN_GAME_MESSAGE;Inserisci il nome del gioco che desideri avviare:
+RUN_PROGRAM_MESSAGE;Inserisci il nome del programma che desideri avviare:
+END_GAME_MESSAGE;Gioco terminato.
+END_PROGRAM_MESSAGE;Programma terminato.
+ADD_FILE_MESSAGE;Specifica il tipo di file:;1. JPG;2. GIF;3. MP3
+INPUT_FILE_NAME_MESSAGE;Specifica il nome del file:
+INPUT_FILE_SIZE_MESSAGE;Specifica la dimensione del file:
+INPUT_FILE_QUALITY_MESSAGE;Specifica la qualità:
+INPUT_FILE_COMPRESSION_MESSAGE;Specifica il livello di compressione:
+INPUT_SONG_TITLE_MESSAGE;Specifica il titolo della canzone:
+INPUT_SONG_BAND_NAME_MESSAGE;Specifica l'artista della canzone:
+INPUT_FILE_NAME_FOR_DELETE_MESSAGE;Specifica il nome del file che desideri eliminare:

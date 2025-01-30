@@ -14,7 +14,18 @@ public enum UserInterfaceHandler {
     ES("6", SubMenu.LANGUE_MENU),
 
     HARDWARE_MENU( "1", SubMenu.MAIN_MENU),
-    SOFTWARE_MENU( "2", SubMenu.MAIN_MENU);
+    SOFTWARE_MENU( "2", SubMenu.MAIN_MENU),
+
+    LIST_FILE("1", SubMenu.SOFTWARE_MENU),
+    ADD_FILE("2", SubMenu.SOFTWARE_MENU),
+    DELETE_FILE("3", SubMenu.SOFTWARE_MENU),
+    RUN_PROGRAM("4", SubMenu.SOFTWARE_MENU),
+    RUN_GAME("5", SubMenu.SOFTWARE_MENU),
+
+    JPG("1", SubMenu.FILE_MANAGEMENT),
+    GIF("2", SubMenu.FILE_MANAGEMENT),
+    MP3("3", SubMenu.FILE_MANAGEMENT);
+
 
 //    USER_INPUT_0(0),
 //    USER_INPUT_1(1),
@@ -30,6 +41,14 @@ public enum UserInterfaceHandler {
     private final String userChoice;
     private final SubMenu subMenu;
 
+    public String getUserChoice() {
+        return userChoice;
+    }
+
+    public SubMenu getSubMenu() {
+        return subMenu;
+    }
+
     UserInterfaceHandler(String userChoice, SubMenu subMenu) {
         this.userChoice = userChoice;
         this.subMenu = subMenu;
@@ -41,14 +60,13 @@ public enum UserInterfaceHandler {
         } else if (userInput.equals("exit")) {
             return EXIT;
         }
-        for (UserChoice choice : UserChoice.values()) {
-            if () {
-                return choice;
+        for (UserInterfaceHandler userInterfaceHandler : UserInterfaceHandler.values()) {
+            if (userInput.equals(userInterfaceHandler.getUserChoice()) && subMenu.equals(userInterfaceHandler.getSubMenu())) {
+                return userInterfaceHandler;
             }
-
         }
 
-        return UserChoice.USER_INPUT_0;
+        return DEFAULT;
     }
 }
 
@@ -58,6 +76,8 @@ enum SubMenu {
     MAIN_MENU,
     HARDWARE_MENU,
     SOFTWARE_MENU,
+    FILE_MANAGEMENT
 }
+
 
 
