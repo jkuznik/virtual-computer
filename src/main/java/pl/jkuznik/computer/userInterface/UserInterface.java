@@ -14,11 +14,28 @@ public class UserInterface {
     private final static ConsoleReader consoleReader = ConsoleReader.getInstance();
     private static UserChoice userChoice;
 
-    public static void languageMenu() {
+    public static void userInterface() {
         ComputerBootstrap.run(computer);
         loadLangue(LANGUE_PL);
         displayMessage(GREETINGS_MESSAGE);
 
+        do {
+            displayMessage(MAIN_MENU_MESSAGE);
+            userChoice = userChoice(consoleReader.getScanner().nextLine(), SubMenu.MAIN_MENU);
+
+            switch (userChoice) {
+                // TODO: dodać możliwość zarządzania podzespołąmi wraz z możliwośćia zapisu i odczytu
+                case HARDWARE_MENU ->
+                        computer.getAllComponents().forEach(component -> System.out.println(component.getComponentName()));
+                case SOFTWARE_MENU -> FileMenu.displayMenu(computer);
+                case LANGUE_OPTION -> languageMenu();
+                case EXIT -> System.exit(0);
+                case DEFAULT -> displayMessage(ERROR_MESSAGE);
+            }
+        } while (!userChoice.equals(BACK));
+    }
+
+    private static void languageMenu() {
         do {
             displayMessage(LANGUE_MENU_MESSAGE);
             userChoice = userChoice(consoleReader.getScanner().nextLine(), SubMenu.LANGUE_MENU);
@@ -30,25 +47,7 @@ public class UserInterface {
                 case IT -> loadLangue(LANGUE_IT);
                 case FR -> loadLangue(LANGUE_FR);
                 case ES -> loadLangue(LANGUE_ES);
-                case EXIT -> System.exit(0);
-                case DEFAULT -> System.out.println("Błąd, spróbuj ponownie!");
-            }
-            userInterface();
-        } while (!userChoice.equals(EXIT));
-    }
-
-    public static void userInterface() {
-        do {
-            displayMessage(MAIN_MENU_MESSAGE);
-            userChoice = userChoice(consoleReader.getScanner().nextLine(), SubMenu.MAIN_MENU);
-
-            switch (userChoice) {
-                // TODO: dodać możliwość zarządzania podzespołąmi wraz z możliwośćia zapisu i odczytu
-                case HARDWARE_MENU ->
-                        computer.getAllComponents().forEach(component -> System.out.println(component.getComponentName()));
-                case SOFTWARE_MENU -> FileMenu.displayMenu(computer);
-                case EXIT -> System.exit(0);
-                case DEFAULT -> displayMessage(ERROR_MESSAGE);
+                default -> System.out.println("Błąd, spróbuj ponownie!");
             }
         } while (!userChoice.equals(BACK));
     }

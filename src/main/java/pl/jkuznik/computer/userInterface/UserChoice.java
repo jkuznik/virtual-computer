@@ -17,6 +17,7 @@ public enum UserChoice {
 
     HARDWARE_MENU( "1", SubMenu.MAIN_MENU),
     SOFTWARE_MENU( "2", SubMenu.MAIN_MENU),
+    LANGUE_OPTION("3", SubMenu.MAIN_MENU),
 
     LIST_FILE("1", SubMenu.SOFTWARE_MENU),
     ADD_FILE("2", SubMenu.SOFTWARE_MENU),
