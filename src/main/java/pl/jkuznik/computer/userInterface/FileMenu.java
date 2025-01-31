@@ -26,7 +26,7 @@ public class FileMenu {
 
     private FileMenu() {}
 
-    public static void displayMenu(Computer computer) {
+    public static void fileMenu(Computer computer) {
         do {
             displayMessage(FILE_MENU_MESSAGE);
             userChoice = userChoice(consoleReader.getScanner().nextLine(), SubMenu.SOFTWARE_MENU);

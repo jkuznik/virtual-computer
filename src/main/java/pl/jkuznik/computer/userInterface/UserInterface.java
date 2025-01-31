@@ -3,6 +3,7 @@ package pl.jkuznik.computer.userInterface;
 import pl.jkuznik.computer.hardware.Computer;
 import pl.jkuznik.utils.consoleReader.ConsoleReader;
 
+import static pl.jkuznik.computer.userInterface.FileMenu.fileMenu;
 import static pl.jkuznik.computer.userInterface.UserChoice.*;
 import static pl.jkuznik.utils.enums.FilePath.*;
 import static pl.jkuznik.utils.enums.MenuMessage.*;
@@ -27,12 +28,14 @@ public class UserInterface {
                 // TODO: dodać możliwość zarządzania podzespołąmi wraz z możliwośćia zapisu i odczytu
                 case HARDWARE_MENU ->
                         computer.getAllComponents().forEach(component -> System.out.println(component.getComponentName()));
-                case SOFTWARE_MENU -> FileMenu.displayMenu(computer);
+                case SOFTWARE_MENU -> fileMenu(computer);
                 case LANGUE_OPTION -> languageMenu();
-                case EXIT -> System.exit(0);
-                case DEFAULT -> displayMessage(ERROR_MESSAGE);
+                case EXIT -> {
+                    return;
+                }
+                default -> displayMessage(ERROR_MESSAGE);
             }
-        } while (!userChoice.equals(BACK));
+        } while (!userChoice.equals(EXIT));
     }
 
     private static void languageMenu() {
@@ -41,12 +44,33 @@ public class UserInterface {
             userChoice = userChoice(consoleReader.getScanner().nextLine(), SubMenu.LANGUE_MENU);
 
             switch (userChoice) {
-                case PL -> loadLangue(LANGUE_PL);
-                case EN -> loadLangue(LANGUE_EN);
-                case DE -> loadLangue(LANGUE_DE);
-                case IT -> loadLangue(LANGUE_IT);
-                case FR -> loadLangue(LANGUE_FR);
-                case ES -> loadLangue(LANGUE_ES);
+                case PL -> {
+                    loadLangue(LANGUE_PL);
+                    return;
+                }
+                case EN -> {
+                    loadLangue(LANGUE_EN);
+                    return;
+                }
+                case DE -> {
+                    loadLangue(LANGUE_DE);
+                    return;
+                }
+                case IT -> {
+                    loadLangue(LANGUE_IT);
+                    return;
+                }
+                case FR -> {
+                    loadLangue(LANGUE_FR);
+                    return;
+                }
+                case ES -> {
+                    loadLangue(LANGUE_ES);
+                    return;
+                }
+                case BACK -> {
+                    return;
+                }
                 default -> System.out.println("Błąd, spróbuj ponownie!");
             }
         } while (!userChoice.equals(BACK));
