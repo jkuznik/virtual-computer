@@ -40,4 +40,8 @@ class HardwareMenu {
             System.out.print(": " + component.getComponentName() + System.lineSeparator());
         });
     }
+
+    private static void addComponent(Computer computer) {
+
+    }
 }

@@ -2,16 +2,24 @@ package pl.jkuznik.utils.enums;
 
 public enum MenuMessage {
     GREETINGS_MESSAGE,
-    LANGUE_MENU_MESSAGE,
+    ERROR_MESSAGE,
+
+    /** Main menu messages: */
     MAIN_MENU_MESSAGE,
     HARDWARE_MENU_MESSAGE,
     SOFTWARE_MENU_MESSAGE,
-    ERROR_MESSAGE,
-    RUN_GAME_MESSAGE,
+    LANGUE_MENU_MESSAGE,
+
+    /** Hardware menu messages:*/
+    ADD_COMPONENT_MESSAGE,
+
+    /** Software menu messages: */
+    ADD_FILE_MESSAGE,
     RUN_PROGRAM_MESSAGE,
+    RUN_GAME_MESSAGE,
     END_GAME_MESSAGE,
     END_PROGRAM_MESSAGE,
-    ADD_FILE_MESSAGE,
+
     INPUT_FILE_NAME_MESSAGE,
     INPUT_FILE_SIZE_MESSAGE,
     INPUT_FILE_QUALITY_MESSAGE,
