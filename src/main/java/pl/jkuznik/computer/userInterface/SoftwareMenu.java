@@ -80,17 +80,14 @@ class SoftwareMenu {
     }
 
     private static void addFile(Computer computer) {
-        String name = "name";
-        int size = 0;
-        int compression = 0;
-        String bandName = "";
-        String title = "title";
-        int quality = 0;
+        String name;
+        int size;
 
         displayMessage(ADD_FILE_MESSAGE);
         userChoice = userChoice(consoleReader.getScanner().nextLine(), SubMenu.FILE_MANAGEMENT);
         switch (userChoice) {
             case JPG -> {
+                int compression;
                 displayMessage(INPUT_FILE_NAME_MESSAGE);
                 name = consoleReader.getScanner().nextLine() + ".jpg";
                 displayMessage(INPUT_FILE_SIZE_MESSAGE);
@@ -102,7 +99,6 @@ class SoftwareMenu {
                 } catch (ComponentNotFoundException e) {
                     System.out.println(e.getMessage());
                 }
-
             }
             case GIF -> {
                 displayMessage(INPUT_FILE_NAME_MESSAGE);
@@ -116,6 +112,9 @@ class SoftwareMenu {
                 }
             }
             case MP3 -> {
+                String bandName;
+                String title;
+                int quality;
                 displayMessage(INPUT_FILE_NAME_MESSAGE);
                 name = consoleReader.getScanner().nextLine() + ".mp3";
                 displayMessage(INPUT_FILE_SIZE_MESSAGE);
