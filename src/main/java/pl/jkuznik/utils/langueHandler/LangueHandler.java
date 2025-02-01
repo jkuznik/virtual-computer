@@ -14,9 +14,9 @@ import java.util.Map;
 
 public class LangueHandler {
 
-    private final Map<MenuMessage, List<String>> messages = new HashMap<>();
+    private final static Map<MenuMessage, List<String>> messages = new HashMap<>();
 
-    public void loadLangue(FilePath filePath) {
+    public static void loadLangue(FilePath filePath) {
         Path path = Paths.get(filePath.getPath());
         try {
             List<String> lines = Files.readAllLines(path);
@@ -29,6 +29,7 @@ public class LangueHandler {
             for (String[] processedLine : processedLines) {
                 MenuMessage menuMessage = MenuMessage.valueOf(processedLine[0]);
 
+                // TODO: doadać zwracanie komunikatu w pzypadku wczytania pustego komunikatu dla jakiejkolwiek warsości MenuMessage
                 messages.put(menuMessage, Arrays.asList(Arrays.copyOfRange(processedLine, 1, processedLine.length)));
             }
         } catch (IOException e) {
@@ -36,7 +37,7 @@ public class LangueHandler {
         }
     }
 
-    public void displayMessage(MenuMessage menuMessage) {
+    public static void displayMessage(MenuMessage menuMessage) {
         messages.get(menuMessage).forEach(System.out::println);
     }
 }
