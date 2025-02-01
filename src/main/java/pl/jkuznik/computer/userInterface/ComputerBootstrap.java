@@ -15,7 +15,9 @@ import pl.jkuznik.computer.software.file.imagefile.GIFImageFile;
 import pl.jkuznik.computer.software.file.imagefile.JPGImageFile;
 import pl.jkuznik.computer.software.file.musicfile.MP3MusicFile;
 
-public class ComputerBootstrap {
+class ComputerBootstrap {
+
+    private ComputerBootstrap() {}
 
     public static void run(Computer computer) {
 

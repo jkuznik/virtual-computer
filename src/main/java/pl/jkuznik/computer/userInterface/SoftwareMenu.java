@@ -19,7 +19,7 @@ import static pl.jkuznik.computer.userInterface.UserChoice.*;
 import static pl.jkuznik.utils.enums.MenuMessage.*;
 import static pl.jkuznik.utils.langueHandler.LangueHandler.displayMessage;
 
-public class SoftwareMenu {
+class SoftwareMenu {
     private final static ConsoleReader consoleReader = ConsoleReader.getInstance();
     private static UserChoice userChoice;
 
