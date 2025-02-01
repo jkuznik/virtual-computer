@@ -3,7 +3,7 @@ package pl.jkuznik.computer.userInterface;
 import pl.jkuznik.computer.hardware.Computer;
 import pl.jkuznik.utils.consoleReader.ConsoleReader;
 
-import static pl.jkuznik.computer.userInterface.FileMenu.fileMenu;
+import static pl.jkuznik.computer.userInterface.SoftwareMenu.softwareMenu;
 import static pl.jkuznik.computer.userInterface.UserChoice.*;
 import static pl.jkuznik.utils.enums.FilePath.*;
 import static pl.jkuznik.utils.enums.MenuMessage.*;
@@ -28,7 +28,7 @@ public class UserInterface {
                 // TODO: dodać możliwość zarządzania podzespołąmi wraz z możliwośćia zapisu i odczytu
                 case HARDWARE_MENU ->
                         computer.getAllComponents().forEach(component -> System.out.println(component.getComponentName()));
-                case SOFTWARE_MENU -> fileMenu(computer);
+                case SOFTWARE_MENU -> softwareMenu(computer);
                 case LANGUE_OPTION -> languageMenu();
                 case EXIT -> {
                     return;

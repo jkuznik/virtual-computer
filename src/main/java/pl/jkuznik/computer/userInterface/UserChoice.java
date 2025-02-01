@@ -4,7 +4,6 @@ public enum UserChoice {
 
     BACK("8", SubMenu.UNIVERSAL),
     EXIT( "9", SubMenu.UNIVERSAL),
-
     // TODO: dodać rozbudowany komunikat o wprowadzeniu nieprawidłowej wartości, można do tego wykorzystać exception
     DEFAULT( "default", SubMenu.UNIVERSAL),
 

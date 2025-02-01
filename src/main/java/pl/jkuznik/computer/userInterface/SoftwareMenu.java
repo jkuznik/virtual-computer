@@ -19,14 +19,13 @@ import static pl.jkuznik.computer.userInterface.UserChoice.*;
 import static pl.jkuznik.utils.enums.MenuMessage.*;
 import static pl.jkuznik.utils.langueHandler.LangueHandler.displayMessage;
 
-public class FileMenu {
+public class SoftwareMenu {
     private final static ConsoleReader consoleReader = ConsoleReader.getInstance();
     private static UserChoice userChoice;
-    private Computer computer;
 
-    private FileMenu() {}
+    private SoftwareMenu() {}
 
-    public static void fileMenu(Computer computer) {
+    public static void softwareMenu(Computer computer) {
         do {
             displayMessage(FILE_MENU_MESSAGE);
             userChoice = userChoice(consoleReader.getScanner().nextLine(), SubMenu.SOFTWARE_MENU);
