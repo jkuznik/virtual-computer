@@ -27,7 +27,7 @@ class SoftwareMenu {
 
     public static void softwareMenu(Computer computer) {
         do {
-            displayMessage(FILE_MENU_MESSAGE);
+            displayMessage(SOFTWARE_MENU_MESSAGE);
             userChoice = userChoice(consoleReader.getScanner().nextLine(), SubMenu.SOFTWARE_MENU);
 
             switch (userChoice) {

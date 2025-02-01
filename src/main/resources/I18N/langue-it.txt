@@ -1,8 +1,8 @@
 GREETINGS_MESSAGE;Benvenuto nel sistema di gestione del computer!
 LANGUE_MENU_MESSAGE;Seleziona la lingua:;1. Polacco;2. Inglese;3. Tedesco;4. Italiano;5. Francese;6. Spagnolo;8. Indietro
 MAIN_MENU_MESSAGE;1. Visualizza componenti;2. Gestione dei file;3. Selezione della lingua;9. Esci
-COMPONENT_MENU_MESSAGE;
-FILE_MENU_MESSAGE;1. Visualizza file;2. Aggiungi file;3. Elimina file;4. Avvia programma;5. Avvia gioco;9. Esci
+HARDWARE_MENU_MESSAGE
+SOFTWARE_MENU_MESSAGE;1. Visualizza file;2. Aggiungi file;3. Elimina file;4. Avvia programma;5. Avvia gioco;9. Esci
 ERROR_MESSAGE;Errore, riprova!
 RUN_GAME_MESSAGE;Inserisci il nome del gioco che desideri avviare:
 RUN_PROGRAM_MESSAGE;Inserisci il nome del programma che desideri avviare:
