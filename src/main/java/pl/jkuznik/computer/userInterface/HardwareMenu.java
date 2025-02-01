@@ -38,7 +38,6 @@ class HardwareMenu {
                 System.out.print(" ");
             }
             System.out.print(": " + component.getComponentName() + System.lineSeparator());
-
         });
     }
 }

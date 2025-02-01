@@ -23,6 +23,8 @@ class SoftwareMenu {
     private final static ConsoleReader consoleReader = ConsoleReader.getInstance();
     private static UserChoice userChoice;
 
+    private static final int ESTIMATED_FILE_TYPE_LENGTH = 15;
+
     private SoftwareMenu() {}
 
     public static void softwareMenu(Computer computer) {
@@ -65,7 +67,13 @@ class SoftwareMenu {
 
     private static void listFiles(Computer computer) {
         try {
-            computerDrive(computer).getFiles().forEach(file -> System.out.println(file.getName()));
+            computerDrive(computer).getFiles().forEach(file -> {
+                System.out.print(file.getFileType());
+                for(int i= file.getFileType().toString().length(); i<ESTIMATED_FILE_TYPE_LENGTH; i++) {
+                    System.out.print(" ");
+                }
+                System.out.print(": " + file.getName() + System.lineSeparator());
+            });
         } catch (ComponentNotFoundException e) {
             System.out.println(e.getMessage());
         }
