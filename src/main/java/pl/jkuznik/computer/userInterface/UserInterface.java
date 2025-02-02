@@ -17,7 +17,7 @@ public class UserInterface {
     private static UserChoice userChoice;
 
     public static void userInterface() {
-        ComputerBootstrap.run(computer);
+        computer.loadState();
         loadLangue(LANGUE_PL);
         displayMessage(GREETINGS_MESSAGE);
 
@@ -30,6 +30,7 @@ public class UserInterface {
                 case HARDWARE_MENU -> hardwareMenu(computer);
                 case SOFTWARE_MENU -> softwareMenu(computer);
                 case LANGUE_OPTION -> languageMenu();
+                case DEFAULT_SETTINGS -> defaultSettings();
                 case EXIT -> {
                     return;
                 }
@@ -74,5 +75,11 @@ public class UserInterface {
                 default -> System.out.println("Błąd, spróbuj ponownie!");
             }
         } while (!userChoice.equals(BACK));
+    }
+
+    private static void defaultSettings() {
+        computer.getAllComponents().clear();
+        ComputerBootstrap.run(computer);
+        computer.saveState();
     }
 }
