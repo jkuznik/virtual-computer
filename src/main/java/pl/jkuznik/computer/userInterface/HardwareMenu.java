@@ -7,6 +7,7 @@ import pl.jkuznik.computer.hardware.components.headphone.Headphones;
 import pl.jkuznik.computer.hardware.components.monitor.Monitor;
 import pl.jkuznik.computer.hardware.components.usbdevice.MemoryStick;
 import pl.jkuznik.computer.hardware.components.usbdevice.Mouse;
+import pl.jkuznik.computer.hardware.shared.ComponentNotFoundException;
 import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
 import pl.jkuznik.computer.hardware.shared.enums.StorageCapacity;
 import pl.jkuznik.utils.consoleReader.ConsoleReader;
@@ -32,7 +33,7 @@ class HardwareMenu {
             switch (userChoice) {
                 case LIST_COMPONENTS -> listComponents(computer);
                 case ADD_COMPONENT -> addComponent(computer);
-                case DELETE_COMPONENT -> System.out.println("delete");
+                case DELETE_COMPONENT -> deleteComponent(computer);
                 case BACK -> System.out.println(System.lineSeparator() + "Menu główne!");
                 case EXIT -> System.exit(0);
                 default -> displayMessage(MenuMessage.ERROR_MESSAGE);
@@ -160,5 +161,19 @@ class HardwareMenu {
         } catch (RuntimeException e) {  // safe block for wrong storage capacity choose case
             displayMessage(MenuMessage.ERROR_MESSAGE);
         }
+    }
+
+    private static void deleteComponent(Computer computer) {
+        displayMessage(MenuMessage.DELETE_COMPONENT_NAME_MESSAGE);
+        listComponents(computer);
+
+        try{
+            computer.removeComponent(computer.getComponent(consoleReader.getScanner().nextLine()));
+        } catch (ComponentNotFoundException e) {
+            System.out.println(e.getMessage());
+        } catch (RuntimeException e) {
+            displayMessage(MenuMessage.ERROR_MESSAGE);
+        }
+        computer.saveState();
     }
 }
