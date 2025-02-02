@@ -6,7 +6,9 @@ HARDWARE_MENU_MESSAGE;1. Wyświetl podzespoły;2. Dodaj sprzęt;3. Modyfikuj spr
 SOFTWARE_MENU_MESSAGE;1. Wyświetl pliki;2. Dodaj plik;3. Usuń plik;4. Uruchom program;5. Uruchom grę;8. Powrót;9. Wyjście
 LANGUE_MENU_MESSAGE;Wybierz język:;1. Polski;2. English;3. Deutsch;4. Italiano;5. Français;6. Español;8. Powrót
 
-ADD_COMPONENT_MESSAGE;Podaj typ:
+ADD_COMPONENT_TYPE_MESSAGE;Podaj typ:
+ADD_COMPONENT_NAME_MESSAGE;Podaj nazwę:
+ADD_DRIVE_CAPACITY_MESSAGE;Podaj pojemność dysku:
 
 ADD_FILE_MESSAGE;Podaj rodzaj pliku:;1. JPG;2. GIF;3. MP3
 RUN_PROGRAM_MESSAGE;Wpisz nazwę programu, który chcesz uruchomić:

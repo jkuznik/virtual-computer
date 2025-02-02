@@ -2,7 +2,6 @@ package pl.jkuznik.computer.hardware.components.drive;
 
 import pl.jkuznik.computer.hardware.shared.FileHandler;
 import pl.jkuznik.computer.hardware.shared.FileStorage;
-import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
 import pl.jkuznik.computer.hardware.shared.enums.StorageCapacity;
 import pl.jkuznik.computer.software.file.File;
 
@@ -53,7 +52,8 @@ public abstract class AbstractDrive implements Drive, FileStorage {
 
     //  TODO: metoda do zaimplementowania w kolejnym tasku
     @Override
-    public void getWriteSpeed() {    }
+    public void getWriteSpeed() {
+    }
 
     //  TODO: metoda do zaimplementowania w kolejnym tasku
     @Override

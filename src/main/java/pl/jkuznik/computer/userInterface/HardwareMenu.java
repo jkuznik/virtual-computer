@@ -1,7 +1,10 @@
 package pl.jkuznik.computer.userInterface;
 
 import pl.jkuznik.computer.hardware.Computer;
+import pl.jkuznik.computer.hardware.components.drive.HDDDrive;
+import pl.jkuznik.computer.hardware.components.drive.SSDDrive;
 import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
+import pl.jkuznik.computer.hardware.shared.enums.StorageCapacity;
 import pl.jkuznik.utils.consoleReader.ConsoleReader;
 import pl.jkuznik.utils.enums.MenuMessage;
 import pl.jkuznik.utils.langueHandler.LangueHandler;
@@ -17,7 +20,8 @@ class HardwareMenu {
 
     private static final int ESTIMATED_COMPONENT_TYPE_NAME_LENGTH = 15;
 
-    private HardwareMenu() {}
+    private HardwareMenu() {
+    }
 
     public static void hardwareMenu(Computer computer) {
         do {
@@ -34,13 +38,13 @@ class HardwareMenu {
                 case EXIT -> System.exit(0);
                 default -> displayMessage(MenuMessage.ERROR_MESSAGE);
             }
-        } while(!userChoice.equals(UserChoice.BACK));
+        } while (!userChoice.equals(UserChoice.BACK));
     }
 
     private static void listComponents(Computer computer) {
         computer.getAllComponents().forEach(component -> {
             System.out.print(component.getComponentType());
-            for(int i = component.getComponentType().toString().length(); i< ESTIMATED_COMPONENT_TYPE_NAME_LENGTH; i++) {
+            for (int i = component.getComponentType().toString().length(); i < ESTIMATED_COMPONENT_TYPE_NAME_LENGTH; i++) {
                 System.out.print(" ");
             }
             System.out.print(": " + component.getComponentName() + System.lineSeparator());
@@ -48,36 +52,77 @@ class HardwareMenu {
     }
 
     private static void addComponent(Computer computer) {
-        displayMessage(MenuMessage.ADD_COMPONENT_MESSAGE);
-        ComponentType[] values = ComponentType.values();
-        int i=1;
-        for (ComponentType value: values) {
-            System.out.println(i + " " + value);
-            i++;
+        displayMessage(MenuMessage.ADD_COMPONENT_TYPE_MESSAGE);
+        ComponentType[] componentTypes = ComponentType.values();
+        StorageCapacity[] storageCapacities = StorageCapacity.values();
+        int componentTypeIterator = 1;
+        int storageCapacityIterator = 1;
+        for (ComponentType componentType : componentTypes) {
+            System.out.println(componentTypeIterator + " " + componentType);
+            componentTypeIterator++;
         }
 
-        ComponentType userChoice = values[
-                Integer.parseInt
-                        (consoleReader.getScanner().nextLine())
-                        -1];
+        ComponentType typeUserChoice;
+        try {
+            typeUserChoice = componentTypes[
+                    Integer.parseInt
+                            (consoleReader.getScanner().nextLine())
+                            - 1];
 
-        switch (userChoice) {
-            case HDD -> {
+            displayMessage(MenuMessage.ADD_COMPONENT_NAME_MESSAGE);
+            String name = consoleReader.getScanner().nextLine();
+            switch (typeUserChoice) {
+                case HDD -> {
+                    displayMessage(MenuMessage.ADD_DRIVE_CAPACITY_MESSAGE);
+                    for (StorageCapacity storageCapacity : storageCapacities) {
+                        System.out.println(storageCapacityIterator + " " + storageCapacity);
+                        storageCapacityIterator++;
+                    }
 
+                    try {
+                        StorageCapacity capacityUserChoice = storageCapacities[
+                                Integer.parseInt
+                                        (consoleReader.getScanner().nextLine())
+                                        - 1];
+                        computer.addComponent(new HDDDrive(capacityUserChoice, name));
+
+                    } catch (RuntimeException e) {  // safe block for wrong storage capacity choose case
+                        displayMessage(MenuMessage.ERROR_MESSAGE);
+                    }
+                }
+                case SSD -> {
+                    displayMessage(MenuMessage.ADD_DRIVE_CAPACITY_MESSAGE);
+                    for (StorageCapacity storageCapacity : storageCapacities) {
+                        System.out.println(storageCapacityIterator + " " + storageCapacity);
+                        storageCapacityIterator++;
+                    }
+
+                    try {
+                        StorageCapacity capacityUserChoice = storageCapacities[
+                                Integer.parseInt
+                                        (consoleReader.getScanner().nextLine())
+                                        - 1];
+                        computer.addComponent(new SSDDrive(capacityUserChoice, name));
+
+                    } catch (RuntimeException e) {  // safe block for wrong storage capacity choose case
+                        displayMessage(MenuMessage.ERROR_MESSAGE);
+                    }
+                }
+                case MONITOR -> {
+                }
+                case MOUSE -> {
+                }
+                case KEYBOARD -> {
+                }
+                case MEMORY_STICK -> {
+                }
+                case HEADPHONES -> {
+                }
             }
-            case SSD -> {
-            }
-            case MONITOR -> {
-            }
-            case MOUSE -> {
-            }
-            case KEYBOARD -> {
-            }
-            case MEMORY_STICK -> {
-            }
-            case HEADPHONES -> {
-            }
+
+
+        } catch (RuntimeException e) {  // safe block for wrong component type choose case
+            displayMessage(MenuMessage.ERROR_MESSAGE);
         }
-
     }
 }
