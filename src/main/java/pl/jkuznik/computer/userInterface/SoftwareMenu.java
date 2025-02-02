@@ -133,6 +133,7 @@ class SoftwareMenu {
             }
             default -> displayMessage(ERROR_MESSAGE);
         }
+        computer.saveState();
     }
 
     private static void deleteFile(Computer computer) {
@@ -144,6 +145,7 @@ class SoftwareMenu {
         } catch (ComponentNotFoundException | FileNotFoundException e) {
             System.out.println(e.getMessage());
         }
+        computer.saveState();
     }
 
     private static AbstractDrive computerDrive(Computer computer) throws ComponentNotFoundException {
