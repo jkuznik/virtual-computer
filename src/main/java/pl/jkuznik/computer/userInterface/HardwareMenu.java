@@ -32,7 +32,6 @@ class HardwareMenu {
             switch (userChoice) {
                 case LIST_COMPONENTS -> listComponents(computer);
                 case ADD_COMPONENT -> addComponent(computer);
-                case UPDATE_COMPONENT -> System.out.println("update");
                 case DELETE_COMPONENT -> System.out.println("delete");
                 case BACK -> System.out.println(System.lineSeparator() + "Menu główne!");
                 case EXIT -> System.exit(0);
@@ -79,6 +78,7 @@ class HardwareMenu {
                 case HEADPHONES -> addHeadphones(computer, componentName);
             }
 
+            computer.saveState();
         } catch (RuntimeException e) {  // safe block for wrong component type choose case
             displayMessage(MenuMessage.ERROR_MESSAGE);
         }
