@@ -9,6 +9,7 @@ LANGUE_MENU_MESSAGE;Wybierz język:;1. Polski;2. English;3. Deutsch;4. Italiano;
 ADD_COMPONENT_TYPE_MESSAGE;Podaj typ:
 ADD_COMPONENT_NAME_MESSAGE;Podaj nazwę:
 ADD_DRIVE_CAPACITY_MESSAGE;Podaj pojemność dysku:
+ADD_MEMORY_STICK_CAPACITY_MESSAGE;Podaj pojemność pendrive:
 
 ADD_FILE_MESSAGE;Podaj rodzaj pliku:;1. JPG;2. GIF;3. MP3
 RUN_PROGRAM_MESSAGE;Wpisz nazwę programu, który chcesz uruchomić:

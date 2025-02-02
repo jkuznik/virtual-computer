@@ -14,6 +14,7 @@ public enum MenuMessage {
     ADD_COMPONENT_TYPE_MESSAGE,
     ADD_COMPONENT_NAME_MESSAGE,
     ADD_DRIVE_CAPACITY_MESSAGE,
+    ADD_MEMORY_STICK_CAPACITY_MESSAGE,
 
     /** Software menu messages: */
     ADD_FILE_MESSAGE,
