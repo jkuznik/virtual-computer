@@ -1,9 +1,15 @@
 package pl.jkuznik.computer.userInterface;
 
 import pl.jkuznik.computer.hardware.Computer;
+import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
 import pl.jkuznik.utils.consoleReader.ConsoleReader;
 import pl.jkuznik.utils.enums.MenuMessage;
 import pl.jkuznik.utils.langueHandler.LangueHandler;
+
+import java.util.Arrays;
+import java.util.Locale;
+
+import static pl.jkuznik.utils.langueHandler.LangueHandler.displayMessage;
 
 class HardwareMenu {
     private final static ConsoleReader consoleReader = ConsoleReader.getInstance();
@@ -16,17 +22,17 @@ class HardwareMenu {
     public static void hardwareMenu(Computer computer) {
         do {
             // TODO: dodać wsparcie poniższego komunikatu dla wszystkich języków - aktualnie działający język to PL
-            LangueHandler.displayMessage(MenuMessage.HARDWARE_MENU_MESSAGE);
+            displayMessage(MenuMessage.HARDWARE_MENU_MESSAGE);
             userChoice = UserChoice.userChoice(consoleReader.getScanner().nextLine(), SubMenu.HARDWARE_MENU);
 
             switch (userChoice) {
                 case LIST_COMPONENTS -> listComponents(computer);
-                case ADD_COMPONENT -> System.out.println("add");
+                case ADD_COMPONENT -> addComponent(computer);
                 case UPDATE_COMPONENT -> System.out.println("update");
                 case DELETE_COMPONENT -> System.out.println("delete");
                 case BACK -> System.out.println(System.lineSeparator() + "Menu główne!");
                 case EXIT -> System.exit(0);
-                default -> LangueHandler.displayMessage(MenuMessage.ERROR_MESSAGE);
+                default -> displayMessage(MenuMessage.ERROR_MESSAGE);
             }
         } while(!userChoice.equals(UserChoice.BACK));
     }
@@ -42,6 +48,36 @@ class HardwareMenu {
     }
 
     private static void addComponent(Computer computer) {
+        displayMessage(MenuMessage.ADD_COMPONENT_MESSAGE);
+        ComponentType[] values = ComponentType.values();
+        int i=1;
+        for (ComponentType value: values) {
+            System.out.println(i + " " + value);
+            i++;
+        }
+
+        ComponentType userChoice = values[
+                Integer.parseInt
+                        (consoleReader.getScanner().nextLine())
+                        -1];
+
+        switch (userChoice) {
+            case HDD -> {
+
+            }
+            case SSD -> {
+            }
+            case MONITOR -> {
+            }
+            case MOUSE -> {
+            }
+            case KEYBOARD -> {
+            }
+            case MEMORY_STICK -> {
+            }
+            case HEADPHONES -> {
+            }
+        }
 
     }
 }
