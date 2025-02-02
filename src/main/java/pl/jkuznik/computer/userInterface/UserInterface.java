@@ -1,13 +1,16 @@
 package pl.jkuznik.computer.userInterface;
 
 import pl.jkuznik.computer.hardware.Computer;
+import pl.jkuznik.computer.userInterface._enums.SubMenu;
+import pl.jkuznik.computer.userInterface._enums.UserChoice;
+import pl.jkuznik.utils.computerBootstrap.ComputerBootstrap;
 import pl.jkuznik.utils.consoleReader.ConsoleReader;
 
 import static pl.jkuznik.computer.userInterface.HardwareMenu.hardwareMenu;
 import static pl.jkuznik.computer.userInterface.SoftwareMenu.softwareMenu;
-import static pl.jkuznik.computer.userInterface.UserChoice.*;
-import static pl.jkuznik.utils.enums.FilePath.*;
-import static pl.jkuznik.utils.enums.MenuMessage.*;
+import static pl.jkuznik.computer.userInterface._enums.UserChoice.*;
+import static pl.jkuznik.utils._enums.FilePath.*;
+import static pl.jkuznik.utils._enums.MenuMessage.*;
 import static pl.jkuznik.utils.langueHandler.LangueHandler.displayMessage;
 import static pl.jkuznik.utils.langueHandler.LangueHandler.loadLangue;
 

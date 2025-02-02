@@ -3,7 +3,7 @@ package pl.jkuznik.utils.persistentState.gsonTypeAdapter;
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 import pl.jkuznik.computer.hardware.shared.FileHandler;
-import pl.jkuznik.computer.hardware.shared.enums.StorageCapacity;
+import pl.jkuznik.computer.hardware.shared._enums.StorageCapacity;
 import pl.jkuznik.computer.software.file.File;
 
 import java.lang.reflect.Type;

@@ -1,6 +1,6 @@
 package pl.jkuznik.computer.hardware.shared;
 
-import pl.jkuznik.computer.hardware.shared.enums.StorageCapacity;
+import pl.jkuznik.computer.hardware.shared._enums.StorageCapacity;
 import pl.jkuznik.computer.software.file.File;
 
 import java.io.FileNotFoundException;

@@ -1,4 +1,4 @@
-package pl.jkuznik.utils.enums;
+package pl.jkuznik.utils._enums;
 
 public enum FilePath {
     COMPUTER_STATE("src/main/resources/computerState/.computer-state.txt"),

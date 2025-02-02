@@ -1,6 +1,6 @@
 package pl.jkuznik.computer.hardware.components.usbdevice;
 
-import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
+import pl.jkuznik.computer.hardware.shared._enums.ComponentType;
 
 public class Mouse implements USBDevice {
     private final String name;

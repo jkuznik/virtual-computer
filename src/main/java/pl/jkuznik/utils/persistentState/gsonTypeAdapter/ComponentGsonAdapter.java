@@ -10,11 +10,11 @@ import pl.jkuznik.computer.hardware.components.usbdevice.MemoryStick;
 import pl.jkuznik.computer.hardware.components.usbdevice.Mouse;
 import pl.jkuznik.computer.hardware.shared.Component;
 import pl.jkuznik.computer.hardware.shared.FileHandler;
-import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
+import pl.jkuznik.computer.hardware.shared._enums.ComponentType;
 
 import java.lang.reflect.Type;
 
-import static pl.jkuznik.computer.hardware.shared.enums.ComponentType.valueOf;
+import static pl.jkuznik.computer.hardware.shared._enums.ComponentType.valueOf;
 
 public class ComponentGsonAdapter implements JsonSerializer<Component>, JsonDeserializer<Component> {
 

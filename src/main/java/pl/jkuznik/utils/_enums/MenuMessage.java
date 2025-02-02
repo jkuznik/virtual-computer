@@ -1,4 +1,4 @@
-package pl.jkuznik.utils.enums;
+package pl.jkuznik.utils._enums;
 
 public enum MenuMessage {
     GREETINGS_MESSAGE,

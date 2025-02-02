@@ -1,4 +1,4 @@
-package pl.jkuznik.computer.hardware.shared.enums;
+package pl.jkuznik.computer.hardware.shared._enums;
 
 public enum StorageCapacity {
     GB1(1_073_741_824L),  // 1 GB w bajtach

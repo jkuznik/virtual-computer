@@ -8,10 +8,12 @@ import pl.jkuznik.computer.hardware.components.monitor.Monitor;
 import pl.jkuznik.computer.hardware.components.usbdevice.MemoryStick;
 import pl.jkuznik.computer.hardware.components.usbdevice.Mouse;
 import pl.jkuznik.computer.hardware.shared.ComponentNotFoundException;
-import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
-import pl.jkuznik.computer.hardware.shared.enums.StorageCapacity;
+import pl.jkuznik.computer.hardware.shared._enums.ComponentType;
+import pl.jkuznik.computer.hardware.shared._enums.StorageCapacity;
+import pl.jkuznik.computer.userInterface._enums.SubMenu;
+import pl.jkuznik.computer.userInterface._enums.UserChoice;
 import pl.jkuznik.utils.consoleReader.ConsoleReader;
-import pl.jkuznik.utils.enums.MenuMessage;
+import pl.jkuznik.utils._enums.MenuMessage;
 
 import static pl.jkuznik.utils.langueHandler.LangueHandler.displayMessage;
 
