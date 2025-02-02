@@ -1,18 +1,27 @@
 GREETINGS_MESSAGE;Willkommen im Computerverwaltungssystem!
-LANGUE_MENU_MESSAGE;Sprache wählen:;1. Polnisch;2. Englisch;3. Deutsch;4. Italienisch;5. Französisch;6. Spanisch;8. Zurück
-MAIN_MENU_MESSAGE;1. Komponenten anzeigen;2. Dateiverwaltung;3. Sprachauswahl;9. Beenden
-HARDWARE_MENU_MESSAGE
+ERROR_MESSAGE;Fehler, bitte versuchen Sie es erneut.
+
+MAIN_MENU_MESSAGE;1. Computerkomponenten verwalten;2. Dateien verwalten;3. Sprache wählen;7. Werkseinstellungen wiederherstellen;9. Beenden
+HARDWARE_MENU_MESSAGE;1. Komponenten anzeigen;2. Hardware hinzufügen;3. Hardware entfernen;8. Zurück;9. Beenden
 SOFTWARE_MENU_MESSAGE;1. Dateien anzeigen;2. Datei hinzufügen;3. Datei löschen;4. Programm starten;5. Spiel starten;8. Zurück;9. Beenden
-ERROR_MESSAGE;Fehler, bitte versuchen Sie es erneut!
-RUN_GAME_MESSAGE;Geben Sie den Namen des Spiels ein, das Sie starten möchten:
+LANGUE_MENU_MESSAGE;Sprache wählen:;1. Polski;2. English;3. Deutsch;4. Italiano;5. Français;6. Español;8. Zurück
+
+ADD_COMPONENT_TYPE_MESSAGE;Geben Sie den Typ ein:
+ADD_COMPONENT_NAME_MESSAGE;Geben Sie den Namen ein:
+ADD_DRIVE_CAPACITY_MESSAGE;Geben Sie die Festplattenkapazität ein:
+ADD_MEMORY_STICK_CAPACITY_MESSAGE;Geben Sie die USB-Stick-Kapazität ein:
+DELETE_COMPONENT_NAME_MESSAGE;Geben Sie den Namen der zu entfernenden Komponente ein:
+
+ADD_FILE_MESSAGE;Dateityp auswählen:;1. JPG;2. GIF;3. MP3
 RUN_PROGRAM_MESSAGE;Geben Sie den Namen des Programms ein, das Sie starten möchten:
-END_GAME_MESSAGE;Spiel beendet.
+RUN_GAME_MESSAGE;Geben Sie den Namen des Spiels ein, das Sie starten möchten:
 END_PROGRAM_MESSAGE;Programm beendet.
-ADD_FILE_MESSAGE;Geben Sie den Dateityp an:;1. JPG;2. GIF;3. MP3
-INPUT_FILE_NAME_MESSAGE;Geben Sie den Dateinamen an:
-INPUT_FILE_SIZE_MESSAGE;Geben Sie die Dateigröße an:
-INPUT_FILE_QUALITY_MESSAGE;Geben Sie die Qualität an:
-INPUT_FILE_COMPRESSION_MESSAGE;Geben Sie die Komprimierungsstufe an:
-INPUT_SONG_TITLE_MESSAGE;Geben Sie den Titel des Liedes an:
-INPUT_SONG_BAND_NAME_MESSAGE;Geben Sie den Künstler des Liedes an:
-INPUT_FILE_NAME_FOR_DELETE_MESSAGE;Geben Sie den Namen der Datei an, die Sie löschen möchten:
+END_GAME_MESSAGE;Spiel beendet.
+
+INPUT_FILE_NAME_MESSAGE;Geben Sie den Dateinamen ein:
+INPUT_FILE_SIZE_MESSAGE;Geben Sie die Dateigröße ein:
+INPUT_FILE_QUALITY_MESSAGE;Geben Sie die Qualität ein:
+INPUT_FILE_COMPRESSION_MESSAGE;Geben Sie die Komprimierungsstufe ein:
+INPUT_SONG_TITLE_MESSAGE;Geben Sie den Songtitel ein:
+INPUT_SONG_BAND_NAME_MESSAGE;Geben Sie den Namen des Künstlers ein:
+INPUT_FILE_NAME_FOR_DELETE_MESSAGE;Geben Sie den Namen der Datei ein, die Sie löschen möchten:
