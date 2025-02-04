@@ -8,12 +8,15 @@ import pl.jkuznik.computer.software.file.File;
 import pl.jkuznik.computer.software.file.FileType;
 import pl.jkuznik.computer.software.file.imagefile.JPGImageFile;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.catchException;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AbstractDriveTest {
-    AbstractDrive drive;
+    private AbstractDrive drive;
 
     @BeforeEach
     void setUp() {
@@ -31,19 +34,69 @@ class AbstractDriveTest {
         int after = drive.getFiles().size();
 
         then();
-        Assertions.assertThat(before + 1).isEqualTo(after);
+        assertThat(before + 1).isEqualTo(after);
     }
 
     @Test
-    void getFiles() {
+    void shouldReturnFiles_whenFilesWasAddedCorrectly() {
+        given();
+        var file1 = new JPGImageFile("foo", 5, 5);
+        var file2 = new JPGImageFile("bar", 5, 5);
+        var file3 = new JPGImageFile("baz", 5, 5);
+        drive.addFile(file1);
+        drive.addFile(file2);
+        drive.addFile(file3);
+
+        when();
+        List<File> files = drive.getFiles();
+
+        then();
+        assertThat(files.size()).isEqualTo(3);
     }
 
     @Test
-    void removeFile() {
+    void shouldRemoveFile_whenFileExist() {
+        given();
+        var file1 = new JPGImageFile("foo", 5, 5);
+        var file2 = new JPGImageFile("bar", 5, 5);
+        var file3 = new JPGImageFile("baz", 5, 5);
+        drive.addFile(file1);
+        drive.addFile(file2);
+        drive.addFile(file3);
+        int before = drive.getFiles().size();
+
+        when();
+        drive.removeFile(file1);
+        int after = drive.getFiles().size();
+
+        then();
+        assertThat(before - 1).isEqualTo(after);
     }
 
     @Test
-    void findFile() {
+    void shouldReturnFile_whenFileExist() throws FileNotFoundException {
+        given();
+        var file1 = new JPGImageFile("foo", 5, 5);
+        drive.addFile(file1);
+
+        when();
+        var result = drive.findFile("foo");
+
+        then();
+        assertThat(result).isEqualTo(file1);
+        assertThat(result.getName()).isEqualTo("foo");
+    }
+
+    @Test
+    void shouldThrowException_whenFindFileWhichNotExist() throws FileNotFoundException {
+        given();
+
+        when();
+        var exception = catchException(() -> drive.findFile("foo"));
+
+        then();
+        assertThat(exception).isExactlyInstanceOf(FileNotFoundException.class);
+        assertThat(exception.getMessage()).isEqualTo("File foo not found");
     }
 
     @Test
