@@ -9,6 +9,7 @@ import org.hibernate.validator.resourceloading.PlatformResourceBundleLocator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pl.jkuznik.computer.hardware.components.monitor.Monitor;
+import pl.jkuznik.computer.hardware.shared._enums.ComponentType;
 
 import java.util.Locale;
 import java.util.Set;
@@ -79,6 +80,14 @@ class ComponentTest {
 
     @Test
     void getComponentType() {
+        given();
+        var monitor = new Monitor("foo");
+
+        when();
+        ComponentType result = monitor.getComponentType();
+
+        then();
+        assertThat(ComponentType.MONITOR).isEqualTo(result);
     }
 
     private void given() {
