@@ -101,10 +101,12 @@ class AbstractDriveTest {
 
     @Test
     void getWriteSpeed() {
+        // TODO: uzupełnić metodę
     }
 
     @Test
     void getReadSpeed() {
+        // TODO: uzupełnić metodę
     }
 
     private void given() {
