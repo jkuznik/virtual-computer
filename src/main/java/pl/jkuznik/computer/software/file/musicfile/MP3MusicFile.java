@@ -5,8 +5,8 @@ import pl.jkuznik.computer.software.file.FileType;
 public class MP3MusicFile extends AbstractMusicFile {
     private int quality;
 
-    public MP3MusicFile(FileType fileType, String name, long size, String bandName, String title, int quality) {
-        super(fileType, name, size, bandName, title);
+    public MP3MusicFile(String name, long size, String bandName, String title, int quality) {
+        super(name, size, bandName, title);
         this.quality = quality;
     }
 
@@ -25,5 +25,10 @@ public class MP3MusicFile extends AbstractMusicFile {
     @Override
     public void play() {
         System.out.println("Playing MP3 file");
+    }
+
+    @Override
+    public FileType getFileType() {
+        return FileType.MP3;
     }
 }

@@ -7,8 +7,8 @@ public abstract class AbstractMusicFile extends AbstractFile implements MusicFil
     protected String bandName;
     protected String title;
 
-    public AbstractMusicFile(FileType fileType, String name, long size, String bandName, String title) {
-        super(fileType, name, size);
+    public AbstractMusicFile(String name, long size, String bandName, String title) {
+        super(name, size);
         this.bandName = bandName;
         this.title = title;
     }

@@ -5,8 +5,8 @@ import pl.jkuznik.computer.software.file.FileType;
 public class JPGImageFile extends AbstractImageFile {
     private final int compression;
 
-    public JPGImageFile(FileType fileType, String name, long size, int compression) {
-        super(fileType, name, size);
+    public JPGImageFile(String name, long size, int compression) {
+        super(name, size);
         this.compression = compression;
     }
 
@@ -16,5 +16,10 @@ public class JPGImageFile extends AbstractImageFile {
 
     public void displayImage() {
         System.out.println("Displaying JPG");
+    }
+
+    @Override
+    public FileType getFileType() {
+        return FileType.JPG;
     }
 }
