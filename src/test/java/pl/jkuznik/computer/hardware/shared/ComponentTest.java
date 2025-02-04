@@ -1,12 +1,39 @@
 package pl.jkuznik.computer.hardware.shared;
 
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.Validation;
+import jakarta.validation.Validator;
+import jakarta.validation.ValidatorFactory;
+import org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator;
+import org.hibernate.validator.resourceloading.PlatformResourceBundleLocator;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pl.jkuznik.computer.hardware.components.monitor.Monitor;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.catchException;
+import java.util.Locale;
+import java.util.Set;
+
+import static org.assertj.core.api.Assertions.*;
 
 class ComponentTest {
+    private Validator validator;
+
+    @BeforeEach
+    void setUp() {
+        Locale.setDefault(Locale.ENGLISH);
+
+        try (
+                ValidatorFactory validatorFactory = Validation.byDefaultProvider()
+                        .configure()
+                        .messageInterpolator(new ResourceBundleMessageInterpolator(
+                                new PlatformResourceBundleLocator("ValidationMessages", Set.of(Locale.ENGLISH))
+                        ))
+                        .buildValidatorFactory()
+        ) {
+            validator = validatorFactory.getValidator();
+        }
+    }
+
 
     @Test
     void shouldGetComponentName_whenComponentNameIsValid() {
@@ -26,10 +53,28 @@ class ComponentTest {
         Component component = new Monitor(null);
 
         when();
-        Exception exception = catchException(() -> component.getComponentName());
+        Set<ConstraintViolation<Component>> validate = validator.validate(component);
 
         then();
-        assertThat(exception).doesNotThrowAnyException();
+        assertThat(validate).isNotEmpty();
+        assertThat(validate)
+                .extracting(ConstraintViolation::getMessage)
+                .contains("must not be null");
+    }
+
+    @Test
+    void shouldThrowException_whenComponentNameIsNotValid2() {
+        given();
+        Component component = new Monitor("");
+
+        when();
+        Set<ConstraintViolation<Component>> validate = validator.validate(component);
+
+        then();
+        assertThat(validate).isNotEmpty();
+        assertThat(validate)
+                .extracting(ConstraintViolation::getMessage)
+                .contains("must not be blank");
     }
 
     @Test
