@@ -97,7 +97,7 @@ class SoftwareMenu {
                 displayMessage(INPUT_FILE_COMPRESSION_MESSAGE);
                 compression = Integer.parseInt(consoleReader.getScanner().nextLine());
                 try {
-                    computerDrive(computer).addFile(new JPGImageFile(FileType.JPG, name, size, compression));
+                    computerDrive(computer).addFile(new JPGImageFile(name, size, compression));
                 } catch (ComponentNotFoundException e) {
                     System.out.println(e.getMessage());
                 }
@@ -108,7 +108,7 @@ class SoftwareMenu {
                 displayMessage(INPUT_FILE_SIZE_MESSAGE);
                 size = Integer.parseInt(consoleReader.getScanner().nextLine());
                 try {
-                    computerDrive(computer).addFile(new GIFImageFile(FileType.GIF, name, size));
+                    computerDrive(computer).addFile(new GIFImageFile(name, size));
                 } catch (ComponentNotFoundException e) {
                     System.out.println(e.getMessage());
                 }
@@ -128,7 +128,7 @@ class SoftwareMenu {
                 displayMessage(INPUT_FILE_QUALITY_MESSAGE);
                 quality = Integer.parseInt(consoleReader.getScanner().nextLine());
                 try {
-                    computerDrive(computer).addFile(new MP3MusicFile(FileType.MP3, name, size, bandName, title, quality));
+                    computerDrive(computer).addFile(new MP3MusicFile(name, size, bandName, title, quality));
                 } catch (ComponentNotFoundException e) {
                     System.out.println(e.getMessage());
                 }

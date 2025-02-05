@@ -1,18 +1,27 @@
-GREETINGS_MESSAGE;Bienvenue dans le système de gestion de l'ordinateur !
-LANGUE_MENU_MESSAGE;Choisissez la langue:;1. Polonais;2. Anglais;3. Allemand;4. Italien;5. Français;6. Espagnol;8. Retour
-MAIN_MENU_MESSAGE;1. Afficher les composants.;2. Gestion des fichiers.;3. Sélection de la langue.;9. Quitter.
-HARDWARE_MENU_MESSAGE
-SOFTWARE_MENU_MESSAGE;1. Afficher les fichiers.;2. Ajouter un fichier.;3. Supprimer un fichier.;4. Lancer un programme.;5. Lancer un jeu.;9. Quitter.
-ERROR_MESSAGE;Erreur, veuillez réessayer !
-RUN_GAME_MESSAGE;Entrez le nom du jeu que vous souhaitez lancer :
-RUN_PROGRAM_MESSAGE;Entrez le nom du programme que vous souhaitez lancer :
-END_GAME_MESSAGE;Jeu terminé.
+GREETINGS_MESSAGE;Bienvenue dans le système de gestion de l'ordinateur!
+ERROR_MESSAGE;Erreur, veuillez réessayer.
+
+MAIN_MENU_MESSAGE;1. Gérer les composants de l'ordinateur;2. Gérer les fichiers;3. Choisir la langue;7. Restaurer les paramètres d'usine;9. Quitter
+HARDWARE_MENU_MESSAGE;1. Afficher les composants;2. Ajouter du matériel;3. Supprimer du matériel;8. Retour;9. Quitter
+SOFTWARE_MENU_MESSAGE;1. Afficher les fichiers;2. Ajouter un fichier;3. Supprimer un fichier;4. Lancer un programme;5. Lancer un jeu;8. Retour;9. Quitter
+LANGUE_MENU_MESSAGE;Choisir la langue:;1. Polski;2. English;3. Deutsch;4. Italiano;5. Français;6. Español;8. Retour
+
+ADD_COMPONENT_TYPE_MESSAGE;Entrez le type:
+ADD_COMPONENT_NAME_MESSAGE;Entrez le nom:
+ADD_DRIVE_CAPACITY_MESSAGE;Entrez la capacité du disque:
+ADD_MEMORY_STICK_CAPACITY_MESSAGE;Entrez la capacité de la clé USB:
+DELETE_COMPONENT_NAME_MESSAGE;Entrez le nom du composant à supprimer:
+
+ADD_FILE_MESSAGE;Sélectionnez le type de fichier:;1. JPG;2. GIF;3. MP3
+RUN_PROGRAM_MESSAGE;Entrez le nom du programme à exécuter:
+RUN_GAME_MESSAGE;Entrez le nom du jeu à exécuter:
 END_PROGRAM_MESSAGE;Programme terminé.
-ADD_FILE_MESSAGE;Spécifiez le type de fichier :;1. JPG;2. GIF;3. MP3
-INPUT_FILE_NAME_MESSAGE;Spécifiez le nom du fichier :
-INPUT_FILE_SIZE_MESSAGE;Spécifiez la taille du fichier :
-INPUT_FILE_QUALITY_MESSAGE;Spécifiez la qualité :
-INPUT_FILE_COMPRESSION_MESSAGE;Spécifiez le niveau de compression :
-INPUT_SONG_TITLE_MESSAGE;Spécifiez le titre de la chanson :
-INPUT_SONG_BAND_NAME_MESSAGE;Spécifiez l'artiste de la chanson :
-INPUT_FILE_NAME_FOR_DELETE_MESSAGE;Spécifiez le nom du fichier que vous souhaitez supprimer :
+END_GAME_MESSAGE;Jeu terminé.
+
+INPUT_FILE_NAME_MESSAGE;Entrez le nom du fichier:
+INPUT_FILE_SIZE_MESSAGE;Entrez la taille du fichier:
+INPUT_FILE_QUALITY_MESSAGE;Entrez la qualité:
+INPUT_FILE_COMPRESSION_MESSAGE;Entrez le niveau de compression:
+INPUT_SONG_TITLE_MESSAGE;Entrez le titre de la chanson:
+INPUT_SONG_BAND_NAME_MESSAGE;Entrez le nom de l'artiste:
+INPUT_FILE_NAME_FOR_DELETE_MESSAGE;Entrez le nom du fichier à supprimer:

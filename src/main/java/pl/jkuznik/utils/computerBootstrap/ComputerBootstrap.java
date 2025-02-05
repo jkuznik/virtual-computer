@@ -33,9 +33,9 @@ public class ComputerBootstrap {
         computer.addComponent(memoryStick);
         computer.addComponent(mouse);
 
-        GIFImageFile gifImageFile = new GIFImageFile(FileType.GIF, "funnygif.gif", 3);
-        JPGImageFile jpgImageFile = new JPGImageFile(FileType.JPG, "funnyimage.png", 2, 1);
-        MP3MusicFile mp3MusicFile = new MP3MusicFile(FileType.MP3, "song.mp3", 15, "Jackson", "Thriller", 10);
+        GIFImageFile gifImageFile = new GIFImageFile("funnygif.gif", 3);
+        JPGImageFile jpgImageFile = new JPGImageFile("funnyimage.png", 2, 1);
+        MP3MusicFile mp3MusicFile = new MP3MusicFile("song.mp3", 15, "Jackson", "Thriller", 10);
 
         try {
             computerDrive(computer).addFile(gifImageFile);

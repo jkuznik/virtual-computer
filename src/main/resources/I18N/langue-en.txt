@@ -1,18 +1,27 @@
 GREETINGS_MESSAGE;Welcome to the computer management system!
-LANGUE_MENU_MESSAGE;Select language:;1. Polish;2. English;3. German;4. Italian;5. French;6. Spanish;8. Back
-MAIN_MENU_MESSAGE;1. Display components.;2. File management.;3. Langue option;9. Exit.
-HARDWARE_MENU_MESSAGE
-SOFTWARE_MENU_MESSAGE;1. Display files.;2. Add file.;3. Delete file.;4. Run program.;5. Run game.;8. Back.;9. Exit.
 ERROR_MESSAGE;Error, please try again!
-RUN_GAME_MESSAGE;Enter the name of the game you want to run:
+
+MAIN_MENU_MESSAGE;1. Manage computer components;2. Manage files;3. Choose language;7. Restore factory settings;9. Exit
+HARDWARE_MENU_MESSAGE;1. Display components;2. Add hardware;3. Remove hardware;8. Back;9. Exit
+SOFTWARE_MENU_MESSAGE;1. Display files;2. Add file;3. Delete file;4. Run program;5. Run game;8. Back;9. Exit
+LANGUE_MENU_MESSAGE;Choose language:;1. Polski;2. English;3. Deutsch;4. Italiano;5. Français;6. Español;8. Back
+
+ADD_COMPONENT_TYPE_MESSAGE;Enter type:
+ADD_COMPONENT_NAME_MESSAGE;Enter name:
+ADD_DRIVE_CAPACITY_MESSAGE;Enter drive capacity:
+ADD_MEMORY_STICK_CAPACITY_MESSAGE;Enter USB stick capacity:
+DELETE_COMPONENT_NAME_MESSAGE;Enter the name of the component you want to remove:
+
+ADD_FILE_MESSAGE;Select file type:;1. JPG;2. GIF;3. MP3
 RUN_PROGRAM_MESSAGE;Enter the name of the program you want to run:
-END_GAME_MESSAGE;Game finished.
-END_PROGRAM_MESSAGE;Program finished.
-ADD_FILE_MESSAGE;Provide the file type:;1. JPG;2. GIF;3. MP3
-INPUT_FILE_NAME_MESSAGE;Provide the file name:
-INPUT_FILE_SIZE_MESSAGE;Provide the file size:
-INPUT_FILE_QUALITY_MESSAGE;Provide the quality:
-INPUT_FILE_COMPRESSION_MESSAGE;Provide the compression level:
-INPUT_SONG_TITLE_MESSAGE;Provide the song title:
-INPUT_SONG_BAND_NAME_MESSAGE;Provide the song artist:
-INPUT_FILE_NAME_FOR_DELETE_MESSAGE;Provide the name of the file you want to delete:
+RUN_GAME_MESSAGE;Enter the name of the game you want to run:
+END_PROGRAM_MESSAGE;Program terminated.
+END_GAME_MESSAGE;Game ended.
+
+INPUT_FILE_NAME_MESSAGE;Enter file name:
+INPUT_FILE_SIZE_MESSAGE;Enter file size:
+INPUT_FILE_QUALITY_MESSAGE;Enter quality:
+INPUT_FILE_COMPRESSION_MESSAGE;Enter compression level:
+INPUT_SONG_TITLE_MESSAGE;Enter song title:
+INPUT_SONG_BAND_NAME_MESSAGE;Enter artist name:
+INPUT_FILE_NAME_FOR_DELETE_MESSAGE;Enter the name of the file you want to delete:

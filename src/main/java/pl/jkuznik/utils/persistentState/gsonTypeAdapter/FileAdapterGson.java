@@ -49,17 +49,17 @@ public class FileAdapterGson implements JsonSerializer<File>, JsonDeserializer<F
 
         switch (fileType) {
             case GIF -> {
-                return new GIFImageFile(GIF, name, size);
+                return new GIFImageFile(name, size);
             }
             case JPG -> {
                 int compression = jsonObject.get("compression").getAsInt();
-                return new JPGImageFile(JPG, name, size, compression);
+                return new JPGImageFile(name, size, compression);
             }
             case MP3 -> {
                 String bandName = jsonObject.get("bandName").getAsString();
                 String title = jsonObject.get("title").getAsString();
                 int quality = jsonObject.get("quality").getAsInt();
-                return new MP3MusicFile(MP3, name, size, bandName, title, quality);
+                return new MP3MusicFile(name, size, bandName, title, quality);
             }
             default -> throw new JsonParseException("Can not parse to File type JSON of " + jsonElement.getAsString());
         }
