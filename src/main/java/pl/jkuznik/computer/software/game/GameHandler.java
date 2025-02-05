@@ -21,8 +21,8 @@ public class GameHandler {
         games.add(ticTacToe);
     }
 
-    public void gameList() {
-        games.forEach(game -> System.out.println(game.getName()));
+    public List<Game> gameList() {
+        return games;
     }
 
     public void startGameByName(String gameName) throws GameNotFoundException {

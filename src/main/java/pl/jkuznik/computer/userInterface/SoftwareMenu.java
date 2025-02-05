@@ -49,7 +49,7 @@ class SoftwareMenu {
 
     private static void runGame(Computer computer) {
         displayMessage(RUN_GAME_MESSAGE);
-        computer.getGameHandler().gameList();
+        computer.getGameHandler().gameList().forEach(game -> System.out.println(game.getName()));
         try {
             computer.getGameHandler().startGameByName(consoleReader.getScanner().nextLine());
         } catch (GameNotFoundException e) {

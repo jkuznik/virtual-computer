@@ -128,11 +128,6 @@ class ComputerTest {
     }
 
     @Test
-    void saveState() {
-        // tested directly in StateWriter class
-    }
-
-    @Test
     void shouldLoadComputerState() throws ComponentNotFoundException, NoSuchFieldException, IllegalAccessException {
         given();
         computer.getAllComponents().clear();
@@ -155,6 +150,13 @@ class ComputerTest {
         assertTrue(computer.getAllComponents().contains(computer.getComponent("foo")));
     }
 
+    /*
+ tested directly in utils classes StateWriter, GameHandler and ProgramHandler
+
+    @Test
+    void saveState() {
+    }
+
     @Test
     void getGameHandler() {
     }
@@ -162,6 +164,7 @@ class ComputerTest {
     @Test
     void getProgramHandler() {
     }
+*/
 
     private void given() {
     }
