@@ -2,8 +2,7 @@ package pl.jkuznik.computer.hardware.components.drive;
 
 import pl.jkuznik.computer.hardware.shared.FileHandler;
 import pl.jkuznik.computer.hardware.shared.FileStorage;
-import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
-import pl.jkuznik.computer.hardware.shared.enums.StorageCapacity;
+import pl.jkuznik.computer.hardware.shared._enums.StorageCapacity;
 import pl.jkuznik.computer.software.file.File;
 
 import java.io.FileNotFoundException;
@@ -53,7 +52,8 @@ public abstract class AbstractDrive implements Drive, FileStorage {
 
     //  TODO: metoda do zaimplementowania w kolejnym tasku
     @Override
-    public void getWriteSpeed() {    }
+    public void getWriteSpeed() {
+    }
 
     //  TODO: metoda do zaimplementowania w kolejnym tasku
     @Override
@@ -64,12 +64,5 @@ public abstract class AbstractDrive implements Drive, FileStorage {
     @Override
     public String getComponentName() {
         return name;
-    }
-
-    //TODO: dodajemy metodę która zwróci podtyp Drive czy w HDD i SSD nadpisujemy tą metodę?
-    // tymczasowo wybrałem opcję nadpisania metody
-    @Override
-    public ComponentType getComponentType() {
-        return ComponentType.DRIVE;
     }
 }

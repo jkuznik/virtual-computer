@@ -1,10 +1,9 @@
-package pl.jkuznik.computer.userInterface;
+package pl.jkuznik.computer.userInterface._enums;
 
 public enum UserChoice {
 
     BACK("8", SubMenu.UNIVERSAL),
     EXIT( "9", SubMenu.UNIVERSAL),
-
     // TODO: dodać rozbudowany komunikat o wprowadzeniu nieprawidłowej wartości, można do tego wykorzystać exception
     DEFAULT( "default", SubMenu.UNIVERSAL),
 
@@ -18,6 +17,11 @@ public enum UserChoice {
     HARDWARE_MENU( "1", SubMenu.MAIN_MENU),
     SOFTWARE_MENU( "2", SubMenu.MAIN_MENU),
     LANGUE_OPTION("3", SubMenu.MAIN_MENU),
+    DEFAULT_SETTINGS("7", SubMenu.MAIN_MENU),
+
+    LIST_COMPONENTS("1", SubMenu.HARDWARE_MENU),
+    ADD_COMPONENT("2", SubMenu.HARDWARE_MENU),
+    DELETE_COMPONENT("3", SubMenu.HARDWARE_MENU),
 
     LIST_FILE("1", SubMenu.SOFTWARE_MENU),
     ADD_FILE("2", SubMenu.SOFTWARE_MENU),
@@ -58,15 +62,6 @@ public enum UserChoice {
         }
         return DEFAULT;
     }
-}
-
-enum SubMenu {
-    UNIVERSAL,
-    LANGUE_MENU,
-    MAIN_MENU,
-    HARDWARE_MENU,
-    SOFTWARE_MENU,
-    FILE_MANAGEMENT
 }
 
 

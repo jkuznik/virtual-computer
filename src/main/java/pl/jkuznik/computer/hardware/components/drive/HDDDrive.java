@@ -1,8 +1,8 @@
 package pl.jkuznik.computer.hardware.components.drive;
 
 import pl.jkuznik.computer.hardware.shared.FileHandler;
-import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
-import pl.jkuznik.computer.hardware.shared.enums.StorageCapacity;
+import pl.jkuznik.computer.hardware.shared._enums.ComponentType;
+import pl.jkuznik.computer.hardware.shared._enums.StorageCapacity;
 
 public class HDDDrive extends AbstractDrive{
 

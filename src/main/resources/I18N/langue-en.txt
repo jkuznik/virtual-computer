@@ -1,8 +1,8 @@
 GREETINGS_MESSAGE;Welcome to the computer management system!
 LANGUE_MENU_MESSAGE;Select language:;1. Polish;2. English;3. German;4. Italian;5. French;6. Spanish;8. Back
 MAIN_MENU_MESSAGE;1. Display components.;2. File management.;3. Langue option;9. Exit.
-COMPONENT_MENU_MESSAGE;
-FILE_MENU_MESSAGE;1. Display files.;2. Add file.;3. Delete file.;4. Run program.;5. Run game.;8. Back.;9. Exit.
+HARDWARE_MENU_MESSAGE
+SOFTWARE_MENU_MESSAGE;1. Display files.;2. Add file.;3. Delete file.;4. Run program.;5. Run game.;8. Back.;9. Exit.
 ERROR_MESSAGE;Error, please try again!
 RUN_GAME_MESSAGE;Enter the name of the game you want to run:
 RUN_PROGRAM_MESSAGE;Enter the name of the program you want to run:

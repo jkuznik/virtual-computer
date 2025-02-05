@@ -1,4 +1,4 @@
-package pl.jkuznik.computer.userInterface;
+package pl.jkuznik.utils.computerBootstrap;
 
 import pl.jkuznik.computer.hardware.Computer;
 import pl.jkuznik.computer.hardware.components.drive.AbstractDrive;
@@ -8,14 +8,16 @@ import pl.jkuznik.computer.hardware.components.monitor.Monitor;
 import pl.jkuznik.computer.hardware.components.usbdevice.MemoryStick;
 import pl.jkuznik.computer.hardware.components.usbdevice.Mouse;
 import pl.jkuznik.computer.hardware.shared.ComponentNotFoundException;
-import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
-import pl.jkuznik.computer.hardware.shared.enums.StorageCapacity;
+import pl.jkuznik.computer.hardware.shared._enums.ComponentType;
+import pl.jkuznik.computer.hardware.shared._enums.StorageCapacity;
 import pl.jkuznik.computer.software.file.FileType;
 import pl.jkuznik.computer.software.file.imagefile.GIFImageFile;
 import pl.jkuznik.computer.software.file.imagefile.JPGImageFile;
 import pl.jkuznik.computer.software.file.musicfile.MP3MusicFile;
 
 public class ComputerBootstrap {
+
+    private ComputerBootstrap() {}
 
     public static void run(Computer computer) {
 

@@ -2,7 +2,7 @@ package pl.jkuznik.computer.hardware;
 
 import pl.jkuznik.computer.hardware.shared.Component;
 import pl.jkuznik.computer.hardware.shared.ComponentNotFoundException;
-import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
+import pl.jkuznik.computer.hardware.shared._enums.ComponentType;
 import pl.jkuznik.computer.software.game.GameHandler;
 import pl.jkuznik.computer.software.program.ProgramHandler;
 import pl.jkuznik.utils.persistentState.StateReader;

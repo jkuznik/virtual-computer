@@ -12,9 +12,9 @@ import pl.jkuznik.computer.hardware.components.usbdevice.MemoryStick;
 import pl.jkuznik.computer.hardware.components.usbdevice.Mouse;
 import pl.jkuznik.computer.hardware.shared.Component;
 import pl.jkuznik.computer.hardware.shared.FileHandler;
-import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
+import pl.jkuznik.computer.hardware.shared._enums.ComponentType;
 import pl.jkuznik.computer.software.file.File;
-import pl.jkuznik.utils.enums.FilePath;
+import pl.jkuznik.utils._enums.FilePath;
 import pl.jkuznik.utils.persistentState.gsonTypeAdapter.ComponentGsonAdapter;
 import pl.jkuznik.utils.persistentState.gsonTypeAdapter.FileAdapterGson;
 import pl.jkuznik.utils.persistentState.gsonTypeAdapter.FileHandlerAdapterGson;
@@ -26,7 +26,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-import static pl.jkuznik.computer.hardware.shared.enums.ComponentType.valueOf;
+import static pl.jkuznik.computer.hardware.shared._enums.ComponentType.valueOf;
 
 public class StateReader {
     private final Path path = Paths.get(FilePath.COMPUTER_STATE.getPath());

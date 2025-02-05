@@ -1,12 +1,16 @@
 package pl.jkuznik.computer.userInterface;
 
 import pl.jkuznik.computer.hardware.Computer;
+import pl.jkuznik.computer.userInterface._enums.SubMenu;
+import pl.jkuznik.computer.userInterface._enums.UserChoice;
+import pl.jkuznik.utils.computerBootstrap.ComputerBootstrap;
 import pl.jkuznik.utils.consoleReader.ConsoleReader;
 
-import static pl.jkuznik.computer.userInterface.FileMenu.fileMenu;
-import static pl.jkuznik.computer.userInterface.UserChoice.*;
-import static pl.jkuznik.utils.enums.FilePath.*;
-import static pl.jkuznik.utils.enums.MenuMessage.*;
+import static pl.jkuznik.computer.userInterface.HardwareMenu.hardwareMenu;
+import static pl.jkuznik.computer.userInterface.SoftwareMenu.softwareMenu;
+import static pl.jkuznik.computer.userInterface._enums.UserChoice.*;
+import static pl.jkuznik.utils._enums.FilePath.*;
+import static pl.jkuznik.utils._enums.MenuMessage.*;
 import static pl.jkuznik.utils.langueHandler.LangueHandler.displayMessage;
 import static pl.jkuznik.utils.langueHandler.LangueHandler.loadLangue;
 
@@ -16,7 +20,7 @@ public class UserInterface {
     private static UserChoice userChoice;
 
     public static void userInterface() {
-        ComputerBootstrap.run(computer);
+        computer.loadState();
         loadLangue(LANGUE_PL);
         displayMessage(GREETINGS_MESSAGE);
 
@@ -26,10 +30,10 @@ public class UserInterface {
 
             switch (userChoice) {
                 // TODO: dodać możliwość zarządzania podzespołąmi wraz z możliwośćia zapisu i odczytu
-                case HARDWARE_MENU ->
-                        computer.getAllComponents().forEach(component -> System.out.println(component.getComponentName()));
-                case SOFTWARE_MENU -> fileMenu(computer);
+                case HARDWARE_MENU -> hardwareMenu(computer);
+                case SOFTWARE_MENU -> softwareMenu(computer);
                 case LANGUE_OPTION -> languageMenu();
+                case DEFAULT_SETTINGS -> defaultSettings();
                 case EXIT -> {
                     return;
                 }
@@ -74,5 +78,11 @@ public class UserInterface {
                 default -> System.out.println("Błąd, spróbuj ponownie!");
             }
         } while (!userChoice.equals(BACK));
+    }
+
+    private static void defaultSettings() {
+        computer.getAllComponents().clear();
+        ComputerBootstrap.run(computer);
+        computer.saveState();
     }
 }

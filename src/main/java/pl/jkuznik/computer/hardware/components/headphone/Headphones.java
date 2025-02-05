@@ -1,7 +1,7 @@
 package pl.jkuznik.computer.hardware.components.headphone;
 
 import pl.jkuznik.computer.hardware.shared.Component;
-import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
+import pl.jkuznik.computer.hardware.shared._enums.ComponentType;
 
 public class Headphones implements Component {
     private final String name;

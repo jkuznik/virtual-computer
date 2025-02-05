@@ -1,7 +1,7 @@
 package pl.jkuznik.computer.hardware.components.monitor;
 
 import pl.jkuznik.computer.hardware.shared.Component;
-import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
+import pl.jkuznik.computer.hardware.shared._enums.ComponentType;
 
 public class Monitor implements Component {
     public static final int MAX_HEIGHT = 3840;

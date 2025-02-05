@@ -3,7 +3,7 @@ package pl.jkuznik.computer.userInterface;
 import pl.jkuznik.computer.hardware.Computer;
 import pl.jkuznik.computer.hardware.components.drive.AbstractDrive;
 import pl.jkuznik.computer.hardware.shared.ComponentNotFoundException;
-import pl.jkuznik.computer.hardware.shared.enums.ComponentType;
+import pl.jkuznik.computer.hardware.shared._enums.ComponentType;
 import pl.jkuznik.computer.software.file.File;
 import pl.jkuznik.computer.software.file.FileType;
 import pl.jkuznik.computer.software.file.imagefile.GIFImageFile;
@@ -11,24 +11,27 @@ import pl.jkuznik.computer.software.file.imagefile.JPGImageFile;
 import pl.jkuznik.computer.software.file.musicfile.MP3MusicFile;
 import pl.jkuznik.computer.software.game.GameNotFoundException;
 import pl.jkuznik.computer.software.program.ProgramNotFoundException;
+import pl.jkuznik.computer.userInterface._enums.SubMenu;
+import pl.jkuznik.computer.userInterface._enums.UserChoice;
 import pl.jkuznik.utils.consoleReader.ConsoleReader;
 
 import java.io.FileNotFoundException;
 
-import static pl.jkuznik.computer.userInterface.UserChoice.*;
-import static pl.jkuznik.utils.enums.MenuMessage.*;
+import static pl.jkuznik.computer.userInterface._enums.UserChoice.*;
+import static pl.jkuznik.utils._enums.MenuMessage.*;
 import static pl.jkuznik.utils.langueHandler.LangueHandler.displayMessage;
 
-public class FileMenu {
+class SoftwareMenu {
     private final static ConsoleReader consoleReader = ConsoleReader.getInstance();
     private static UserChoice userChoice;
-    private Computer computer;
 
-    private FileMenu() {}
+    private static final int ESTIMATED_FILE_TYPE_LENGTH = 15;
 
-    public static void fileMenu(Computer computer) {
+    private SoftwareMenu() {}
+
+    public static void softwareMenu(Computer computer) {
         do {
-            displayMessage(FILE_MENU_MESSAGE);
+            displayMessage(SOFTWARE_MENU_MESSAGE);
             userChoice = userChoice(consoleReader.getScanner().nextLine(), SubMenu.SOFTWARE_MENU);
 
             switch (userChoice) {
@@ -66,24 +69,27 @@ public class FileMenu {
 
     private static void listFiles(Computer computer) {
         try {
-            computerDrive(computer).getFiles().forEach(file -> System.out.println(file.getName()));
+            computerDrive(computer).getFiles().forEach(file -> {
+                System.out.print(file.getFileType());
+                for(int i= file.getFileType().toString().length(); i<ESTIMATED_FILE_TYPE_LENGTH; i++) {
+                    System.out.print(" ");
+                }
+                System.out.print(": " + file.getName() + System.lineSeparator());
+            });
         } catch (ComponentNotFoundException e) {
             System.out.println(e.getMessage());
         }
     }
 
     private static void addFile(Computer computer) {
-        String name = "name";
-        int size = 0;
-        int compression = 0;
-        String bandName = "";
-        String title = "title";
-        int quality = 0;
+        String name;
+        int size;
 
         displayMessage(ADD_FILE_MESSAGE);
         userChoice = userChoice(consoleReader.getScanner().nextLine(), SubMenu.FILE_MANAGEMENT);
         switch (userChoice) {
             case JPG -> {
+                int compression;
                 displayMessage(INPUT_FILE_NAME_MESSAGE);
                 name = consoleReader.getScanner().nextLine() + ".jpg";
                 displayMessage(INPUT_FILE_SIZE_MESSAGE);
@@ -95,7 +101,6 @@ public class FileMenu {
                 } catch (ComponentNotFoundException e) {
                     System.out.println(e.getMessage());
                 }
-
             }
             case GIF -> {
                 displayMessage(INPUT_FILE_NAME_MESSAGE);
@@ -109,6 +114,9 @@ public class FileMenu {
                 }
             }
             case MP3 -> {
+                String bandName;
+                String title;
+                int quality;
                 displayMessage(INPUT_FILE_NAME_MESSAGE);
                 name = consoleReader.getScanner().nextLine() + ".mp3";
                 displayMessage(INPUT_FILE_SIZE_MESSAGE);
@@ -127,6 +135,7 @@ public class FileMenu {
             }
             default -> displayMessage(ERROR_MESSAGE);
         }
+        computer.saveState();
     }
 
     private static void deleteFile(Computer computer) {
@@ -138,6 +147,7 @@ public class FileMenu {
         } catch (ComponentNotFoundException | FileNotFoundException e) {
             System.out.println(e.getMessage());
         }
+        computer.saveState();
     }
 
     private static AbstractDrive computerDrive(Computer computer) throws ComponentNotFoundException {
