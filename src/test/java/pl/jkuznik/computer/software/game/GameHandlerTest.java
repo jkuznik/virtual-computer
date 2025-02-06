@@ -41,6 +41,16 @@ class GameHandlerTest {
         Mockito.verify(game).startGame();
     }
 
+    @Test
+    void shouldThrowException_whenGameDoesNotExist() throws GameNotFoundException {
+        given();
+
+        when();
+
+        then();
+        assertThrows(GameNotFoundException.class, () -> gameHandler.startGameByName("bar"));
+    }
+
     private void given() {
     }
 

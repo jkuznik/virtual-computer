@@ -59,7 +59,7 @@ class SoftwareMenu {
 
     private static void runProgram(Computer computer) {
         displayMessage(RUN_PROGRAM_MESSAGE);
-        computer.getProgramHandler().programList();
+        computer.getProgramHandler().programList().forEach(program -> System.out.println(program.getName()));
         try {
             computer.getProgramHandler().startProgramByName(consoleReader.getScanner().nextLine());
         } catch (ProgramNotFoundException e) {

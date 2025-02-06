@@ -15,8 +15,8 @@ public class ProgramHandler {
         programs.add(chat);
     }
 
-    public void programList(){
-        programs.forEach(program -> System.out.println(program.getName()));
+    public List<Program> programList(){
+        return programs;
     }
 
     public void startProgramByName(String programName) throws ProgramNotFoundException {
