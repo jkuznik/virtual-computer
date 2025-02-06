@@ -31,9 +31,12 @@ public enum UserChoice {
 
     JPG("1", SubMenu.FILE_MANAGEMENT),
     GIF("2", SubMenu.FILE_MANAGEMENT),
-    MP3("3", SubMenu.FILE_MANAGEMENT);
+    MP3("3", SubMenu.FILE_MANAGEMENT),
 
+    FIND_NUMBER("1" , SubMenu.RUN_GAME),
+    TIC_TAC_TOE("2" , SubMenu.RUN_GAME),
 
+    CHAT("1" ,SubMenu.RUN_PROGRAM);
 
     private final String userChoice;
     private final SubMenu subMenu;
