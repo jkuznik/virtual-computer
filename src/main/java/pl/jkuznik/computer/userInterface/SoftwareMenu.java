@@ -58,8 +58,9 @@ class SoftwareMenu {
              computer.getGameHandler().startGameByName("Find number");
             } else if (userInput.equals("2")) {
             computer.getGameHandler().startGameByName("TicTacToe");
+            } else {
+                computer.getGameHandler().startGameByName(userInput);
             }
-            computer.getGameHandler().startGameByName(consoleReader.getScanner().nextLine());
         } catch (GameNotFoundException e) {
             System.out.println(e.getMessage());
         }
