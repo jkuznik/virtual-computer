@@ -15,7 +15,7 @@ import pl.jkuznik.computer.userInterface._enums.UserChoice;
 import pl.jkuznik.utils.consoleReader.ConsoleReader;
 import pl.jkuznik.utils._enums.MenuMessage;
 
-import static pl.jkuznik.utils.langueHandler.LangueHandler.displayMessage;
+import static pl.jkuznik.utils.langueHandler.LanguageHandler.displayMessage;
 
 class HardwareMenu {
     private final static ConsoleReader consoleReader = ConsoleReader.getInstance();

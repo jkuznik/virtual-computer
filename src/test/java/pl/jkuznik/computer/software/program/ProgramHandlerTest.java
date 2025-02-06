@@ -10,7 +10,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ProgramHandlerTest {
-    private ProgramHandler programHandler;
+    private final ProgramHandler programHandler = ProgramHandler.getInstance();
 
     @Test
     void shouldReturnNotEmptyProgramList() {

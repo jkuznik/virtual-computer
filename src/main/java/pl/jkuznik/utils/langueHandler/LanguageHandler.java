@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class LangueHandler {
+public class LanguageHandler {
 
     private final static Map<MenuMessage, List<String>> messages = new HashMap<>();
 

@@ -11,8 +11,8 @@ import static pl.jkuznik.computer.userInterface.SoftwareMenu.softwareMenu;
 import static pl.jkuznik.computer.userInterface._enums.UserChoice.*;
 import static pl.jkuznik.utils._enums.FilePath.*;
 import static pl.jkuznik.utils._enums.MenuMessage.*;
-import static pl.jkuznik.utils.langueHandler.LangueHandler.displayMessage;
-import static pl.jkuznik.utils.langueHandler.LangueHandler.loadLangue;
+import static pl.jkuznik.utils.langueHandler.LanguageHandler.displayMessage;
+import static pl.jkuznik.utils.langueHandler.LanguageHandler.loadLangue;
 
 public class UserInterface {
     private final static Computer computer = new Computer();

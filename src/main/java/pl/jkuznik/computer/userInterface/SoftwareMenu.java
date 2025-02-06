@@ -5,7 +5,6 @@ import pl.jkuznik.computer.hardware.components.drive.AbstractDrive;
 import pl.jkuznik.computer.hardware.shared.ComponentNotFoundException;
 import pl.jkuznik.computer.hardware.shared._enums.ComponentType;
 import pl.jkuznik.computer.software.file.File;
-import pl.jkuznik.computer.software.file.FileType;
 import pl.jkuznik.computer.software.file.imagefile.GIFImageFile;
 import pl.jkuznik.computer.software.file.imagefile.JPGImageFile;
 import pl.jkuznik.computer.software.file.musicfile.MP3MusicFile;
@@ -19,7 +18,7 @@ import java.io.FileNotFoundException;
 
 import static pl.jkuznik.computer.userInterface._enums.UserChoice.*;
 import static pl.jkuznik.utils._enums.MenuMessage.*;
-import static pl.jkuznik.utils.langueHandler.LangueHandler.displayMessage;
+import static pl.jkuznik.utils.langueHandler.LanguageHandler.displayMessage;
 
 class SoftwareMenu {
     private final static ConsoleReader consoleReader = ConsoleReader.getInstance();

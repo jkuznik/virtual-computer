@@ -10,7 +10,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class GameHandlerTest {
-    private GameHandler gameHandler = GameHandler.getInstance();
+    private final GameHandler gameHandler = GameHandler.getInstance();
 
     @Test
     void shouldReturnNotEmptyGameList() {
