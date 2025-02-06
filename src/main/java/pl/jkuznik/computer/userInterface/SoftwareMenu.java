@@ -53,15 +53,6 @@ class SoftwareMenu {
         displayMessage(RUN_GAME_MESSAGE);
         computer.getGameHandler().gameList();
         try {
-//
-//            String userInput = consoleReader.getScanner().nextLine();
-//            if (userInput.equals(FIND_NUMBER.getUserChoice())) {
-//             computer.getGameHandler().startGameByName("Find number");
-//            } else if (userInput.equals(TIC_TAC_TOE.getUserChoice())) {
-//            computer.getGameHandler().startGameByName("TicTacToe");
-//            } else {
-//                computer.getGameHandler().startGameByName(userInput);
-
             userChoice = userChoice(consoleReader.getScanner().nextLine(), SubMenu.RUN_GAME);
             switch (userChoice) {
                 case FIND_NUMBER -> computer.getGameHandler().startGameByName("Find number");
@@ -78,12 +69,6 @@ class SoftwareMenu {
         displayMessage(RUN_PROGRAM_MESSAGE);
         computer.getProgramHandler().programList();
         try {
-//            String userInput = consoleReader.getScanner().nextLine();
-//            if (userInput.equals(CHAT.getUserChoice())) {
-//               computer.getProgramHandler().startProgramByName("Chat");
-//            } else {
-//                computer.getProgramHandler().startProgramByName(userInput);
-
         userChoice = userChoice(consoleReader.getScanner().nextLine(), SubMenu.RUN_PROGRAM);
         switch (userChoice) {
             case CHAT -> computer.getProgramHandler().startProgramByName("Chat");
