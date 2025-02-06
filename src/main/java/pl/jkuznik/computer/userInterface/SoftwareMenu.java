@@ -54,9 +54,9 @@ class SoftwareMenu {
         computer.getGameHandler().gameList();
         try {
             String userInput = consoleReader.getScanner().nextLine();
-            if (userInput.equals("1")) {
+            if (userInput.equals(FIND_NUMBER.getUserChoice())) {
              computer.getGameHandler().startGameByName("Find number");
-            } else if (userInput.equals("2")) {
+            } else if (userInput.equals(TIC_TAC_TOE.getUserChoice())) {
             computer.getGameHandler().startGameByName("TicTacToe");
             } else {
                 computer.getGameHandler().startGameByName(userInput);
@@ -71,7 +71,7 @@ class SoftwareMenu {
         computer.getProgramHandler().programList();
         try {
             String userInput = consoleReader.getScanner().nextLine();
-            if (userInput.equals("1")) {
+            if (userInput.equals(CHAT.getUserChoice())) {
                computer.getProgramHandler().startProgramByName("Chat");
             } else {
                 computer.getProgramHandler().startProgramByName(userInput);
