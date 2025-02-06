@@ -33,6 +33,8 @@ public enum UserChoice {
     GIF("2", SubMenu.FILE_MANAGEMENT),
     MP3("3", SubMenu.FILE_MANAGEMENT);
 
+
+
     private final String userChoice;
     private final SubMenu subMenu;
 

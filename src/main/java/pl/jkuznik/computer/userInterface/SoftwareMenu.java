@@ -9,7 +9,9 @@ import pl.jkuznik.computer.software.file.FileType;
 import pl.jkuznik.computer.software.file.imagefile.GIFImageFile;
 import pl.jkuznik.computer.software.file.imagefile.JPGImageFile;
 import pl.jkuznik.computer.software.file.musicfile.MP3MusicFile;
+import pl.jkuznik.computer.software.game.GameHandler;
 import pl.jkuznik.computer.software.game.GameNotFoundException;
+import pl.jkuznik.computer.software.game.findNumber.FindNumberGame;
 import pl.jkuznik.computer.software.program.ProgramNotFoundException;
 import pl.jkuznik.computer.userInterface._enums.SubMenu;
 import pl.jkuznik.computer.userInterface._enums.UserChoice;
@@ -51,6 +53,12 @@ class SoftwareMenu {
         displayMessage(RUN_GAME_MESSAGE);
         computer.getGameHandler().gameList();
         try {
+            String userInput = consoleReader.getScanner().nextLine();
+            if (userInput.equals("1")) {
+             computer.getGameHandler().startGameByName("Find number");
+            } else if (userInput.equals("2")) {
+            computer.getGameHandler().startGameByName("TicTacToe");
+            }
             computer.getGameHandler().startGameByName(consoleReader.getScanner().nextLine());
         } catch (GameNotFoundException e) {
             System.out.println(e.getMessage());
