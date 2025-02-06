@@ -70,7 +70,12 @@ class SoftwareMenu {
         displayMessage(RUN_PROGRAM_MESSAGE);
         computer.getProgramHandler().programList();
         try {
-            computer.getProgramHandler().startProgramByName(consoleReader.getScanner().nextLine());
+            String userInput = consoleReader.getScanner().nextLine();
+            if (userInput.equals("1")) {
+               computer.getProgramHandler().startProgramByName("Chat");
+            } else {
+                computer.getProgramHandler().startProgramByName(userInput);
+            }
         } catch (ProgramNotFoundException e) {
             System.out.println(e.getMessage());
         }
