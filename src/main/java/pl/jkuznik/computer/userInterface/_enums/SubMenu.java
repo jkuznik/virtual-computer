@@ -6,5 +6,7 @@ public enum SubMenu {
     MAIN_MENU,
     HARDWARE_MENU,
     SOFTWARE_MENU,
-    FILE_MANAGEMENT
+    FILE_MANAGEMENT,
+    RUN_GAME,
+    RUN_PROGRAM;
 }

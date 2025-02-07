@@ -16,8 +16,11 @@ public class ProgramHandler {
     }
 
     public void programList(){
-        programs.forEach(program -> System.out.println(program.getName()));
+        for ( int i=0; i<programs.size(); i++) {
+            System.out.println((i+1) +". " + programs.get(i).getName());
+        }
     }
+
 
     public void startProgramByName(String programName) throws ProgramNotFoundException {
         programs.stream()

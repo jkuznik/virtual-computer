@@ -9,7 +9,9 @@ import pl.jkuznik.computer.software.file.FileType;
 import pl.jkuznik.computer.software.file.imagefile.GIFImageFile;
 import pl.jkuznik.computer.software.file.imagefile.JPGImageFile;
 import pl.jkuznik.computer.software.file.musicfile.MP3MusicFile;
+import pl.jkuznik.computer.software.game.GameHandler;
 import pl.jkuznik.computer.software.game.GameNotFoundException;
+import pl.jkuznik.computer.software.game.findNumber.FindNumberGame;
 import pl.jkuznik.computer.software.program.ProgramNotFoundException;
 import pl.jkuznik.computer.userInterface._enums.SubMenu;
 import pl.jkuznik.computer.userInterface._enums.UserChoice;
@@ -51,7 +53,13 @@ class SoftwareMenu {
         displayMessage(RUN_GAME_MESSAGE);
         computer.getGameHandler().gameList();
         try {
-            computer.getGameHandler().startGameByName(consoleReader.getScanner().nextLine());
+            userChoice = userChoice(consoleReader.getScanner().nextLine(), SubMenu.RUN_GAME);
+            switch (userChoice) {
+                case FIND_NUMBER -> computer.getGameHandler().startGameByName("Find number");
+                case TIC_TAC_TOE -> computer.getGameHandler().startGameByName("TicTacToe");
+                case DEFAULT -> displayMessage(ERROR_MESSAGE);
+            }
+
         } catch (GameNotFoundException e) {
             System.out.println(e.getMessage());
         }
@@ -61,7 +69,11 @@ class SoftwareMenu {
         displayMessage(RUN_PROGRAM_MESSAGE);
         computer.getProgramHandler().programList();
         try {
-            computer.getProgramHandler().startProgramByName(consoleReader.getScanner().nextLine());
+        userChoice = userChoice(consoleReader.getScanner().nextLine(), SubMenu.RUN_PROGRAM);
+        switch (userChoice) {
+            case CHAT -> computer.getProgramHandler().startProgramByName("Chat");
+            default -> displayMessage(ERROR_MESSAGE);
+        }
         } catch (ProgramNotFoundException e) {
             System.out.println(e.getMessage());
         }
