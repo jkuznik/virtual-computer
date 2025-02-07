@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ComputerBootstrapTest {
 
     @Test
-    void run() throws ComponentNotFoundException {
+    void shouldBootstrapComputer() throws ComponentNotFoundException {
         given();
         Computer computer = new Computer();
         var componentsBefore = new HashSet<>(computer.getAllComponents());
