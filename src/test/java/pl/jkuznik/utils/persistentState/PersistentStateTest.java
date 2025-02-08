@@ -14,7 +14,7 @@ class PersistentStateTest {
     @Test
     void shouldReturnTrue_whenFileExists() {
         given();
-        Path path = Paths.get(FilePath.COMPUTER_STATE.getPath());
+        Path path = FilePath.COMPUTER_STATE.getPath();
 
         when();
         boolean exists = Files.exists(path);

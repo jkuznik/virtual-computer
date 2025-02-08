@@ -18,7 +18,6 @@ import java.util.List;
 import java.util.Set;
 
 public class StateWriter {
-
     private transient final Gson gson = new GsonBuilder()
             .registerTypeHierarchyAdapter(Component.class, new ComponentGsonAdapter())
             .registerTypeHierarchyAdapter(FileHandler.class, new FileHandlerAdapterGson())

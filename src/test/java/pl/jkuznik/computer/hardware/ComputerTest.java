@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
 
 class ComputerTest {
     private Computer computer;
@@ -138,14 +139,14 @@ class ComputerTest {
         );
 
         when();
-        Mockito.when(mock.readState()).thenReturn(List.copyOf(components));
+        Mockito.when(mock.readState(any())).thenReturn(List.copyOf(components));
         Field stateReaderField = computer.getClass().getDeclaredField("stateReader");
         stateReaderField.setAccessible(true);
         stateReaderField.set(computer, mock);
 
         then();
         computer.loadState();
-        Mockito.verify(mock).readState();
+        Mockito.verify(mock).readState(any());
         assertEquals(components, computer.getAllComponents());
         assertTrue(computer.getAllComponents().contains(computer.getComponent("foo")));
     }
