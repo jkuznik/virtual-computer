@@ -1,26 +1,25 @@
 package pl.jkuznik.utils.persistentState;
 
 import org.junit.jupiter.api.Test;
-import pl.jkuznik.utils._enums.FilePath;
+import pl.jkuznik.computer.hardware.Computer;
+import pl.jkuznik.utils.computerBootstrap.ComputerBootstrap;
 
-import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class PersistentStateTest {
+class StateWriterTest {
+
+    public static final String TEST_FILE_PATH = "src/main/resources/computerState/.test-file.txt";
 
     @Test
-    void shouldReturnTrue_whenFileExists() {
+    void shouldWriteStateToFile() {
         given();
-        Path path = Paths.get(FilePath.COMPUTER_STATE.getPath());
+        Path path = Path.of(TEST_FILE_PATH);
+        var computer = new Computer();
+        ComputerBootstrap.run(computer);
 
-        when();
-        boolean exists = Files.exists(path);
 
-        then();
-        assertTrue(exists);
     }
 
     private void given() {

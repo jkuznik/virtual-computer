@@ -14,6 +14,7 @@ import pl.jkuznik.computer.software.game.findNumber.FindNumberGame;
 import pl.jkuznik.computer.software.program.ProgramNotFoundException;
 import pl.jkuznik.computer.userInterface._enums.SubMenu;
 import pl.jkuznik.computer.userInterface._enums.UserChoice;
+import pl.jkuznik.utils._enums.FilePath;
 import pl.jkuznik.utils.consoleReader.ConsoleReader;
 
 import java.io.FileNotFoundException;
@@ -146,7 +147,7 @@ class SoftwareMenu {
             }
             default -> displayMessage(ERROR_MESSAGE);
         }
-        computer.saveState();
+        computer.saveState(FilePath.COMPUTER_STATE.getPath());
     }
 
     private static void deleteFile(Computer computer) {
@@ -158,7 +159,7 @@ class SoftwareMenu {
         } catch (ComponentNotFoundException | FileNotFoundException e) {
             System.out.println(e.getMessage());
         }
-        computer.saveState();
+        computer.saveState(FilePath.COMPUTER_STATE.getPath());
     }
 
     private static AbstractDrive computerDrive(Computer computer) throws ComponentNotFoundException {

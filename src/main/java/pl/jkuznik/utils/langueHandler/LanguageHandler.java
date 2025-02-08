@@ -17,7 +17,7 @@ public class LanguageHandler {
     private final static Map<MenuMessage, List<String>> messages = new HashMap<>();
 
     public static void loadLangue(FilePath filePath) {
-        Path path = Paths.get(filePath.getPath());
+        Path path = filePath.getPath();
         try {
             List<String> lines = Files.readAllLines(path);
 

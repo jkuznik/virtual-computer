@@ -3,6 +3,7 @@ package pl.jkuznik.computer.userInterface;
 import pl.jkuznik.computer.hardware.Computer;
 import pl.jkuznik.computer.userInterface._enums.SubMenu;
 import pl.jkuznik.computer.userInterface._enums.UserChoice;
+import pl.jkuznik.utils._enums.FilePath;
 import pl.jkuznik.utils.computerBootstrap.ComputerBootstrap;
 import pl.jkuznik.utils.consoleReader.ConsoleReader;
 
@@ -83,6 +84,6 @@ public class UserInterface {
     private static void defaultSettings() {
         computer.getAllComponents().clear();
         ComputerBootstrap.run(computer);
-        computer.saveState();
+        computer.saveState(COMPUTER_STATE.getPath());
     }
 }

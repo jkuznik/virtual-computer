@@ -10,8 +10,10 @@ import pl.jkuznik.computer.hardware.components.usbdevice.Mouse;
 import pl.jkuznik.computer.hardware.shared.ComponentNotFoundException;
 import pl.jkuznik.computer.hardware.shared._enums.ComponentType;
 import pl.jkuznik.computer.hardware.shared._enums.StorageCapacity;
+import pl.jkuznik.computer.software.file.FileType;
 import pl.jkuznik.computer.userInterface._enums.SubMenu;
 import pl.jkuznik.computer.userInterface._enums.UserChoice;
+import pl.jkuznik.utils._enums.FilePath;
 import pl.jkuznik.utils.consoleReader.ConsoleReader;
 import pl.jkuznik.utils._enums.MenuMessage;
 
@@ -81,7 +83,7 @@ class HardwareMenu {
                 case HEADPHONES -> addHeadphones(computer, componentName);
             }
 
-            computer.saveState();
+            computer.saveState(FilePath.COMPUTER_STATE.getPath());
         } catch (RuntimeException e) {  // safe block for wrong component type choose case
             displayMessage(MenuMessage.ERROR_MESSAGE);
         }
@@ -176,6 +178,6 @@ class HardwareMenu {
         } catch (RuntimeException e) {
             displayMessage(MenuMessage.ERROR_MESSAGE);
         }
-        computer.saveState();
+        computer.saveState(FilePath.COMPUTER_STATE.getPath());
     }
 }

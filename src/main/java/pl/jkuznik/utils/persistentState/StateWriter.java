@@ -18,7 +18,6 @@ import java.util.List;
 import java.util.Set;
 
 public class StateWriter {
-    private final Path path = Paths.get(FilePath.COMPUTER_STATE.getPath());
 
     private transient final Gson gson = new GsonBuilder()
             .registerTypeHierarchyAdapter(Component.class, new ComponentGsonAdapter())
@@ -26,7 +25,7 @@ public class StateWriter {
             .registerTypeHierarchyAdapter(File.class, new FileAdapterGson())
             .create();
 
-    public void writeState(Set<Component> components) {
+    public void writeState(Set<Component> components, Path path) {
         List<String> computerState = components.stream()
                 .map(gson::toJson)
                 .toList();
