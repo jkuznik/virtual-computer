@@ -9,10 +9,10 @@ import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class StateWriterTest {
+class PersistentStateTest {
 
     @Test
-    void shouldReturnTrue_whenFileExists() throws Exception {
+    void shouldReturnTrue_whenFileExists() {
         given();
         Path path = Paths.get(FilePath.COMPUTER_STATE.getPath());
 
