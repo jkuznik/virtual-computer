@@ -29,7 +29,6 @@ import java.util.List;
 import static pl.jkuznik.computer.hardware.shared._enums.ComponentType.valueOf;
 
 public class StateReader {
-    private final Path path = Paths.get(FilePath.COMPUTER_STATE.getPath());
     private final List<Component> components = new ArrayList<>();
 
     private final Gson gson = new GsonBuilder()
@@ -38,7 +37,7 @@ public class StateReader {
             .registerTypeHierarchyAdapter(File.class, new FileAdapterGson())
             .create();
 
-    public List<Component> readState() {
+    public List<Component> readState(Path path) {
         try {
             List<String> lines = Files.readAllLines(path);
 

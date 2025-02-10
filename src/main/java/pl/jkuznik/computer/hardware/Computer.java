@@ -5,9 +5,11 @@ import pl.jkuznik.computer.hardware.shared.ComponentNotFoundException;
 import pl.jkuznik.computer.hardware.shared._enums.ComponentType;
 import pl.jkuznik.computer.software.game.GameHandler;
 import pl.jkuznik.computer.software.program.ProgramHandler;
+import pl.jkuznik.utils._enums.FilePath;
 import pl.jkuznik.utils.persistentState.StateReader;
 import pl.jkuznik.utils.persistentState.StateWriter;
 
+import java.nio.file.Path;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -45,12 +47,12 @@ public class Computer {
         components.remove(component);
     }
 
-    public void saveState() {
-        stateWriter.writeState(components);
+    public void saveState(Path path) {
+        stateWriter.writeState(components, path);
     }
 
     public void loadState() {
-        List<Component> stateFromFile = stateReader.readState();
+        List<Component> stateFromFile = stateReader.readState(FilePath.COMPUTER_STATE.getPath());
         components.clear();
         components.addAll(stateFromFile);
     }

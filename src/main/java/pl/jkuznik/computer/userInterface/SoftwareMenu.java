@@ -5,7 +5,6 @@ import pl.jkuznik.computer.hardware.components.drive.AbstractDrive;
 import pl.jkuznik.computer.hardware.shared.ComponentNotFoundException;
 import pl.jkuznik.computer.hardware.shared._enums.ComponentType;
 import pl.jkuznik.computer.software.file.File;
-import pl.jkuznik.computer.software.file.FileType;
 import pl.jkuznik.computer.software.file.imagefile.GIFImageFile;
 import pl.jkuznik.computer.software.file.imagefile.JPGImageFile;
 import pl.jkuznik.computer.software.file.musicfile.MP3MusicFile;
@@ -15,13 +14,14 @@ import pl.jkuznik.computer.software.game.findNumber.FindNumberGame;
 import pl.jkuznik.computer.software.program.ProgramNotFoundException;
 import pl.jkuznik.computer.userInterface._enums.SubMenu;
 import pl.jkuznik.computer.userInterface._enums.UserChoice;
+import pl.jkuznik.utils._enums.FilePath;
 import pl.jkuznik.utils.consoleReader.ConsoleReader;
 
 import java.io.FileNotFoundException;
 
 import static pl.jkuznik.computer.userInterface._enums.UserChoice.*;
 import static pl.jkuznik.utils._enums.MenuMessage.*;
-import static pl.jkuznik.utils.langueHandler.LangueHandler.displayMessage;
+import static pl.jkuznik.utils.langueHandler.LanguageHandler.displayMessage;
 
 class SoftwareMenu {
     private final static ConsoleReader consoleReader = ConsoleReader.getInstance();
@@ -51,7 +51,7 @@ class SoftwareMenu {
 
     private static void runGame(Computer computer) {
         displayMessage(RUN_GAME_MESSAGE);
-        computer.getGameHandler().gameList();
+        computer.getGameHandler().gameList().forEach(game -> System.out.println(game.getName()));
         try {
             userChoice = userChoice(consoleReader.getScanner().nextLine(), SubMenu.RUN_GAME);
             switch (userChoice) {
@@ -67,7 +67,7 @@ class SoftwareMenu {
 
     private static void runProgram(Computer computer) {
         displayMessage(RUN_PROGRAM_MESSAGE);
-        computer.getProgramHandler().programList();
+        computer.getProgramHandler().programList().forEach(program -> System.out.println(program.getName()));
         try {
         userChoice = userChoice(consoleReader.getScanner().nextLine(), SubMenu.RUN_PROGRAM);
         switch (userChoice) {
@@ -147,7 +147,7 @@ class SoftwareMenu {
             }
             default -> displayMessage(ERROR_MESSAGE);
         }
-        computer.saveState();
+        computer.saveState(FilePath.COMPUTER_STATE.getPath());
     }
 
     private static void deleteFile(Computer computer) {
@@ -159,7 +159,7 @@ class SoftwareMenu {
         } catch (ComponentNotFoundException | FileNotFoundException e) {
             System.out.println(e.getMessage());
         }
-        computer.saveState();
+        computer.saveState(FilePath.COMPUTER_STATE.getPath());
     }
 
     private static AbstractDrive computerDrive(Computer computer) throws ComponentNotFoundException {

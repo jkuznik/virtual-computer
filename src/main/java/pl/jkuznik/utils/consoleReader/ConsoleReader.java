@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class ConsoleReader {
 
-    private Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in);
 
     private static volatile ConsoleReader instance;
 

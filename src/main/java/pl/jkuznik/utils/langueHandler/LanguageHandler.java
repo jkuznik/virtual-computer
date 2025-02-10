@@ -6,18 +6,17 @@ import pl.jkuznik.utils._enums.MenuMessage;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class LangueHandler {
+public class LanguageHandler {
 
     private final static Map<MenuMessage, List<String>> messages = new HashMap<>();
 
-    public static void loadLangue(FilePath filePath) {
-        Path path = Paths.get(filePath.getPath());
+    public static void loadLanguage(FilePath filePath) {
+        Path path = filePath.getPath();
         try {
             List<String> lines = Files.readAllLines(path);
 

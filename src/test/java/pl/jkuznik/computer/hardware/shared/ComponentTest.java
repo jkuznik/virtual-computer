@@ -45,7 +45,7 @@ class ComponentTest {
         String testedValue = component.getComponentName();
 
         then();
-        assertThat("foo").isEqualTo(testedValue);
+        assertThat(testedValue).isEqualTo("foo");
     }
 
     @Test
@@ -87,7 +87,7 @@ class ComponentTest {
         ComponentType result = monitor.getComponentType();
 
         then();
-        assertThat(ComponentType.MONITOR).isEqualTo(result);
+        assertThat(result).isEqualTo(ComponentType.MONITOR);
     }
 
     private void given() {

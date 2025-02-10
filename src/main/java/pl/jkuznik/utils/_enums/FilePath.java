@@ -1,5 +1,7 @@
 package pl.jkuznik.utils._enums;
 
+import java.nio.file.Path;
+
 public enum FilePath {
     COMPUTER_STATE("src/main/resources/computerState/.computer-state.txt"),
 
@@ -16,7 +18,7 @@ public enum FilePath {
         this.path = path;
     }
 
-    public String getPath() {
-        return path;
+    public Path getPath() {
+        return Path.of(path);
     }
 }

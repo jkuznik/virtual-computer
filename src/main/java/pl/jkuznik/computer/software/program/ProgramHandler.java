@@ -15,12 +15,9 @@ public class ProgramHandler {
         programs.add(chat);
     }
 
-    public void programList(){
-        for ( int i=0; i<programs.size(); i++) {
-            System.out.println((i+1) +". " + programs.get(i).getName());
-        }
+    public List<Program> programList(){
+        return programs;
     }
-
 
     public void startProgramByName(String programName) throws ProgramNotFoundException {
         programs.stream()
