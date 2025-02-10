@@ -10,9 +10,10 @@ import java.nio.file.Paths;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PersistentStateTest {
+    public static final Path TEST_FILE_PATH = Path.of("src/test/resources/.test-file.txt");
 
     @Test
-    void shouldReturnTrue_whenFileExists() {
+    void shouldReturnTrue_whenRequiredProductionFileExists() {
         given();
         Path path = FilePath.COMPUTER_STATE.getPath();
 

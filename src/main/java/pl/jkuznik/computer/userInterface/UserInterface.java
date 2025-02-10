@@ -3,7 +3,6 @@ package pl.jkuznik.computer.userInterface;
 import pl.jkuznik.computer.hardware.Computer;
 import pl.jkuznik.computer.userInterface._enums.SubMenu;
 import pl.jkuznik.computer.userInterface._enums.UserChoice;
-import pl.jkuznik.utils._enums.FilePath;
 import pl.jkuznik.utils.computerBootstrap.ComputerBootstrap;
 import pl.jkuznik.utils.consoleReader.ConsoleReader;
 
@@ -13,7 +12,7 @@ import static pl.jkuznik.computer.userInterface._enums.UserChoice.*;
 import static pl.jkuznik.utils._enums.FilePath.*;
 import static pl.jkuznik.utils._enums.MenuMessage.*;
 import static pl.jkuznik.utils.langueHandler.LanguageHandler.displayMessage;
-import static pl.jkuznik.utils.langueHandler.LanguageHandler.loadLangue;
+import static pl.jkuznik.utils.langueHandler.LanguageHandler.loadLanguage;
 
 public class UserInterface {
     private final static Computer computer = new Computer();
@@ -22,7 +21,7 @@ public class UserInterface {
 
     public static void userInterface() {
         computer.loadState();
-        loadLangue(LANGUE_PL);
+        loadLanguage(LANGUE_PL);
         displayMessage(GREETINGS_MESSAGE);
 
         do {
@@ -50,27 +49,27 @@ public class UserInterface {
 
             switch (userChoice) {
                 case PL -> {
-                    loadLangue(LANGUE_PL);
+                    loadLanguage(LANGUE_PL);
                     return;
                 }
                 case EN -> {
-                    loadLangue(LANGUE_EN);
+                    loadLanguage(LANGUE_EN);
                     return;
                 }
                 case DE -> {
-                    loadLangue(LANGUE_DE);
+                    loadLanguage(LANGUE_DE);
                     return;
                 }
                 case IT -> {
-                    loadLangue(LANGUE_IT);
+                    loadLanguage(LANGUE_IT);
                     return;
                 }
                 case FR -> {
-                    loadLangue(LANGUE_FR);
+                    loadLanguage(LANGUE_FR);
                     return;
                 }
                 case ES -> {
-                    loadLangue(LANGUE_ES);
+                    loadLanguage(LANGUE_ES);
                     return;
                 }
                 case BACK -> {
