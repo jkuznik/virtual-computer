@@ -1,0 +1,2 @@
+HDD;{"componentType":"HDD","name":"foo","fileHandler":{"storageCapacity":"GB1","currentCapacity":0,"files":[]}}
+SSD;{"componentType":"SSD","name":"foo","fileHandler":{"storageCapacity":"GB1","currentCapacity":0,"files":[]}}
