@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import pl.jkuznik.computer.hardware.components.drive.HDDDrive;
 import pl.jkuznik.computer.hardware.components.drive.SSDDrive;
 import pl.jkuznik.computer.hardware.components.headphone.Headphones;
+import pl.jkuznik.computer.hardware.components.monitor.Monitor;
 import pl.jkuznik.computer.hardware.components.usbdevice.MemoryStick;
 import pl.jkuznik.computer.hardware.components.usbdevice.Mouse;
 import pl.jkuznik.computer.hardware.shared.Component;
@@ -19,9 +20,10 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 
 class ComponentGsonAdapterTest {
-    private final Map<String, String> expectedValues = readExpectedValues();
+    private final Map<String, String> preparedValues = readPreparedValues();
     private final Gson gson = new GsonBuilder()
             .registerTypeHierarchyAdapter(Component.class, new ComponentGsonAdapter())
             .create();
@@ -35,7 +37,7 @@ class ComponentGsonAdapterTest {
         String json = gson.toJson(HDDComponent);
 
         then();
-        assertEquals(expectedValues.get("HDD"), json);
+        assertEquals(preparedValues.get("HDD"), json);
     }
 
     @Test
@@ -47,7 +49,19 @@ class ComponentGsonAdapterTest {
         String json = gson.toJson(SSDComponent);
 
         then();
-        assertEquals(expectedValues.get("SSD"), json);
+        assertEquals(preparedValues.get("SSD"), json);
+    }
+
+    @Test
+    void shouldSerializeComponent_whenComponentIsMonitorType() {
+        given();
+        var monitorComponent = new Monitor("foo");
+
+        when();
+        String json = gson.toJson(monitorComponent);
+
+        then();
+        assertEquals(preparedValues.get("Monitor"), json);
     }
 
     @Test
@@ -59,7 +73,7 @@ class ComponentGsonAdapterTest {
         String json = gson.toJson(headphones);
 
         then();
-        assertEquals(expectedValues.get("Headphones"), json);
+        assertEquals(preparedValues.get("Headphones"), json);
     }
 
     @Test
@@ -71,7 +85,7 @@ class ComponentGsonAdapterTest {
         String json = gson.toJson(memoryStick);
 
         then();
-        assertEquals(expectedValues.get("MemoryStick"), json);
+        assertEquals(preparedValues.get("MemoryStick"), json);
     }
 
     @Test
@@ -83,14 +97,82 @@ class ComponentGsonAdapterTest {
         String json = gson.toJson(mouse);
 
         then();
-        assertEquals(expectedValues.get("Mouse"), json);
+        assertEquals(preparedValues.get("Mouse"), json);
     }
 
     @Test
-    void deserialize() {
+    void shouldReturnHDDComponentType_whenSerializedJSONIsValid() throws IOException {
+        given();
+        String serializedHDD = preparedValues.get("HDD");
+
+        when();
+        Component result = gson.fromJson(serializedHDD, Component.class);
+
+        then();
+        assertInstanceOf(HDDDrive.class, result);
     }
 
-    private Map<String, String> readExpectedValues() {
+    @Test
+    void shouldReturnSSDComponentType_whenSerializedJSONIsValid() throws IOException {
+        given();
+        String serializedSSD = preparedValues.get("SSD");
+
+        when();
+        Component result = gson.fromJson(serializedSSD, Component.class);
+
+        then();
+        assertInstanceOf(SSDDrive.class, result);
+    }
+
+    @Test
+    void shouldReturnMonitorComponentType_whenSerializedJSONIsValid() throws IOException {
+        given();
+        String serializedMonitor = preparedValues.get("Monitor");
+
+        when();
+        Component result = gson.fromJson(serializedMonitor, Component.class);
+
+        then();
+        assertInstanceOf(Monitor.class, result);
+    }
+
+    @Test
+    void shouldReturnHeadphonesComponentType_whenSerializedJSONIsValid() throws IOException {
+        given();
+        String serializedHeadphones = preparedValues.get("Headphones");
+
+        when();
+        Component result = gson.fromJson(serializedHeadphones, Component.class);
+
+        then();
+        assertInstanceOf(Headphones.class, result);
+    }
+
+    @Test
+    void shouldReturnMemoryStickComponentType_whenSerializedJSONIsValid() throws IOException {
+        given();
+        String serializedMemoryStick = preparedValues.get("MemoryStick");
+
+        when();
+        Component result = gson.fromJson(serializedMemoryStick, Component.class);
+
+        then();
+        assertInstanceOf(MemoryStick.class, result);
+    }
+
+    @Test
+    void shouldReturnMouseComponentType_whenSerializedJSONIsValid() throws IOException {
+        given();
+        String serializedMouse = preparedValues.get("Mouse");
+
+        when();
+        Component result = gson.fromJson(serializedMouse, Component.class);
+
+        then();
+        assertInstanceOf(Mouse.class, result);
+    }
+
+    private Map<String, String> readPreparedValues() {
         Map<String, String> expectedValues;
         try {
             List<String> values = Files.readAllLines(PersistentStateTest.TEST_EXPECTED_VALUES);
