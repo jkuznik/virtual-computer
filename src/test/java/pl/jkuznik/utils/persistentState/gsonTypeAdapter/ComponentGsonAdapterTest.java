@@ -5,6 +5,9 @@ import com.google.gson.GsonBuilder;
 import org.junit.jupiter.api.Test;
 import pl.jkuznik.computer.hardware.components.drive.HDDDrive;
 import pl.jkuznik.computer.hardware.components.drive.SSDDrive;
+import pl.jkuznik.computer.hardware.components.headphone.Headphones;
+import pl.jkuznik.computer.hardware.components.usbdevice.MemoryStick;
+import pl.jkuznik.computer.hardware.components.usbdevice.Mouse;
 import pl.jkuznik.computer.hardware.shared.Component;
 import pl.jkuznik.computer.hardware.shared._enums.StorageCapacity;
 import pl.jkuznik.utils.persistentState.PersistentStateTest;
@@ -45,6 +48,42 @@ class ComponentGsonAdapterTest {
 
         then();
         assertEquals(expectedValues.get("SSD"), json);
+    }
+
+    @Test
+    void shouldSerializeComponent_whenComponentIsHeadphonesType() {
+        given();
+        var headphones = new Headphones("foo");
+
+        when();
+        String json = gson.toJson(headphones);
+
+        then();
+        assertEquals(expectedValues.get("Headphones"), json);
+    }
+
+    @Test
+    void shouldSerializeComponent_whenComponentIsMemoryStickType() {
+        given();
+        var memoryStick = new MemoryStick(StorageCapacity.GB1,"foo");
+
+        when();
+        String json = gson.toJson(memoryStick);
+
+        then();
+        assertEquals(expectedValues.get("MemoryStick"), json);
+    }
+
+    @Test
+    void shouldSerializeComponent_whenComponentIsMouseType() {
+        given();
+        var mouse = new Mouse("foo");
+
+        when();
+        String json = gson.toJson(mouse);
+
+        then();
+        assertEquals(expectedValues.get("Mouse"), json);
     }
 
     @Test
