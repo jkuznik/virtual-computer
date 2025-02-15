@@ -55,7 +55,7 @@ class StateReaderTest {
         }
     }
     @Test
-    void shouldReadState_whileFileExists() throws IOException {
+    void shouldReturnComponent_whileFileExistsAndJsonIsValid() {
         given();
         StateReader stateReader = new StateReader();
         List<Component> components = stateReader.readState(TEST_FILE_PATH);
