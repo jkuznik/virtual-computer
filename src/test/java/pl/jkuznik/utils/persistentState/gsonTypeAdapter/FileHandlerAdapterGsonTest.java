@@ -28,7 +28,6 @@ class FileHandlerAdapterGsonTest {
 
         when();
         String result = gson.toJson(fileHandler);
-        System.out.println(result);
 
         then();
         Assertions.assertEquals(preparedValues.get("EmptyFileHandler"), result);
@@ -43,8 +42,6 @@ class FileHandlerAdapterGsonTest {
 
         when();
         String result = gson.toJson(fileHandler);
-
-        System.out.println(result);
 
         then();
         assertEquals(preparedValues.get("FilledFileHandler"), result);

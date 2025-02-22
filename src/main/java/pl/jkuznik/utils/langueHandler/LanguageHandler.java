@@ -1,6 +1,7 @@
 package pl.jkuznik.utils.langueHandler;
 
 import pl.jkuznik.utils._enums.FilePath;
+import pl.jkuznik.utils._enums.LanguageFilePath;
 import pl.jkuznik.utils._enums.MenuMessage;
 
 import java.io.IOException;
@@ -15,7 +16,7 @@ public class LanguageHandler {
 
     private final static Map<MenuMessage, List<String>> messages = new HashMap<>();
 
-    public static void loadLanguage(FilePath filePath) {
+    public static Map<MenuMessage, List<String>> loadLanguage(LanguageFilePath filePath) {
         Path path = filePath.getPath();
         try {
             List<String> lines = Files.readAllLines(path);
@@ -34,6 +35,7 @@ public class LanguageHandler {
         } catch (IOException e) {
             System.out.println("Nie udało się odczytać pliku: " + filePath.name());
         }
+        return messages;
     }
 
     public static void displayMessage(MenuMessage menuMessage) {

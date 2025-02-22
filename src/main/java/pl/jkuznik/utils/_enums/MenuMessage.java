@@ -8,7 +8,7 @@ public enum MenuMessage {
     MAIN_MENU_MESSAGE,
     HARDWARE_MENU_MESSAGE,
     SOFTWARE_MENU_MESSAGE,
-    LANGUE_MENU_MESSAGE,
+    LANGUAGE_MENU_MESSAGE,
 
     /** Hardware menu messages:*/
     ADD_COMPONENT_TYPE_MESSAGE,

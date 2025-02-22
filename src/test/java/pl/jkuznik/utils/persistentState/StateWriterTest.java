@@ -11,13 +11,13 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static pl.jkuznik.utils.persistentState.PersistentStateTest.TEST_FILE_PATH;
+import static pl.jkuznik.utils._enums.TestPath.TEST_FILE_PATH;
 
 class StateWriterTest {
 
     @AfterAll
     static void tearDown() throws IOException {
-        Files.deleteIfExists(TEST_FILE_PATH);
+        Files.deleteIfExists(TEST_FILE_PATH.getPath());
     }
 
     @Test
@@ -28,9 +28,9 @@ class StateWriterTest {
         List<String> result;
 
         when();
-        computer.saveState(TEST_FILE_PATH);
+        computer.saveState(TEST_FILE_PATH.getPath());
         try {
-            result = Files.readAllLines(TEST_FILE_PATH);
+            result = Files.readAllLines(TEST_FILE_PATH.getPath());
         } catch (IOException e) {
             throw new RuntimeException("Error while reading file in test of StateWriter", e);
         }

@@ -9,7 +9,13 @@ import pl.jkuznik.utils.consoleReader.ConsoleReader;
 import static pl.jkuznik.computer.userInterface.HardwareMenu.hardwareMenu;
 import static pl.jkuznik.computer.userInterface.SoftwareMenu.softwareMenu;
 import static pl.jkuznik.computer.userInterface._enums.UserChoice.*;
-import static pl.jkuznik.utils._enums.FilePath.*;
+import static pl.jkuznik.utils._enums.FilePath.COMPUTER_STATE;
+import static pl.jkuznik.utils._enums.LanguageFilePath.DE;
+import static pl.jkuznik.utils._enums.LanguageFilePath.EN;
+import static pl.jkuznik.utils._enums.LanguageFilePath.ES;
+import static pl.jkuznik.utils._enums.LanguageFilePath.FR;
+import static pl.jkuznik.utils._enums.LanguageFilePath.IT;
+import static pl.jkuznik.utils._enums.LanguageFilePath.PL;
 import static pl.jkuznik.utils._enums.MenuMessage.*;
 import static pl.jkuznik.utils.langueHandler.LanguageHandler.displayMessage;
 import static pl.jkuznik.utils.langueHandler.LanguageHandler.loadLanguage;
@@ -21,7 +27,7 @@ public class UserInterface {
 
     public static void userInterface() {
         computer.loadState();
-        loadLanguage(LANGUE_PL);
+        loadLanguage(PL);
         displayMessage(GREETINGS_MESSAGE);
 
         do {
@@ -44,32 +50,32 @@ public class UserInterface {
 
     private static void languageMenu() {
         do {
-            displayMessage(LANGUE_MENU_MESSAGE);
+            displayMessage(LANGUAGE_MENU_MESSAGE);
             userChoice = userChoice(consoleReader.getScanner().nextLine(), SubMenu.LANGUE_MENU);
 
             switch (userChoice) {
                 case PL -> {
-                    loadLanguage(LANGUE_PL);
+                    loadLanguage(PL);
                     return;
                 }
                 case EN -> {
-                    loadLanguage(LANGUE_EN);
+                    loadLanguage(EN);
                     return;
                 }
                 case DE -> {
-                    loadLanguage(LANGUE_DE);
+                    loadLanguage(DE);
                     return;
                 }
                 case IT -> {
-                    loadLanguage(LANGUE_IT);
+                    loadLanguage(IT);
                     return;
                 }
                 case FR -> {
-                    loadLanguage(LANGUE_FR);
+                    loadLanguage(FR);
                     return;
                 }
                 case ES -> {
-                    loadLanguage(LANGUE_ES);
+                    loadLanguage(ES);
                     return;
                 }
                 case BACK -> {

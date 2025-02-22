@@ -8,12 +8,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import static pl.jkuznik.utils._enums.TestPath.TEST_EXPECTED_VALUES;
+
 public class PreparedAssertion {
 
     public static Map<String, String> read() {
         Map<String, String> expectedValues;
         try {
-            List<String> values = Files.readAllLines(PersistentStateTest.TEST_EXPECTED_VALUES);
+            List<String> values = Files.readAllLines(TEST_EXPECTED_VALUES.getPath());
             expectedValues = values.stream()
                     .map(value -> value.split(";"))
                     .filter(array -> array.length == 2) // to avoid exception in case of empty lines or etc.

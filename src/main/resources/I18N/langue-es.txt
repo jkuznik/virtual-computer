@@ -4,7 +4,7 @@ ERROR_MESSAGE;Error, inténtalo de nuevo.
 MAIN_MENU_MESSAGE;1. Administrar componentes de la computadora;2. Administrar archivos;3. Elegir idioma;7. Restaurar configuración de fábrica;9. Salir
 HARDWARE_MENU_MESSAGE;1. Mostrar componentes;2. Agregar hardware;3. Eliminar hardware;8. Volver;9. Salir
 SOFTWARE_MENU_MESSAGE;1. Mostrar archivos;2. Agregar archivo;3. Eliminar archivo;4. Ejecutar programa;5. Ejecutar juego;8. Volver;9. Salir
-LANGUE_MENU_MESSAGE;Elige un idioma:;1. Polski;2. English;3. Deutsch;4. Italiano;5. Français;6. Español;8. Volver
+LANGUAGE_MENU_MESSAGE;Elige un idioma:;1. Polski;2. English;3. Deutsch;4. Italiano;5. Français;6. Español;8. Volver
 
 ADD_COMPONENT_TYPE_MESSAGE;Introduce el tipo:
 ADD_COMPONENT_NAME_MESSAGE;Introduce el nombre:
