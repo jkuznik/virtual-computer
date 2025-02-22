@@ -49,7 +49,6 @@ class FileAdapterGsonTest {
 
         when();
         String result = gson.toJson(file);
-        System.out.println(file);
 
         then();
         Assertions.assertEquals(preparedValues.get("Mp3File"),result);

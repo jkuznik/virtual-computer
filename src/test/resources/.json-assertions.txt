@@ -8,3 +8,6 @@ Monitor;{"componentType":"MONITOR","name":"foo","width":3840,"height":1920}
 JpgFile;{"fileType":"JPG","name":"foo","size":5,"compression":5}
 GifFile;{"fileType":"GIF","name":"foo","size":5}
 Mp3File;{"fileType":"MP3","name":"foo","size":5,"bandName":"bar","title":"bazz","quality":5}
+
+EmptyFileHandler;{"storageCapacity":"GB1","currentCapacity":0,"files":[]}
+FilledFileHandler;{"storageCapacity":"GB1","currentCapacity":5,"files":[{"fileType":"JPG","name":"foo","size":5,"compression":5}]}
