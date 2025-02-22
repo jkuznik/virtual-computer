@@ -4,3 +4,7 @@ Headphones;{"componentType":"HEADPHONES","name":"foo"}
 MemoryStick;{"componentType":"MEMORY_STICK","name":"foo","fileHandler":{"storageCapacity":"GB1","currentCapacity":0,"files":[]},"ejected":false}
 Mouse;{"componentType":"MOUSE","name":"foo"}
 Monitor;{"componentType":"MONITOR","name":"foo","width":3840,"height":1920}
+
+JpgFile;{"fileType":"JPG","name":"foo","size":5,"compression":5}
+GifFile;{"fileType":"GIF","name":"foo","size":5}
+Mp3File;{"fileType":"MP3","name":"foo","size":5,"bandName":"bar","title":"bazz","quality":5}
