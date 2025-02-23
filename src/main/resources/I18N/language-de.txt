@@ -4,7 +4,7 @@ ERROR_MESSAGE;Fehler, bitte versuchen Sie es erneut.
 MAIN_MENU_MESSAGE;1. Computerkomponenten verwalten;2. Dateien verwalten;3. Sprache wählen;7. Werkseinstellungen wiederherstellen;9. Beenden
 HARDWARE_MENU_MESSAGE;1. Komponenten anzeigen;2. Hardware hinzufügen;3. Hardware entfernen;8. Zurück;9. Beenden
 SOFTWARE_MENU_MESSAGE;1. Dateien anzeigen;2. Datei hinzufügen;3. Datei löschen;4. Programm starten;5. Spiel starten;8. Zurück;9. Beenden
-LANGUE_MENU_MESSAGE;Sprache wählen:;1. Polski;2. English;3. Deutsch;4. Italiano;5. Français;6. Español;8. Zurück
+LANGUAGE_MENU_MESSAGE;Sprache wählen:;1. Polski;2. English;3. Deutsch;4. Italiano;5. Français;6. Español;8. Zurück
 
 ADD_COMPONENT_TYPE_MESSAGE;Geben Sie den Typ ein:
 ADD_COMPONENT_NAME_MESSAGE;Geben Sie den Namen ein:

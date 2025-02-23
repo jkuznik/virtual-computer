@@ -10,7 +10,7 @@ import java.nio.file.Files;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static pl.jkuznik.utils.persistentState.PersistentStateTest.TEST_FILE_PATH;
+import static pl.jkuznik.utils._enums.TestPath.TEST_FILE_PATH;
 
 class StateReaderTest {
 
@@ -49,16 +49,17 @@ class StateReaderTest {
                 """;
         String testJson = serializedDriveComponent.replaceAll("\\s+", " ");
         try {
-            Files.writeString(TEST_FILE_PATH, testJson);
+            Files.writeString(TEST_FILE_PATH.getPath(), testJson);
         } catch (IOException e) {
             throw new RuntimeException("Error while write test values into file in test of StateReader", e);
         }
     }
+
     @Test
     void shouldReturnComponent_whileFileExistsAndJsonIsValid() {
         given();
         StateReader stateReader = new StateReader();
-        List<Component> components = stateReader.readState(TEST_FILE_PATH);
+        List<Component> components = stateReader.readState(TEST_FILE_PATH.getPath());
 
         when();
         boolean result = components.getFirst() instanceof HDDDrive;

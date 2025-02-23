@@ -35,7 +35,6 @@ public class FileAdapterGson implements JsonSerializer<File>, JsonDeserializer<F
             }
             default -> throw new JsonParseException("Unsupported file type: " + srcFile.getClass().getName());
         }
-
         return jsonObject;
     }
 

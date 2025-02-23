@@ -2,6 +2,7 @@ package pl.jkuznik.utils.persistentState.gsonTypeAdapter;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import pl.jkuznik.computer.hardware.components.drive.HDDDrive;
 import pl.jkuznik.computer.hardware.components.drive.SSDDrive;
@@ -10,20 +11,17 @@ import pl.jkuznik.computer.hardware.components.monitor.Monitor;
 import pl.jkuznik.computer.hardware.components.usbdevice.MemoryStick;
 import pl.jkuznik.computer.hardware.components.usbdevice.Mouse;
 import pl.jkuznik.computer.hardware.shared.Component;
+import pl.jkuznik.computer.hardware.shared._enums.ComponentType;
 import pl.jkuznik.computer.hardware.shared._enums.StorageCapacity;
-import pl.jkuznik.utils.persistentState.PersistentStateTest;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 
 class ComponentGsonAdapterTest {
-    private final Map<String, String> preparedValues = readPreparedValues();
+    private final Map<String, String> preparedValues = PreparedAssertion.read();
     private final Gson gson = new GsonBuilder()
             .registerTypeHierarchyAdapter(Component.class, new ComponentGsonAdapter())
             .create();
@@ -79,7 +77,7 @@ class ComponentGsonAdapterTest {
     @Test
     void shouldSerializeComponent_whenComponentIsMemoryStickType() {
         given();
-        var memoryStick = new MemoryStick(StorageCapacity.GB1,"foo");
+        var memoryStick = new MemoryStick(StorageCapacity.GB1, "foo");
 
         when();
         String json = gson.toJson(memoryStick);
@@ -98,6 +96,27 @@ class ComponentGsonAdapterTest {
 
         then();
         assertEquals(preparedValues.get("Mouse"), json);
+    }
+
+    @Test
+    void shouldThrowException_whenSerializeObjectIsNotValid() {
+        given();
+        var notValidObject = new Component() {
+            @Override
+            public String getComponentName() {
+                return "foo";
+            }
+
+            @Override
+            public ComponentType getComponentType() {
+                return ComponentType.HDD;
+            }
+        };
+
+        when();
+
+        then();
+        Assertions.assertThrows(IllegalArgumentException.class, () -> gson.toJson(notValidObject));
     }
 
     @Test
@@ -170,20 +189,6 @@ class ComponentGsonAdapterTest {
 
         then();
         assertInstanceOf(Mouse.class, result);
-    }
-
-    private Map<String, String> readPreparedValues() {
-        Map<String, String> expectedValues;
-        try {
-            List<String> values = Files.readAllLines(PersistentStateTest.TEST_EXPECTED_VALUES);
-            expectedValues = values.stream()
-                    .map(value -> value.split(";"))
-                    .filter(array -> array.length == 2) // to avoid exception in case of empty lines or etc.
-                    .collect(Collectors.toMap(parts -> parts[0], parts -> parts[1]));
-        } catch (IOException e) {
-            throw new RuntimeException("Error while read expected values from", e);
-        }
-        return expectedValues;
     }
 
     private void given() {

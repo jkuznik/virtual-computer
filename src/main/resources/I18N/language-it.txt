@@ -4,7 +4,7 @@ ERROR_MESSAGE;Errore, riprova.
 MAIN_MENU_MESSAGE;1. Gestisci componenti del computer;2. Gestisci file;3. Scegli lingua;7. Ripristina impostazioni di fabbrica;9. Esci
 HARDWARE_MENU_MESSAGE;1. Mostra componenti;2. Aggiungi hardware;3. Rimuovi hardware;8. Indietro;9. Esci
 SOFTWARE_MENU_MESSAGE;1. Mostra file;2. Aggiungi file;3. Elimina file;4. Avvia programma;5. Avvia gioco;8. Indietro;9. Esci
-LANGUE_MENU_MESSAGE;Scegli lingua:;1. Polski;2. English;3. Deutsch;4. Italiano;5. Français;6. Español;8. Indietro
+LANGUAGE_MENU_MESSAGE;Scegli lingua:;1. Polski;2. English;3. Deutsch;4. Italiano;5. Français;6. Español;8. Indietro
 
 ADD_COMPONENT_TYPE_MESSAGE;Inserisci il tipo:
 ADD_COMPONENT_NAME_MESSAGE;Inserisci il nome:

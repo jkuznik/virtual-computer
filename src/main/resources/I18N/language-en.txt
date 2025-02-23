@@ -4,7 +4,7 @@ ERROR_MESSAGE;Error, please try again!
 MAIN_MENU_MESSAGE;1. Manage computer components;2. Manage files;3. Choose language;7. Restore factory settings;9. Exit
 HARDWARE_MENU_MESSAGE;1. Display components;2. Add hardware;3. Remove hardware;8. Back;9. Exit
 SOFTWARE_MENU_MESSAGE;1. Display files;2. Add file;3. Delete file;4. Run program;5. Run game;8. Back;9. Exit
-LANGUE_MENU_MESSAGE;Choose language:;1. Polski;2. English;3. Deutsch;4. Italiano;5. Français;6. Español;8. Back
+LANGUAGE_MENU_MESSAGE;Choose language:;1. Polski;2. English;3. Deutsch;4. Italiano;5. Français;6. Español;8. Back
 
 ADD_COMPONENT_TYPE_MESSAGE;Enter type:
 ADD_COMPONENT_NAME_MESSAGE;Enter name:
