@@ -8,18 +8,15 @@ import pl.jkuznik.computer.software.file.File;
 import java.io.FileNotFoundException;
 import java.util.List;
 
-public abstract class AbstractDrive implements Drive, FileStorage {
+public abstract class  AbstractDrive implements Drive, FileStorage {
     protected final FileHandler fileHandler;
     protected final String name;
+    protected final ReadWriteSpeed readWriteSpeed;
 
-    public AbstractDrive(StorageCapacity storageCapacity, String name) {
+    public AbstractDrive(StorageCapacity storageCapacity, String name, ReadWriteSpeed readWriteSpeed) {
         this.fileHandler = new FileHandler(storageCapacity);
         this.name = name;
-    }
-
-    public AbstractDrive(FileHandler fileHandler, String name) {
-        this.fileHandler = fileHandler;
-        this.name = name;
+        this.readWriteSpeed = readWriteSpeed;
     }
 
     public FileHandler getFileHandler() {
@@ -50,12 +47,11 @@ public abstract class AbstractDrive implements Drive, FileStorage {
         return fileHandler.findFile(fileName);
     }
 
-    //  TODO: metoda do zaimplementowania w kolejnym tasku
     @Override
     public void getWriteSpeed() {
+
     }
 
-    //  TODO: metoda do zaimplementowania w kolejnym tasku
     @Override
     public void getReadSpeed() {
 
