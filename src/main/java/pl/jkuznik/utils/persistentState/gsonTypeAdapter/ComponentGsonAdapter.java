@@ -3,6 +3,7 @@ package pl.jkuznik.utils.persistentState.gsonTypeAdapter;
 import com.google.gson.*;
 import pl.jkuznik.computer.hardware.components.drive.AbstractDrive;
 import pl.jkuznik.computer.hardware.components.drive.HDDDrive;
+import pl.jkuznik.computer.hardware.components.drive.ReadWriteSpeed;
 import pl.jkuznik.computer.hardware.components.drive.SSDDrive;
 import pl.jkuznik.computer.hardware.components.headphone.Headphones;
 import pl.jkuznik.computer.hardware.components.monitor.Monitor;
@@ -26,6 +27,8 @@ public class ComponentGsonAdapter implements JsonSerializer<Component>, JsonDese
 
         switch (srcComponent) {
             case AbstractDrive abstractDrive -> {
+                jsonObject.add("readSpeed", jsonSerializationContext.serialize(abstractDrive.getReadSpeed()));
+                jsonObject.add("writeSpeed", jsonSerializationContext.serialize(abstractDrive.getWriteSpeed()));
                 jsonObject.add("fileHandler", jsonSerializationContext.serialize(abstractDrive.getFileHandler()));
             }
             case Headphones headphones -> {
@@ -57,11 +60,15 @@ public class ComponentGsonAdapter implements JsonSerializer<Component>, JsonDese
         switch (componentType) {
             case HDD -> {
                 FileHandler fileHandler = jsonDeserializationContext.deserialize(jsonObject.get("fileHandler"), FileHandler.class);
-                return new HDDDrive(fileHandler, name);
+                Integer writeSpeed = jsonDeserializationContext.deserialize(jsonObject.get("writeSpeed"), Integer.class);
+                Integer readSpeed = jsonDeserializationContext.deserialize(jsonObject.get("readSpeed"), Integer.class);
+                return new HDDDrive(fileHandler, name, new ReadWriteSpeed(readSpeed, writeSpeed));
             }
             case SSD -> {
                 FileHandler fileHandler = jsonDeserializationContext.deserialize(jsonObject.get("fileHandler"), FileHandler.class);
-                return new SSDDrive(fileHandler, name);
+                Integer writeSpeed = jsonDeserializationContext.deserialize(jsonObject.get("writeSpeed"), Integer.class);
+                Integer readSpeed = jsonDeserializationContext.deserialize(jsonObject.get("readSpeed"), Integer.class);
+                return new SSDDrive(fileHandler, name, new ReadWriteSpeed(readSpeed, writeSpeed));
             }
             case HEADPHONES -> {
                 return new Headphones(name);

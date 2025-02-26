@@ -13,6 +13,12 @@ public abstract class  AbstractDrive implements Drive, FileStorage {
     protected final String name;
     protected final ReadWriteSpeed readWriteSpeed;
 
+    public AbstractDrive(FileHandler fileHandler, String name, ReadWriteSpeed readWriteSpeed) {
+        this.fileHandler = fileHandler;
+        this.name = name;
+        this.readWriteSpeed = readWriteSpeed;
+    }
+
     public AbstractDrive(StorageCapacity storageCapacity, String name, ReadWriteSpeed readWriteSpeed) {
         this.fileHandler = new FileHandler(storageCapacity);
         this.name = name;
@@ -48,13 +54,13 @@ public abstract class  AbstractDrive implements Drive, FileStorage {
     }
 
     @Override
-    public void getWriteSpeed() {
-
+    public int getWriteSpeed() {
+        return readWriteSpeed.writeSpeed();
     }
 
     @Override
-    public void getReadSpeed() {
-
+    public int getReadSpeed() {
+        return readWriteSpeed.readSpeed();
     }
 
     @Override

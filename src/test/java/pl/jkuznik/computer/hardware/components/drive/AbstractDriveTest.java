@@ -1,11 +1,9 @@
 package pl.jkuznik.computer.hardware.components.drive;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pl.jkuznik.computer.hardware.shared._enums.StorageCapacity;
 import pl.jkuznik.computer.software.file.File;
-import pl.jkuznik.computer.software.file.FileType;
 import pl.jkuznik.computer.software.file.imagefile.JPGImageFile;
 
 import java.io.FileNotFoundException;
@@ -13,14 +11,14 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchException;
-import static org.junit.jupiter.api.Assertions.*;
 
 class AbstractDriveTest {
     private AbstractDrive drive;
+    private final ReadWriteSpeed readWriteSpeed = new ReadWriteSpeed(100, 80);
 
     @BeforeEach
     void setUp() {
-        drive = new HDDDrive(StorageCapacity.GB64, "foo");
+        drive = new HDDDrive(StorageCapacity.GB64, "foo", readWriteSpeed);
     }
 
     @Test
