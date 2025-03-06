@@ -4,21 +4,22 @@ import pl.jkuznik.computer.hardware.shared._enums.ComponentType;
 
 public class Mouse implements USBDevice {
     private final String name;
+    private boolean isEjected = true;
 
     public Mouse(String name) {
         this.name = name;
     }
 
     @Override
-    public boolean connect() {
+    public void connect() {
         System.out.println("Mouse connected");
-        return true;
+        isEjected = true;
     }
 
     @Override
-    public boolean disconnect() {
+    public void disconnect() {
         System.out.println("Mouse disconnected");
-        return true;
+        isEjected = false;
     }
 
     @Override
