@@ -5,6 +5,7 @@ import pl.jkuznik.computer.software.game.findNumber.FindNumberGame;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ServiceLoader;
 
 public class GameHandler {
 
@@ -19,6 +20,7 @@ public class GameHandler {
 
         games.add(findNumberGame);
         games.add(ticTacToe);
+//        ServiceLoader.load(Game.class).forEach(games::add);
     }
 
     public List<Game> gameList() {

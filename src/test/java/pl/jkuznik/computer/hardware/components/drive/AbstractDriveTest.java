@@ -98,13 +98,27 @@ class AbstractDriveTest {
     }
 
     @Test
-    void getWriteSpeed() {
-        // TODO: uzupełnić metodę
+    void shouldReturnWriteSpeed() {
+        given();
+        var drive = new HDDDrive(StorageCapacity.GB64, "foo", readWriteSpeed);
+
+        when();
+        int result = drive.getWriteSpeed();
+
+        then();
+        assertThat(readWriteSpeed.writeSpeed()).isEqualTo(result);
     }
 
     @Test
     void getReadSpeed() {
-        // TODO: uzupełnić metodę
+        given();
+        var drive = new HDDDrive(StorageCapacity.GB64, "foo", readWriteSpeed);
+
+        when();
+        int result = drive.getReadSpeed();
+
+        then();
+        assertThat(readWriteSpeed.readSpeed()).isEqualTo(result);
     }
 
     private void given() {
