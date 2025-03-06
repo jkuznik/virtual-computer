@@ -137,10 +137,12 @@ class HardwareMenu {
                     Integer.parseInt
                             (consoleReader.getScanner().nextLine())
                             - 1];
-            // TODO: przygotować UI do wyboru szybkości zapisu/odczytu
-            computer.addComponent(new SSDDrive(capacityUserChoice, componentName, new ReadWriteSpeed(5, 5)));
+            displayMessage(MenuMessage.ADD_DRIVE_READ_WRITE_SPEED);
+            int readSpeed = Integer.parseInt(consoleReader.getScanner().nextLine());
+            int writeSpeed = Integer.parseInt(consoleReader.getScanner().nextLine());
+            computer.addComponent(new SSDDrive(capacityUserChoice, componentName, new ReadWriteSpeed(readSpeed, writeSpeed)));
 
-        } catch (RuntimeException e) {  // safe block for wrong storage capacity choose case
+        } catch (RuntimeException e) {  // safe block for wrong storage capacity choose or read/write input case
             displayMessage(MenuMessage.ERROR_MESSAGE);
         }
     }
@@ -160,8 +162,10 @@ class HardwareMenu {
                     Integer.parseInt
                             (consoleReader.getScanner().nextLine())
                             - 1];
-            // TODO: przygotować UI do wyboru szybkości zapisu/odczytu
-            computer.addComponent(new HDDDrive(capacityUserChoice, componentName, new ReadWriteSpeed(5,5)));
+            displayMessage(MenuMessage.ADD_DRIVE_READ_WRITE_SPEED);
+            int readSpeed = Integer.parseInt(consoleReader.getScanner().nextLine());
+            int writeSpeed = Integer.parseInt(consoleReader.getScanner().nextLine());
+            computer.addComponent(new HDDDrive(capacityUserChoice, componentName, new ReadWriteSpeed(readSpeed,writeSpeed)));
 
         } catch (RuntimeException e) {  // safe block for wrong storage capacity choose case
             displayMessage(MenuMessage.ERROR_MESSAGE);
