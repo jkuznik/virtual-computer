@@ -52,6 +52,7 @@ class HardwareMenu {
 
         try {
             Component component = computer.getComponent(consoleReader.getScanner().nextLine());
+            // TODO: implement toString() for each component
             System.out.println(component.toString());
         } catch (ComponentNotFoundException e) {
             System.out.println(e.getMessage());
