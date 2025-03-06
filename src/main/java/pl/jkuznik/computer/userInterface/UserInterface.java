@@ -35,7 +35,6 @@ public class UserInterface {
             userChoice = userChoice(consoleReader.getScanner().nextLine(), SubMenu.MAIN_MENU);
 
             switch (userChoice) {
-                // TODO: dodać możliwość zarządzania podzespołąmi wraz z możliwośćia zapisu i odczytu
                 case HARDWARE_MENU -> hardwareMenu(computer);
                 case SOFTWARE_MENU -> softwareMenu(computer);
                 case LANGUE_OPTION -> languageMenu();

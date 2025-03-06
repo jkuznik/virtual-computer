@@ -31,7 +31,6 @@ class HardwareMenu {
 
     public static void hardwareMenu(Computer computer) {
         do {
-            // TODO: dodać wsparcie poniższego komunikatu dla wszystkich języków - aktualnie działający język to PL
             displayMessage(MenuMessage.HARDWARE_MENU_MESSAGE);
             userChoice = UserChoice.userChoice(consoleReader.getScanner().nextLine(), SubMenu.HARDWARE_MENU);
 
@@ -39,7 +38,7 @@ class HardwareMenu {
                 case LIST_COMPONENTS -> listComponents(computer);
                 case ADD_COMPONENT -> addComponent(computer);
                 case DELETE_COMPONENT -> deleteComponent(computer);
-                case BACK -> System.out.println(System.lineSeparator() + "Menu główne!");
+                case BACK -> System.out.println(System.lineSeparator() + MenuMessage.MAIN_MENU_MESSAGE);
                 case EXIT -> System.exit(0);
                 default -> displayMessage(MenuMessage.ERROR_MESSAGE);
             }
