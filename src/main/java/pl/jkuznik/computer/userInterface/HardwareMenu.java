@@ -123,53 +123,13 @@ class HardwareMenu {
     }
 
     private static void addSSD(Computer computer, String componentName) {
-        displayMessage(MenuMessage.ADD_DRIVE_CAPACITY_MESSAGE);
-        int storageCapacityIterator = 1;
-        StorageCapacity[] storageCapacities = StorageCapacity.values();
-
-        for (StorageCapacity storageCapacity : storageCapacities) {
-            System.out.println(storageCapacityIterator + " " + storageCapacity);
-            storageCapacityIterator++;
-        }
-
-        try {
-            StorageCapacity capacityUserChoice = storageCapacities[
-                    Integer.parseInt
-                            (consoleReader.getScanner().nextLine())
-                            - 1];
-            displayMessage(MenuMessage.ADD_DRIVE_READ_WRITE_SPEED);
-            int readSpeed = Integer.parseInt(consoleReader.getScanner().nextLine());
-            int writeSpeed = Integer.parseInt(consoleReader.getScanner().nextLine());
-            computer.addComponent(new SSDDrive(capacityUserChoice, componentName, new ReadWriteSpeed(readSpeed, writeSpeed)));
-
-        } catch (RuntimeException e) {  // safe block for wrong storage capacity choose or read/write input case
-            displayMessage(MenuMessage.ERROR_MESSAGE);
-        }
+        DriveInfo driveInfo = getDriveInfo();
+        computer.addComponent(new SSDDrive(driveInfo.storageCapacity, componentName,  driveInfo.readWriteSpeed));
     }
 
     private static void addHDD(Computer computer, String componentName) {
-        displayMessage(MenuMessage.ADD_DRIVE_CAPACITY_MESSAGE);
-        int storageCapacityIterator = 1;
-        StorageCapacity[] storageCapacities = StorageCapacity.values();
-
-        for (StorageCapacity storageCapacity : storageCapacities) {
-            System.out.println(storageCapacityIterator + " " + storageCapacity);
-            storageCapacityIterator++;
-        }
-
-        try {
-            StorageCapacity capacityUserChoice = storageCapacities[
-                    Integer.parseInt
-                            (consoleReader.getScanner().nextLine())
-                            - 1];
-            displayMessage(MenuMessage.ADD_DRIVE_READ_WRITE_SPEED);
-            int readSpeed = Integer.parseInt(consoleReader.getScanner().nextLine());
-            int writeSpeed = Integer.parseInt(consoleReader.getScanner().nextLine());
-            computer.addComponent(new HDDDrive(capacityUserChoice, componentName, new ReadWriteSpeed(readSpeed,writeSpeed)));
-
-        } catch (RuntimeException e) {  // safe block for wrong storage capacity choose case
-            displayMessage(MenuMessage.ERROR_MESSAGE);
-        }
+        DriveInfo driveInfo = getDriveInfo();
+        computer.addComponent(new HDDDrive(driveInfo.storageCapacity, componentName,  driveInfo.readWriteSpeed));
     }
 
     private static void deleteComponent(Computer computer) {
@@ -184,5 +144,33 @@ class HardwareMenu {
             displayMessage(MenuMessage.ERROR_MESSAGE);
         }
         computer.saveState(FilePath.COMPUTER_STATE.getPath());
+    }
+
+    private static DriveInfo getDriveInfo() {
+        displayMessage(MenuMessage.ADD_DRIVE_CAPACITY_MESSAGE);
+        int storageCapacityIterator = 1;
+        StorageCapacity[] storageCapacities = StorageCapacity.values();
+
+        for (StorageCapacity storageCapacity : storageCapacities) {
+            System.out.println(storageCapacityIterator + " " + storageCapacity);
+            storageCapacityIterator++;
+        }
+
+        try {
+            StorageCapacity capacityUserChoice = storageCapacities[
+                    Integer.parseInt
+                            (consoleReader.getScanner().nextLine())
+                            - 1];
+            displayMessage(MenuMessage.ADD_DRIVE_READ_WRITE_SPEED);
+            int readSpeed = Integer.parseInt(consoleReader.getScanner().nextLine());
+            int writeSpeed = Integer.parseInt(consoleReader.getScanner().nextLine());
+
+            return new DriveInfo(capacityUserChoice, new ReadWriteSpeed(readSpeed, writeSpeed));
+        } catch (RuntimeException e) {  // safe block for wrong storage capacity choose or read/write input case
+            throw new AddDriveException(MenuMessage.ERROR_MESSAGE.toString());
+        }
+    }
+
+    private record DriveInfo(StorageCapacity storageCapacity, ReadWriteSpeed readWriteSpeed) {
     }
 }
