@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import pl.jkuznik.computer.hardware.components.drive.HDDDrive;
+import pl.jkuznik.computer.hardware.components.drive.ReadWriteSpeed;
 import pl.jkuznik.computer.hardware.components.drive.SSDDrive;
 import pl.jkuznik.computer.hardware.components.headphone.Headphones;
 import pl.jkuznik.computer.hardware.components.monitor.Monitor;
@@ -21,6 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 
 class ComponentGsonAdapterTest {
+    private final ReadWriteSpeed readWriteSpeed = new ReadWriteSpeed(100, 80);
     private final Map<String, String> preparedValues = PreparedAssertion.read();
     private final Gson gson = new GsonBuilder()
             .registerTypeHierarchyAdapter(Component.class, new ComponentGsonAdapter())
@@ -29,7 +31,7 @@ class ComponentGsonAdapterTest {
     @Test
     void shouldSerializeComponent_whenComponentIsHDDType() {
         given();
-        var HDDComponent = new HDDDrive(StorageCapacity.GB1, "foo");
+        var HDDComponent = new HDDDrive(StorageCapacity.GB1, "foo", readWriteSpeed);
 
         when();
         String json = gson.toJson(HDDComponent);
@@ -41,7 +43,7 @@ class ComponentGsonAdapterTest {
     @Test
     void shouldSerializeComponent_whenComponentIsSSDType() {
         given();
-        var SSDComponent = new SSDDrive(StorageCapacity.GB1, "foo");
+        var SSDComponent = new SSDDrive(StorageCapacity.GB1, "foo", readWriteSpeed);
 
         when();
         String json = gson.toJson(SSDComponent);

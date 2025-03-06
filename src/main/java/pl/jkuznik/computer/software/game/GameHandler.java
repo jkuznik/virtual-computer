@@ -1,24 +1,27 @@
 package pl.jkuznik.computer.software.game;
 
-import pl.jkuznik.computer.software.game.TicTacToe.TicTacToe;
-import pl.jkuznik.computer.software.game.findNumber.FindNumberGame;
+import org.reflections.Reflections;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class GameHandler {
 
     private static volatile GameHandler instance;
     private final static List<Game> games = new ArrayList<>();
 
-    //TODO: dodająć nową gre trzeba w konstruktorze dodać ją do aktualnej kolekcji gier. W przyszłości można dodać logikę
-    // umożliwiającą na 'instalowanie' gier dynamicznie tzn w trakcie działania programu
     private GameHandler() {
-        FindNumberGame findNumberGame = new FindNumberGame();
-        TicTacToe ticTacToe = new TicTacToe();
+        Reflections reflections = new Reflections("pl.jkuznik.computer.software.game");
+        Set<Class<? extends Game>> gameClasses = reflections.getSubTypesOf(Game.class);
 
-        games.add(findNumberGame);
-        games.add(ticTacToe);
+        for (Class<? extends Game> gameClass : gameClasses) {
+            try {
+                games.add(gameClass.getDeclaredConstructor().newInstance());
+            } catch (Exception e) {
+                e.fillInStackTrace();
+            }
+        }
     }
 
     public List<Game> gameList() {
@@ -34,7 +37,7 @@ public class GameHandler {
     }
 
     public static GameHandler getInstance() {
-        if (instance==null){
+        if (instance == null) {
             synchronized (GameHandler.class) {
                 if (instance == null) {
                     instance = new GameHandler();

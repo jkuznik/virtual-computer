@@ -3,6 +3,7 @@ package pl.jkuznik.utils.computerBootstrap;
 import pl.jkuznik.computer.hardware.Computer;
 import pl.jkuznik.computer.hardware.components.drive.AbstractDrive;
 import pl.jkuznik.computer.hardware.components.drive.HDDDrive;
+import pl.jkuznik.computer.hardware.components.drive.ReadWriteSpeed;
 import pl.jkuznik.computer.hardware.components.headphone.Headphones;
 import pl.jkuznik.computer.hardware.components.monitor.Monitor;
 import pl.jkuznik.computer.hardware.components.usbdevice.MemoryStick;
@@ -23,7 +24,7 @@ public class ComputerBootstrap {
 
         Monitor monitor = new Monitor("Iiyama");
         Headphones headphones = new Headphones("HyperX");
-        HDDDrive hddDrive = new HDDDrive(StorageCapacity.GB512, "HDDDrive");
+        HDDDrive hddDrive = new HDDDrive(StorageCapacity.GB512, "HDDDrive", new ReadWriteSpeed(100, 80));
         MemoryStick memoryStick = new MemoryStick(StorageCapacity.GB16, "Pendrive");
         Mouse mouse = new Mouse("Zowie");
 
