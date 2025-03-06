@@ -11,6 +11,7 @@ public enum MenuMessage {
     LANGUAGE_MENU_MESSAGE,
 
     /** Hardware menu messages:*/
+    COMPONENT_INFO_MESSAGE,
     ADD_COMPONENT_TYPE_MESSAGE,
     ADD_COMPONENT_NAME_MESSAGE,
     ADD_DRIVE_CAPACITY_MESSAGE,

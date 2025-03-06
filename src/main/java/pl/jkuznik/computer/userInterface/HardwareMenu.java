@@ -8,6 +8,7 @@ import pl.jkuznik.computer.hardware.components.headphone.Headphones;
 import pl.jkuznik.computer.hardware.components.monitor.Monitor;
 import pl.jkuznik.computer.hardware.components.usbdevice.MemoryStick;
 import pl.jkuznik.computer.hardware.components.usbdevice.Mouse;
+import pl.jkuznik.computer.hardware.shared.Component;
 import pl.jkuznik.computer.hardware.shared.ComponentNotFoundException;
 import pl.jkuznik.computer.hardware.shared._enums.ComponentType;
 import pl.jkuznik.computer.hardware.shared._enums.StorageCapacity;
@@ -35,6 +36,7 @@ class HardwareMenu {
 
             switch (userChoice) {
                 case LIST_COMPONENTS -> listComponents(computer);
+                case COMPONENT_INFO -> componentInfo(computer);
                 case ADD_COMPONENT -> addComponent(computer);
                 case DELETE_COMPONENT -> deleteComponent(computer);
                 case BACK -> System.out.println(System.lineSeparator() + MenuMessage.MAIN_MENU_MESSAGE);
@@ -42,6 +44,20 @@ class HardwareMenu {
                 default -> displayMessage(MenuMessage.ERROR_MESSAGE);
             }
         } while (!userChoice.equals(UserChoice.BACK));
+    }
+
+    private static void componentInfo(Computer computer) {
+        displayMessage(MenuMessage.COMPONENT_INFO_MESSAGE);
+        listComponents(computer);
+
+        try {
+            Component component = computer.getComponent(consoleReader.getScanner().nextLine());
+            System.out.println(component.toString());
+        } catch (ComponentNotFoundException e) {
+            System.out.println(e.getMessage());
+        } catch (RuntimeException e) {
+            displayMessage(MenuMessage.ERROR_MESSAGE);
+        }
     }
 
     private static void listComponents(Computer computer) {

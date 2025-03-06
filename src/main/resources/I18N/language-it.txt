@@ -2,10 +2,11 @@ GREETINGS_MESSAGE;Benvenuto nel sistema di gestione del computer!
 ERROR_MESSAGE;Errore, riprova.
 
 MAIN_MENU_MESSAGE;1. Gestisci componenti del computer;2. Gestisci file;3. Scegli lingua;7. Ripristina impostazioni di fabbrica;9. Esci
-HARDWARE_MENU_MESSAGE;1. Mostra componenti;2. Aggiungi hardware;3. Rimuovi hardware;8. Indietro;9. Esci
+HARDWARE_MENU_MESSAGE;1. Mostra componenti;2. Informazioni sul componente;3. Aggiungi hardware;4. Rimuovi hardware;8. Indietro;9. Esci
 SOFTWARE_MENU_MESSAGE;1. Mostra file;2. Aggiungi file;3. Elimina file;4. Avvia programma;5. Avvia gioco;8. Indietro;9. Esci
 LANGUAGE_MENU_MESSAGE;Scegli lingua:;1. Polski;2. English;3. Deutsch;4. Italiano;5. Français;6. Español;8. Indietro
 
+COMPONENT_INFO_MESSAGE;Quale componente:
 ADD_COMPONENT_TYPE_MESSAGE;Inserisci il tipo:
 ADD_COMPONENT_NAME_MESSAGE;Inserisci il nome:
 ADD_DRIVE_CAPACITY_MESSAGE;Inserisci la capacità del disco:

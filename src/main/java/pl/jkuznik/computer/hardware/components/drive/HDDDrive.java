@@ -18,4 +18,13 @@ public class HDDDrive extends AbstractDrive{
     public ComponentType getComponentType() {
         return ComponentType.HDD;
     }
+
+    @Override
+    public String toString() {
+        return  "Name= " + name + '\n' +
+                "Read speed= " + readWriteSpeed.readSpeed() + '\n' +
+                "Write speed= " + readWriteSpeed.writeSpeed() + '\n' +
+                "Storage capacity= " + fileHandler.getStorageCapacity().name() + '\n' +
+                "Current capacity= " + fileHandler.getCurrentCapacity();
+    }
 }

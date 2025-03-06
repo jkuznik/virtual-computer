@@ -1,6 +1,5 @@
 package pl.jkuznik.computer.hardware;
 
-import pl.jkuznik.computer.hardware.components.usbdevice.USBDevice;
 import pl.jkuznik.computer.hardware.shared.Component;
 import pl.jkuznik.computer.hardware.shared.ComponentNotFoundException;
 import pl.jkuznik.computer.hardware.shared._enums.ComponentType;
@@ -26,7 +25,6 @@ public class Computer {
         components.add(component);
     }
 
-    // TODO: implement logic for disconnected USBDevice
     public Component getComponent(ComponentType componentType) throws ComponentNotFoundException {
         return components.stream()
                 .filter(component -> component.getComponentType().equals(componentType))

@@ -40,7 +40,7 @@ public class ComponentGsonAdapter implements JsonSerializer<Component>, JsonDese
             }
             case MemoryStick memoryStick -> {
                 jsonObject.add("fileHandler", jsonSerializationContext.serialize(memoryStick.getFileHandler()));
-                jsonObject.addProperty("ejected", memoryStick.isEjected());
+                jsonObject.addProperty("connected", memoryStick.isConnected());
             }
             case Mouse mouse -> {
                 // nic specialnego

@@ -37,7 +37,7 @@ public class UserInterface {
             switch (userChoice) {
                 case HARDWARE_MENU -> hardwareMenu(computer);
                 case SOFTWARE_MENU -> softwareMenu(computer);
-                case LANGUE_OPTION -> languageMenu();
+                case LANGUAGE_OPTION -> languageMenu();
                 case DEFAULT_SETTINGS -> defaultSettings();
                 case EXIT -> {
                     return;

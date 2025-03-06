@@ -2,10 +2,11 @@ GREETINGS_MESSAGE;Witamy w systemie zarządzania komputerem!
 ERROR_MESSAGE;Błąd, spróbuj ponownie!
 
 MAIN_MENU_MESSAGE;1. Zarządzanie podzespołami komputera;2. Zarządzanie plikami;3. Wybór języka;7. Ustawienia fabryczne aplikacji;9. Wyjście
-HARDWARE_MENU_MESSAGE;1. Wyświetl podzespoły;2. Dodaj sprzęt;3. Usuń sprzęt;8. Powrót;9. Wyjście
+HARDWARE_MENU_MESSAGE;1. Wyświetl podzespoły;2. Informacje o podzespole;3. Dodaj sprzęt;4. Usuń sprzęt;8. Powrót;9. Wyjście
 SOFTWARE_MENU_MESSAGE;1. Wyświetl pliki;2. Dodaj plik;3. Usuń plik;4. Uruchom program;5. Uruchom grę;8. Powrót;9. Wyjście
 LANGUAGE_MENU_MESSAGE;Wybierz język:;1. Polski;2. English;3. Deutsch;4. Italiano;5. Français;6. Español;8. Powrót
 
+COMPONENT_INFO_MESSAGE;Wybierz komponent:
 ADD_COMPONENT_TYPE_MESSAGE;Podaj typ:
 ADD_COMPONENT_NAME_MESSAGE;Podaj nazwę:
 ADD_DRIVE_CAPACITY_MESSAGE;Podaj pojemność dysku:

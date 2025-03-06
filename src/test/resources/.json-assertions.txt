@@ -1,7 +1,7 @@
 HDD;{"componentType":"HDD","name":"foo","readSpeed":100,"writeSpeed":80,"fileHandler":{"storageCapacity":"GB1","currentCapacity":0,"files":[]}}
 SSD;{"componentType":"SSD","name":"foo","readSpeed":100,"writeSpeed":80,"fileHandler":{"storageCapacity":"GB1","currentCapacity":0,"files":[]}}
 Headphones;{"componentType":"HEADPHONES","name":"foo"}
-MemoryStick;{"componentType":"MEMORY_STICK","name":"foo","fileHandler":{"storageCapacity":"GB1","currentCapacity":0,"files":[]},"ejected":false}
+MemoryStick;{"componentType":"MEMORY_STICK","name":"foo","fileHandler":{"storageCapacity":"GB1","currentCapacity":0,"files":[]},"connected":true}
 Mouse;{"componentType":"MOUSE","name":"foo"}
 Monitor;{"componentType":"MONITOR","name":"foo","width":3840,"height":1920}
 
