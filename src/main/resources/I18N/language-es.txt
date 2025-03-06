@@ -9,6 +9,7 @@ LANGUAGE_MENU_MESSAGE;Elige un idioma:;1. Polski;2. English;3. Deutsch;4. Italia
 ADD_COMPONENT_TYPE_MESSAGE;Introduce el tipo:
 ADD_COMPONENT_NAME_MESSAGE;Introduce el nombre:
 ADD_DRIVE_CAPACITY_MESSAGE;Introduce la capacidad del disco:
+ADD_DRIVE_READ_WRITE_SPEED;Indique respectivamente la velocidad de escritura y lectura de los datos:
 ADD_MEMORY_STICK_CAPACITY_MESSAGE;Introduce la capacidad de la memoria USB:
 DELETE_COMPONENT_NAME_MESSAGE;Introduce el nombre del componente que deseas eliminar:
 

@@ -16,7 +16,7 @@ import static pl.jkuznik.utils._enums.LanguageFilePath.ES;
 import static pl.jkuznik.utils._enums.LanguageFilePath.FR;
 import static pl.jkuznik.utils._enums.LanguageFilePath.IT;
 import static pl.jkuznik.utils._enums.LanguageFilePath.PL;
-import static pl.jkuznik.utils._enums.MenuMessage.*;
+import static pl.jkuznik.computer.userInterface._enums.MenuMessage.*;
 import static pl.jkuznik.utils.langueHandler.LanguageHandler.displayMessage;
 import static pl.jkuznik.utils.langueHandler.LanguageHandler.loadLanguage;
 

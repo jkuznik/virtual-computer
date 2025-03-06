@@ -1,4 +1,4 @@
-package pl.jkuznik.utils._enums;
+package pl.jkuznik.computer.userInterface._enums;
 
 public enum MenuMessage {
     GREETINGS_MESSAGE,
@@ -14,6 +14,7 @@ public enum MenuMessage {
     ADD_COMPONENT_TYPE_MESSAGE,
     ADD_COMPONENT_NAME_MESSAGE,
     ADD_DRIVE_CAPACITY_MESSAGE,
+    ADD_DRIVE_READ_WRITE_SPEED,
     ADD_MEMORY_STICK_CAPACITY_MESSAGE,
     DELETE_COMPONENT_NAME_MESSAGE,
 
