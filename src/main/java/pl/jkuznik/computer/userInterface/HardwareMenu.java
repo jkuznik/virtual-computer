@@ -2,6 +2,7 @@ package pl.jkuznik.computer.userInterface;
 
 import pl.jkuznik.computer.hardware.Computer;
 import pl.jkuznik.computer.hardware.components.drive.HDDDrive;
+import pl.jkuznik.computer.hardware.components.drive.ReadWriteSpeed;
 import pl.jkuznik.computer.hardware.components.drive.SSDDrive;
 import pl.jkuznik.computer.hardware.components.headphone.Headphones;
 import pl.jkuznik.computer.hardware.components.monitor.Monitor;
@@ -138,7 +139,8 @@ class HardwareMenu {
                     Integer.parseInt
                             (consoleReader.getScanner().nextLine())
                             - 1];
-            computer.addComponent(new SSDDrive(capacityUserChoice, componentName));
+            // TODO: przygotować UI do wyboru szybkości zapisu/odczytu
+            computer.addComponent(new SSDDrive(capacityUserChoice, componentName, new ReadWriteSpeed(5, 5)));
 
         } catch (RuntimeException e) {  // safe block for wrong storage capacity choose case
             displayMessage(MenuMessage.ERROR_MESSAGE);
@@ -160,7 +162,8 @@ class HardwareMenu {
                     Integer.parseInt
                             (consoleReader.getScanner().nextLine())
                             - 1];
-            computer.addComponent(new HDDDrive(capacityUserChoice, componentName));
+            // TODO: przygotować UI do wyboru szybkości zapisu/odczytu
+            computer.addComponent(new HDDDrive(capacityUserChoice, componentName, new ReadWriteSpeed(5,5)));
 
         } catch (RuntimeException e) {  // safe block for wrong storage capacity choose case
             displayMessage(MenuMessage.ERROR_MESSAGE);

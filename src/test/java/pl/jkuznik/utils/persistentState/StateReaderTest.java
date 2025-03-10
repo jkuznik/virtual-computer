@@ -20,6 +20,8 @@ class StateReaderTest {
                 {
                   "componentType": "HDD",
                   "name": "foo",
+                  "readSpeed": 100,
+                  "writeSpeed": 80,
                   "fileHandler": {
                     "storageCapacity": "GB512",
                     "currentCapacity": 15,
