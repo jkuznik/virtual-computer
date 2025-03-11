@@ -16,7 +16,7 @@ import static pl.jkuznik.utils._enums.LanguageFilePath.ES;
 import static pl.jkuznik.utils._enums.LanguageFilePath.FR;
 import static pl.jkuznik.utils._enums.LanguageFilePath.IT;
 import static pl.jkuznik.utils._enums.LanguageFilePath.PL;
-import static pl.jkuznik.utils._enums.MenuMessage.*;
+import static pl.jkuznik.computer.userInterface._enums.MenuMessage.*;
 import static pl.jkuznik.utils.langueHandler.LanguageHandler.displayMessage;
 import static pl.jkuznik.utils.langueHandler.LanguageHandler.loadLanguage;
 
@@ -35,10 +35,9 @@ public class UserInterface {
             userChoice = userChoice(consoleReader.getScanner().nextLine(), SubMenu.MAIN_MENU);
 
             switch (userChoice) {
-                // TODO: dodać możliwość zarządzania podzespołąmi wraz z możliwośćia zapisu i odczytu
                 case HARDWARE_MENU -> hardwareMenu(computer);
                 case SOFTWARE_MENU -> softwareMenu(computer);
-                case LANGUE_OPTION -> languageMenu();
+                case LANGUAGE_OPTION -> languageMenu();
                 case DEFAULT_SETTINGS -> defaultSettings();
                 case EXIT -> {
                     return;

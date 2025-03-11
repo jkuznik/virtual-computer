@@ -8,15 +8,15 @@ import pl.jkuznik.computer.hardware.components.headphone.Headphones;
 import pl.jkuznik.computer.hardware.components.monitor.Monitor;
 import pl.jkuznik.computer.hardware.components.usbdevice.MemoryStick;
 import pl.jkuznik.computer.hardware.components.usbdevice.Mouse;
+import pl.jkuznik.computer.hardware.shared.Component;
 import pl.jkuznik.computer.hardware.shared.ComponentNotFoundException;
 import pl.jkuznik.computer.hardware.shared._enums.ComponentType;
 import pl.jkuznik.computer.hardware.shared._enums.StorageCapacity;
-import pl.jkuznik.computer.software.file.FileType;
 import pl.jkuznik.computer.userInterface._enums.SubMenu;
 import pl.jkuznik.computer.userInterface._enums.UserChoice;
 import pl.jkuznik.utils._enums.FilePath;
 import pl.jkuznik.utils.consoleReader.ConsoleReader;
-import pl.jkuznik.utils._enums.MenuMessage;
+import pl.jkuznik.computer.userInterface._enums.MenuMessage;
 
 import static pl.jkuznik.utils.langueHandler.LanguageHandler.displayMessage;
 
@@ -31,19 +31,34 @@ class HardwareMenu {
 
     public static void hardwareMenu(Computer computer) {
         do {
-            // TODO: dodać wsparcie poniższego komunikatu dla wszystkich języków - aktualnie działający język to PL
             displayMessage(MenuMessage.HARDWARE_MENU_MESSAGE);
             userChoice = UserChoice.userChoice(consoleReader.getScanner().nextLine(), SubMenu.HARDWARE_MENU);
 
             switch (userChoice) {
                 case LIST_COMPONENTS -> listComponents(computer);
+                case COMPONENT_INFO -> componentInfo(computer);
                 case ADD_COMPONENT -> addComponent(computer);
                 case DELETE_COMPONENT -> deleteComponent(computer);
-                case BACK -> System.out.println(System.lineSeparator() + "Menu główne!");
+                case BACK -> System.out.println(System.lineSeparator() + MenuMessage.MAIN_MENU_MESSAGE);
                 case EXIT -> System.exit(0);
                 default -> displayMessage(MenuMessage.ERROR_MESSAGE);
             }
         } while (!userChoice.equals(UserChoice.BACK));
+    }
+
+    private static void componentInfo(Computer computer) {
+        displayMessage(MenuMessage.COMPONENT_INFO_MESSAGE);
+        listComponents(computer);
+
+        try {
+            Component component = computer.getComponent(consoleReader.getScanner().nextLine());
+            // TODO: implement toString() for each component
+            System.out.println(component.toString());
+        } catch (ComponentNotFoundException e) {
+            System.out.println(e.getMessage());
+        } catch (RuntimeException e) {
+            displayMessage(MenuMessage.ERROR_MESSAGE);
+        }
     }
 
     private static void listComponents(Computer computer) {
@@ -125,49 +140,13 @@ class HardwareMenu {
     }
 
     private static void addSSD(Computer computer, String componentName) {
-        displayMessage(MenuMessage.ADD_DRIVE_CAPACITY_MESSAGE);
-        int storageCapacityIterator = 1;
-        StorageCapacity[] storageCapacities = StorageCapacity.values();
-
-        for (StorageCapacity storageCapacity : storageCapacities) {
-            System.out.println(storageCapacityIterator + " " + storageCapacity);
-            storageCapacityIterator++;
-        }
-
-        try {
-            StorageCapacity capacityUserChoice = storageCapacities[
-                    Integer.parseInt
-                            (consoleReader.getScanner().nextLine())
-                            - 1];
-            // TODO: przygotować UI do wyboru szybkości zapisu/odczytu
-            computer.addComponent(new SSDDrive(capacityUserChoice, componentName, new ReadWriteSpeed(5, 5)));
-
-        } catch (RuntimeException e) {  // safe block for wrong storage capacity choose case
-            displayMessage(MenuMessage.ERROR_MESSAGE);
-        }
+        DriveInfo driveInfo = getDriveInfo();
+        computer.addComponent(new SSDDrive(driveInfo.storageCapacity, componentName,  driveInfo.readWriteSpeed));
     }
 
     private static void addHDD(Computer computer, String componentName) {
-        displayMessage(MenuMessage.ADD_DRIVE_CAPACITY_MESSAGE);
-        int storageCapacityIterator = 1;
-        StorageCapacity[] storageCapacities = StorageCapacity.values();
-
-        for (StorageCapacity storageCapacity : storageCapacities) {
-            System.out.println(storageCapacityIterator + " " + storageCapacity);
-            storageCapacityIterator++;
-        }
-
-        try {
-            StorageCapacity capacityUserChoice = storageCapacities[
-                    Integer.parseInt
-                            (consoleReader.getScanner().nextLine())
-                            - 1];
-            // TODO: przygotować UI do wyboru szybkości zapisu/odczytu
-            computer.addComponent(new HDDDrive(capacityUserChoice, componentName, new ReadWriteSpeed(5,5)));
-
-        } catch (RuntimeException e) {  // safe block for wrong storage capacity choose case
-            displayMessage(MenuMessage.ERROR_MESSAGE);
-        }
+        DriveInfo driveInfo = getDriveInfo();
+        computer.addComponent(new HDDDrive(driveInfo.storageCapacity, componentName,  driveInfo.readWriteSpeed));
     }
 
     private static void deleteComponent(Computer computer) {
@@ -182,5 +161,33 @@ class HardwareMenu {
             displayMessage(MenuMessage.ERROR_MESSAGE);
         }
         computer.saveState(FilePath.COMPUTER_STATE.getPath());
+    }
+
+    private static DriveInfo getDriveInfo() {
+        displayMessage(MenuMessage.ADD_DRIVE_CAPACITY_MESSAGE);
+        int storageCapacityIterator = 1;
+        StorageCapacity[] storageCapacities = StorageCapacity.values();
+
+        for (StorageCapacity storageCapacity : storageCapacities) {
+            System.out.println(storageCapacityIterator + " " + storageCapacity);
+            storageCapacityIterator++;
+        }
+
+        try {
+            StorageCapacity capacityUserChoice = storageCapacities[
+                    Integer.parseInt
+                            (consoleReader.getScanner().nextLine())
+                            - 1];
+            displayMessage(MenuMessage.ADD_DRIVE_READ_WRITE_SPEED);
+            int readSpeed = Integer.parseInt(consoleReader.getScanner().nextLine());
+            int writeSpeed = Integer.parseInt(consoleReader.getScanner().nextLine());
+
+            return new DriveInfo(capacityUserChoice, new ReadWriteSpeed(readSpeed, writeSpeed));
+        } catch (RuntimeException e) {  // safe block for wrong storage capacity choose or read/write input case
+            throw new AddDriveException(MenuMessage.ERROR_MESSAGE.toString());
+        }
+    }
+
+    private record DriveInfo(StorageCapacity storageCapacity, ReadWriteSpeed readWriteSpeed) {
     }
 }

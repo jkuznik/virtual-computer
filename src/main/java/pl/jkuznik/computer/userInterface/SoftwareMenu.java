@@ -8,9 +8,7 @@ import pl.jkuznik.computer.software.file.File;
 import pl.jkuznik.computer.software.file.imagefile.GIFImageFile;
 import pl.jkuznik.computer.software.file.imagefile.JPGImageFile;
 import pl.jkuznik.computer.software.file.musicfile.MP3MusicFile;
-import pl.jkuznik.computer.software.game.GameHandler;
 import pl.jkuznik.computer.software.game.GameNotFoundException;
-import pl.jkuznik.computer.software.game.findNumber.FindNumberGame;
 import pl.jkuznik.computer.software.program.ProgramNotFoundException;
 import pl.jkuznik.computer.userInterface._enums.SubMenu;
 import pl.jkuznik.computer.userInterface._enums.UserChoice;
@@ -20,7 +18,7 @@ import pl.jkuznik.utils.consoleReader.ConsoleReader;
 import java.io.FileNotFoundException;
 
 import static pl.jkuznik.computer.userInterface._enums.UserChoice.*;
-import static pl.jkuznik.utils._enums.MenuMessage.*;
+import static pl.jkuznik.computer.userInterface._enums.MenuMessage.*;
 import static pl.jkuznik.utils.langueHandler.LanguageHandler.displayMessage;
 
 class SoftwareMenu {

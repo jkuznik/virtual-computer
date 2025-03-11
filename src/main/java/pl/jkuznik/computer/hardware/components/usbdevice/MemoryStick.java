@@ -12,7 +12,7 @@ import java.util.List;
 public class MemoryStick implements USBDevice, FileStorage {
     private final FileHandler fileHandler;
     private final String name;
-    private boolean ejected = false;
+    private boolean connected = true;
 
     public MemoryStick(StorageCapacity storageCapacity, String name) {
         this.fileHandler = new FileHandler(storageCapacity);
@@ -26,15 +26,6 @@ public class MemoryStick implements USBDevice, FileStorage {
 
     public FileHandler getFileHandler() {
         return fileHandler;
-    }
-
-    public boolean isEjected() {
-        return ejected;
-    }
-
-    public void eject() {
-        System.out.println("Ejecting Memory Stick");
-        ejected = true;
     }
 
     @Override
@@ -58,20 +49,20 @@ public class MemoryStick implements USBDevice, FileStorage {
     }
 
     @Override
-    public boolean connect() {
-        System.out.println("Connected Memory Stick");
-        return true;
+    public void connect() {
+        System.out.println("Memory Stick connected");
+        connected = true;
     }
 
     @Override
-    public boolean disconnect() {
-        if (!ejected) {
-            System.out.println("Please eject Memory Stick first");
-            return false;
-        } else {
-            System.out.println("Memory Stick disconnected");
-            return true;
-        }
+    public void disconnect() {
+        System.out.println("Memory Stick disconnected");
+        connected = false;
+    }
+
+    @Override
+    public boolean isConnected() {
+        return connected;
     }
 
     @Override

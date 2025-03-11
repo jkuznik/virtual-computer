@@ -64,20 +64,5 @@ public class Computer {
     public ProgramHandler getProgramHandler() {
         return programHandler;
     }
-
-    //    TODO: do zaimplementowania
-//    public List<USBDevice> getUsbDevices() {
-//        return usbDevices;
-//    }
-
-    //    TODO: do zaimplementowania logika ustawiania 'isConnected' dla usbDevice
-//    public void addUSBDevice(USBDevice usbDevice) {
-//        components.add(usbDevice);
-//    }
-
-    //    TODO: do zaimplementowania logika ustawiania 'isConnected' dla usbDevice
-//    public void removeUSBDevice(USBDevice usbDevice) {
-//        components.remove(usbDevice);
-//    }
 }
 

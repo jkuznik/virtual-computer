@@ -2,7 +2,7 @@ package pl.jkuznik.utils.langueHandler;
 
 import org.junit.jupiter.api.Test;
 import pl.jkuznik.utils._enums.LanguageFilePath;
-import pl.jkuznik.utils._enums.MenuMessage;
+import pl.jkuznik.computer.userInterface._enums.MenuMessage;
 
 import java.util.*;
 

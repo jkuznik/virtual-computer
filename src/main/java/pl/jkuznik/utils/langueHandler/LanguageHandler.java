@@ -1,8 +1,7 @@
 package pl.jkuznik.utils.langueHandler;
 
-import pl.jkuznik.utils._enums.FilePath;
 import pl.jkuznik.utils._enums.LanguageFilePath;
-import pl.jkuznik.utils._enums.MenuMessage;
+import pl.jkuznik.computer.userInterface._enums.MenuMessage;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -29,7 +28,6 @@ public class LanguageHandler {
             for (String[] processedLine : processedLines) {
                 MenuMessage menuMessage = MenuMessage.valueOf(processedLine[0]);
 
-                // TODO: doadać zwracanie komunikatu w pzypadku wczytania pustego komunikatu dla jakiejkolwiek warsości MenuMessage
                 messages.put(menuMessage, Arrays.asList(Arrays.copyOfRange(processedLine, 1, processedLine.length)));
             }
         } catch (IOException e) {

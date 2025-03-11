@@ -2,13 +2,15 @@ GREETINGS_MESSAGE;Willkommen im Computerverwaltungssystem!
 ERROR_MESSAGE;Fehler, bitte versuchen Sie es erneut.
 
 MAIN_MENU_MESSAGE;1. Computerkomponenten verwalten;2. Dateien verwalten;3. Sprache wählen;7. Werkseinstellungen wiederherstellen;9. Beenden
-HARDWARE_MENU_MESSAGE;1. Komponenten anzeigen;2. Hardware hinzufügen;3. Hardware entfernen;8. Zurück;9. Beenden
+HARDWARE_MENU_MESSAGE;1. Komponenten anzeigen;2. Informationen über die Komponente;3. Hardware hinzufügen;4. Hardware entfernen;8. Zurück;9. Beenden
 SOFTWARE_MENU_MESSAGE;1. Dateien anzeigen;2. Datei hinzufügen;3. Datei löschen;4. Programm starten;5. Spiel starten;8. Zurück;9. Beenden
 LANGUAGE_MENU_MESSAGE;Sprache wählen:;1. Polski;2. English;3. Deutsch;4. Italiano;5. Français;6. Español;8. Zurück
 
+COMPONENT_INFO_MESSAGE;Welche Komponente:
 ADD_COMPONENT_TYPE_MESSAGE;Geben Sie den Typ ein:
 ADD_COMPONENT_NAME_MESSAGE;Geben Sie den Namen ein:
 ADD_DRIVE_CAPACITY_MESSAGE;Geben Sie die Festplattenkapazität ein:
+ADD_DRIVE_READ_WRITE_SPEED;Geben Sie der Reihe nach die Schreib- und Lesegeschwindigkeit der Daten an:
 ADD_MEMORY_STICK_CAPACITY_MESSAGE;Geben Sie die USB-Stick-Kapazität ein:
 DELETE_COMPONENT_NAME_MESSAGE;Geben Sie den Namen der zu entfernenden Komponente ein:
 

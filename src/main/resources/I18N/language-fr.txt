@@ -2,13 +2,15 @@ GREETINGS_MESSAGE;Bienvenue dans le système de gestion de l'ordinateur!
 ERROR_MESSAGE;Erreur, veuillez réessayer.
 
 MAIN_MENU_MESSAGE;1. Gérer les composants de l'ordinateur;2. Gérer les fichiers;3. Choisir la langue;7. Restaurer les paramètres d'usine;9. Quitter
-HARDWARE_MENU_MESSAGE;1. Afficher les composants;2. Ajouter du matériel;3. Supprimer du matériel;8. Retour;9. Quitter
+HARDWARE_MENU_MESSAGE;1. Afficher les composants;2. Informations sur le composant;3. Ajouter du matériel;4. Supprimer du matériel;8. Retour;9. Quitter
 SOFTWARE_MENU_MESSAGE;1. Afficher les fichiers;2. Ajouter un fichier;3. Supprimer un fichier;4. Lancer un programme;5. Lancer un jeu;8. Retour;9. Quitter
 LANGUAGE_MENU_MESSAGE;Choisir la langue:;1. Polski;2. English;3. Deutsch;4. Italiano;5. Français;6. Español;8. Retour
 
+COMPONENT_INFO_MESSAGE;Quel composant:
 ADD_COMPONENT_TYPE_MESSAGE;Entrez le type:
 ADD_COMPONENT_NAME_MESSAGE;Entrez le nom:
 ADD_DRIVE_CAPACITY_MESSAGE;Entrez la capacité du disque:
+ADD_DRIVE_READ_WRITE_SPEED;Indiquez respectivement la vitesse d'écriture et de lecture des données
 ADD_MEMORY_STICK_CAPACITY_MESSAGE;Entrez la capacité de la clé USB:
 DELETE_COMPONENT_NAME_MESSAGE;Entrez le nom du composant à supprimer:
 
